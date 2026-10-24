@@ -18,11 +18,12 @@ export function getGeminiClient() {
   return aiClient;
 }
 
-export const DEFAULT_MODEL = process.env.GEMINI_MODEL || 'gemini-3.5-flash';
+export const DEFAULT_MODEL = process.env.GEMINI_MODEL || 'gemini-2.0-flash';
 
 export const FALLBACK_MODELS = [
   DEFAULT_MODEL,
-  'gemini-3.5-flash',
-  'gemini-flash-latest',
-  'gemini-3.8-flash',
+  'gemini-2.5-flash',
+  'gemini-2.0-flash',
+  'gemini-1.5-flash',
+  'gemini-2.0-flash-lite',
 ];
