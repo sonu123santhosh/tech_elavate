@@ -1,0 +1,61 @@
+{
+  "experimentId": "ph-metric-titration",
+  "name": "pH-Metric Titration",
+  "teachingNotes": "pH-metric titration monitors electrometric pH as a function of delivered titrant volume. The inflection point on the sigmoidal titration curve identifies the exact stoichiometric equivalence point without relying on visual indicator color transitions.",
+  "steps": [
+    {
+      "stepIndex": 0,
+      "actionId": "calibrate_and_assemble",
+      "prompt": "Step 1: Setup & calibration. Calibrate the pH meter with standard buffers and lower electrode into beaker.",
+      "hint": "Immerse the combination glass electrode into analyte on the magnetic stirrer, ensuring the stir bar rotates freely.",
+      "targetElement": "laboratory-ph-meter",
+      "completionText": "pH meter calibrated; glass electrode safely positioned in analyte beaker above rotating stir bar."
+    },
+    {
+      "stepIndex": 1,
+      "actionId": "record_initial_ph",
+      "prompt": "Step 2: Initial measurement. Record initial analyte pH before adding any titrant (V = 0.00 mL).",
+      "hint": "Check the digital pH meter readout with continuous magnetic stirring. Initial pH point is plotted on the live curve.",
+      "targetElement": "btn-plot-point",
+      "completionText": "Initial baseline reading recorded (V = 0.00 mL, illustrative pH = 2.80). Live graph initialized."
+    },
+    {
+      "stepIndex": 2,
+      "actionId": "titrate_buffer_region",
+      "prompt": "Step 3: Titrate buffer region. Add titrant in 1.0–2.0 mL portions and plot data points on the live graph.",
+      "hint": "In the flat buffer region, pH changes gradually. Add 1.0–2.0 mL increments and record the reading after each addition.",
+      "targetElement": "btn-add-increment",
+      "completionText": "Titrant delivered through buffer zone; steady gradual pH rise plotted on sigmoidal curve."
+    },
+    {
+      "stepIndex": 3,
+      "actionId": "dropwise_steep_region",
+      "prompt": "Step 4: Steep inflection zone! Near the equivalence point, deliver titrant dropwise in 0.1–0.2 mL portions.",
+      "hint": "pH changes sharply near the equivalence point (pH 4 to 10). Add very small increments (0.1–0.2 mL) to locate the inflection point accurately!",
+      "targetElement": "btn-add-dropwise",
+      "completionText": "Dropwise additions recorded across the steep inflection region. S-curve inflection point captured!"
+    },
+    {
+      "stepIndex": 4,
+      "actionId": "identify_equivalence_point",
+      "prompt": "Step 5: Identify equivalence point. Click on the steepest inflection point on the titration curve graph.",
+      "hint": "The equivalence point corresponds to the maximum first derivative (dpH/dV) on the sigmoidal curve.",
+      "targetElement": "ph-curve-graph",
+      "completionText": "Equivalence point identified at V_eq = 22.40 mL (illustrative pH = 8.40). Potentiometric analysis complete!"
+    }
+  ],
+  "mistakes": {
+    "coarse_steep_addition": {
+      "message": "Analytical flaw: Delivered a large 2.0–5.0 mL jump directly across the steep inflection region! In pH-metric titration, large increments obscure the inflection point, making accurate determination of the equivalence volume impossible.",
+      "penalty": 1
+    },
+    "stirrer_electrode_impact": {
+      "message": "Equipment hazard: Lowering the glass electrode too far into the beaker causes the spinning magnetic stir bar to collide with the fragile glass bulb, risking breakage. Always maintain at least 5 mm clearance.",
+      "penalty": 1
+    },
+    "unrinsed_electrode": {
+      "message": "Contamination: Inserting unrinsed electrode into analyte introduces foreign ions and disturbs the ionic strength of the solution.",
+      "penalty": 1
+    }
+  }
+}

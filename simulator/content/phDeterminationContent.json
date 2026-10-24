@@ -1,0 +1,61 @@
+{
+  "experimentId": "ph-determination",
+  "name": "pH Determination",
+  "teachingNotes": "pH measurement quantifies the hydrogen ion activity (-log10[H+]). Test papers offer quick semi-quantitative estimates (±1 pH unit), while calibrated glass electrodes measure potentiometrically with high precision (±0.02 pH units).",
+  "steps": [
+    {
+      "stepIndex": 0,
+      "actionId": "select_method",
+      "prompt": "Step 1: Choose measurement method. Select between 'pH Indicator Paper', 'Indicator Solution', or 'Calibrated pH Meter'.",
+      "hint": "Click one of the method tabs on the workbench action bar to choose your analytical technique.",
+      "targetElement": "method-selector",
+      "completionText": "Method selected. In this lab, we will demonstrate indicator paper estimation and calibrated electrometric meter measurement."
+    },
+    {
+      "stepIndex": 1,
+      "actionId": "dip_test_paper",
+      "prompt": "Step 2: Indicator Paper: Touch a drop of sample liquid onto the paper strip using a clean glass rod or dropper.",
+      "hint": "Do NOT dunk the whole strip into the reagent stock! Touch a single drop onto the test paper using the glass stirring rod.",
+      "targetElement": "glass-stirring-rod",
+      "completionText": "Sample droplet transferred to indicator paper strip. Chemical dyes react and develop color."
+    },
+    {
+      "stepIndex": 2,
+      "actionId": "match_color_chart",
+      "prompt": "Step 3: Compare against standard chart. Drag or select the matching color band to estimate pH.",
+      "hint": "Compare the developed strip color against the standard reference chart under good lighting. Note: this provides an estimate only!",
+      "targetElement": "color-chart",
+      "completionText": "Color matched! Illustrative estimated pH: ~3.0 (Acidic). Indicator paper provides a fast screening estimate."
+    },
+    {
+      "stepIndex": 3,
+      "actionId": "calibrate_meter",
+      "prompt": "Step 4: pH Meter: Rinse the combination electrode with wash bottle, then immerse in standard pH 7.0 buffer.",
+      "hint": "Click 'Rinse & Calibrate' to rinse the electrode with distilled water and calibrate against standard buffer solution.",
+      "targetElement": "btn-calibrate-meter",
+      "completionText": "Electrode rinsed and calibrated against standard buffer (offset and slope calibrated per manufacturer protocol)."
+    },
+    {
+      "stepIndex": 4,
+      "actionId": "rinse_and_measure",
+      "prompt": "Step 5: Rinse electrode with wash bottle and immerse in illustrative Sample A to take digital reading.",
+      "hint": "Always rinse the electrode with distilled water between buffer and sample to prevent cross-contamination.",
+      "targetElement": "btn-measure-sample",
+      "completionText": "Illustrative digital pH reading stabilized: 2.85 ± 0.02. Technique verified!"
+    }
+  ],
+  "mistakes": {
+    "dunk_stock": {
+      "message": "Contamination mistake: Never immerse test paper strips directly into the main sample bottle. Transfer a droplet using a clean glass rod or spot plate.",
+      "penalty": 1
+    },
+    "skip_calibration": {
+      "message": "Analytical error: Attempting to measure sample pH without first calibrating the meter against standard buffers yields uncalibrated, inaccurate readings.",
+      "penalty": 1
+    },
+    "no_rinse": {
+      "message": "Cross-contamination: Forgetting to rinse the electrode with distilled water carries over buffer salts into the sample, skewing the pH measurement.",
+      "penalty": 1
+    }
+  }
+}

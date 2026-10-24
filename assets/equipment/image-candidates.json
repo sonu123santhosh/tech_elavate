@@ -1,0 +1,35 @@
+[
+  {
+    "id": "microscope",
+    "candidateNumber": 1,
+    "title": "File:Microscope - school laboratory (1).jpg",
+    "pageUrl": "https://commons.wikimedia.org/wiki/File:Microscope_-_school_laboratory_(1).jpg",
+    "imgUrl": "https://upload.wikimedia.org/wikipedia/commons/7/7e/Microscope_-_school_laboratory_%281%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "author": "Kvr.lohith",
+    "license": "CC BY-SA 4.0",
+    "localPreview": "assets/equipment/microscope_cand1.tmp.jpg",
+    "fileSizeBytes": 65994
+  },
+  {
+    "id": "microscope",
+    "candidateNumber": 2,
+    "title": "File:A compound microscope at my university lab.jpg",
+    "pageUrl": "https://commons.wikimedia.org/wiki/File:A_compound_microscope_at_my_university_lab.jpg",
+    "imgUrl": "https://upload.wikimedia.org/wikipedia/commons/f/ff/A_compound_microscope_at_my_university_lab.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "author": "syed sajidul islam",
+    "license": "CC BY 4.0",
+    "localPreview": "assets/equipment/microscope_cand2.tmp.jpg",
+    "fileSizeBytes": 120424
+  },
+  {
+    "id": "microscope",
+    "candidateNumber": 3,
+    "title": "File:Compound microscope-CNAM 43013-IMG 5022-white.jpg",
+    "pageUrl": "https://commons.wikimedia.org/wiki/File:Compound_microscope-CNAM_43013-IMG_5022-white.jpg",
+    "imgUrl": "https://upload.wikimedia.org/wikipedia/commons/6/6f/Compound_microscope-CNAM_43013-IMG_5022-white.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "author": "Rama",
+    "license": "CC BY-SA 3.0 fr",
+    "localPreview": "assets/equipment/microscope_cand3.tmp.jpg",
+    "fileSizeBytes": 47487
+  }
+]

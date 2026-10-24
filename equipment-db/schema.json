@@ -1,0 +1,357 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "LabEquipmentRecord",
+  "type": "object",
+  "required": [
+    "id",
+    "name",
+    "category",
+    "purpose",
+    "image",
+    "ar",
+    "description",
+    "alternativeNames",
+    "commonUses",
+    "types",
+    "specifications",
+    "operatingInstructions",
+    "safetyPrecautions",
+    "maintenanceAndTroubleshooting",
+    "relatedEquipment",
+    "metadata"
+  ],
+  "properties": {
+    "id": {
+      "type": "string",
+      "pattern": "^[a-z0-9]+(-[a-z0-9]+)*$"
+    },
+    "origin": {
+      "type": "string",
+      "enum": ["pdf", "added-by-user"]
+    },
+    "pdfNumber": {
+      "type": ["integer", "null"],
+      "minimum": 1,
+      "maximum": 62
+    },
+    "pdfName": {
+      "type": ["string", "null"]
+    },
+    "pdfMainUse": {
+      "type": ["string", "null"]
+    },
+    "addedMainUse": {
+      "type": "string"
+    },
+    "pdfGroup": {
+      "type": "string",
+      "enum": [
+        "Essential glassware and basics",
+        "Heating, handling and separation",
+        "Safety, measurement and accessories",
+        "pH measurement instruments",
+        "Added beyond PDF"
+      ]
+    },
+    "name": {
+      "type": "string",
+      "minLength": 1
+    },
+    "category": {
+      "type": "string",
+      "enum": [
+        "Glassware",
+        "Basic Tools and Consumables",
+        "Heating Equipment",
+        "Support Equipment",
+        "Separation Equipment",
+        "Measuring Instruments",
+        "Safety Equipment",
+        "Cleaning and Storage",
+        "pH and Analytical Instruments",
+        "Observation and Optical Instruments"
+      ]
+    },
+    "purpose": {
+      "type": "string",
+      "minLength": 1
+    },
+    "image": {
+      "type": "object",
+      "required": ["src", "alt", "credit", "status"],
+      "properties": {
+        "src": { "type": "string" },
+        "alt": { "type": "string" },
+        "credit": { "type": "string" },
+        "status": { "type": "string", "enum": ["available", "fallback"] },
+        "source": { "type": "object" }
+      }
+    },
+    "ar": {
+      "type": "object",
+      "required": ["modelFile", "modelStatus", "interactions"],
+      "properties": {
+        "modelFile": { "type": "string" },
+        "modelStatus": { "type": "string", "enum": ["available", "missing"] },
+        "interactions": {
+          "type": "array",
+          "items": { "type": "string" }
+        }
+      }
+    },
+    "description": {
+      "type": "string",
+      "minLength": 1
+    },
+    "alternativeNames": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "commonUses": {
+      "type": "array",
+      "items": { "type": "string", "minLength": 1 }
+    },
+    "types": {
+      "type": "array",
+      "items": { "type": "string", "minLength": 1 }
+    },
+    "specifications": {
+      "type": "object",
+      "required": [
+        "material",
+        "capacity",
+        "dimensions",
+        "mainParts",
+        "partsAndFunctions",
+        "measurementAccuracy",
+        "limitations"
+      ],
+      "properties": {
+        "material": {
+          "type": "array",
+          "items": { "type": "string", "minLength": 1 }
+        },
+        "capacity": {
+          "type": "object",
+          "required": ["value", "unit", "notes"],
+          "properties": {
+            "value": { "type": "string" },
+            "unit": { "type": "string" },
+            "notes": { "type": "string" }
+          }
+        },
+        "dimensions": { "type": "string" },
+        "mainParts": {
+          "type": "array",
+          "items": { "type": "string", "minLength": 1 }
+        },
+        "partsAndFunctions": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["partName", "function", "handlingNotes"],
+            "properties": {
+              "partName": { "type": "string", "minLength": 1 },
+              "function": { "type": "string", "minLength": 1 },
+              "handlingNotes": { "type": "string", "minLength": 1 }
+            }
+          }
+        },
+        "measurementAccuracy": {
+          "type": "object",
+          "required": ["value", "unit", "notes"],
+          "properties": {
+            "value": { "type": ["number", "null"] },
+            "unit": { "type": "string" },
+            "notes": { "type": "string", "minLength": 1 }
+          }
+        },
+        "limitations": {
+          "type": "array",
+          "items": { "type": "string", "minLength": 1 }
+        }
+      }
+    },
+    "operatingInstructions": {
+      "type": "object",
+      "required": ["preparation", "steps", "handlingTips", "shutdown"],
+      "properties": {
+        "preparation": {
+          "type": "array",
+          "items": { "type": "string", "minLength": 1 }
+        },
+        "steps": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["step", "title", "instruction"],
+            "properties": {
+              "step": { "type": "integer", "minimum": 1 },
+              "title": { "type": "string", "minLength": 1 },
+              "instruction": { "type": "string", "minLength": 1 }
+            }
+          }
+        },
+        "handlingTips": {
+          "type": "array",
+          "items": { "type": "string", "minLength": 1 }
+        },
+        "shutdown": {
+          "type": "array",
+          "items": { "type": "string", "minLength": 1 }
+        }
+      }
+    },
+    "safetyPrecautions": {
+      "type": "object",
+      "required": [
+        "requiredPPE",
+        "hazards",
+        "warnings",
+        "actionsToAvoid",
+        "emergencyGuidance"
+      ],
+      "properties": {
+        "requiredPPE": {
+          "type": "array",
+          "items": { "type": "string", "minLength": 1 }
+        },
+        "hazards": {
+          "type": "array",
+          "items": { "type": "string", "minLength": 1 }
+        },
+        "warnings": {
+          "type": "array",
+          "items": { "type": "string", "minLength": 1 }
+        },
+        "actionsToAvoid": {
+          "type": "array",
+          "items": { "type": "string", "minLength": 1 }
+        },
+        "emergencyGuidance": {
+          "type": "array",
+          "items": { "type": "string", "minLength": 1 }
+        }
+      }
+    },
+    "maintenanceAndTroubleshooting": {
+      "type": "object",
+      "required": [
+        "cleaningSteps",
+        "storageInstructions",
+        "maintenanceChecks",
+        "troubleshooting",
+        "commonMistakes"
+      ],
+      "properties": {
+        "cleaningSteps": {
+          "type": "array",
+          "items": { "type": "string", "minLength": 1 }
+        },
+        "storageInstructions": {
+          "type": "array",
+          "items": { "type": "string", "minLength": 1 }
+        },
+        "maintenanceChecks": {
+          "type": "array",
+          "items": { "type": "string", "minLength": 1 }
+        },
+        "troubleshooting": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": [
+              "problem",
+              "possibleCauses",
+              "solution",
+              "prevention",
+              "requiresSupervisor"
+            ],
+            "properties": {
+              "problem": { "type": "string", "minLength": 1 },
+              "possibleCauses": {
+                "type": "array",
+                "items": { "type": "string", "minLength": 1 }
+              },
+              "solution": {
+                "type": "array",
+                "items": { "type": "string", "minLength": 1 }
+              },
+              "prevention": {
+                "type": "array",
+                "items": { "type": "string", "minLength": 1 }
+              },
+              "requiresSupervisor": { "type": "boolean" }
+            }
+          }
+        },
+        "commonMistakes": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["mistake", "whyItMatters", "howToAvoid"],
+            "properties": {
+              "mistake": { "type": "string", "minLength": 1 },
+              "whyItMatters": { "type": "string", "minLength": 1 },
+              "howToAvoid": { "type": "string", "minLength": 1 }
+            }
+          }
+        }
+      }
+    },
+    "relatedEquipment": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["equipmentId", "relationship", "reason", "difference"],
+        "properties": {
+          "equipmentId": { "type": "string", "pattern": "^[a-z0-9]+(-[a-z0-9]+)*$" },
+          "relationship": { "type": "string", "enum": ["similar", "complementary", "alternative"] },
+          "reason": { "type": "string", "minLength": 1 },
+          "difference": { "type": "string", "minLength": 1 }
+        }
+      }
+    },
+    "metadata": {
+      "type": "object",
+      "required": [
+        "difficultyLevel",
+        "lastReviewed",
+        "reviewStatus",
+        "completeness",
+        "references"
+      ],
+      "properties": {
+        "difficultyLevel": { "type": "string", "enum": ["Beginner", "Intermediate", "Advanced"] },
+        "lastReviewed": { "type": "string", "pattern": "^(|\\d{4}-\\d{2}-\\d{2})$" },
+        "reviewStatus": { "type": "string", "enum": ["needs-review", "partially-verified", "verified"] },
+        "completeness": {
+          "type": "object",
+          "required": ["schema", "content", "evidence"],
+          "properties": {
+            "schema": { "type": "string", "enum": ["unchecked", "valid", "invalid"] },
+            "content": { "type": "string", "enum": ["incomplete", "complete-applicable"] },
+            "evidence": { "type": "string", "enum": ["unverified", "partially-verified", "verified"] }
+          }
+        },
+        "references": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["title", "url", "urlChecked", "sourceType", "supports"],
+            "properties": {
+              "title": { "type": "string", "minLength": 1 },
+              "url": { "type": "string" },
+              "urlChecked": { "type": "boolean" },
+              "sourceType": { "type": "string", "minLength": 1 },
+              "supports": {
+                "type": "array",
+                "items": { "type": "string", "minLength": 1 }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

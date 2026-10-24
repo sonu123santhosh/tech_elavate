@@ -1,0 +1,69 @@
+{
+  "experimentId": "recrystallization",
+  "name": "Crystallization and Recrystallization",
+  "teachingNotes": "Recrystallization purifies crystalline organic compounds based on solubility differences in hot vs cold solvent. Impurities are either insoluble in hot solvent (filtered hot) or remain dissolved in cold solvent after crystallization.",
+  "steps": [
+    {
+      "stepIndex": 0,
+      "actionId": "dissolve_minimal_solvent",
+      "prompt": "Step 1: Dissolve crude solid. Heat flask on hot plate and add boiling solvent incrementally until dissolved.",
+      "hint": "Add solvent in minimal portions while swirling on hot plate until the solute just dissolves. Do NOT add too much!",
+      "targetElement": "hot-plate",
+      "completionText": "Crude solid dissolved in the minimum volume of boiling solvent; solution is saturated at elevated temperature."
+    },
+    {
+      "stepIndex": 1,
+      "actionId": "hot_filtration",
+      "prompt": "Step 2: Hot filtration. Pour hot solution through a pre-warmed fluted filter to remove insoluble dust.",
+      "hint": "Pre-warm the funnel and flask so premature crystallization does not block the filter paper pores during transfer.",
+      "targetElement": "glass-funnel",
+      "completionText": "Insoluble particulates trapped on filter paper; clear hot saturated solution collected in conical flask."
+    },
+    {
+      "stepIndex": 2,
+      "actionId": "slow_cooling",
+      "prompt": "Step 3: Slow cooling mini-game! Remove flask from heat and let it cool undisturbed at room temperature.",
+      "hint": "Undisturbed slow cooling allows solute molecules to arrange into large, highly ordered, pure crystal lattices.",
+      "targetElement": "conical-flask",
+      "completionText": "Slow room-temperature cooling complete; pure crystal prisms have nucleated and grown steadily."
+    },
+    {
+      "stepIndex": 3,
+      "actionId": "ice_bath_chill",
+      "prompt": "Step 4: Ice bath chill. Place the cooled flask into an ice-water bath to maximize crystal yield.",
+      "hint": "Chilling after room-temperature crystallization drives down solute solubility to maximize recovered crystalline yield.",
+      "targetElement": "beaker",
+      "completionText": "Solution chilled in ice bath; crystallization completed with high yield."
+    },
+    {
+      "stepIndex": 4,
+      "actionId": "vacuum_filtration_wash",
+      "prompt": "Step 5: Isolate crystals. Filter using Büchner funnel, then wash with a small portion of ICE-COLD solvent.",
+      "hint": "Wash with ice-cold solvent to displace yellow mother liquor without redissolving your pure crystals.",
+      "targetElement": "buchner-funnel",
+      "completionText": "Crystals isolated on filter paper; washed with ice-cold solvent and air-dried under gentle suction."
+    },
+    {
+      "stepIndex": 5,
+      "actionId": "microscope_observation",
+      "prompt": "Step 6: Crystal habit observation. Examine crystal morphology under the microscope to evaluate purity.",
+      "hint": "Pure recrystallized product shows clean, defined prismatic crystal needles free from occluded impurity particles.",
+      "targetElement": "microscope",
+      "completionText": "Microscopic examination reveals sharp, uniform prismatic crystals. Recrystallization procedure complete!"
+    }
+  ],
+  "mistakes": {
+    "excess_solvent": {
+      "message": "Dilution error: Adding too much solvent prevents saturation upon cooling! Crystals will fail to nucleate or yield will be severely compromised. Always add the minimum volume of boiling solvent.",
+      "penalty": 1
+    },
+    "rapid_ice_plunge": {
+      "message": "Crystallization defect: Plunging hot solution directly into ice induces flash precipitation, trapping impure mother liquor inside tiny irregular crystal aggregates instead of forming pure crystal lattices.",
+      "penalty": 1
+    },
+    "warm_wash": {
+      "message": "Yield loss: Washing crystals with room-temperature or warm solvent redissolves the product into the filtrate waste. Always use minimal ice-cold solvent.",
+      "penalty": 1
+    }
+  }
+}

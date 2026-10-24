@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="AI-Powered Smart Lab Equipment Assistant - Interactive 2D Chemistry Lab Simulator for Acid-Base Titration, Filtration, and Paper Chromatography">
+  <title>Smart Lab Assistant | 2D Chemistry Lab Simulator</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="simulator.css">
+</head>
+<body>
+  <div class="simulator-app">
+    <!-- Header -->
+    <header class="sim-header">
+      <div class="brand-wrapper">
+        <div class="brand-logo" aria-hidden="true">
+          <svg viewBox="0 0 24 24">
+            <path d="M19 19c0 .55-.45 1-1 1s-1-.45-1-1v-4.18l-3.32-5.54C13.24 9.55 13 8.79 13 8V4h1c.55 0 1-.45 1-1s-.45-1-1-1H10c-.55 0-1 .45-1 1s.45 1 1 1h1v4c0 .79-.24 1.55-.68 2.28L7 14.82V19c0 .55-.45 1-1 1s-1-.45-1-1c0-.28.11-.53.29-.71l4.42-7.37C10.23 9.94 10.5 8.99 10.5 8V4h3v4c0 .99.27 1.94.79 2.92l4.42 7.37c.18.18.29.43.29.71z"/>
+          </svg>
+        </div>
+        <div class="brand-text">
+          <h1>Virtual Chemistry Lab</h1>
+          <p>AI-Powered Smart Lab Equipment Assistant</p>
+        </div>
+      </div>
+      <div class="header-badges">
+        <a href="index.html" class="badge badge-teal" title="View Equipment Reference Catalog">📦 Equipment Catalog</a>
+        <span class="badge badge-cyan">2D Simulator Active</span>
+        <span class="badge badge-amber">3 Core Experiments</span>
+      </div>
+    </header>
+
+    <!-- Experiment Selector & Tab Navigation Bar -->
+    <section class="sim-controls-bar" aria-label="Experiment selector and simulator views">
+      <div class="selector-group">
+        <label for="experiment-select" class="selector-label">Selected Experiment:</label>
+        <select id="experiment-select" class="sim-select" aria-label="Choose chemistry experiment">
+          <optgroup label="Volumetric Analysis">
+            <option value="acid-base-titration">Acid–Base Titration</option>
+          </optgroup>
+          <optgroup label="Solution Preparation">
+            <option value="standard-solution-preparation">Preparation of a Standard Solution</option>
+          </optgroup>
+          <optgroup label="Separation and Purification">
+            <option value="simple-distillation">Simple Distillation</option>
+            <option value="recrystallization">Crystallization and Recrystallization</option>
+            <option value="filtration">Filtration</option>
+            <option value="paper-chromatography">Paper Chromatography</option>
+          </optgroup>
+          <optgroup label="Instrumental Analysis">
+            <option value="ph-determination">pH Determination</option>
+            <option value="ph-metric-titration">pH-Metric Titration</option>
+          </optgroup>
+        </select>
+        <span id="badge-category" class="badge badge-cyan">Volumetric Analysis</span>
+        <span id="badge-difficulty" class="badge badge-amber">Intermediate</span>
+      </div>
+
+      <!-- Navigation Tabs -->
+      <nav class="sim-tabs" role="tablist" aria-label="Simulator sections">
+        <button class="tab-btn active" data-tab="tab-workbench" role="tab" aria-selected="true">
+          🔬 Workbench
+        </button>
+        <button class="tab-btn" data-tab="tab-procedure" role="tab" aria-selected="false">
+          📋 Procedure & Safety
+        </button>
+        <button class="tab-btn" data-tab="tab-quiz" role="tab" aria-selected="false">
+          ❓ Quiz
+        </button>
+      </nav>
+    </section>
+
+    <!-- ================= TAB 1: WORKBENCH ================= -->
+    <section id="tab-workbench" class="tab-pane active" role="tabpanel">
+      <div class="workbench-layout">
+        <!-- Main 2D Apparatus Canvas -->
+        <div class="workbench-canvas-card">
+          <div class="workbench-card-header">
+            <div class="workbench-title-box">
+              <span class="workbench-title" id="current-exp-title">Acid–Base Titration</span>
+              <span class="stars-display" id="stars-indicator" title="Performance Stars">⭐⭐⭐</span>
+            </div>
+            <span class="step-status-pill" id="action-prompt-pill">Follow step prompt to interact</span>
+          </div>
+
+          <!-- Step Guide & Live Instruction Bar -->
+          <div class="step-guide-bar" id="step-guide-bar">
+            <div class="step-guide-header">
+              <div class="step-guide-badges">
+                <span id="step-counter-badge" class="badge badge-cyan">Step 1 of 10</span>
+                <span id="animation-status-badge" class="badge" style="background: rgba(255,255,255,0.08); color: var(--text-muted);">Ready (Press Start)</span>
+              </div>
+            </div>
+            <div class="step-instruction-box" id="step-instruction-text">
+              Loading current step instruction...
+            </div>
+          </div>
+
+          <!-- Interactive Guidance & Mistake Alert Banners -->
+          <div id="mistake-feedback-banner" class="mistake-banner" role="alert">
+            <span style="font-size: 1.1rem;">⚠️</span>
+            <span id="mistake-feedback-text">Mistake message</span>
+          </div>
+          <div id="hint-banner" class="hint-banner" role="status">
+            <span style="font-size: 1.1rem;">💡</span>
+            <span id="hint-text">Hint message</span>
+          </div>
+
+          <!-- Apparatus Quick-Select Chips (Touch & Desktop friendly) -->
+          <div class="apparatus-chips-bar" id="apparatus-chips-container" aria-label="Quick select apparatus">
+            <span class="chips-label">🔍 Click Apparatus:</span>
+            <div id="chips-list" style="display: inline-flex; gap: 0.4rem; flex-wrap: wrap;"></div>
+          </div>
+
+          <!-- 2D Workbench Surface & Apparatus Stage -->
+          <div class="stage-container" id="workbench-stage" aria-label="2D apparatus workbench stage">
+            <!-- Educational Disclaimer & Status Callout -->
+            <div class="stage-notice-banner" aria-live="polite">
+              <span class="sim-notice-pill" id="sim-notice-pill">🧪 Simulation: illustrative, not real experimental data.</span>
+              <span class="sim-endpoint-pill" id="sim-endpoint-pill">★ Simulated Endpoint Reached!</span>
+            </div>
+            <div id="apparatus-stage" class="apparatus-svg-stage"></div>
+            <div class="lab-table-surface" aria-hidden="true"></div>
+          </div>
+
+          <!-- Scene-Specific Interactive Controls (for direct action gating) -->
+          <div class="scene-action-bar" id="scene-action-bar">
+            <div id="scene-custom-controls" style="display: inline-flex; align-items: center; gap: 0.6rem; flex-wrap: wrap;"></div>
+            <div style="display: inline-flex; align-items: center; gap: 0.5rem;">
+              <button id="btn-hint" class="btn-scene-action-sm" title="Show hint for current step">💡 Hint</button>
+              <button id="btn-skip-step" class="btn-scene-action-sm" title="Skip current step if needed">⏭ Skip Step</button>
+            </div>
+          </div>
+
+          <!-- Playback and Step Controls -->
+          <div class="playback-controls-bar" aria-label="Simulation playback controls">
+            <div class="playback-btn-group">
+              <button class="btn-ctrl btn-primary-action" data-action="start" title="Start simulation">
+                ▶ Start
+              </button>
+              <button class="btn-ctrl" data-action="pause" title="Pause simulation">
+                ⏸ Pause
+              </button>
+              <button class="btn-ctrl" data-action="reset" title="Reset apparatus">
+                ↺ Reset
+              </button>
+            </div>
+            <div class="playback-btn-group">
+              <button class="btn-ctrl" data-action="prev" title="Step backward">
+                ⏮ Previous Step
+              </button>
+              <button class="btn-ctrl" data-action="next" title="Step forward">
+                Next Step ⏭
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right Side Information Panel -->
+        <aside class="info-sidebar" aria-label="Experiment overview">
+          <!-- Interactive Apparatus Inspector -->
+          <div class="inspector-card" id="apparatus-inspector-card">
+            <div class="inspector-header">
+              <div class="inspector-title-group">
+                <h3 id="inspector-name">🔍 Equipment Inspector</h3>
+                <div class="inspector-badges" id="inspector-badges">
+                  <span class="badge badge-cyan">Click Apparatus to Inspect</span>
+                </div>
+              </div>
+              <button id="btn-close-inspector" class="btn-dismiss" title="Dismiss details" aria-label="Close details" style="display: none;">&times;</button>
+            </div>
+            <div class="inspector-body" id="inspector-body">
+              <div class="inspector-placeholder">
+                <span>👈</span>
+                <span>Click or tap any laboratory apparatus illustration on the workbench to inspect its purpose, experiment role, and safety rules.</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="info-card">
+            <h3>🎯 Objective</h3>
+            <p id="info-objective">Loading experiment objective...</p>
+          </div>
+
+          <div class="info-card">
+            <h3>🔬 Chemical Principle</h3>
+            <p id="info-principle">Loading chemical principle...</p>
+          </div>
+
+          <div class="info-card">
+            <h3>🧰 Required Equipment</h3>
+            <div class="equipment-tags" id="info-equipment-tags"></div>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <!-- ================= TAB 2: PROCEDURE & SAFETY ================= -->
+    <section id="tab-procedure" class="tab-pane" role="tabpanel">
+      <!-- Safety & Educational Supervision Disclaimer Banner -->
+      <div class="safety-disclaimer-alert">
+        <span class="safety-disclaimer-icon">⚠️</span>
+        <div>
+          <strong>Educational Supervision Notice:</strong> This 2D interactive simulator is designed strictly for classroom demonstrations and conceptual review. It does <em>not</em> replace supervised laboratory training, instructor oversight, or formal safety compliance. Never perform real chemical experiments without approved personal protective equipment (PPE), institutional safety protocols, and direct qualified supervision.
+        </div>
+      </div>
+
+      <div class="doc-grid">
+        <div class="doc-card">
+          <h2>📝 Step-by-Step Laboratory Procedure</h2>
+
+          <!-- Interactive Step Focus Viewer (Synchronized with Part 4 Step Controls) -->
+          <div class="step-focus-viewer" aria-label="Current procedure step">
+            <div class="step-focus-header">
+              <span id="doc-step-badge" class="badge badge-cyan">Step 1 of 10</span>
+              <div class="step-focus-nav">
+                <button class="btn-ctrl" onclick="stepPrev()" title="Previous step">⏮ Previous</button>
+                <button class="btn-ctrl" onclick="stepNext()" title="Next step">Next ⏭</button>
+              </div>
+            </div>
+            <div class="step-focus-instruction" id="doc-step-instruction">
+              Loading active procedure instruction...
+            </div>
+          </div>
+
+          <!-- Complete Numbered Procedure Steps -->
+          <h3 style="font-size: 0.95rem; font-weight: 700; color: var(--text-muted); margin-bottom: 0.75rem;">Full Procedure Checklist</h3>
+          <ol class="procedure-list" id="procedure-list-container"></ol>
+        </div>
+
+        <div class="doc-card">
+          <h2>🛡️ Safety Precautions & Handling</h2>
+          <ul class="safety-list" id="safety-list-container"></ul>
+
+          <h3 style="font-size: 0.95rem; font-weight: 700; color: var(--text-muted); margin-top: 1.5rem; margin-bottom: 0.75rem;">🧰 Required Equipment (Linked to Catalog)</h3>
+          <div class="equipment-tags" id="procedure-equipment-links"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= TAB 3: QUIZ ================= -->
+    <section id="tab-quiz" class="tab-pane" role="tabpanel">
+      <div class="quiz-container">
+        <!-- Quiz Header Banner -->
+        <div class="quiz-header-banner">
+          <div>
+            <h2>❓ Concept Review Quiz</h2>
+            <p>Answer exactly 3 conceptual questions for this experiment. Select an answer to see instant feedback and explanations.</p>
+          </div>
+          <span id="quiz-progress-badge" class="badge badge-cyan">0 of 3 Answered</span>
+        </div>
+
+        <!-- Quiz Questions List (Exactly 3) -->
+        <div id="quiz-list-container" style="display: flex; flex-direction: column; gap: 1.25rem;"></div>
+
+        <!-- Quiz Completion Score Card (Revealed when all 3 answered) -->
+        <div id="quiz-score-container" style="display: none;"></div>
+      </div>
+    </section>
+  </div>
+
+  <script src="simulator.js"></script>
+</body>
+</html>

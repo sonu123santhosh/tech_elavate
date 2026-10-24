@@ -1,0 +1,61 @@
+{
+  "categories": [
+    {
+      "id": "Glassware",
+      "name": "Glassware",
+      "description": "Vessels, containers, and transfer glass instruments used for containment, mixing, reaction, and liquid transfer."
+    },
+    {
+      "id": "Basic Tools and Consumables",
+      "name": "Basic Tools and Consumables",
+      "description": "Everyday handling tools, sampling utensils, weighing boats, droppers, and consumable supplies."
+    },
+    {
+      "id": "Heating Equipment",
+      "name": "Heating Equipment",
+      "description": "Thermal apparatus used for heating, evaporation, temperature control, and combustion."
+    },
+    {
+      "id": "Support Equipment",
+      "name": "Support Equipment",
+      "description": "Hardware used to mount, hold, clamp, support, and stabilize lab equipment during experimental procedures."
+    },
+    {
+      "id": "Separation Equipment",
+      "name": "Separation Equipment",
+      "description": "Apparatus dedicated to physical separation techniques such as filtration, distillation, centrifugation, and liquid-liquid extraction."
+    },
+    {
+      "id": "Measuring Instruments",
+      "name": "Measuring Instruments",
+      "description": "Precision and general instruments measuring physical quantities including mass, temperature, density, and refractive index."
+    },
+    {
+      "id": "Safety Equipment",
+      "name": "Safety Equipment",
+      "description": "Personal protective equipment (PPE), emergency stations, safety containment devices, and waste disposal units."
+    },
+    {
+      "id": "Cleaning and Storage",
+      "name": "Cleaning and Storage",
+      "description": "Equipment and supplies for washing, maintaining, drying, and preserving sensitive samples and tools."
+    },
+    {
+      "id": "pH and Analytical Instruments",
+      "name": "pH and Analytical Instruments",
+      "description": "Analytical devices and indicators for determining pH, optical absorbance, color intensity, and electrical conductivity."
+    },
+    {
+      "id": "Observation and Optical Instruments",
+      "name": "Observation and Optical Instruments",
+      "description": "Optical and magnifying instruments used for visual inspection, sample observation, and crystal morphology examination."
+    }
+  ],
+  "pdfGroups": [
+    "Essential glassware and basics",
+    "Heating, handling and separation",
+    "Safety, measurement and accessories",
+    "pH measurement instruments",
+    "Added beyond PDF"
+  ]
+}

@@ -1,0 +1,69 @@
+{
+  "experimentId": "standard-solution-preparation",
+  "name": "Preparation of a Standard Solution",
+  "teachingNotes": "A standard solution requires quantitative transfer of accurately weighed primary standard into a calibrated volumetric flask, dissolved and brought to the meniscus calibration mark at 20°C.",
+  "steps": [
+    {
+      "stepIndex": 0,
+      "actionId": "weigh_primary_standard",
+      "prompt": "Step 1: Weigh solid. Place weighing boat on the balance, press 'Tare / Zero', then add solid using the spatula.",
+      "hint": "Tare the balance with the boat on the pan first. The digital mass display shows an illustrative value (e.g. 2.1200 g).",
+      "targetElement": "analytical-balance",
+      "completionText": "Analytical balance tared and illustrative solid mass recorded: 2.1200 g ± 0.0001 g."
+    },
+    {
+      "stepIndex": 1,
+      "actionId": "dissolve_in_beaker",
+      "prompt": "Step 2: Dissolve in beaker. Transfer solid into a beaker, add ~30 mL distilled water, and stir with glass rod.",
+      "hint": "Always dissolve solids in a beaker first! Never pour dry solid powder directly into a narrow volumetric flask neck.",
+      "targetElement": "beaker",
+      "completionText": "Solid completely dissolved in beaker with distilled water; solution is clear and uniform."
+    },
+    {
+      "stepIndex": 2,
+      "actionId": "quantitative_transfer",
+      "prompt": "Step 3: Quantitative transfer. Insert funnel into volumetric flask, pour solution along glass rod, and rinse.",
+      "hint": "Rinse beaker, glass rod, and funnel 3 times with wash bottle to ensure zero analyte is left behind.",
+      "targetElement": "volumetric-flask",
+      "completionText": "Solution quantitatively transferred into volumetric flask along stirring rod; rinsings collected."
+    },
+    {
+      "stepIndex": 3,
+      "actionId": "fill_near_mark",
+      "prompt": "Step 4: Dilute near mark. Add distilled water from wash bottle until liquid is ~1 cm below the calibration line.",
+      "hint": "Stop bulk addition below the etched line to avoid accidentally overshooting the calibrated volume.",
+      "targetElement": "wash-bottle",
+      "completionText": "Volumetric flask filled with solvent to approximately 1 cm below neck calibration line."
+    },
+    {
+      "stepIndex": 4,
+      "actionId": "meniscus_adjustment",
+      "prompt": "Step 5: Meniscus mini-game! Click the Dropper to add final drops until bottom of meniscus touches mark.",
+      "hint": "Align eye level horizontally with the calibration line. Deliver drop-by-drop until bottom of meniscus aligns exactly.",
+      "targetElement": "dropper",
+      "completionText": "Calibration mark reached! Curved liquid meniscus rests precisely on the ring mark at eye level."
+    },
+    {
+      "stepIndex": 5,
+      "actionId": "stopper_and_invert",
+      "prompt": "Step 6: Invert to mix. Insert ground-glass stopper and invert flask repeatedly to achieve uniform concentration.",
+      "hint": "Hold stopper firmly with thumb and index finger, then invert the flask 10 times to ensure thorough homogeneity.",
+      "targetElement": "volumetric-flask",
+      "completionText": "Standard solution inverted and thoroughly homogenized. Prepared solution is ready for analysis!"
+    }
+  ],
+  "mistakes": {
+    "direct_flask_pour": {
+      "message": "Technique error: Never pour dry solid directly into a volumetric flask! Solid cakes in the narrow neck and resists dissolving. Always dissolve in a beaker first.",
+      "penalty": 1
+    },
+    "overshoot_mark": {
+      "message": "Irreversible error: Meniscus rose above the etched calibration mark! The solution is over-diluted and concentration is ruined. In real practice you must discard and re-weigh.",
+      "penalty": 1
+    },
+    "untared_balance": {
+      "message": "Measurement error: Solid was added to the weighing boat without pressing Tare, introducing the mass of the plastic boat into the reading.",
+      "penalty": 1
+    }
+  }
+}
