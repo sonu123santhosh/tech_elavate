@@ -140,11 +140,22 @@ export class ChatAssistantView {
 
         <!-- Voice Recognition Error Alert (hidden by default) -->
         <div id="voice-error-alert" class="voice-error-alert ${this.voiceError ? '' : 'hidden'}">
-          <div class="warning-icon"></div>
+          <div class="warning-icon">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="12" cy="12" r="10"></circle>
+              <line x1="12" y1="8" x2="12" y2="12"></line>
+              <line x1="12" y1="16" x2="12.01" y2="16"></line>
+            </svg>
+          </div>
           <div class="warning-text" id="voice-error-text">
             ${this.voiceError || ''}
           </div>
-          <button class="btn-close-alert" id="btn-close-voice-alert" aria-label="Dismiss error"></button>
+          <button type="button" class="btn-voice-type-fallback" id="btn-voice-focus-input" title="Type your question">
+            Type question
+          </button>
+          <button type="button" class="btn-close-alert" id="btn-close-voice-alert" aria-label="Dismiss error" title="Dismiss">
+            ✕
+          </button>
         </div>
 
         <!-- Missing API Key Alert (hidden by default) -->
@@ -500,6 +511,23 @@ export class ChatAssistantView {
       });
     }
 
+    // Type Question Fallback Button
+    const focusInputBtn = root.querySelector('#btn-voice-focus-input');
+    if (focusInputBtn) {
+      focusInputBtn.addEventListener('click', () => {
+        this.clearVoiceError();
+        if (textarea) textarea.focus();
+      });
+    }
+
+    if (textarea) {
+      textarea.addEventListener('input', () => {
+        if (this.voiceError) {
+          this.clearVoiceError();
+        }
+      });
+    }
+
     // Delegated click for Text-to-Speech play/pause/stop buttons
     const messagesList = root.querySelector('#chat-messages-list');
     if (messagesList) {
@@ -605,6 +633,7 @@ export class ChatAssistantView {
         }
       },
       onFinalResult: (transcript) => {
+        this.clearVoiceError();
         if (textarea) {
           textarea.value = transcript;
         }
@@ -674,12 +703,25 @@ export class ChatAssistantView {
   }
 
   showVoiceError(message) {
+    this.voiceError = message;
     const alert = this.container.querySelector('#voice-error-alert');
     const text = this.container.querySelector('#voice-error-text');
     if (alert && text) {
       text.textContent = message;
       alert.classList.remove('hidden');
     }
+    // Auto-focus chat textarea so the user can immediately type their question
+    const textarea = this.container.querySelector('#chat-textarea');
+    if (textarea && (message.includes('type') || message.includes('unreachable'))) {
+      textarea.focus();
+    }
+    // Automatically reset speech state after a few seconds so the mic button is unlocked
+    setTimeout(() => {
+      if (this.speechState === SPEECH_STATES.ERROR) {
+        this.speechState = SPEECH_STATES.READY;
+        this.updateVoiceUiState();
+      }
+    }, 4500);
   }
 
   clearVoiceError() {

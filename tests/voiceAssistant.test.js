@@ -351,3 +351,59 @@ test('SpeechRecognitionManager - Cancel listening resets state to READY', () => 
   assert.equal(stt.getState(), SPEECH_STATES.READY);
 });
 
+test('SpeechRecognitionManager - Salvages captured transcript on network disconnection', () => {
+  // Mock SpeechRecognition class
+  class MockSpeechRecognition {
+    constructor() {
+      this.continuous = false;
+      this.interimResults = true;
+      this.lang = 'en-US';
+      this.onstart = null;
+      this.onresult = null;
+      this.onerror = null;
+      this.onend = null;
+    }
+    start() {
+      if (this.onstart) this.onstart();
+    }
+    stop() {
+      if (this.onend) this.onend();
+    }
+    abort() {
+      if (this.onend) this.onend();
+    }
+  }
+
+  const stt = new SpeechRecognitionManager();
+  stt.RecognitionClass = MockSpeechRecognition;
+
+  let finalDelivered = null;
+  let errorTriggered = null;
+
+  stt.startListening({
+    onFinalResult: (transcript) => {
+      finalDelivered = transcript;
+    },
+    onError: (err) => {
+      errorTriggered = err;
+    },
+  });
+
+  // Simulate user speaking part of a question
+  stt.recognition.onresult({
+    resultIndex: 0,
+    results: [
+      [{ transcript: 'What is water hardness' }],
+    ],
+  });
+
+  // Simulate network interruption
+  stt.recognition.onerror({ error: 'network' });
+
+  // Captured question should be preserved and delivered without throwing fatal error
+  assert.equal(finalDelivered, 'What is water hardness');
+  assert.equal(errorTriggered, null);
+  assert.equal(stt.getState(), SPEECH_STATES.READY);
+});
+
+

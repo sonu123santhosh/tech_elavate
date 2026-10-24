@@ -24,6 +24,9 @@ export class SpeechRecognitionManager {
     this.callbacks = null;
     this.finalTranscript = '';
     this.interimTranscript = '';
+    this.silenceTimer = null;
+    this.networkRetryCount = 0;
+    this.isManualStop = false;
   }
 
   /**
@@ -43,8 +46,9 @@ export class SpeechRecognitionManager {
   /**
    * Starts a speech recognition session upon user activation.
    * @param {object} callbacks { onStateChange, onInterimResult, onFinalResult, onError }
+   * @param {object} options { continuous: boolean, lang: string, isRetry: boolean }
    */
-  startListening(callbacks = {}) {
+  startListening(callbacks = {}, options = {}) {
     if (!this.isSupported()) {
       const err = new Error(
         'Speech recognition is not supported in this browser. Please use Chrome, Edge, Safari, or type in the chat box.'
@@ -54,18 +58,26 @@ export class SpeechRecognitionManager {
       return false;
     }
 
+    if (!options.isRetry) {
+      this.networkRetryCount = 0;
+    }
+
     // Stop any existing session
     this.cancelListening();
 
     this.callbacks = callbacks;
     this.finalTranscript = '';
     this.interimTranscript = '';
+    this.isManualStop = false;
 
     try {
       this.recognition = new this.RecognitionClass();
-      this.recognition.continuous = true; // Allow uninterrupted natural speech
-      this.recognition.interimResults = true; // Live typing as user speaks
-      this.recognition.lang = 'en-US';
+      // In Chromium, continuous: true opens a streaming websocket to Google's speech cloud that frequently
+      // terminates with event.error === 'network'. Single-utterance mode (continuous: false) is robust,
+      // completes cleanly when the user pauses, and prevents socket network drops.
+      this.recognition.continuous = Boolean(options.continuous);
+      this.recognition.interimResults = true;
+      this.recognition.lang = options.lang || 'en-US';
       this.recognition.maxAlternatives = 1;
 
       this.recognition.onstart = () => {
@@ -79,7 +91,7 @@ export class SpeechRecognitionManager {
 
         for (let i = event.resultIndex; i < event.results.length; ++i) {
           const item = event.results[i];
-          const transcript = item[0].transcript;
+          const transcript = item[0]?.transcript || '';
           if (item.isFinal) {
             final += transcript;
           } else {
@@ -90,7 +102,8 @@ export class SpeechRecognitionManager {
         if (interim) {
           this.interimTranscript = interim;
           if (typeof this.callbacks?.onInterimResult === 'function') {
-            this.callbacks.onInterimResult(this.finalTranscript + (this.finalTranscript ? ' ' : '') + interim);
+            const combined = (this.finalTranscript + (this.finalTranscript ? ' ' : '') + interim).trim();
+            this.callbacks.onInterimResult(combined);
           }
         }
 
@@ -116,10 +129,36 @@ export class SpeechRecognitionManager {
       this.recognition.onerror = (event) => {
         console.warn('SpeechRecognition error event:', event.error);
 
-        // Aborted by user action is normal cancellation, not a failure
-        if (event.error === 'aborted') {
+        // Aborted by user action or manual stop is normal termination, not an error
+        if (event.error === 'aborted' || this.isManualStop) {
           this.state = SPEECH_STATES.READY;
-          this.notifyStateChange(SPEECH_STATES.READY, 'Speech input cancelled.');
+          this.notifyStateChange(SPEECH_STATES.READY, 'Speech input ready.');
+          return;
+        }
+
+        // SALVAGE: If the speech service threw an error (like network drop or no-speech timeout),
+        // but words were already captured in this session, prioritize salvaging the user's question!
+        const captured = (this.finalTranscript || this.interimTranscript || '').trim();
+        if (captured && (event.error === 'network' || event.error === 'no-speech')) {
+          console.info(`SpeechRecognition encountered ${event.error}, but captured question was preserved:`, captured);
+          this.state = SPEECH_STATES.READY;
+          this.notifyStateChange(SPEECH_STATES.READY, 'Question captured.');
+          if (typeof this.callbacks?.onFinalResult === 'function') {
+            this.callbacks.onFinalResult(captured);
+          }
+          return;
+        }
+
+        // AUTOMATIC RETRY ON TRANSIENT NETWORK DROPS
+        if (event.error === 'network' && this.networkRetryCount < 1) {
+          this.networkRetryCount++;
+          console.warn(`Transient network issue in speech recognition. Re-initiating connection (attempt ${this.networkRetryCount})...`);
+          this.notifyStateChange(SPEECH_STATES.LISTENING, 'Reconnecting speech service...');
+          setTimeout(() => {
+            if (this.state !== SPEECH_STATES.READY && !this.isManualStop) {
+              this.startListening(this.callbacks, { continuous: false, isRetry: true });
+            }
+          }, 350);
           return;
         }
 
@@ -136,7 +175,8 @@ export class SpeechRecognitionManager {
             userMessage = 'No speech detected. Please speak clearly near your microphone and try again.';
             break;
           case 'network':
-            userMessage = 'Network connection error during voice recognition. Check your connection or type your question.';
+            userMessage =
+              'Voice recognition service is temporarily unreachable from your network. You can type your question directly in the chat box.';
             break;
           case 'audio-capture':
             userMessage = 'No microphone device was detected. Ensure a working microphone is connected.';
@@ -185,6 +225,7 @@ export class SpeechRecognitionManager {
    * Finishes current speaking and finalizes transcript.
    */
   stopListening() {
+    this.isManualStop = true;
     if (this.silenceTimer) {
       clearTimeout(this.silenceTimer);
       this.silenceTimer = null;
@@ -202,6 +243,7 @@ export class SpeechRecognitionManager {
    * Cancels listening immediately and discards interim audio.
    */
   cancelListening() {
+    this.isManualStop = true;
     if (this.silenceTimer) {
       clearTimeout(this.silenceTimer);
       this.silenceTimer = null;
