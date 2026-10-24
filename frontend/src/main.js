@@ -14,6 +14,7 @@ import { VirtualLabController } from './features/virtual-lab/VirtualLabControlle
 import { EquipmentDatabaseView } from './features/equipment-viewer/EquipmentDatabaseView.js';
 import { SimulatorView } from './features/simulator/SimulatorView.js';
 import { CameraScannerView } from './features/camera-scanner/CameraScannerView.js';
+import { MolecularBackground } from './utils/molecularBackground.js';
 
 class SmartLabApp {
   constructor() {
@@ -113,6 +114,14 @@ class SmartLabApp {
 }
 
 document.addEventListener('DOMContentLoaded', () => {
+  // Initialize Futuristic Midnight Navy Molecular Network Background
+  try {
+    const bg = new MolecularBackground('molecular-bg-canvas');
+    bg.init();
+  } catch (err) {
+    console.warn('Molecular background failed to initialize:', err);
+  }
+
   const app = new SmartLabApp();
   app.init();
 });

@@ -4,8 +4,8 @@
 ============================================================================== */
 
 :root {
-  --bg-primary: #0a0e17;
-  --bg-secondary: #111827;
+  --bg-primary: #07111F;
+  --bg-secondary: #0c182b;
   --bg-card: rgba(17, 24, 39, 0.75);
   --bg-card-hover: rgba(31, 41, 55, 0.9);
   --border-subtle: rgba(255, 255, 255, 0.08);
@@ -48,10 +48,18 @@ body {
   color: var(--text-main);
   line-height: 1.6;
   min-height: 100vh;
-  background-image: 
-    radial-gradient(circle at 15% 15%, rgba(56, 189, 248, 0.08) 0%, transparent 40%),
-    radial-gradient(circle at 85% 85%, rgba(168, 85, 247, 0.06) 0%, transparent 40%);
-  background-attachment: fixed;
+}
+
+/* Molecular Background Canvas Layer */
+.molecular-bg-canvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: -1;
+  pointer-events: none;
+  display: block;
 }
 
 /* App Layout */
