@@ -1,0 +1,15 @@
+{
+  "name": "smart-lab-assistant-person4",
+  "version": "1.0.0",
+  "description": "Smart Lab Equipment Assistant - Person 4: Titration Experiments and AI Lab Assistant",
+  "type": "module",
+  "scripts": {
+    "test": "node --test tests/backendApi.test.js tests/conductometricCalculations.test.js tests/phCalculations.test.js tests/equipmentQuiz.test.js tests/virtualLab.test.js tests/voiceAssistant.test.js tests/chatRendering.test.js",
+    "dev:backend": "npm --prefix backend run dev",
+    "dev:frontend": "npm --prefix frontend run dev",
+    "build:frontend": "npm --prefix frontend run build",
+    "start": "npm --prefix backend run start"
+  },
+  "author": "Person 4 (Team UNEMPLOYED 004)",
+  "license": "ISC"
+}

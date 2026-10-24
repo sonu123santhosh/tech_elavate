@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Virtual Chemistry Lab — Experiments & Smart AR Assistant</title>
+    <meta name="description" content="Virtual Chemistry Lab featuring 15 interactive engineering chemistry experiments, step-by-step procedures, observation tables, worked calculations, AR equipment recognition, and quizzes." />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+  </head>
+  <body>
+    <!-- App Navigation Header -->
+    <header class="app-header">
+      <div class="brand-wrapper">
+        <div class="brand-logo-icon">⚗️</div>
+        <div>
+          <span class="brand-title">Smart Lab Assistant</span>
+          <span class="brand-badge">Tech Elevate • Person 4</span>
+        </div>
+      </div>
+
+      <!-- Module Navigation Tabs -->
+      <nav class="nav-tabs" aria-label="Experiment Selection">
+        <button class="nav-tab-btn active" data-tab="experiments" id="tab-btn-experiments">
+          <span>🔬</span> Virtual Lab — Experiments
+        </button>
+        <button class="nav-tab-btn" data-tab="ar-quiz" id="tab-btn-ar-quiz">
+          <span>📷</span> AR Lab & Quizzes
+        </button>
+        <button class="nav-tab-btn" data-tab="chat" id="tab-btn-chat">
+          <span>🤖</span> AI Lab Assistant
+        </button>
+      </nav>
+    </header>
+
+    <!-- Main Dynamic Application Container -->
+    <main class="app-main" id="view-root">
+      <!-- Injected dynamically by main.js -->
+    </main>
+
+    <!-- Footer with Safety & Team Info -->
+    <footer class="app-footer">
+      <div>
+        <strong>AI-Powered Smart Lab Equipment Assistant</strong> • Team UNEMPLOYED 004
+      </div>
+      <div class="footer-tags">
+        <span class="footer-tag">15 Virtual Experiments</span>
+        <span class="footer-tag">AR Recognition</span>
+        <span class="footer-tag">63 Equipment Quizzes</span>
+        <span class="footer-tag">pH Titration Simulator</span>
+        <span class="footer-tag">Conductometric Simulator</span>
+        <span class="footer-tag">AI Lab Assistant</span>
+      </div>
+    </footer>
+
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>
