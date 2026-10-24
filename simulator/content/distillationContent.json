@@ -1,0 +1,69 @@
+{
+  "experimentId": "simple-distillation",
+  "name": "Simple Distillation",
+  "teachingNotes": "Simple distillation separates liquids with significantly different boiling points (>40–50°C difference). Key safeguards: open system (never closed), proper condenser water counter-current flow, and stopping before boiling to dryness.",
+  "steps": [
+    {
+      "stepIndex": 0,
+      "actionId": "assemble_glassware",
+      "prompt": "Step 1: Assemble distillation rig. Mount round-bottom flask, distillation head, condenser, and receiver.",
+      "hint": "Ensure boiling chips are in the flask and all ground-glass joints are seated snug and greased/clamped.",
+      "targetElement": "distillation-apparatus",
+      "completionText": "Glassware securely assembled with clamps on retort stand; boiling chips present."
+    },
+    {
+      "stepIndex": 1,
+      "actionId": "verify_open_system",
+      "prompt": "Step 2: Safety check. Inspect thermometer bulb position and verify system is OPEN to the atmosphere.",
+      "hint": "Thermometer bulb must sit at the side-arm outlet. The receiving adapter must be vented; NEVER heat a closed sealed system!",
+      "targetElement": "thermometer",
+      "completionText": "Thermometer bulb positioned at side-arm; adapter vent confirmed open to prevent dangerous pressure build-up."
+    },
+    {
+      "stepIndex": 2,
+      "actionId": "connect_cooling_water",
+      "prompt": "Step 3: Connect condenser water hoses. Connect Water IN at the bottom and Water OUT at the top.",
+      "hint": "Water must enter at the lower jacket port and exit from the upper port to ensure the jacket fills completely without air bubbles.",
+      "targetElement": "condenser",
+      "completionText": "Counter-current cooling water connected and running smoothly without air pockets."
+    },
+    {
+      "stepIndex": 3,
+      "actionId": "apply_heat",
+      "prompt": "Step 4: Heat gently. Turn on the hot plate to begin vaporization of the lower-boiling liquid fraction.",
+      "hint": "Adjust heat to achieve steady boiling. Thermometer displays an illustrative temperature plateau (~78°C).",
+      "targetElement": "hot-plate",
+      "completionText": "Steady vapor reflux established; vapor condenses into liquid drops dripping into the receiver flask."
+    },
+    {
+      "stepIndex": 4,
+      "actionId": "stop_before_dryness",
+      "prompt": "Step 5: Collect distillate & stop before dryness! Turn off heat when ~5 mL residue remains.",
+      "hint": "NEVER distill to complete dryness! Residual tars can decompose, shatter glass, or concentrate explosive peroxides.",
+      "targetElement": "btn-stop-heat",
+      "completionText": "Heat turned off safely leaving non-volatile residue in the boiling flask; distillate collected in receiver."
+    },
+    {
+      "stepIndex": 5,
+      "actionId": "shutdown_sequence",
+      "prompt": "Step 6: Cool and shutdown. Allow the apparatus to cool to room temperature before turning off water.",
+      "hint": "Always remove heat first, let the glassware cool, and finally turn off the condenser cooling water.",
+      "targetElement": "btn-shutdown",
+      "completionText": "Apparatus safely cooled and shutdown completed. Distillate fraction isolated!"
+    }
+  ],
+  "mistakes": {
+    "sealed_system": {
+      "message": "CATASTROPHIC HAZARD: Attempted to heat a closed/sealed distillation assembly! Thermal expansion will generate severe internal pressure and cause explosive glassware rupture. Always ensure the system is vented to atmosphere.",
+      "penalty": 1
+    },
+    "wrong_water_direction": {
+      "message": "Cooling defect: Connecting water in at the top causes water to run down one side leaving a large air pocket, drastically reducing condensation efficiency.",
+      "penalty": 1
+    },
+    "distill_to_dryness": {
+      "message": "Thermal hazard: Distilling to dryness causes severe overheating of the empty flask bottom, risking glass cracking and thermal ignition of concentrated peroxide residues.",
+      "penalty": 1
+    }
+  }
+}

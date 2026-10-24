@@ -1,0 +1,69 @@
+{
+  "experimentId": "acid-base-titration",
+  "name": "Acid–Base Titration",
+  "teachingNotes": "Titration is a quantitative volumetric analysis technique. The color change indicates the endpoint; the theoretical equivalence point is where stoichiometric amounts of acid and base neutralize completely.",
+  "steps": [
+    {
+      "stepIndex": 0,
+      "actionId": "assemble_stand",
+      "prompt": "Step 1: Set up the apparatus. Click or tap the Retort Stand & Clamp to secure the burette assembly.",
+      "hint": "Click on the Retort Stand or Clamp on the workbench to mount the glassware plumb and secure.",
+      "targetElement": "retort-stand",
+      "completionText": "Retort stand and clamp securely assembled. Burette is held vertically."
+    },
+    {
+      "stepIndex": 1,
+      "actionId": "fill_burette_remove_bubble",
+      "prompt": "Step 2: Fill the burette and clear the tip. Click the Burette or Stopcock to expel trapped air bubbles.",
+      "hint": "Trapped air bubbles below the stopcock introduce volume errors. Click the burette tip to tap it clear.",
+      "targetElement": "burette",
+      "completionText": "Burette filled with titrant to initial mark; air bubble successfully expelled from tip."
+    },
+    {
+      "stepIndex": 2,
+      "actionId": "add_analyte_indicator",
+      "prompt": "Step 3: Prepare analyte. Click the Dropper to add 2–3 drops of indicator into the conical flask.",
+      "hint": "Click the indicator dropper or the conical flask to dispense indicator drops into the acid solution.",
+      "targetElement": "dropper",
+      "completionText": "Indicator drops added to conical flask. Solution is clear and ready for titration."
+    },
+    {
+      "stepIndex": 3,
+      "actionId": "run_titration",
+      "prompt": "Step 4: Titrate! Hold the 'Open Stopcock (Titrate)' button or click the valve. Deliver titrant smoothly.",
+      "hint": "Hold or toggle the valve control to add titrant into the flask. Watch for brief flashes of pink color.",
+      "targetElement": "btn-valve-control",
+      "completionText": "Titrant delivered into the flask. Transient color flashes indicate the endpoint is approaching."
+    },
+    {
+      "stepIndex": 4,
+      "actionId": "reach_endpoint",
+      "prompt": "Step 5: Dropwise approach to endpoint! Release the valve when a persistent pale pink color appears.",
+      "hint": "Stop adding titrant immediately when a faint permanent pale pink hue lasts at least 30 seconds. Do not overshoot!",
+      "targetElement": "btn-valve-control",
+      "completionText": "Perfect! Faint pale pink endpoint reached and maintained for 30 seconds."
+    },
+    {
+      "stepIndex": 5,
+      "actionId": "read_volume",
+      "prompt": "Step 6: Record observation. Click the Burette Meniscus to read the illustrative volume at eye level.",
+      "hint": "Align your eye horizontally with the bottom of the meniscus to avoid parallax error.",
+      "targetElement": "burette",
+      "completionText": "Illustrative titre volume recorded: 22.40 mL ± 0.05 mL. Procedure completed successfully!"
+    }
+  ],
+  "mistakes": {
+    "overshoot": {
+      "message": "Overshoot! Titrant was added past the endpoint, turning the solution dark magenta. In an analytical lab, excess titrant introduces a large positive error. Click Replay or Reset to try again.",
+      "penalty": 1
+    },
+    "bubble_ignored": {
+      "message": "Warning: Trapped air bubble in burette tip must be expelled before recording the initial volume.",
+      "penalty": 1
+    },
+    "wrong_apparatus": {
+      "message": "That apparatus is not required for the current procedure step. Follow the prompt above.",
+      "penalty": 0
+    }
+  }
+}

@@ -1,0 +1,126 @@
+{
+  "burette": {
+    "role": "Delivers precisely measured volumes of standard titrant into the analyte flask with fine stopcock flow control."
+  },
+  "pipette": {
+    "role": "Measures and transfers exact aliquot volumes of the sample solution into the titration flask."
+  },
+  "conical-flask": {
+    "role": "Holds the reaction mixture and allows vigorous manual swirling without spilling during titrant addition."
+  },
+  "retort-stand": {
+    "role": "Provides a rigid, stable vertical support rod to mount the burette clamp securely above the benchtop."
+  },
+  "clamp-and-boss-head": {
+    "role": "Grips the cylindrical glass burette barrel firmly and holds it perfectly perpendicular to the bench."
+  },
+  "glass-funnel": {
+    "role": "Placed at the top of the burette to pour in titrant without splashing, and seats filter paper during filtration."
+  },
+  "wash-bottle": {
+    "role": "Dispenses controlled streams of distilled water to rinse glassware walls, burette tips, and precipitate cakes."
+  },
+  "beaker": {
+    "role": "Serves as a reagent reservoir, waste liquid receiver, or developing chamber for chromatography."
+  },
+  "dropper": {
+    "role": "Dispenses indicator drops into analyte flasks or applies tiny sample spots onto chromatography paper."
+  },
+  "ph-indicator-solution": {
+    "role": "Changes color abruptly at the stoichiometric equivalence point to signal the visual titration endpoint."
+  },
+  "safety-goggles": {
+    "role": "Shields eyes against accidental chemical splashes, corrosive aerosols, and shattering glassware fragments."
+  },
+  "laboratory-coat": {
+    "role": "Protects clothing and personal skin from chemical spills, corrosive stains, and biological contaminants."
+  },
+  "chemical-resistant-gloves": {
+    "role": "Prevents direct dermal absorption of toxic reagents, concentrated acids, and volatile organic solvents."
+  },
+  "chemical-waste-container": {
+    "role": "Safely collects neutralized titration residues and heavy-metal solutions for environmentally compliant disposal."
+  },
+  "filter-paper": {
+    "role": "Porous cellulose barrier that retains insoluble solid particles while letting clear liquid filtrate drain through."
+  },
+  "glass-stirring-rod": {
+    "role": "Guides decanted liquid streams into the filter cone via surface tension and gently agitates suspensions."
+  },
+  "buchner-funnel": {
+    "role": "Ceramic perforated plate funnel used in vacuum filtration for rapid liquid-solid separation."
+  },
+  "watch-glass": {
+    "role": "Covers developing beakers to maintain saturated vapor pressure and prevent non-uniform solvent evaporation."
+  },
+  "forceps": {
+    "role": "Handles chromatography paper strips and delicate filter membranes without transferring skin oils."
+  },
+  "measuring-cylinder": {
+    "role": "Measures developing solvent volumes rapidly for filling chromatography chambers."
+  },
+  "pencil": {
+    "role": "Draws insoluble graphite origin baselines on chromatography paper that will not bleed or migrate in solvents."
+  },
+  "ph-indicator-paper": {
+    "role": "Provides rapid visual estimation of solution pH by matching chemical dye color changes against a calibrated standard color chart."
+  },
+  "laboratory-ph-meter": {
+    "role": "Measures hydronium ion activity potentiometrically using a glass combination electrode for precise numerical pH determination."
+  },
+  "portable-ph-meter": {
+    "role": "Compact field instrument for direct electrometric pH determination with digital readout."
+  },
+  "analytical-balance": {
+    "role": "Measures solid primary standard mass with high analytical precision inside an enclosed draft shield."
+  },
+  "weighing-boat": {
+    "role": "Holds solid chemical samples securely during balance weighing, preventing reagent contact with the pan."
+  },
+  "spatula": {
+    "role": "Transfers small crystalline solid portions into the weighing boat during mass adjustment."
+  },
+  "volumetric-flask": {
+    "role": "Calibrated to contain an exact volume of solution at 20°C when filled to the engraved neck meniscus ring mark."
+  },
+  "reagent-bottle": {
+    "role": "Stores pure chemical solid reagents or prepared standard solutions safely with a ground-glass or screw cap."
+  },
+  "round-bottom-flask": {
+    "role": "Holds the boiling mixture during distillation, ensuring uniform heat distribution from mantle or hot plate."
+  },
+  "condenser": {
+    "role": "Cools ascending vapor into liquid distillate using a counter-current cooling water jacket."
+  },
+  "distillation-apparatus": {
+    "role": "Integrated glassware system comprising distillation head, condenser, and vacuum adapter for fractional or simple separations."
+  },
+  "thermometer": {
+    "role": "Monitors vapor temperature at the side-arm outlet to detect constant-boiling fractions."
+  },
+  "hot-plate": {
+    "role": "Provides controllable, flameless electrical heat for boiling mixtures, dissolving solids, and gentle evaporations."
+  },
+  "rubber-stopper": {
+    "role": "Seals distillation head joints and holds thermometers securely at the side-arm level."
+  },
+  "bunsen-burner": {
+    "role": "Produces an adjustable gas flame for rapid heating of non-volatile, non-flammable aqueous solutions."
+  },
+  "tripod-stand": {
+    "role": "Three-legged iron frame supporting wire gauze and glassware directly above a burner."
+  },
+  "wire-gauze": {
+    "role": "Diffuses the intense flame heat evenly across glassware bases to prevent thermal shock fractures."
+  },
+  "evaporating-dish": {
+    "role": "Shallow porcelain basin allowing rapid solvent evaporation to concentrate dissolved solute."
+  },
+  "microscope": {
+    "role": "Magnifies crystal habits and face morphologies to evaluate purity and crystalline structure."
+  },
+  "magnetic-stirrer": {
+    "role": "Rotates an internal Teflon-coated magnetic stir bar to provide continuous uniform agitation without manual swirling."
+  }
+}
+

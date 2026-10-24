@@ -1,0 +1,472 @@
+# -*- coding: utf-8 -*-
+"""
+Batch 4 (Items 61-62): pH Measurement Instruments
+61. laboratory-ph-meter
+62. portable-ph-meter
+Strictly incorporates the PDF pH meter note and comparative relationship.
+"""
+
+import json
+import os
+
+BATCH4_RECORDS = [
+    # 61. Laboratory pH Meter
+    {
+        "id": "laboratory-ph-meter",
+        "pdfNumber": 61,
+        "pdfName": "Laboratory pH Meter",
+        "pdfMainUse": "Measuring solution pH using an electrode",
+        "pdfGroup": "pH measurement instruments",
+        "name": "Laboratory pH Meter",
+        "category": "pH and Analytical Instruments",
+        "purpose": "Measures solution pH with high analytical precision using a potentiometric glass combination electrode at a fixed bench station.",
+        "image": {
+            "src": "assets/images/equipment/laboratory-ph-meter.svg",
+            "alt": "Benchtop laboratory pH meter with digital touchscreen display, articulated electrode stand, and combination glass pH electrode",
+            "credit": "Laboratory Standard Vector Assets",
+            "status": "fallback"
+        },
+        "ar": {
+            "modelFile": "assets/models/laboratory-ph-meter.glb",
+            "modelStatus": "missing",
+            "interactions": ["tap-to-label", "rotate", "zoom", "reveal usage steps"]
+        },
+        "description": "A high-precision benchtop potentiometric voltmeter connected to a glass combination electrode and an automatic temperature compensation (ATC) probe. Measures the electrical potential difference across a thin glass membrane relative to an internal silver/silver-chloride reference electrode, calculating hydronium ion activity based on the Nernst equation.",
+        "alternativeNames": ["Benchtop pH meter", "Analytical pH meter", "Glass electrode pH meter", "Potentiometric pH meter"],
+        "commonUses": [
+            "High-precision pH determination of chemical buffers, media, and synthesis mixtures (0.01 to 0.001 pH resolution)",
+            "Potentiometric acid-base titrations to locate exact equivalence points and pKa values",
+            "Quality control monitoring in pharmaceutical, food science, and chemical manufacturing",
+            "Regulatory compliance testing of laboratory wastewater discharge"
+        ],
+        "types": [
+            "Research-grade benchtop pH meter (touchscreen display, up to 5-point calibration, GLP compliance logging)",
+            "Standard routine laboratory bench pH meter (push-button 2-to-3 point calibration, ±0.01 pH accuracy)",
+            "Multi-parameter bench meter (measures pH, ion concentration / ISE, oxidation-reduction potential / ORP, and conductivity simultaneously)"
+        ],
+        "specifications": {
+            "material": ["Glass bulb sensing membrane", "Ag/AgCl internal reference element with ceramic junction", "Die-cast aluminum / ABS console chassis", "Articulated steel electrode stand"],
+            "capacity": {
+                "value": "-2.000 to 20.000",
+                "unit": "pH",
+                "notes": "Full dynamic range typically -2.000 to 20.000 pH (millivolt range ±2000.0 mV); operating temperature range -5.0 °C to 105.0 °C."
+            },
+            "dimensions": "Bench console ~220 × 175 × 75 mm, Electrode length ~120 mm, Cable length ~1 m",
+            "mainParts": ["Mains-powered electronic benchtop console", "Articulated electrode holder arm", "Combination glass pH electrode with bulb", "Porous ceramic liquid reference junction", "Stainless steel ATC temperature probe", "Electrode storage soaker bottle (3 M KCl)"],
+            "partsAndFunctions": [
+                {
+                    "partName": "Combination glass pH electrode with bulb",
+                    "function": "Develops a Nernstian millivolt potential (approx 59.16 mV per pH unit at 25 °C) across hydrated silica gel layer proportional to H⁺ activity",
+                    "handlingNotes": "Keep hydrated in 3 M KCl; never let glass bulb dry out."
+                },
+                {
+                    "partName": "Porous ceramic liquid reference junction",
+                    "function": "Maintains constant electrical contact between the internal Ag/AgCl reference cell and test solution via slow KCl electrolyte leakage",
+                    "handlingNotes": "Ensure electrolyte fill hole plug is open during measurement."
+                },
+                {
+                    "partName": "Articulated electrode holder arm",
+                    "function": "Provides counterbalanced vertical positioning so electrodes can be lowered into beakers hands-free without striking glass walls",
+                    "handlingNotes": "Adjust tension springs to prevent arm dropping."
+                }
+            ],
+            "measurementAccuracy": {
+                "value": 0.01,
+                "unit": "pH",
+                "notes": "Standard laboratory benchtop models provide ±0.01 pH accuracy (research models ±0.002 pH) when properly calibrated with fresh buffers."
+            },
+            "limitations": [
+                "Requires stable AC mains power and a permanent vibration-free bench station; not suited for field grab-sampling",
+                "Glass bulb membrane is fragile and will shatter if struck against a magnetic stir bar or beaker bottom",
+                "Subject to 'alkaline error' (sodium ion interference) at pH > 12 and 'acid error' at pH < 0"
+            ]
+        },
+        "operatingInstructions": {
+            "preparation": [
+                "Verify meter is plugged into AC mains and has been powered on for 15 minutes",
+                "Remove electrode storage bottle containing 3 M KCl; uncover the reference filling hole if using a refillable electrode",
+                "Rinse electrode and ATC probe with deionized water from a wash bottle; blot gently with a lint-free tissue (NEVER rub the glass bulb)",
+                "Perform 2-point or 3-point calibration using fresh standard reference buffers (pH 7.00 and pH 4.01 for acidic samples, or pH 7.00 and pH 10.01 for basic samples) per manufacturer manual"
+            ],
+            "steps": [
+                {
+                    "step": 1,
+                    "title": "Calibration Verification",
+                    "instruction": "Confirm calibration slope is within acceptable range (95.0% to 102.0%). If slope is outside limits, clean electrode and recalibrate."
+                },
+                {
+                    "step": 2,
+                    "title": "Sample Immersion",
+                    "instruction": "Lower the articulated arm so the glass bulb and ceramic junction are submerged at least 3 cm into the sample beaker. Ensure electrode does not touch beaker bottom or stir bar."
+                },
+                {
+                    "step": 3,
+                    "title": "Mixing and Reading",
+                    "instruction": "Stir solution gently using a magnetic stirrer at slow speed (avoid vortex). Wait for the meter's stability indicator icon to lock."
+                },
+                {
+                    "step": 4,
+                    "title": "Rinsing and Post-Use",
+                    "instruction": "Raise the arm, rinse electrode thoroughly with a stream of deionized water into a waste beaker, and blot dry gently with a lint-free wipe."
+                }
+            ],
+            "handlingTips": [
+                "Always blot the electrode dry with a lint-free wipe; NEVER rub the glass bulb (rubbing generates static electrical charges that cause readings to drift for hours)",
+                "Keep the reference fill hole open during measurement to ensure steady electrolyte flow through the porous junction"
+            ],
+            "shutdown": [
+                "Rinse electrode thoroughly with pure deionized water",
+                "Re-insert electrode into its protective storage soaker bottle containing fresh 3 M KCl storage solution; NEVER store in deionized water or dry",
+                "Close the reference filling hole plug to prevent electrolyte evaporation",
+                "Power down the console or leave in standby per manufacturer protocol"
+            ]
+        },
+        "safetyPrecautions": {
+            "requiredPPE": ["Safety goggles", "Laboratory coat", "Nitrile gloves"],
+            "hazards": ["Chemical splash from sample beakers", "Broken glass puncture if bulb shatters", "Toxic 3 M KCl electrolyte ingestion"],
+            "warnings": [
+                "Per PDF note: Follow manufacturer instructions for calibration and electrode care",
+                "Per PDF safety reminder: Use equipment only with suitable training, follow institutional procedures, wear required PPE, and dispose of chemical waste per local rules"
+            ],
+            "actionsToAvoid": [
+                "Do not store the glass pH electrode dry or in pure deionized/distilled water (destroys reference junction and leaches glass gel layer)",
+                "Do not allow magnetic stir bars to strike the delicate glass bulb"
+            ],
+            "emergencyGuidance": [
+                "If buffer or sample splashes in eyes, immediately flush at eyewash station for 15 minutes",
+                "If a glass electrode shatters in a beaker, dispose of the solution and sweep glass into the sharps bin"
+            ]
+        },
+        "maintenanceAndTroubleshooting": {
+            "cleaningSteps": [
+                "Routine cleaning: Rinse thoroughly with distilled water after each measurement",
+                "General inorganic fouling: Soak electrode in 0.1 M HCl for 15 minutes, followed by thorough DI water rinse and 1-hour rehydration in 3 M KCl",
+                "Protein contamination: Soak in 1% pepsin in 0.1 M HCl for 20 minutes",
+                "Grease and oil films: Wash with warm mild detergent or ethanol rinse"
+            ],
+            "storageInstructions": [
+                "Store electrode upright in its protective soaker cap filled with 3 M KCl solution",
+                "Keep console on a permanent, vibration-free laboratory bench station"
+            ],
+            "maintenanceChecks": [
+                "Perform daily 2-point or 3-point buffer calibrations; record calibration slope (must remain between 95% and 102%)",
+                "Check internal reference electrolyte level weekly; top off with 3 M KCl through filling port"
+            ],
+            "troubleshooting": [
+                {
+                    "problem": "pH readings drift slowly and erratically without locking on stability",
+                    "possibleCauses": ["Electrode glass bulb was rubbed, creating static charge", "Porous reference junction clogged", "Electrolyte filling hole left plugged"],
+                    "solution": ["Unplug filling hole; soak junction in warm 3 M KCl; blot (do not rub) with Kimwipe"],
+                    "prevention": ["Always blot gently and keep junction clean"],
+                    "requiresSupervisor": False
+                },
+                {
+                    "problem": "Meter displays 'SLOPE ERROR' (<90% or >105%) during calibration",
+                    "possibleCauses": ["Contaminated or expired calibration buffers", "Dirty, aged, or cracked glass membrane"],
+                    "solution": ["Discard old buffers and pour fresh aliquots from unopened stock bottles; clean electrode in 0.1 M HCl"],
+                    "prevention": ["Never reuse poured calibration buffers"],
+                    "requiresSupervisor": True
+                },
+                {
+                    "problem": "Glass electrode bulb is dried out and covered in white salt crust",
+                    "possibleCauses": ["Storage cap leaked or dried out with water instead of 3 M KCl"],
+                    "solution": ["Soak in warm 3 M KCl solution for at least 4 to 6 hours to rehydrate the silica gel layer; recalibrate"],
+                    "prevention": ["Always ensure storage bottle is filled with fresh 3 M KCl"],
+                    "requiresSupervisor": False
+                }
+            ],
+            "commonMistakes": [
+                {
+                    "mistake": "Storing the glass pH electrode in deionized or distilled water",
+                    "whyItMatters": "Deionized water draws salt ions out of the glass sensing membrane and reference junction by osmotic pressure, permanently ruining calibration and slowing response time",
+                    "howToAvoid": "Always store pH electrodes submerged in 3 M KCl electrode storage solution"
+                },
+                {
+                    "mistake": "Rubbing the glass bulb with a paper towel to dry it",
+                    "whyItMatters": "Friction creates strong electrostatic surface charges on the glass that throw off millivolt readings and cause erratic drift for hours",
+                    "howToAvoid": "Rinse with DI water and gently blot the glass with a lint-free tissue without wiping"
+                }
+            ]
+        },
+        "relatedEquipment": [
+            {
+                "equipmentId": "portable-ph-meter",
+                "relationship": "similar",
+                "reason": "Both instruments operate on identical potentiometric glass electrode Nernstian principles (PDF note: Items 61 and 62 are two versions of the same instrument category).",
+                "difference": "The laboratory pH meter is a mains-powered benchtop unit with higher precision (0.001-0.01 pH), articulated stand, and multi-point calibration for a fixed station; the portable meter is battery-operated and ruggedized for field mobility."
+            },
+            {
+                "equipmentId": "ph-indicator-paper",
+                "relationship": "alternative",
+                "reason": "pH indicator paper offers rapid visual estimation (±1 pH unit) when high precision is not required.",
+                "difference": "pH paper provides qualitative visual color estimation; the laboratory pH meter provides continuous 2-decimal digital measurement."
+            },
+            {
+                "equipmentId": "wash-bottle",
+                "relationship": "complementary",
+                "reason": "Essential for rinsing the glass pH electrode and temperature probe with pure deionized water between measurements.",
+                "difference": "The wash bottle supplies rinse water; the pH meter performs the electrochemical measurement."
+            }
+        ],
+        "metadata": {
+            "difficultyLevel": "Intermediate",
+            "lastReviewed": "",
+            "reviewStatus": "needs-review",
+            "completeness": {
+                "schema": "valid",
+                "content": "complete-applicable",
+                "evidence": "unverified"
+            },
+            "references": [
+                {
+                    "title": "ASTM E70 - Standard Test Method for pH of Aqueous Solutions with the Glass Electrode",
+                    "url": "",
+                    "urlChecked": False,
+                    "sourceType": "Technical Standard",
+                    "supports": ["Nernst equation principles, calibration buffer protocols, glass membrane specifications"]
+                },
+                {
+                    "title": "IUPAC Recommendations: Measurement of pH - Definition, Standards, and Procedures (Pure Appl. Chem. 74(11), 2169-2200)",
+                    "url": "",
+                    "urlChecked": False,
+                    "sourceType": "International Scientific Recommendation",
+                    "supports": ["pH scale definition, reference buffer standards, junction potentials"]
+                }
+            ]
+        }
+    },
+
+    # 62. Digital / Portable pH Meter
+    {
+        "id": "portable-ph-meter",
+        "pdfNumber": 62,
+        "pdfName": "Digital / Portable pH Meter",
+        "pdfMainUse": "Portable electronic measurement of solution pH",
+        "pdfGroup": "pH measurement instruments",
+        "name": "Digital / Portable pH Meter",
+        "category": "pH and Analytical Instruments",
+        "purpose": "Measures solution pH electronically in field, classroom, and on-site demonstrations using a battery-powered, handheld portable unit.",
+        "image": {
+            "src": "assets/images/equipment/portable-ph-meter.svg",
+            "alt": "Ruggedized waterproof handheld digital portable pH meter with gel-filled electrode and LCD screen",
+            "credit": "Laboratory Standard Vector Assets",
+            "status": "fallback"
+        },
+        "ar": {
+            "modelFile": "assets/models/portable-ph-meter.glb",
+            "modelStatus": "missing",
+            "interactions": ["tap-to-label", "rotate", "zoom", "reveal usage steps"]
+        },
+        "description": "A compact, battery-operated handheld electronic pH instrument featuring a water-resistant (IP67) casing, digital LCD display, and an integrated or detachable gel-filled combination electrode. Operates on the same electrochemical Nernstian glass electrode measurement principle as benchtop units, but is engineered for mobility, fieldwork, and multi-location demonstrations.",
+        "alternativeNames": ["Portable pH meter", "Handheld pH meter", "Pocket pH tester", "Field pH pen"],
+        "commonUses": [
+            "Measuring pH in field environmental streams, rivers, lakes, and soil runoff",
+            "Classroom demonstrations in different laboratory locations without permanent bench wiring",
+            "Testing agricultural irrigation water, hydroponic reservoirs, and aquaculture tanks",
+            "Rapid on-site industrial checks of cooling towers and swimming pools"
+        ],
+        "types": [
+            "Pocket pH pen tester (all-in-one compact pen with non-replaceable or screw-on electrode module)",
+            "Portable handheld meter with cable probe (ruggedized meter console with reinforced detachable cable and field probe)",
+            "Waterproof field multi-meter (measures pH, conductivity, dissolved oxygen, and temperature simultaneously)"
+        ],
+        "specifications": {
+            "material": ["Impact-resistant ABS/polycarbonate waterproof casing (IP67)", "Gel-filled glass/epoxy combination pH electrode", "Silicone rubber keypad seals"],
+            "capacity": {
+                "value": "0.00 to 14.00",
+                "unit": "pH",
+                "notes": "Standard portable measuring range 0.00 to 14.00 pH; temperature range 0.0 °C to 60.0 °C."
+            },
+            "dimensions": "Overall length ~180 mm to 220 mm, Width ~40 mm to 70 mm, Weight ~100 g to 350 g",
+            "mainParts": ["Waterproof handheld battery-powered console", "Protective electrode cap with soaker sponge", "Gel-filled combination glass/epoxy electrode", "Integrated temperature thermistor", "Digital LCD screen with battery indicator", "Power and CAL push-buttons"],
+            "partsAndFunctions": [
+                {
+                    "partName": "Gel-filled combination electrode",
+                    "function": "Develops Nernstian potential using sealed polymer gel electrolyte that cannot spill or leak during transit",
+                    "handlingNotes": "Keep moistened with 3 M KCl in storage cap."
+                },
+                {
+                    "partName": "Waterproof handheld casing (IP67)",
+                    "function": "Protects internal micro-electronics against accidental immersion in water bodies up to 1 meter depth",
+                    "handlingNotes": "Ensure battery door gasket is sealed."
+                },
+                {
+                    "partName": "Protective electrode cap with soaker sponge",
+                    "function": "Protects delicate glass bulb against mechanical crushing during field transport and keeps membrane hydrated",
+                    "handlingNotes": "Moisten sponge with storage solution before capping."
+                }
+            ],
+            "measurementAccuracy": {
+                "value": 0.05,
+                "unit": "pH",
+                "notes": "Accuracy typically ±0.02 to ±0.05 pH (0.1 pH on budget pens) with automated 2-point or 3-point calibration and ATC."
+            },
+            "limitations": [
+                "Slightly lower precision and resolution (typically ±0.05 pH) compared to research-grade benchtop meters (±0.002 pH)",
+                "Gel-filled electrodes respond slightly slower in cold water and cannot be refilled with liquid electrolyte",
+                "Battery-dependent; low battery voltage can cause silent calibration drift if unmonitored"
+            ]
+        },
+        "operatingInstructions": {
+            "preparation": [
+                "Check battery level indicator on display; replace or charge batteries if indicator is low",
+                "Pull off the protective storage cap; verify the glass bulb and gel junction are moist and free of dried salt crusts",
+                "Rinse electrode tip with deionized water and blot gently with a clean tissue",
+                "Perform automatic 2-point calibration (pH 7.00 and 4.01/10.01) following manufacturer button sequence"
+            ],
+            "steps": [
+                {
+                    "step": 1,
+                    "title": "Field Sample Immersion",
+                    "instruction": "Immerse the electrode tip into the sample liquid (beaker, stream, or water container) to a depth of at least 2 to 3 cm."
+                },
+                {
+                    "step": 2,
+                    "title": "Gentle Swirling",
+                    "instruction": "Stir the meter gently in the liquid for a few seconds to dislodge air bubbles from the glass bulb."
+                },
+                {
+                    "step": 3,
+                    "title": "Reading Stabilization",
+                    "instruction": "Hold the meter steady in the solution until the digital stability indicator (e.g. hourglass or checkmark) appears."
+                },
+                {
+                    "step": 4,
+                    "title": "Recording and Rinse",
+                    "instruction": "Record the pH and temperature reading. Withdraw meter, rinse electrode immediately with distilled water from a wash bottle, and blot dry."
+                }
+            ],
+            "handlingTips": [
+                "Per PDF note: Items 61 and 62 are two versions of the same instrument category. A portable model is useful for demonstrations in different locations; follow manufacturer instructions for calibration and electrode care",
+                "Never leave the electrode tip exposed to air to dry out while moving between field sampling stations"
+            ],
+            "shutdown": [
+                "Rinse electrode thoroughly with clean deionized water",
+                "Add 5 drops of 3 M KCl storage solution into the sponge inside the protective cap and press cap firmly onto electrode",
+                "Power off unit and store in cushioned field carrying case"
+            ]
+        },
+        "safetyPrecautions": {
+            "requiredPPE": ["Safety goggles", "Laboratory coat (or field jacket)", "Nitrile gloves"],
+            "hazards": ["Chemical splash when dipping into field streams/vessels", "Glass bulb breakage", "Slippery wet handling"],
+            "warnings": [
+                "Follow manufacturer instructions for calibration and electrode care (PDF note)",
+                "Per PDF safety reminder: Use equipment only with suitable training, follow institutional procedures, wear required PPE, and dispose of chemical waste per local rules"
+            ],
+            "actionsToAvoid": [
+                "Do not store the electrode dry or in pure distilled water",
+                "Do not use portable meters in boiling solutions (>60 °C) that melt plastic casing"
+            ],
+            "emergencyGuidance": [
+                "If splashed with field waste chemical, flush eyes or skin immediately with clean water from a wash bottle or eyewash",
+                "Dispose of broken glass probe fragments safely in sharps container"
+            ]
+        },
+        "maintenanceAndTroubleshooting": {
+            "cleaningSteps": [
+                "Rinse probe tip thoroughly with clean distilled water after each field test",
+                "Wipe waterproof plastic casing clean with a damp cloth; never use organic solvents that attack plastic housing",
+                "For dirty water samples, soak probe tip in warm mild soapy water for 5 minutes, rinse, and rehydrate in 3 M KCl"
+            ],
+            "storageInstructions": [
+                "Store in protective hard-shell plastic case with foam padding",
+                "Ensure protective cap sponge remains damp with 3 M KCl storage solution at all times",
+                "Remove batteries if storing unused for more than 3 months to prevent battery corrosion"
+            ],
+            "maintenanceChecks": [
+                "Calibrate with fresh reference buffer sachets before every field excursion",
+                "Inspect protective cap sponge monthly; re-wet with 3 M KCl soaker solution"
+            ],
+            "troubleshooting": [
+                {
+                    "problem": "Display reads erratically, jumps by whole pH units, or freezes",
+                    "possibleCauses": ["Batteries are nearly dead; glass bulb has dried out; reference junction coated in mud"],
+                    "solution": ["Replace batteries with fresh cells; soak probe tip in 3 M KCl for 2 hours; recalibrate"],
+                    "prevention": ["Always check battery level and keep storage cap moist"],
+                    "requiresSupervisor": False
+                },
+                {
+                    "problem": "Calibration fails with buffer error message",
+                    "possibleCauses": ["Contaminated buffer pouch; dirty electrode; expired buffer"],
+                    "solution": ["Rinse probe thoroughly; use fresh, newly opened buffer calibration pouches"],
+                    "prevention": ["Use single-use sealed buffer pouches for field work"],
+                    "requiresSupervisor": False
+                },
+                {
+                    "problem": "Electrode tip glass bulb cracked during field sampling",
+                    "possibleCauses": ["Struck against rocks or bottom of metal sampling bucket"],
+                    "solution": ["Replace detachable electrode module; if all-in-one pen, replace tester"],
+                    "prevention": ["Always leave slotted protective guard in place over the bulb"],
+                    "requiresSupervisor": True
+                }
+            ],
+            "commonMistakes": [
+                {
+                    "mistake": "Storing the portable meter in a backpack with a dry protective cap",
+                    "whyItMatters": "The gel-filled electrode membrane dries out and hardens, resulting in sluggish response, permanent calibration offset, and shortened electrode lifespan",
+                    "howToAvoid": "Always ensure the sponge inside the cap is moist with 3 M KCl electrode storage solution"
+                },
+                {
+                    "mistake": "Using a portable pH pen in place of a research-grade benchtop meter for quantitative 3-decimal analytical titrations",
+                    "whyItMatters": "Portable meters have broader resolution (±0.05 pH) and gel junctions that lack the millivolt precision required for analytical research standards",
+                    "howToAvoid": "Use the benchtop laboratory pH meter for fixed analytical station work, and portable meters for mobility and field demonstrations"
+                }
+            ]
+        },
+        "relatedEquipment": [
+            {
+                "equipmentId": "laboratory-ph-meter",
+                "relationship": "similar",
+                "reason": "Both instruments share the same potentiometric glass electrode measurement principle (PDF note: Items 61 and 62 are two versions of the same instrument category).",
+                "difference": "The portable pH meter is a ruggedized, battery-operated, mobile unit suited for demonstrations in different locations; the laboratory pH meter is a mains-powered benchtop fixture with higher analytical accuracy for a fixed station."
+            },
+            {
+                "equipmentId": "ph-indicator-paper",
+                "relationship": "alternative",
+                "reason": "Both provide quick on-site portable pH estimation, but the portable meter provides electronic numerical readings.",
+                "difference": "pH paper is a visual colorimetric paper test; the portable pH meter provides digital electronic measurement."
+            },
+            {
+                "equipmentId": "wash-bottle",
+                "relationship": "complementary",
+                "reason": "A wash bottle filled with deionized water is carried alongside the portable meter to rinse the probe between field samples.",
+                "difference": "The wash bottle provides field rinse water; the portable meter measures solution pH."
+            }
+        ],
+        "metadata": {
+            "difficultyLevel": "Beginner",
+            "lastReviewed": "",
+            "reviewStatus": "needs-review",
+            "completeness": {
+                "schema": "valid",
+                "content": "complete-applicable",
+                "evidence": "unverified"
+            },
+            "references": [
+                {
+                    "title": "EPA Method 150.1: pH, Electrometric (Continuous and Field Measurement)",
+                    "url": "",
+                    "urlChecked": False,
+                    "sourceType": "Government Environmental Standard",
+                    "supports": ["Field pH measurement protocols, temperature compensation, buffer calibration intervals"]
+                },
+                {
+                    "title": "ASTM D1293 - Standard Test Methods for pH of Water",
+                    "url": "",
+                    "urlChecked": False,
+                    "sourceType": "Technical Standard",
+                    "supports": ["Portable instrumentation criteria, gel electrode response dynamics"]
+                }
+            ]
+        }
+    }
+]
+
+out_dir = os.path.join(os.path.dirname(__file__), 'data')
+os.makedirs(out_dir, exist_ok=True)
+out_file = os.path.join(out_dir, 'batch4.json')
+
+with open(out_file, 'w', encoding='utf-8') as f:
+    json.dump(BATCH4_RECORDS, f, indent=2, ensure_ascii=False)
+
+print(f"Successfully generated {len(BATCH4_RECORDS)} records in {out_file}")

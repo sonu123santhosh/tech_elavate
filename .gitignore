@@ -13,6 +13,13 @@ dist/
 build/
 .cache/
 
+# Python & Virtual Environments
+__pycache__/
+*.pyc
+.venv/
+tech_elavate/
+.gemini/
+
 # System and logs
 npm-debug.log*
 yarn-debug.log*
