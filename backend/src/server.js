@@ -79,15 +79,17 @@ app.use((err, req, res, next) => {
   });
 });
 
-app.listen(PORT, () => {
-  console.log(` Smart Lab Assistant Backend running on http://localhost:${PORT}`);
-  console.log(` Health Check available at http://localhost:${PORT}/api/health`);
-  console.log(` Chat API available at POST http://localhost:${PORT}/api/chat`);
-  if (!process.env.GEMINI_API_KEY || process.env.GEMINI_API_KEY === 'your_gemini_api_key_here') {
-    console.warn('️ WARNING: GEMINI_API_KEY is not set. Gemini chat requests will return 503 until key is added to .env');
-  } else {
-    console.log(' Gemini API Key detected.');
-  }
-});
+if (!process.env.VERCEL) {
+  app.listen(PORT, () => {
+    console.log(` Smart Lab Assistant Backend running on http://localhost:${PORT}`);
+    console.log(` Health Check available at http://localhost:${PORT}/api/health`);
+    console.log(` Chat API available at POST http://localhost:${PORT}/api/chat`);
+    if (!process.env.GEMINI_API_KEY || process.env.GEMINI_API_KEY === 'your_gemini_api_key_here') {
+      console.warn('️ WARNING: GEMINI_API_KEY is not set. Gemini chat requests will return 503 until key is added to .env');
+    } else {
+      console.log(' Gemini API Key detected.');
+    }
+  });
+}
 
 export default app;

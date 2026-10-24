@@ -2,9 +2,10 @@
  * Client service for communicating with the AI Lab Assistant backend.
  */
 
-const API_BASE_URL = window.location.origin.includes(':5173')
-  ? 'http://localhost:5000/api'
-  : '/api';
+const API_BASE_URL =
+  typeof import.meta !== 'undefined' && import.meta.env?.VITE_API_BASE_URL
+    ? import.meta.env.VITE_API_BASE_URL
+    : '/api';
 
 export class ChatService {
   constructor() {
@@ -23,7 +24,7 @@ export class ChatService {
       const data = await res.json();
       return { ok: true, data };
     } catch (err) {
-      return { ok: false, error: err.message || 'Cannot reach backend server at http://localhost:5000' };
+      return { ok: false, error: err.message || 'Cannot reach backend server' };
     }
   }
 
@@ -79,7 +80,7 @@ export class ChatService {
       return {
         success: false,
         error:
-          'Network connection error: Failed to connect to the backend server. Ensure the backend is running on port 5000 (cd backend && npm run dev).',
+          'Network connection error: Failed to connect to the backend server. Ensure the backend API service is running and accessible at /api.',
       };
     }
   }

@@ -822,12 +822,12 @@ export class ChatAssistantView {
     } else {
       if (badge) {
         badge.className = 'badge-status status-offline';
-        badge.textContent = '● Backend Offline (Port 5000)';
+        badge.textContent = '● Backend Offline';
       }
       if (alert) {
         alert.classList.remove('hidden');
         alert.querySelector('.warning-text').innerHTML =
-          `<strong>Backend Not Reachable:</strong> Ensure the Node/Express backend is started (<code>npm start</code> inside <code>backend/</code>).`;
+          `<strong>Backend Not Reachable:</strong> Ensure the Node/Express backend service is running and accessible at <code>/api</code>.`;
       }
     }
   }
