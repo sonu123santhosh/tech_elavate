@@ -1,0 +1,14 @@
+node_modules/
+
+# Protect API keys and environment settings
+.env
+.env.*
+!.env.example
+
+# Logs
+*.log
+npm-debug.log*
+
+# Operating system files
+.DS_Store
+Thumbs.db
