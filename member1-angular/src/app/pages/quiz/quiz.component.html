@@ -1,0 +1,161 @@
+<div class="quiz-page">
+  <!-- Active Quiz View -->
+  <div class="quiz-active-container" *ngIf="!isCompleted && currentQuestion">
+    <!-- Quiz Header -->
+    <div class="quiz-header">
+      <div class="header-left">
+        <a routerLink="/dashboard" class="back-link">&larr; Dashboard</a>
+        <div class="title-row">
+          <h1 class="page-title">Laboratory Equipment & Safety Quiz</h1>
+          <span class="badge badge-navy">Question {{ currentIndex + 1 }} of {{ questions.length }}</span>
+        </div>
+      </div>
+
+      <div class="score-pill">
+        <span class="score-label">Current Score:</span>
+        <span class="score-value mono-text">{{ currentScore }} / {{ currentIndex + (isCurrentAnswered ? 1 : 0) }}</span>
+      </div>
+    </div>
+
+    <!-- Progress Bar -->
+    <div class="quiz-progress-track">
+      <div class="progress-bar-fill" [style.width.%]="progressPercentage"></div>
+    </div>
+
+    <!-- Question Card -->
+    <div class="question-card">
+      <div class="card-meta">
+        <span class="badge badge-teal">{{ currentQuestion.category | uppercase }}</span>
+        <span class="badge badge-navy">Difficulty: {{ currentQuestion.difficulty | titlecase }}</span>
+      </div>
+
+      <h2 class="question-prompt">
+        {{ currentQuestion.question }}
+      </h2>
+
+      <!-- Options Grid -->
+      <div class="options-list">
+        <button 
+          *ngFor="let opt of currentQuestion.options; let i = index"
+          type="button"
+          class="option-btn"
+          [class.selected]="isOptionSelected(i)"
+          [class.correct]="isCurrentAnswered && isOptionCorrect(i)"
+          [class.incorrect]="isCurrentAnswered && isOptionSelected(i) && !isOptionCorrect(i)"
+          [disabled]="isCurrentAnswered"
+          (click)="selectOption(i)">
+          
+          <span class="option-letter">{{ ['A', 'B', 'C', 'D'][i] }}</span>
+          <span class="option-text">{{ opt }}</span>
+
+          <span class="option-icon" *ngIf="isCurrentAnswered">
+            <span *ngIf="isOptionCorrect(i)" class="icon-correct">&check;</span>
+            <span *ngIf="isOptionSelected(i) && !isOptionCorrect(i)" class="icon-wrong">&times;</span>
+          </span>
+        </button>
+      </div>
+
+      <!-- Feedback Explanation Box (Appears after selection) -->
+      <div class="feedback-box" *ngIf="isCurrentAnswered">
+        <div class="feedback-header">
+          <span class="feedback-badge" [class.success]="isOptionCorrect(selectedAnswers[currentQuestion.id])">
+            {{ isOptionCorrect(selectedAnswers[currentQuestion.id]) ? '✓ Correct Answer!' : '✕ Incorrect' }}
+          </span>
+          <span class="feedback-title">Scientific Rationale:</span>
+        </div>
+        <p class="feedback-text">{{ currentQuestion.explanation }}</p>
+      </div>
+
+      <!-- Navigation Footer -->
+      <div class="card-footer">
+        <button 
+          class="btn btn-outline" 
+          (click)="startQuiz()">
+          Restart Quiz
+        </button>
+
+        <button 
+          class="btn btn-cyan btn-lg" 
+          [disabled]="!isCurrentAnswered"
+          (click)="nextQuestion()">
+          {{ currentIndex < questions.length - 1 ? 'Next Question →' : 'Complete Quiz & View Results →' }}
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Completed Results Summary Card -->
+  <div class="results-container" *ngIf="isCompleted && quizResult">
+    <div class="results-card">
+      <div class="results-badge-wrap">
+        <span class="trophy-icon">🏆</span>
+        <span class="badge badge-emerald">Certification Assessment Complete</span>
+      </div>
+
+      <h1 class="results-score-title">
+        You Scored <span class="score-highlight mono-text">{{ quizResult.score }} / {{ quizResult.totalQuestions }}</span>
+      </h1>
+      
+      <div class="percentage-pill">
+        {{ quizResult.percentage }}% &bull; {{ quizResult.rating }} Proficiency
+      </div>
+
+      <p class="results-desc">
+        {{ quizResult.percentage >= 80 
+            ? 'Outstanding work! You demonstrated comprehensive mastery of laboratory apparatus standards, volumetric accuracy, and chemical hazard prevention.'
+            : 'Good effort! Review the detailed question explanations below to strengthen your understanding of meniscus reading, acid dilutions, and analytical tolerances.' }}
+      </p>
+
+      <div class="results-actions">
+        <button class="btn btn-cyan btn-lg" (click)="startQuiz()">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <polyline points="23 4 23 10 17 10"></polyline>
+            <path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10"></path>
+          </svg>
+          Retake Quiz
+        </button>
+        <a routerLink="/library" class="btn btn-outline btn-lg">
+          Browse Equipment Library
+        </a>
+      </div>
+
+      <!-- Full Question-by-Question Review Breakdown -->
+      <div class="review-section">
+        <h3>Question-by-Question Review:</h3>
+        
+        <div class="review-items">
+          <div 
+            class="review-item" 
+            *ngFor="let q of questions; let i = index"
+            [class.review-correct]="selectedAnswers[q.id] === q.correctAnswerIndex"
+            [class.review-incorrect]="selectedAnswers[q.id] !== q.correctAnswerIndex">
+            
+            <div class="review-q-header">
+              <span class="review-num">Q{{ i + 1 }}</span>
+              <span class="review-q-text">{{ q.question }}</span>
+              <span class="review-status-badge">
+                {{ selectedAnswers[q.id] === q.correctAnswerIndex ? '✓ Correct' : '✕ Missed' }}
+              </span>
+            </div>
+
+            <div class="review-answers">
+              <div class="user-choice">
+                <strong>Your Answer:</strong>
+                <span>{{ q.options[selectedAnswers[q.id]] || 'Not answered' }}</span>
+              </div>
+              <div class="correct-choice" *ngIf="selectedAnswers[q.id] !== q.correctAnswerIndex">
+                <strong>Correct Answer:</strong>
+                <span>{{ q.options[q.correctAnswerIndex] }}</span>
+              </div>
+            </div>
+
+            <div class="review-rationale">
+              <strong>Rationale:</strong> {{ q.explanation }}
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>

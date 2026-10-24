@@ -1,0 +1,149 @@
+.navbar {
+  height: 64px;
+  background: #ffffff;
+  border-bottom: 1px solid var(--border-subtle);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 1.5rem;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  box-shadow: var(--shadow-xs);
+}
+
+.navbar-left {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+}
+
+.menu-toggle-btn {
+  width: 38px;
+  height: 38px;
+  border-radius: var(--radius-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-navy-700);
+  background: var(--color-navy-50);
+  transition: all var(--transition-fast);
+
+  &:hover {
+    background: var(--color-navy-100);
+    color: var(--color-navy-950);
+  }
+}
+
+.brand-link {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  text-decoration: none;
+
+  .brand-icon {
+    width: 36px;
+    height: 36px;
+    border-radius: var(--radius-md);
+    background: linear-gradient(135deg, #0f172a 0%, #0e7490 100%);
+    color: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 2px 8px rgba(14, 116, 144, 0.3);
+
+    svg {
+      width: 22px;
+      height: 22px;
+    }
+  }
+
+  .brand-text {
+    display: flex;
+    flex-direction: column;
+
+    .brand-title {
+      font-size: 1.15rem;
+      font-weight: 800;
+      color: var(--color-navy-950);
+      letter-spacing: -0.01em;
+
+      .accent {
+        color: var(--color-cyan-500);
+      }
+    }
+
+    .brand-sub {
+      font-size: 0.6875rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--color-navy-500);
+    }
+  }
+}
+
+.team-badge-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  background: var(--color-navy-50);
+  border: 1px solid var(--border-subtle);
+  padding: 0.3rem 0.75rem;
+  border-radius: var(--radius-full);
+  font-size: 0.75rem;
+
+  .team-dot {
+    width: 7px;
+    height: 7px;
+    border-radius: var(--radius-full);
+    background: #10b981;
+    box-shadow: 0 0 6px rgba(16, 185, 129, 0.6);
+  }
+
+  .team-name {
+    font-weight: 700;
+    color: var(--color-navy-900);
+  }
+
+  .team-event {
+    color: var(--color-navy-500);
+    border-left: 1px solid var(--border-subtle);
+    padding-left: 0.45rem;
+  }
+
+  @media (max-width: 768px) {
+    display: none;
+  }
+}
+
+.navbar-right {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.gemini-status-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  background: #f0fdf4;
+  color: #15803d;
+  border: 1px solid rgba(34, 197, 94, 0.25);
+  padding: 0.3rem 0.65rem;
+  border-radius: var(--radius-full);
+  font-size: 0.75rem;
+  font-weight: 600;
+
+  .sparkle-icon {
+    font-size: 0.85rem;
+  }
+
+  @media (max-width: 600px) {
+    display: none;
+  }
+}
+
+.nav-scan-btn {
+  font-size: 0.85rem;
+}

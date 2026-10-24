@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SmartLab AI — External Website Integration Demo</title>
+  <style>
+    :root {
+      --bg: #0f172a;
+      --card: #1e293b;
+      --border: #334155;
+      --cyan: #06b6d4;
+      --text: #f8fafc;
+      --muted: #94a3b8;
+      --teal: #14b8a6;
+      --rose: #f43f5e;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      padding: 30px 20px;
+      display: flex;
+      justify-content: center;
+    }
+    .container {
+      max-width: 800px;
+      width: 100%;
+    }
+    h1 {
+      font-size: 1.8rem;
+      margin-bottom: 8px;
+      color: #fff;
+    }
+    p.sub {
+      color: var(--muted);
+      margin-bottom: 24px;
+      font-size: 0.95rem;
+    }
+    .badge {
+      display: inline-block;
+      padding: 4px 10px;
+      border-radius: 999px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      background: rgba(6, 182, 212, 0.2);
+      color: var(--cyan);
+      border: 1px solid rgba(6, 182, 212, 0.4);
+      margin-bottom: 12px;
+    }
+    .card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 24px;
+      margin-bottom: 24px;
+    }
+    .upload-zone {
+      border: 2px dashed var(--border);
+      border-radius: 8px;
+      padding: 32px;
+      text-align: center;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .upload-zone:hover {
+      border-color: var(--cyan);
+      background: rgba(6, 182, 212, 0.05);
+    }
+    input[type="file"] {
+      display: none;
+    }
+    .btn {
+      background: var(--cyan);
+      color: #042f2e;
+      font-weight: 700;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 0.95rem;
+      margin-top: 14px;
+      transition: opacity 0.2s;
+    }
+    .btn:hover { opacity: 0.9; }
+    .btn:disabled { opacity: 0.5; cursor: not-allowed; }
+    #previewImg {
+      max-width: 100%;
+      max-height: 250px;
+      border-radius: 8px;
+      margin-top: 16px;
+      display: none;
+    }
+    .result-box {
+      display: none;
+      margin-top: 20px;
+      padding: 16px;
+      border-radius: 8px;
+      background: #0f172a;
+      border: 1px solid var(--border);
+    }
+    .result-title {
+      font-size: 1.3rem;
+      color: var(--cyan);
+      margin-bottom: 6px;
+    }
+    .result-sub {
+      color: var(--muted);
+      font-size: 0.85rem;
+      margin-bottom: 12px;
+    }
+    .spec-item {
+      margin-bottom: 6px;
+      font-size: 0.9rem;
+    }
+    .spec-item strong {
+      color: #e2e8f0;
+    }
+    pre {
+      background: #090d16;
+      padding: 12px;
+      border-radius: 6px;
+      overflow-x: auto;
+      font-size: 0.8rem;
+      color: #38bdf8;
+      margin-top: 14px;
+    }
+    .spinner {
+      display: none;
+      color: var(--cyan);
+      font-weight: 600;
+      margin-top: 12px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <span class="badge">Team UNEMPLOYED 004 &bull; SmartLab API</span>
+    <h1>External Website Scanner Integration</h1>
+    <p class="sub">
+      This standalone page shows how any external website can send an image to the SmartLab AI Vision Scanner endpoint (<code>POST /api/identify-equipment</code>) and receive instant equipment recognition and safety specifications.
+    </p>
+
+    <div class="card">
+      <h3>1. Select or Capture Laboratory Equipment Photo</h3>
+      <p style="color: #94a3b8; font-size: 0.85rem; margin-top: 4px; margin-bottom: 16px;">
+        Choose any chemistry lab apparatus image (e.g. Burette, Conical Flask, Beaker, Pipette, etc.):
+      </p>
+
+      <div class="upload-zone" onclick="document.getElementById('fileInput').click()">
+        <p>📷 <strong>Click here to upload an image</strong> or drag and drop</p>
+        <span style="font-size: 0.8rem; color: #64748b;">Supports JPEG, PNG, WebP up to 10MB</span>
+      </div>
+      <input type="file" id="fileInput" accept="image/*" onchange="handleFileSelect(event)">
+
+      <img id="previewImg" alt="Selected Equipment Preview">
+
+      <button id="scanBtn" class="btn" onclick="sendImageToScanner()" disabled>
+        Identify with SmartLab Vision API
+      </button>
+
+      <div id="loading" class="spinner">
+        ⏳ Analyzing with Google Gemini Multimodal Vision & matching against 73 lab items...
+      </div>
+
+      <div id="resultBox" class="result-box">
+        <h4 id="resName" class="result-title"></h4>
+        <p id="resTagline" class="result-sub"></p>
+        <div id="resDesc" class="spec-item" style="margin-bottom: 12px;"></div>
+
+        <div id="resSafetyWrap" style="margin-top: 10px; display: none;">
+          <strong style="color: #fb7185;">⚠️ Critical Safety Precautions:</strong>
+          <ul id="resSafetyList" style="margin-left: 20px; font-size: 0.85rem; color: #cbd5e1; margin-top: 4px;"></ul>
+        </div>
+
+        <p style="margin-top: 16px; font-size: 0.75rem; color: #64748b;">Raw JSON Response from SmartLab Backend:</p>
+        <pre><code id="jsonOutput"></code></pre>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Config: Point this to your SmartLab backend port (3000 locally, or deployed URL)
+    const BACKEND_URL = 'http://localhost:3000/api/identify-equipment';
+    let base64Image = null;
+
+    function handleFileSelect(event) {
+      const file = event.target.files[0];
+      if (!file) return;
+
+      const reader = new FileReader();
+      reader.onload = function(e) {
+        base64Image = e.target.result; // Complete Data URL: "data:image/jpeg;base64,..."
+        const preview = document.getElementById('previewImg');
+        preview.src = base64Image;
+        preview.style.display = 'block';
+        document.getElementById('scanBtn').disabled = false;
+        document.getElementById('resultBox').style.display = 'none';
+      };
+      reader.readAsDataURL(file);
+    }
+
+    async function sendImageToScanner() {
+      if (!base64Image) return;
+
+      const loading = document.getElementById('loading');
+      const scanBtn = document.getElementById('scanBtn');
+      const resultBox = document.getElementById('resultBox');
+
+      loading.style.display = 'block';
+      scanBtn.disabled = true;
+      resultBox.style.display = 'none';
+
+      try {
+        // --- THIS IS ALL YOUR OTHER WEBSITE NEEDS TO DO ---
+        const response = await fetch(BACKEND_URL, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({
+            image: base64Image
+          })
+        });
+
+        const data = await response.json();
+        // --------------------------------------------------
+
+        loading.style.display = 'none';
+        scanBtn.disabled = false;
+        resultBox.style.display = 'block';
+
+        document.getElementById('jsonOutput').textContent = JSON.stringify(data, null, 2);
+
+        if (data.success && data.geminiOutput) {
+          const gemini = data.geminiOutput;
+          const matched = data.matchedCatalog;
+
+          document.getElementById('resName').textContent = matched ? matched.matchedName : gemini.equipmentName;
+          document.getElementById('resTagline').textContent = matched && matched.details ? matched.details.tagline : 'Alternative names: ' + gemini.alternativeNames.join(', ');
+          document.getElementById('resDesc').innerHTML = '<strong>Visual AI Description:</strong> ' + gemini.visualDescription;
+
+          // Render safety precautions if available in 73-item database
+          const safetyWrap = document.getElementById('resSafetyWrap');
+          const safetyList = document.getElementById('resSafetyList');
+          safetyList.innerHTML = '';
+
+          if (matched && matched.details && matched.details.safetyPrecautions) {
+            matched.details.safetyPrecautions.forEach(rule => {
+              const li = document.createElement('li');
+              li.textContent = rule;
+              safetyList.appendChild(li);
+            });
+            safetyWrap.style.display = 'block';
+          } else {
+            safetyWrap.style.display = 'none';
+          }
+        } else {
+          document.getElementById('resName').textContent = 'Recognition Error';
+          document.getElementById('resTagline').textContent = data.error || 'Failed to identify apparatus.';
+        }
+
+      } catch (err) {
+        loading.style.display = 'none';
+        scanBtn.disabled = false;
+        resultBox.style.display = 'block';
+        document.getElementById('resName').textContent = 'Connection Error';
+        document.getElementById('resTagline').textContent = 'Could not connect to ' + BACKEND_URL + '. Ensure the SmartLab server is running on port 3000.';
+        document.getElementById('jsonOutput').textContent = err.toString();
+      }
+    }
+  </script>
+</body>
+</html>

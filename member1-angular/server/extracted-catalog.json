@@ -1,0 +1,607 @@
+[
+  {
+    "id": "burette",
+    "name": "Burette",
+    "aliases": [
+      "Buret",
+      "Volumetric Burette",
+      "Titration Burette"
+    ]
+  },
+  {
+    "id": "volumetric-flask",
+    "name": "Volumetric Flask",
+    "aliases": [
+      "Measuring Flask",
+      "Standard Flask",
+      "Graduated Flask"
+    ]
+  },
+  {
+    "id": "pipette",
+    "name": "Volumetric Transfer Pipette",
+    "aliases": [
+      "Bulb Pipette",
+      "One-Mark Pipette",
+      "Transfer Pipette"
+    ]
+  },
+  {
+    "id": "measuring-cylinder",
+    "name": "Graduated Measuring Cylinder",
+    "aliases": [
+      "Measuring Cylinder",
+      "Graduated Cylinder"
+    ]
+  },
+  {
+    "id": "mohr-pipette",
+    "name": "Mohr Graduated Pipette",
+    "aliases": [
+      "Graduated Pipette",
+      "Measuring Pipette"
+    ]
+  },
+  {
+    "id": "micropipette",
+    "name": "Adjustable Micropipette",
+    "aliases": [
+      "Automatic Pipette",
+      "Eppendorf Pipette",
+      "Air Displacement Pipette"
+    ]
+  },
+  {
+    "id": "pasteur-pipette",
+    "name": "Pasteur Pipette",
+    "aliases": [
+      "Dropping Pipette",
+      "Transfer Dropper",
+      "Glass Dropper"
+    ]
+  },
+  {
+    "id": "bottle-top-dispenser",
+    "name": "Bottle-Top Dispenser",
+    "aliases": [
+      "Reagent Dispenser",
+      "Repetitive Dispenser"
+    ]
+  },
+  {
+    "id": "gas-tight-syringe",
+    "name": "Gas-Tight Syringe",
+    "aliases": [
+      "Analytical Syringe",
+      "Microliter Syringe",
+      "Hamilton Syringe"
+    ]
+  },
+  {
+    "id": "dropping-bottle",
+    "name": "Dropping Bottle",
+    "aliases": [
+      "Indicator Bottle",
+      "Eye Dropper Bottle",
+      "Barnes Bottle"
+    ]
+  },
+  {
+    "id": "beaker",
+    "name": "Griffin Beaker",
+    "aliases": [
+      "Beaker",
+      "Laboratory Beaker"
+    ]
+  },
+  {
+    "id": "conical-flask",
+    "name": "Erlenmeyer Conical Flask",
+    "aliases": [
+      "Conical Flask",
+      "Titration Flask"
+    ]
+  },
+  {
+    "id": "test-tube",
+    "name": "Standard Test Tube",
+    "aliases": [
+      "Sample Tube",
+      "Culture Tube"
+    ]
+  },
+  {
+    "id": "boiling-tube",
+    "name": "Boiling Tube",
+    "aliases": [
+      "Heavy-Duty Tube",
+      "Combustion Tube"
+    ]
+  },
+  {
+    "id": "round-bottom-flask",
+    "name": "Round Bottom Flask (Single Neck)",
+    "aliases": [
+      "RBF",
+      "Distillation Flask",
+      "Spherical Flask"
+    ]
+  },
+  {
+    "id": "three-neck-flask",
+    "name": "Three-Neck Round Bottom Flask",
+    "aliases": [
+      "Multi-Neck Flask",
+      "Reaction Flask"
+    ]
+  },
+  {
+    "id": "florence-flask",
+    "name": "Florence Boiling Flask",
+    "aliases": [
+      "Flat Bottom Boiling Flask"
+    ]
+  },
+  {
+    "id": "kjeldahl-flask",
+    "name": "Kjeldahl Flask",
+    "aliases": [
+      "Nitrogen Digestion Flask"
+    ]
+  },
+  {
+    "id": "schlenk-flask",
+    "name": "Schlenk Flask",
+    "aliases": [
+      "Vacuum Gas Flask",
+      "Inert Atmosphere Tube"
+    ]
+  },
+  {
+    "id": "retort-flask",
+    "name": "Traditional Retort Flask",
+    "aliases": [
+      "Glass Retort",
+      "Distillation Retort"
+    ]
+  },
+  {
+    "id": "crucible",
+    "name": "Porcelain Crucible & Lid",
+    "aliases": [
+      "Crucible with Cover",
+      "Gooch Crucible"
+    ]
+  },
+  {
+    "id": "evaporating-dish",
+    "name": "Porcelain Evaporating Basin",
+    "aliases": [
+      "Evaporating Dish",
+      "Crystallizing Basin"
+    ]
+  },
+  {
+    "id": "funnel",
+    "name": "Conical Filter Funnel",
+    "aliases": [
+      "Filter Funnel",
+      "Standard Glass Funnel"
+    ]
+  },
+  {
+    "id": "separating-funnel",
+    "name": "Separating Funnel",
+    "aliases": [
+      "Sep Funnel",
+      "Separatory Funnel",
+      "Extraction Funnel"
+    ]
+  },
+  {
+    "id": "buchner-funnel",
+    "name": "Büchner Funnel",
+    "aliases": [
+      "Vacuum Funnel",
+      "Suction Funnel"
+    ]
+  },
+  {
+    "id": "buchner-flask",
+    "name": "Büchner Filter Flask",
+    "aliases": [
+      "Suction Flask",
+      "Filter Flask",
+      "Kitasato Flask"
+    ]
+  },
+  {
+    "id": "hirsch-funnel",
+    "name": "Hirsch Funnel",
+    "aliases": [
+      "Micro-Büchner Funnel",
+      "Small Vacuum Funnel"
+    ]
+  },
+  {
+    "id": "sintered-glass-funnel",
+    "name": "Sintered Glass Fritted Funnel",
+    "aliases": [
+      "Fritted Glass Funnel",
+      "Gooch Glass Crucible"
+    ]
+  },
+  {
+    "id": "liebig-condenser",
+    "name": "Liebig Condenser",
+    "aliases": [
+      "Straight Condenser",
+      "Water Condenser"
+    ]
+  },
+  {
+    "id": "graham-condenser",
+    "name": "Graham Coiled Condenser",
+    "aliases": [
+      "Coiled Condenser",
+      "Spiral Condenser"
+    ]
+  },
+  {
+    "id": "allihn-condenser",
+    "name": "Allihn Reflux Condenser",
+    "aliases": [
+      "Bulb Condenser",
+      "Reflux Condenser"
+    ]
+  },
+  {
+    "id": "dean-stark-trap",
+    "name": "Dean-Stark Trap Apparatus",
+    "aliases": [
+      "Azeotropic Distillation Trap",
+      "Water Estimator"
+    ]
+  },
+  {
+    "id": "soxhlet-extractor",
+    "name": "Soxhlet Extraction Apparatus",
+    "aliases": [
+      "Continuous Extractor",
+      "Percolation Extractor"
+    ]
+  },
+  {
+    "id": "rotary-evaporator-flask",
+    "name": "Rotary Evaporator Flask",
+    "aliases": [
+      "Rotovap Flask",
+      "Evaporation Bulb"
+    ]
+  },
+  {
+    "id": "chromatography-column",
+    "name": "Flash Chromatography Column",
+    "aliases": [
+      "Glass Column",
+      "Separation Column"
+    ]
+  },
+  {
+    "id": "desiccator",
+    "name": "Vacuum Glass Desiccator",
+    "aliases": [
+      "Desiccator Cabinet",
+      "Drying Chamber"
+    ]
+  },
+  {
+    "id": "gas-washing-bottle",
+    "name": "Gas Washing Bottle",
+    "aliases": [
+      "Drechsel Bottle",
+      "Gas Bubbler",
+      "Gas Scrubber"
+    ]
+  },
+  {
+    "id": "pneumatic-trough",
+    "name": "Pneumatic Trough & Gas Jar",
+    "aliases": [
+      "Gas Collection Trough",
+      "Beehive Shelf Setup"
+    ]
+  },
+  {
+    "id": "hofmann-voltameter",
+    "name": "Hofmann Voltameter",
+    "aliases": [
+      "Water Electrolysis Apparatus"
+    ]
+  },
+  {
+    "id": "u-tube",
+    "name": "Drying U-Tube",
+    "aliases": [
+      "Calcium Chloride Tube",
+      "Absorption U-Tube"
+    ]
+  },
+  {
+    "id": "bunsen-burner",
+    "name": "Bunsen Burner",
+    "aliases": [
+      "Tirrill Burner",
+      "Laboratory Gas Burner",
+      "Meker Burner"
+    ]
+  },
+  {
+    "id": "spirit-lamp",
+    "name": "Spirit Alcohol Lamp",
+    "aliases": [
+      "Alcohol Burner",
+      "Spirit Burner"
+    ]
+  },
+  {
+    "id": "heating-mantle",
+    "name": "Electric Heating Mantle",
+    "aliases": [
+      "Mantle Heater",
+      "Spherical Heating Mantle"
+    ]
+  },
+  {
+    "id": "hot-plate-stirrer",
+    "name": "Hot Plate & Magnetic Stirrer",
+    "aliases": [
+      "Magnetic Stirrer",
+      "Ceramic Hotplate",
+      "Stir Plate"
+    ]
+  },
+  {
+    "id": "water-bath",
+    "name": "Thermostatic Water Bath",
+    "aliases": [
+      "Constant Temperature Bath",
+      "Serological Water Bath"
+    ]
+  },
+  {
+    "id": "wire-gauze",
+    "name": "Ceramic-Centered Wire Gauze",
+    "aliases": [
+      "Wire Gauze Mat",
+      "Asbestos-Free Gauze"
+    ]
+  },
+  {
+    "id": "pipeclay-triangle",
+    "name": "Pipeclay Triangle",
+    "aliases": [
+      "Clay Triangle",
+      "Crucible Triangle"
+    ]
+  },
+  {
+    "id": "tripod-stand",
+    "name": "Cast Iron Tripod Stand",
+    "aliases": [
+      "Lab Tripod",
+      "Burner Tripod"
+    ]
+  },
+  {
+    "id": "electronic-balance",
+    "name": "Precision Analytical Balance",
+    "aliases": [
+      "Electronic Balance",
+      "Analytical Scale",
+      "Digital Balance"
+    ]
+  },
+  {
+    "id": "top-loading-balance",
+    "name": "Top-Loading Precision Balance",
+    "aliases": [
+      "Bench Balance",
+      "Top-Pan Balance",
+      "Milligram Balance"
+    ]
+  },
+  {
+    "id": "thermometer",
+    "name": "Laboratory Thermometer",
+    "aliases": [
+      "Red Spirit Thermometer",
+      "Immersion Thermometer"
+    ]
+  },
+  {
+    "id": "ph-meter",
+    "name": "Digital pH Meter & Electrode",
+    "aliases": [
+      "pH Meter",
+      "Glass Combination Electrode",
+      "pH Probe"
+    ]
+  },
+  {
+    "id": "conductivity-meter",
+    "name": "Electrical Conductivity Meter",
+    "aliases": [
+      "EC Meter",
+      "Conductivity Probe",
+      "TDS Meter"
+    ]
+  },
+  {
+    "id": "thiele-tube",
+    "name": "Thiele Melting Point Tube",
+    "aliases": [
+      "Thiele Tube",
+      "Capillary Melting Apparatus"
+    ]
+  },
+  {
+    "id": "pycnometer",
+    "name": "Specific Gravity Bottle (Pycnometer)",
+    "aliases": [
+      "Pycnometer",
+      "Density Bottle"
+    ]
+  },
+  {
+    "id": "microscope",
+    "name": "Compound Optical Microscope",
+    "aliases": [
+      "Light Microscope",
+      "Biological Microscope"
+    ]
+  },
+  {
+    "id": "retort-stand",
+    "name": "Retort Support Stand",
+    "aliases": [
+      "Ring Stand",
+      "Laboratory Stand",
+      "Base and Rod"
+    ]
+  },
+  {
+    "id": "retort-ring-clamp",
+    "name": "Retort Support Ring",
+    "aliases": [
+      "Iron Ring Clamp",
+      "Extension Ring"
+    ]
+  },
+  {
+    "id": "burette-clamp",
+    "name": "Burette Clamp",
+    "aliases": [
+      "Double Burette Clamp",
+      "Butterfly Clamp"
+    ]
+  },
+  {
+    "id": "utility-clamp",
+    "name": "Three-Finger Swivel Utility Clamp",
+    "aliases": [
+      "3-Finger Clamp",
+      "Universal Clamp"
+    ]
+  },
+  {
+    "id": "bosshead",
+    "name": "Laboratory Bosshead Clamp Holder",
+    "aliases": [
+      "Clamp Holder",
+      "Right-Angle Clamp"
+    ]
+  },
+  {
+    "id": "test-tube-rack",
+    "name": "Test Tube Rack",
+    "aliases": [
+      "Test Tube Stand",
+      "Drying Rack"
+    ]
+  },
+  {
+    "id": "test-tube-holder",
+    "name": "Wooden Test Tube Holder",
+    "aliases": [
+      "Test Tube Clamp",
+      "Tube Tong"
+    ]
+  },
+  {
+    "id": "crucible-tongs",
+    "name": "Crucible Tongs",
+    "aliases": [
+      "Crucible Pincers",
+      "Ashing Tongs"
+    ]
+  },
+  {
+    "id": "beaker-tongs",
+    "name": "Silicone-Sleeved Beaker Tongs",
+    "aliases": [
+      "Beaker Pincers",
+      "Flask Tongs"
+    ]
+  },
+  {
+    "id": "spatula",
+    "name": "Chattaway Laboratory Spatula",
+    "aliases": [
+      "Micro Spatula",
+      "Scoopula",
+      "Chemical Spoon"
+    ]
+  },
+  {
+    "id": "mortar-and-pestle",
+    "name": "Mortar and Pestle",
+    "aliases": [
+      "Agate Mortar",
+      "Porcelain Grinder"
+    ]
+  },
+  {
+    "id": "glass-rod",
+    "name": "Glass Stirring Rod with Rubber Policeman",
+    "aliases": [
+      "Stirring Rod",
+      "Glass Policeman",
+      "Stir Rod"
+    ]
+  },
+  {
+    "id": "deflagrating-spoon",
+    "name": "Deflagrating Combustion Spoon",
+    "aliases": [
+      "Combustion Spoon",
+      "Gas Deflagration Spoon"
+    ]
+  },
+  {
+    "id": "wash-bottle",
+    "name": "LDPE Squeeze Wash Bottle",
+    "aliases": [
+      "Wash Bottle",
+      "Dispensing Squeeze Bottle",
+      "Solvent Bottle"
+    ]
+  },
+  {
+    "id": "safety-goggles",
+    "name": "Chemical Splash Goggles (PPE)",
+    "aliases": [
+      "Safety Goggles",
+      "Eye Protection Goggles",
+      "Lab Goggles"
+    ]
+  },
+  {
+    "id": "fume-hood",
+    "name": "Laboratory Chemical Fume Hood",
+    "aliases": [
+      "Fume Cupboard",
+      "Exhaust Hood",
+      "Chemical Fume Hood"
+    ]
+  },
+  {
+    "id": "eyewash-station",
+    "name": "Emergency Eyewash & Safety Shower",
+    "aliases": [
+      "Eyewash Station",
+      "Drench Shower",
+      "Safety Station"
+    ]
+  }
+]
