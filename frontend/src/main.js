@@ -4,6 +4,7 @@ import './styles/chat.css';
 import './styles/arQuiz.css';
 import './styles/virtualLab.css';
 import './styles/equipmentViewer.css';
+import './styles/scanner.css';
 
 import { PhTitrationView } from './features/ph-titration/PhTitrationView.js';
 import { ConductometricView } from './features/conductometric-titration/ConductometricView.js';
@@ -12,6 +13,7 @@ import { ArQuizController } from './features/ar-quiz/ArQuizController.js';
 import { VirtualLabController } from './features/virtual-lab/VirtualLabController.js';
 import { EquipmentDatabaseView } from './features/equipment-viewer/EquipmentDatabaseView.js';
 import { SimulatorView } from './features/simulator/SimulatorView.js';
+import { CameraScannerView } from './features/camera-scanner/CameraScannerView.js';
 
 class SmartLabApp {
   constructor() {
@@ -20,6 +22,7 @@ class SmartLabApp {
     this.container = document.getElementById('view-root');
     this.tabs = {
       experiments: VirtualLabController,
+      scanner: CameraScannerView,
       simulator: SimulatorView,
       equipment: EquipmentDatabaseView,
       'ar-quiz': ArQuizController,
@@ -50,6 +53,8 @@ class SmartLabApp {
       this.switchTab('experiments', 'conductometric-titration');
     } else if (tabKey === 'simulator') {
       this.switchTab('simulator', expParam || 'acid-base-titration');
+    } else if (tabKey === 'ai-scanner' || tabKey === 'camera-scanner' || tabKey === 'scanner') {
+      this.switchTab('scanner');
     } else if (this.tabs[tabKey]) {
       this.switchTab(tabKey, expParam);
     } else {
@@ -97,7 +102,7 @@ class SmartLabApp {
 
     if (tabKey === 'simulator') {
       this.currentView = new ViewClass(this.container, initialParam || 'acid-base-titration', callbacks);
-    } else if (tabKey === 'equipment') {
+    } else if (tabKey === 'equipment' || tabKey === 'scanner') {
       this.currentView = new ViewClass(this.container, callbacks);
     } else {
       this.currentView = new ViewClass(this.container, initialParam);

@@ -3,12 +3,16 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Smart Lab Assistant — Virtual Lab, 2D Simulator & 62 Equipment Database</title>
-    <meta name="description" content="AI-Powered Smart Lab Equipment Assistant featuring 15 interactive virtual experiments, 8-setup 2D laboratory simulator, 62 chemistry equipment ground truth database, AR vision scanner, quizzes, and Gemini AI voice assistant." />
+    <title>Smart Lab Assistant — Virtual Lab, 2D Simulator & AI Equipment Scanner</title>
+    <meta name="description" content="AI-Powered Smart Lab Equipment Assistant featuring Teachable Machine live camera & document equipment scanner, 15 virtual experiments, 8-setup 2D laboratory simulator, and 62 equipment database." />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+
+    <!-- Google Teachable Machine & TensorFlow.js SDKs -->
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@latest/dist/tf.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@teachablemachine/image@latest/dist/teachablemachine-image.min.js"></script>
   </head>
   <body>
     <!-- App Navigation Header -->
@@ -26,6 +30,9 @@
         <button class="nav-tab-btn active" data-tab="experiments" id="tab-btn-experiments">
           <span>🔬</span> Virtual Lab (15 Experiments)
         </button>
+        <button class="nav-tab-btn" data-tab="scanner" id="tab-btn-scanner">
+          <span>📷</span> AI Equipment Scanner
+        </button>
         <button class="nav-tab-btn" data-tab="simulator" id="tab-btn-simulator">
           <span>⚗️</span> 2D Lab Simulator
         </button>
@@ -33,7 +40,7 @@
           <span>🔍</span> 62 Equipment Database
         </button>
         <button class="nav-tab-btn" data-tab="ar-quiz" id="tab-btn-ar-quiz">
-          <span>📷</span> AR Lab & Quizzes
+          <span>📝</span> AR Lab & Quizzes
         </button>
         <button class="nav-tab-btn" data-tab="chat" id="tab-btn-chat">
           <span>🤖</span> AI Lab Assistant
@@ -52,11 +59,11 @@
         <strong>AI-Powered Smart Lab Equipment Assistant</strong> • Tech Elevate UNEMPLOYED 004
       </div>
       <div class="footer-tags">
+        <span class="footer-tag">Teachable Machine AI (BlF4tNf8j)</span>
+        <span class="footer-tag">Camera & Document Scanner</span>
         <span class="footer-tag">62 Chemistry Lab Tools</span>
         <span class="footer-tag">8 2D Simulation Setups</span>
         <span class="footer-tag">15 Virtual Experiments</span>
-        <span class="footer-tag">AI Vision Scanner</span>
-        <span class="footer-tag">63 Equipment Quizzes</span>
         <span class="footer-tag">Gemini AI Assistant</span>
       </div>
     </footer>
