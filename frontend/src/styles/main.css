@@ -9,23 +9,31 @@
   /* Color Palette */
   --bg-app: #07111F;
   --bg-surface: #0f172a;
-  --bg-card: rgba(30, 41, 59, 0.7);
-  --bg-card-hover: rgba(51, 65, 85, 0.8);
-  --border-color: rgba(148, 163, 184, 0.15);
-  --border-focus: #38bdf8;
+  --bg-card: rgba(17, 27, 44, 0.72);
+  --bg-card-hover: rgba(28, 44, 70, 0.82);
+  --border-color: rgba(53, 217, 242, 0.16);
+  --border-focus: #35D9F2;
+
+  /* Scientific Molecular Palette */
+  --color-midnight: #07111F;
+  --color-deep-blue: #102747;
+  --color-electric-cyan: #35D9F2;
+  --color-bright-teal: #20C9B0;
+  --color-ice-blue: #A5F3FC;
+  --color-indigo: #6366F1;
 
   /* Brand Accents */
-  --color-primary: #38bdf8;
+  --color-primary: #35D9F2;
   --color-primary-dark: #0284c7;
   --color-primary-light: #e0f2fe;
   
-  --color-emerald: #10b981;
-  --color-emerald-bg: rgba(16, 185, 129, 0.12);
+  --color-emerald: #20C9B0;
+  --color-emerald-bg: rgba(32, 201, 176, 0.12);
   --color-amber: #f59e0b;
   --color-amber-bg: rgba(245, 158, 11, 0.12);
   --color-rose: #f43f5e;
   --color-rose-bg: rgba(244, 63, 94, 0.12);
-  --color-purple: #a855f7;
+  --color-purple: #6366F1;
 
   /* Text Colors */
   --text-main: #f8fafc;
@@ -36,7 +44,7 @@
   --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.4);
   --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.5), 0 2px 4px -2px rgba(0, 0, 0, 0.5);
   --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.6), 0 4px 6px -4px rgba(0, 0, 0, 0.5);
-  --shadow-glow: 0 0 20px rgba(56, 189, 248, 0.25);
+  --shadow-glow: 0 0 20px rgba(53, 217, 242, 0.28);
   --radius-sm: 6px;
   --radius-md: 10px;
   --radius-lg: 14px;
@@ -50,13 +58,41 @@
 
 body {
   font-family: var(--font-sans);
-  background-color: var(--bg-app);
+  background-color: var(--color-midnight);
+  background-image: 
+    radial-gradient(ellipse 85% 60% at 10% 18%, rgba(16, 39, 71, 0.85) 0%, transparent 65%),
+    radial-gradient(ellipse 65% 55% at 90% 80%, rgba(99, 102, 241, 0.16) 0%, transparent 60%),
+    radial-gradient(ellipse 55% 45% at 50% 12%, rgba(32, 201, 176, 0.08) 0%, transparent 50%);
+  background-attachment: fixed;
   color: var(--text-main);
   line-height: 1.5;
   -webkit-font-smoothing: antialiased;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
+}
+
+/* Global Heading Palette to Match Glowing Molecules */
+h1, .heading-primary, .vlab-hero-title, .scanner-hero-title, .brand-title, .chat-title, .eq-scanner-title {
+  color: var(--color-electric-cyan) !important;
+  text-shadow: 0 0 16px rgba(53, 217, 242, 0.35);
+  letter-spacing: -0.015em;
+}
+
+h2, .heading-secondary, .vlab-detail-title, .sec-title, .section-title, .card-title, .eq-modal-title, .panel-title, .results-title, .presets-title, .scanner-title {
+  color: var(--color-bright-teal) !important;
+  text-shadow: 0 0 12px rgba(32, 201, 176, 0.25);
+  letter-spacing: -0.01em;
+}
+
+h3, h4, .heading-tertiary, .subsection-title, .step-title, .step-title-text, .q-title, .sidebar-title, .eq-modal-section-title, .safety-title, .int-title, .card-equipment-title {
+  color: var(--color-ice-blue) !important;
+}
+
+.text-gradient-cyan-teal {
+  background: linear-gradient(135deg, #35D9F2 0%, #20C9B0 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 /* Molecular Background Canvas Layer */
@@ -108,7 +144,8 @@ body {
   font-size: 1.05rem;
   font-weight: 700;
   letter-spacing: -0.01em;
-  color: #ffffff;
+  color: var(--color-electric-cyan);
+  text-shadow: 0 0 14px rgba(53, 217, 242, 0.35);
 }
 
 .brand-badge {
@@ -182,7 +219,8 @@ body {
 .card-title {
   font-size: 1.05rem;
   font-weight: 600;
-  color: #f1f5f9;
+  color: var(--color-bright-teal);
+  text-shadow: 0 0 10px rgba(32, 201, 176, 0.22);
 }
 
 .card-desc {

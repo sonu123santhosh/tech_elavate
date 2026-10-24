@@ -50,7 +50,8 @@
 .vlab-hero-title {
   font-size: 2.1rem;
   font-weight: 800;
-  color: #ffffff;
+  color: #35D9F2;
+  text-shadow: 0 0 18px rgba(53, 217, 242, 0.38);
   letter-spacing: -0.02em;
   margin-bottom: 0.6rem;
 }
@@ -288,7 +289,8 @@
 .vlab-card-title {
   font-size: 1.22rem;
   font-weight: 700;
-  color: #ffffff;
+  color: #20C9B0;
+  text-shadow: 0 0 10px rgba(32, 201, 176, 0.22);
   line-height: 1.35;
 }
 
@@ -432,7 +434,8 @@
 .vlab-detail-title {
   font-size: 1.95rem;
   font-weight: 800;
-  color: #fff;
+  color: #35D9F2;
+  text-shadow: 0 0 16px rgba(53, 217, 242, 0.35);
   letter-spacing: -0.02em;
 }
 
@@ -532,7 +535,8 @@
 .sec-title {
   font-size: 1.25rem;
   font-weight: 700;
-  color: #fff;
+  color: #20C9B0;
+  text-shadow: 0 0 10px rgba(32, 201, 176, 0.22);
 }
 
 .sec-subtitle {

@@ -109,9 +109,8 @@ body {
 .brand-text h1 {
   font-size: 1.35rem;
   font-weight: 700;
-  background: linear-gradient(90deg, #f3f4f6, var(--accent-cyan));
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+  color: #35D9F2;
+  text-shadow: 0 0 16px rgba(53, 217, 242, 0.35);
   line-height: 1.25;
 }
 

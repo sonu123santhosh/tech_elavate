@@ -109,9 +109,8 @@ body {
   font-size: 1.5rem;
   font-weight: 700;
   letter-spacing: -0.02em;
-  background: linear-gradient(to right, #f3f4f6, #38bdf8);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+  color: #35D9F2;
+  text-shadow: 0 0 16px rgba(53, 217, 242, 0.35);
 }
 
 .brand-text p {

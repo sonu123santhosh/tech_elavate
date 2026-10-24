@@ -53,7 +53,8 @@
 .chat-title {
   font-size: 1.15rem;
   font-weight: 700;
-  color: #ffffff;
+  color: #35D9F2;
+  text-shadow: 0 0 14px rgba(53, 217, 242, 0.35);
 }
 
 .badge-status {

@@ -30,7 +30,8 @@
 .exp-title {
   font-size: 1.45rem;
   font-weight: 700;
-  color: #ffffff;
+  color: #35D9F2;
+  text-shadow: 0 0 16px rgba(53, 217, 242, 0.35);
   letter-spacing: -0.01em;
 }
 
