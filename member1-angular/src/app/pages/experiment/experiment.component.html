@@ -1,0 +1,321 @@
+<div class="experiment-page">
+  <!-- Educational Disclaimer Banner -->
+  <div class="disclaimer-banner">
+    <div class="disc-icon">⚠️</div>
+    <div class="disc-text">
+      <strong>Academic Laboratory Educational Module</strong>
+      <p>
+        This guide provides educational procedural familiarization and apparatus workflow demonstration. It is not a substitute for direct supervised laboratory instruction or institution-specific standard operating procedures (SOP).
+      </p>
+    </div>
+  </div>
+
+  <!-- Module Title & Header -->
+  <div class="page-header">
+    <div class="header-left">
+      <div class="header-meta">
+        <a routerLink="/dashboard" class="back-link">&larr; Dashboard</a>
+        <span class="badge badge-teal">Volumetric Analysis Module 01</span>
+      </div>
+      <h1 class="page-title">Acid-Base Titration: Standardization Protocol</h1>
+      <p class="page-desc">
+        Determination of Hydrochloric Acid (HCl) concentration using standardized Sodium Hydroxide (0.100 M NaOH) and Phenolphthalein indicator.
+      </p>
+    </div>
+
+    <div class="reaction-card">
+      <div class="rxn-label">Stoichiometric Neutralization</div>
+      <div class="rxn-formula mono-text">
+        HCl(aq) + NaOH(aq) &rarr; NaCl(aq) + H<sub>2</sub>O(l)
+      </div>
+      <div class="rxn-ratio">Molar Ratio: <strong>1 : 1</strong> stoichiometric equivalence</div>
+    </div>
+  </div>
+
+  <!-- Required Apparatus Bar (Clickable Dossiers) -->
+  <div class="apparatus-section">
+    <span class="app-label">Required Apparatus (Click to view dossier):</span>
+    <div class="app-chips">
+      <button type="button" class="app-chip" (click)="openEquipmentDossier('burette')">
+        <span class="chip-icon">📏</span>
+        <span>50 mL Burette (Class A)</span>
+      </button>
+      <button type="button" class="app-chip" (click)="openEquipmentDossier('conical-flask')">
+        <span class="chip-icon">🧪</span>
+        <span>250 mL Conical Flask</span>
+      </button>
+      <button type="button" class="app-chip" (click)="openEquipmentDossier('pipette')">
+        <span class="chip-icon">💉</span>
+        <span>25.00 mL Transfer Pipette</span>
+      </button>
+      <button type="button" class="app-chip" (click)="openEquipmentDossier('funnel')">
+        <span class="chip-icon">🔺</span>
+        <span>Small Glass Funnel</span>
+      </button>
+      <button type="button" class="app-chip" (click)="openEquipmentDossier('beaker')">
+        <span class="chip-icon">🥛</span>
+        <span>100 mL Beakers (Waste/Titrant)</span>
+      </button>
+    </div>
+  </div>
+
+  <!-- Two-Column Experiment Layout -->
+  <div class="exp-layout">
+    
+    <!-- Left Column: Interactive Stepper & Step Guide -->
+    <div class="guide-card">
+      <!-- Step Navigation Pills -->
+      <div class="stepper-nav">
+        <button 
+          *ngFor="let s of steps; let i = index" 
+          type="button" 
+          class="step-nav-btn"
+          [class.active]="currentStepIndex === i"
+          [class.completed]="currentStepIndex > i"
+          (click)="goToStep(i)">
+          <span class="step-circle">{{ i + 1 }}</span>
+          <span class="step-btn-text">Step {{ i + 1 }}</span>
+        </button>
+      </div>
+
+      <!-- Active Step Content -->
+      <div class="step-body">
+        <div class="step-meta">
+          <span class="badge badge-cyan">Step {{ currentStep.stepNumber }} of {{ steps.length }}</span>
+          <h2 class="step-title">{{ currentStep.title }}</h2>
+          <p class="step-subtitle">{{ currentStep.subtitle }}</p>
+        </div>
+
+        <div class="step-instructions">
+          <h4>Standard Operating Procedure:</h4>
+          <ol class="step-ol">
+            <li *ngFor="let inst of currentStep.instructions">{{ inst }}</li>
+          </ol>
+        </div>
+
+        <div class="tip-callout">
+          <div class="callout-icon">💡</div>
+          <div class="callout-text">
+            <strong>Analyst Pro-Tip:</strong>
+            <p>{{ currentStep.proTip }}</p>
+          </div>
+        </div>
+
+        <div class="safety-callout" *ngIf="currentStep.safetyNote">
+          <div class="callout-icon">⚠️</div>
+          <div class="callout-text">
+            <strong>Safety Mandate:</strong>
+            <p>{{ currentStep.safetyNote }}</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Stepper Controls Footer -->
+      <div class="stepper-footer">
+        <button 
+          class="btn btn-outline" 
+          [disabled]="currentStepIndex === 0" 
+          (click)="prevStep()">
+          &larr; Previous Step
+        </button>
+
+        <span class="step-indicator-text">
+          Step {{ currentStepIndex + 1 }} of {{ steps.length }}
+        </span>
+
+        <button 
+          class="btn btn-cyan" 
+          *ngIf="currentStepIndex < steps.length - 1" 
+          (click)="nextStep()">
+          Next Step &rarr;
+        </button>
+
+        <a 
+          routerLink="/quiz" 
+          class="btn btn-primary" 
+          *ngIf="currentStepIndex === steps.length - 1">
+          Take Titration Safety Quiz &rarr;
+        </a>
+      </div>
+    </div>
+
+    <!-- Right Column: Interactive Checklist & Endpoint Visualizer -->
+    <div class="sidebar-column">
+      
+      <!-- Interactive Preparation Checklist -->
+      <div class="checklist-card">
+        <div class="checklist-header">
+          <div>
+            <h3>Pre-Titration Verification Checklist</h3>
+            <p>Complete prior to delivering first titrant drop</p>
+          </div>
+          <span class="badge badge-teal">{{ checklistProgress }}% Complete</span>
+        </div>
+
+        <div class="checklist-progress-bar">
+          <div class="bar-fill" [style.width.%]="checklistProgress"></div>
+        </div>
+
+        <div class="checklist-items">
+          <label 
+            *ngFor="let item of checklist" 
+            class="check-row" 
+            [class.checked]="item.checked">
+            <input 
+              type="checkbox" 
+              [checked]="item.checked" 
+              (change)="toggleChecklistItem(item.id)" 
+              class="custom-checkbox" />
+            <span class="check-text">{{ item.text }}</span>
+          </label>
+        </div>
+      </div>
+
+      <!-- Interactive Endpoint Visualizer -->
+      <div class="endpoint-card">
+        <div class="endpoint-header">
+          <div class="endpoint-title-wrap">
+            <span class="badge badge-cyan">Interactive Simulator</span>
+            <h3>Phenolphthalein Endpoint Visualizer</h3>
+          </div>
+        </div>
+
+        <p class="endpoint-desc">
+          Drag the pH slider to observe how solution appearance shifts near the stoichiometric equivalence point (pH 8.2 &ndash; 10.0):
+        </p>
+
+        <!-- Dynamic Flask Representation -->
+        <div class="flask-visual-box">
+          <div class="flask-glass" [ngStyle]="endpointColorStyle">
+            <div class="meniscus-water"></div>
+            <div class="flask-liquid-label">pH {{ phValue.toFixed(1) }}</div>
+          </div>
+
+          <div class="endpoint-status-panel">
+            <span class="badge" [ngClass]="endpointEvaluation.badgeClass">
+              {{ endpointEvaluation.label }}
+            </span>
+            <p class="eval-desc">{{ endpointEvaluation.desc }}</p>
+          </div>
+        </div>
+
+        <!-- Slider Control -->
+        <div class="slider-control">
+          <div class="slider-labels">
+            <span>Acidic (pH 6.0)</span>
+            <span class="target-marker">Equivalence (pH 8.2–8.4)</span>
+            <span>Over-titrated (pH 11.0)</span>
+          </div>
+          <input 
+            type="range" 
+            min="6.0" 
+            max="11.0" 
+            step="0.1" 
+            [(ngModel)]="phValue" 
+            class="ph-slider" />
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+
+  <!-- Illustrative Results Table & Concentration Calculator Row -->
+  <div class="results-calculator-grid">
+    <!-- Results Table -->
+    <div class="table-card">
+      <div class="table-card-header">
+        <div>
+          <h3>Titration Trial Data Sheet</h3>
+          <p>Sample experimental trial values (Illustrative Reference Data)</p>
+        </div>
+        <span class="badge badge-amber">Sample Data</span>
+      </div>
+
+      <table class="data-table">
+        <thead>
+          <tr>
+            <th>Trial Number</th>
+            <th>Initial Burette Reading (mL)</th>
+            <th>Final Burette Reading (mL)</th>
+            <th>Titre Delivered (mL)</th>
+            <th>Concordancy Status</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Rough Run</strong></td>
+            <td class="mono-text">0.00</td>
+            <td class="mono-text">25.10</td>
+            <td class="mono-text">25.10</td>
+            <td><span class="badge badge-navy">Excluded from average</span></td>
+          </tr>
+          <tr>
+            <td><strong>Run 1</strong></td>
+            <td class="mono-text">0.00</td>
+            <td class="mono-text">24.30</td>
+            <td class="mono-text">24.30</td>
+            <td><span class="badge badge-emerald">Concordant (&plusmn;0.10)</span></td>
+          </tr>
+          <tr>
+            <td><strong>Run 2</strong></td>
+            <td class="mono-text">24.30</td>
+            <td class="mono-text">48.70</td>
+            <td class="mono-text">24.40</td>
+            <td><span class="badge badge-emerald">Concordant (&plusmn;0.10)</span></td>
+          </tr>
+          <tr class="summary-row">
+            <td colspan="3"><strong>Mean Concordant Titre (V<sub>NaOH</sub>):</strong></td>
+            <td class="mono-text highlight-titre">24.35 mL</td>
+            <td><span class="badge badge-teal">Analytical Standard</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Interactive Molarity Calculator -->
+    <div class="calculator-card">
+      <div class="calc-header">
+        <span class="calc-icon">🧮</span>
+        <div>
+          <h3>Interactive Titration Calculator</h3>
+          <p>Calculate unknown acid molarity: <code>C₁ &times; V₁ = C₂ &times; V₂</code></p>
+        </div>
+      </div>
+
+      <div class="calc-form">
+        <div class="calc-field">
+          <label for="v1Input">Analyte Volume (V<sub>HCl</sub> in mL):</label>
+          <input id="v1Input" type="number" [(ngModel)]="calcV1" step="0.1" class="calc-input" />
+        </div>
+
+        <div class="calc-field">
+          <label for="c2Input">Titrant Molarity (C<sub>NaOH</sub> in mol/L):</label>
+          <input id="c2Input" type="number" [(ngModel)]="calcC2" step="0.001" class="calc-input" />
+        </div>
+
+        <div class="calc-field">
+          <label for="v2Input">Average Titre (V<sub>NaOH</sub> in mL):</label>
+          <input id="v2Input" type="number" [(ngModel)]="calcV2" step="0.05" class="calc-input" />
+        </div>
+      </div>
+
+      <div class="calc-result-box">
+        <span class="res-label">Calculated Hydrochloric Acid Concentration:</span>
+        <div class="res-value mono-text">
+          C<sub>HCl</sub> = {{ calculatedMolarity }} M
+        </div>
+        <div class="res-formula-note">
+          Formula: ({{ calcC2 }} M &times; {{ calcV2 }} mL) / {{ calcV1 }} mL
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Apparatus Dossier Modal -->
+  <app-equipment-modal 
+    *ngIf="selectedEquipmentModal"
+    [equipment]="selectedEquipmentModal"
+    (close)="closeModal()">
+  </app-equipment-modal>
+</div>

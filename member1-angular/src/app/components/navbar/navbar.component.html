@@ -1,0 +1,46 @@
+<header class="navbar">
+  <div class="navbar-left">
+    <button class="menu-toggle-btn" (click)="toggleSidebar.emit()" aria-label="Toggle navigation menu">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+        <line x1="3" y1="12" x2="21" y2="12"></line>
+        <line x1="3" y1="6" x2="21" y2="6"></line>
+        <line x1="3" y1="18" x2="21" y2="18"></line>
+      </svg>
+    </button>
+
+    <a routerLink="/dashboard" class="brand-link">
+      <div class="brand-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M10 2v7.31L4.2 18.5A2 2 0 0 0 6 21h12a2 2 0 0 0 1.8-2.5L14 9.31V2"></path>
+          <path d="M8.5 2h7"></path>
+          <path d="M14 9.3a6.5 6.5 0 1 1-4 0"></path>
+        </svg>
+      </div>
+      <div class="brand-text">
+        <span class="brand-title">SmartLab <span class="accent">AI</span></span>
+        <span class="brand-sub">Equipment Assistant</span>
+      </div>
+    </a>
+
+    <div class="team-badge-pill">
+      <span class="team-dot"></span>
+      <span class="team-name">UNEMPLOYED 004</span>
+      <span class="team-event">Tech Elevate</span>
+    </div>
+  </div>
+
+  <div class="navbar-right">
+    <div class="gemini-status-badge">
+      <span class="sparkle-icon">✨</span>
+      <span class="badge-text">Gemini Ready</span>
+    </div>
+
+    <a routerLink="/scanner" class="btn btn-cyan btn-sm nav-scan-btn">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+        <path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"></path>
+        <circle cx="12" cy="13" r="4"></circle>
+      </svg>
+      Scan Equipment
+    </a>
+  </div>
+</header>

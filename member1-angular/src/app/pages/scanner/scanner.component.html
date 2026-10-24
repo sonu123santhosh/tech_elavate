@@ -1,0 +1,452 @@
+<div class="scanner-page">
+  <!-- Page Header -->
+  <div class="page-header">
+    <div class="header-left">
+      <div class="header-meta">
+        <a routerLink="/dashboard" class="back-link">&larr; Back to Dashboard</a>
+        <span class="badge" [ngClass]="tmService.isLoaded() ? 'badge-emerald' : 'badge-cyan'">
+          {{ tmService.isLoaded() ? '✓ Teachable Machine Model Ready' : '🧠 Teachable Machine Engine' }}
+        </span>
+      </div>
+      <h1 class="page-title">AI Laboratory Equipment Scanner</h1>
+      <p class="page-desc">
+        Classify laboratory apparatus with your custom <strong>Google Teachable Machine</strong> model powered by TensorFlow.js, linked directly to the verified SmartLab 73-equipment chemistry database.
+      </p>
+    </div>
+
+    <!-- Engine Mode Switcher -->
+    <div class="engine-switcher-card">
+      <div class="engine-tabs">
+        <button 
+          type="button" 
+          class="engine-tab" 
+          [class.active]="selectedEngine === 'teachable-machine'"
+          (click)="setEngine('teachable-machine')">
+          <span class="engine-icon">🧠</span>
+          <div class="engine-info">
+            <strong>Google Teachable Machine</strong>
+            <span class="engine-sub">Custom TensorFlow.js Model</span>
+          </div>
+        </button>
+
+        <button 
+          type="button" 
+          class="engine-tab" 
+          [class.active]="selectedEngine === 'gemini'"
+          (click)="setEngine('gemini')">
+          <span class="engine-icon">✨</span>
+          <div class="engine-info">
+            <strong>Google Gemini Vision</strong>
+            <span class="engine-sub">Multimodal API Backend</span>
+          </div>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Teachable Machine Model Configuration Bar (When TM Engine Selected) -->
+  <div class="tm-config-card" *ngIf="selectedEngine === 'teachable-machine'">
+    <div class="tm-config-header">
+      <div class="tm-title-wrap">
+        <span class="tm-icon">⚙️</span>
+        <div>
+          <h3>Google Teachable Machine Model Setup</h3>
+          <p>Paste the shareable link of your trained Teachable Machine Image model</p>
+        </div>
+      </div>
+      <span class="badge badge-teal" *ngIf="tmService.isLoaded()">
+        ✓ Model Loaded ({{ tmService.classLabels().length }} Classes)
+      </span>
+      <span class="badge badge-amber" *ngIf="!tmService.isLoaded() && !tmService.isLoading()">
+        Model Not Loaded
+      </span>
+      <span class="badge badge-cyan" *ngIf="tmService.isLoading()">
+        Loading Model...
+      </span>
+    </div>
+
+    <div class="tm-config-body">
+      <div class="tm-input-group">
+        <input 
+          type="text" 
+          class="tm-input" 
+          placeholder="e.g. https://teachablemachine.withgoogle.com/models/xxxxxx/ or your model folder URL"
+          [(ngModel)]="customModelUrl"
+          (keyup.enter)="loadTeachableMachineModel()" />
+
+        <button 
+          class="btn btn-cyan tm-load-btn" 
+          (click)="loadTeachableMachineModel()"
+          [disabled]="tmService.isLoading() || !customModelUrl">
+          {{ tmService.isLoading() ? 'Loading...' : (tmService.isLoaded() ? 'Reload Model' : 'Load Model') }}
+        </button>
+      </div>
+
+      <!-- Loaded Classes Chips -->
+      <div class="tm-classes-wrap" *ngIf="tmService.isLoaded() && tmService.classLabels().length > 0">
+        <span class="classes-label">Trained Classes ({{ tmService.classLabels().length }}):</span>
+        <div class="classes-chips">
+          <span class="class-chip" *ngFor="let label of tmService.classLabels()">
+            {{ label }}
+          </span>
+        </div>
+      </div>
+
+      <!-- Error Message if failed to load -->
+      <div class="tm-error-alert" *ngIf="tmService.loadError()">
+        <span class="err-icon">⚠️</span>
+        <p>{{ tmService.loadError() }}</p>
+      </div>
+
+      <!-- Instruction Tip if model not yet loaded -->
+      <div class="tm-guide-hint" *ngIf="!tmService.isLoaded() && !tmService.isLoading() && !tmService.loadError()">
+        <strong>How to get your Teachable Machine model URL:</strong>
+        <ol>
+          <li>Train your equipment classes on <a href="https://teachablemachine.withgoogle.com/train/image" target="_blank" rel="noopener">teachablemachine.withgoogle.com</a>.</li>
+          <li>Click <strong>Export Model</strong> &rarr; Select <strong>TensorFlow.js</strong> &rarr; Click <strong>Upload (shareable link)</strong>.</li>
+          <li>Copy your model link (e.g., <code>https://teachablemachine.withgoogle.com/models/abc123xyz/</code>) and paste it above!</li>
+        </ol>
+      </div>
+    </div>
+  </div>
+
+  <!-- Camera Permission / Error Alert -->
+  <div class="camera-alert" *ngIf="cameraState.errorMessage">
+    <div class="alert-icon">⚠️</div>
+    <div class="alert-text">
+      <strong>Camera Notice:</strong>
+      <p>{{ cameraState.errorMessage }}</p>
+      <small>Note: Browser camera access strictly requires <code>localhost</code> or a secure <code>HTTPS</code> connection.</small>
+    </div>
+    <button class="btn btn-sm btn-outline" (click)="cameraState.errorMessage = null">Dismiss</button>
+  </div>
+
+  <!-- Scanner Main Interface Grid -->
+  <div class="scanner-layout">
+    <!-- Left Column: Camera Viewport & Capture Controls -->
+    <div class="viewport-card">
+      <div class="viewport-header">
+        <div class="status-indicator">
+          <span class="status-dot" [class.active]="cameraState.isActive" [class.analyzing]="isAnalyzing"></span>
+          <span class="status-label">
+            {{ cameraState.isActive ? 'Live Video Feed' : (capturedImageDataUrl ? 'Image Captured' : 'Camera Idle') }}
+          </span>
+        </div>
+
+        <div class="viewport-actions" *ngIf="cameraState.isActive">
+          <button class="btn btn-sm btn-outline" (click)="stopCamera()">Stop Camera</button>
+        </div>
+      </div>
+
+      <!-- Viewport Display Container -->
+      <div class="viewport-box">
+        <!-- Live Video Element -->
+        <video 
+          #videoPlayer 
+          *ngIf="cameraState.isActive" 
+          autoplay 
+          playsinline 
+          muted 
+          class="video-feed">
+        </video>
+
+        <!-- Viewfinder Reticle Overlay (Only when camera active) -->
+        <div class="viewfinder-overlay" *ngIf="cameraState.isActive">
+          <div class="reticle-corners"></div>
+          <div class="scanner-sweep-line"></div>
+          <span class="reticle-tip">Align apparatus inside targeting reticle</span>
+        </div>
+
+        <!-- Captured Image Preview (When captured or uploaded) -->
+        <div class="captured-preview" *ngIf="capturedImageDataUrl && !cameraState.isActive">
+          <img 
+            *ngIf="capturedImageDataUrl !== 'simulated-sample'" 
+            [src]="capturedImageDataUrl" 
+            alt="Captured apparatus preview" 
+            class="captured-img" />
+
+          <!-- Simulated Graphic if manual simulation -->
+          <div class="simulated-graphic" *ngIf="capturedImageDataUrl === 'simulated-sample'">
+            <div class="sim-icon">🔬</div>
+            <div class="sim-label">Apparatus Simulation Sample: {{ manualSelectedId | titlecase }}</div>
+          </div>
+        </div>
+
+        <!-- Empty State (When camera is idle and no image) -->
+        <div class="idle-state" *ngIf="!cameraState.isActive && !capturedImageDataUrl">
+          <div class="idle-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75">
+              <path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"></path>
+              <circle cx="12" cy="13" r="4"></circle>
+            </svg>
+          </div>
+          <h3>Camera is Currently Off</h3>
+          <p>Click "Start Camera" to activate live viewfinder, or upload a photo from your device.</p>
+        </div>
+
+        <!-- Analyzing Overlay -->
+        <div class="analyzing-overlay" *ngIf="isAnalyzing">
+          <div class="spinner-reticle">
+            <div class="spin-circle"></div>
+            <span class="spin-icon">{{ selectedEngine === 'teachable-machine' ? '🧠' : '✨' }}</span>
+          </div>
+          <h3>{{ selectedEngine === 'teachable-machine' ? 'Google Teachable Machine Neural Inference' : 'Gemini AI Vision Analysis' }}</h3>
+          <p class="analysis-step-text">{{ analysisStep }}</p>
+        </div>
+      </div>
+
+      <!-- Primary Controls Bar -->
+      <div class="viewport-controls">
+        <!-- Start Camera Button -->
+        <button 
+          *ngIf="!cameraState.isActive && !capturedImageDataUrl" 
+          class="btn btn-cyan btn-lg" 
+          (click)="startCamera()"
+          [disabled]="cameraState.isStarting">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <polygon points="5 3 19 12 5 21 5 3"></polygon>
+          </svg>
+          {{ cameraState.isStarting ? 'Requesting Camera...' : 'Start Camera' }}
+        </button>
+
+        <!-- Capture Button (When active) -->
+        <button 
+          *ngIf="cameraState.isActive" 
+          class="btn btn-cyan btn-lg capture-btn" 
+          (click)="capturePhoto()">
+          <span class="shutter-inner"></span>
+          Capture Apparatus
+        </button>
+
+        <!-- Retake Button (When image present) -->
+        <button 
+          *ngIf="capturedImageDataUrl && !isAnalyzing" 
+          class="btn btn-outline" 
+          (click)="retakePhoto()">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <polyline points="23 4 23 10 17 10"></polyline>
+            <path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10"></path>
+          </svg>
+          Retake / New Photo
+        </button>
+
+        <!-- Upload Image Option -->
+        <label class="btn btn-outline upload-btn">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+            <polyline points="17 8 12 3 7 8"></polyline>
+            <line x1="12" y1="3" x2="12" y2="15"></line>
+          </svg>
+          <span>Upload Image</span>
+          <input type="file" accept="image/*" (change)="onFileUpload($event)" hidden />
+        </label>
+      </div>
+    </div>
+
+    <!-- Right Column: Recognition Result or Manual Selector -->
+    <div class="result-sidebar">
+      
+      <!-- Scan Result Card (When Recognition Complete) -->
+      <div class="result-card" *ngIf="scanResult && !isAnalyzing">
+        
+        <!-- Status Header Badges -->
+        <div class="result-header">
+          <span class="badge" [ngClass]="{
+            'badge-emerald': scanResult.status === 'success',
+            'badge-amber': scanResult.status === 'uncertain' || scanResult.status === 'demo',
+            'badge-rose': scanResult.status === 'error' || scanResult.status === 'unrecognized'
+          }">
+            <ng-container [ngSwitch]="scanResult.status">
+              <span *ngSwitchCase="'success'">✓ {{ scanResult.source === 'teachable-machine' ? 'Teachable Machine Match' : 'Gemini AI Match' }}</span>
+              <span *ngSwitchCase="'uncertain'">⚠️ {{ scanResult.confidencePercentage ? (scanResult.confidencePercentage + '% Confidence') : 'Uncertain Match' }}</span>
+              <span *ngSwitchCase="'unrecognized'">❓ Unmapped Apparatus Class</span>
+              <span *ngSwitchCase="'error'">⚠️ Engine Notice</span>
+              <span *ngSwitchCase="'demo'">🎯 Catalog Simulation</span>
+            </ng-container>
+          </span>
+
+          <span class="source-tag">
+            {{ scanResult.source === 'teachable-machine' ? 'Teachable Machine (TF.js)' : (scanResult.source === 'gemini' ? 'Gemini 3.5 Flash' : 'Offline Catalog') }}
+          </span>
+        </div>
+
+        <div class="result-main">
+          <!-- Title & Category -->
+          <div class="result-meta">
+            <span class="result-category">{{ scanResult.category }}</span>
+            <h2 class="result-title">{{ scanResult.equipmentName }}</h2>
+            <div class="alt-names" *ngIf="scanResult.alternativeNames && scanResult.alternativeNames.length > 0">
+              <span class="alt-label">Aliases:</span>
+              <span class="alt-chips">{{ scanResult.alternativeNames.join(', ') }}</span>
+            </div>
+          </div>
+
+          <!-- Teachable Machine Confidence & Predictions Breakdown -->
+          <div class="tm-predictions-box" *ngIf="scanResult.predictions && scanResult.predictions.length > 0">
+            <div class="tm-pred-header">
+              <span class="tm-pred-title">🧠 Model Class Probabilities:</span>
+              <span class="tm-pred-conf" *ngIf="scanResult.confidencePercentage">
+                Top: <strong>{{ scanResult.confidencePercentage }}%</strong>
+              </span>
+            </div>
+
+            <div class="prob-list">
+              <div class="prob-row" *ngFor="let pred of scanResult.predictions">
+                <span class="prob-name">{{ pred.className }}</span>
+                <div class="prob-track">
+                  <div class="prob-fill" [style.width.%]="pred.probability * 100"></div>
+                </div>
+                <span class="prob-val">{{ (pred.probability * 100) | number:'1.1-1' }}%</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Uncertainty Notice Banner -->
+          <div class="uncertainty-box" *ngIf="scanResult.uncertaintyNote && scanResult.status !== 'error'">
+            <div class="unc-header">
+              <span class="unc-icon">⚠️</span>
+              <strong>Model Notice:</strong>
+            </div>
+            <p>{{ scanResult.uncertaintyNote }}</p>
+          </div>
+
+          <!-- Setup Guidance Banner if Model Not Loaded -->
+          <div class="error-guidance-box" *ngIf="scanResult.status === 'error' || (!tmService.isLoaded() && selectedEngine === 'teachable-machine')">
+            <div class="err-header">
+              <span class="err-icon">💡</span>
+              <strong>Teachable Machine Model Setup:</strong>
+            </div>
+            <p class="err-msg">
+              Your Google Teachable Machine model URL is not yet connected. Paste your model URL in the setup box above to start live classifications.
+            </p>
+            <button class="btn btn-sm btn-cyan" (click)="simulateScan()">
+              Run Offline Catalog Simulation &rarr;
+            </button>
+          </div>
+
+          <!-- Description Box -->
+          <div class="features-box" *ngIf="scanResult.visualDescription && scanResult.status !== 'error'">
+            <div class="box-label">Classification Summary:</div>
+            <p class="visual-desc-text">{{ scanResult.visualDescription }}</p>
+            
+            <ul class="features-list" *ngIf="scanResult.detectedFeatures && scanResult.detectedFeatures.length > 0">
+              <li *ngFor="let feat of scanResult.detectedFeatures">{{ feat }}</li>
+            </ul>
+          </div>
+
+          <!-- Verified Safety Warning from Catalog -->
+          <div class="hazard-alert-box" *ngIf="scanResult.safetyWarning && scanResult.status !== 'error'">
+            <span class="hazard-badge">Verified Laboratory Safety Precaution</span>
+            <p>{{ scanResult.safetyWarning }}</p>
+          </div>
+
+          <!-- Source Transparency Badge -->
+          <div class="demo-badge-card" *ngIf="scanResult.demoModeNotice">
+            <span class="demo-icon">ℹ️</span>
+            <div class="demo-text">
+              <strong>Engine Transparency:</strong>
+              <p>{{ scanResult.demoModeNotice }}</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="result-actions">
+          <button 
+            class="btn btn-primary" 
+            *ngIf="scanResult.isMatchedFromCatalog" 
+            (click)="openDossier()">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+              <polyline points="14 2 14 8 20 8"></polyline>
+              <line x1="16" y1="13" x2="8" y2="13"></line>
+              <line x1="16" y1="17" x2="8" y2="17"></line>
+              <polyline points="10 9 9 9 8 9"></polyline>
+            </svg>
+            View Full Apparatus Dossier
+          </button>
+          
+          <button class="btn btn-outline" (click)="resetScan()">
+            Scan Another Apparatus
+          </button>
+        </div>
+      </div>
+
+      <!-- Manual Equipment Selector Fallback (Always Accessible!) -->
+      <div class="manual-selector-card">
+        <div class="selector-header">
+          <div class="selector-title-wrap">
+            <span class="selector-icon">🎯</span>
+            <div>
+              <h3>Manual Equipment Selector</h3>
+              <p>Test apparatus workflows with 73 verified catalog items</p>
+            </div>
+          </div>
+          <span class="badge badge-navy">Catalog Fallback</span>
+        </div>
+
+        <div class="selector-body">
+          <p class="selector-desc">
+            Test any apparatus dossier from the database without a camera:
+          </p>
+
+          <div class="form-group">
+            <label for="apparatusSelect" class="input-label">Target Apparatus:</label>
+            <select 
+              id="apparatusSelect" 
+              class="custom-select" 
+              [(ngModel)]="manualSelectedId">
+              <option *ngFor="let equip of allEquipment" [value]="equip.id">
+                {{ equip.name }} ({{ equip.categoryLabel }})
+              </option>
+            </select>
+          </div>
+
+          <!-- Quick Select Chips -->
+          <div class="quick-chips">
+            <button 
+              type="button" 
+              class="quick-chip" 
+              *ngFor="let item of allEquipment.slice(0, 6)"
+              [class.active]="manualSelectedId === item.id"
+              (click)="manualSelectedId = item.id">
+              {{ item.name }}
+            </button>
+          </div>
+
+          <button class="btn btn-cyan btn-simulate" (click)="simulateScan()">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <polygon points="5 3 19 12 5 21 5 3"></polygon>
+            </svg>
+            Simulate Analysis For Selected Item
+          </button>
+        </div>
+      </div>
+
+      <!-- Architecture Transparency Guide -->
+      <div class="architecture-card">
+        <div class="arch-header">
+          <span class="arch-badge">Edge AI Architecture</span>
+          <span class="arch-title">Google Teachable Machine with TensorFlow.js</span>
+        </div>
+        <p class="arch-text">
+          Inference runs directly inside your web browser via <code>@teachablemachine/image</code> and WebGL acceleration. No images are sent to external third-party cloud servers, ensuring 100% data privacy and sub-100ms classification.
+        </p>
+        <div class="code-snippet mono-text">
+          // Browser In-Memory Classification:<br/>
+          const tmImage = window.tmImage;<br/>
+          const model = await tmImage.load(modelURL, metadataURL);<br/>
+          const predictions = await model.predict(imageElement);<br/>
+          // Returns: [&#123; className: 'Burette', probability: 0.98 &#125;, ...]
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Apparatus Dossier Modal -->
+  <app-equipment-modal 
+    *ngIf="selectedEquipmentModal"
+    [equipment]="selectedEquipmentModal"
+    (close)="closeModal()">
+  </app-equipment-modal>
+</div>

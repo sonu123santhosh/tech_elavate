@@ -1,0 +1,343 @@
+<div class="dashboard-page">
+  <!-- Top Hero Banner -->
+  <section class="hero-banner">
+    <div class="hero-content">
+      <div class="team-eyebrow">
+        <span class="pulse-indicator"></span>
+        <span class="team-text">Tech Elevate Hackathon &bull; Team UNEMPLOYED 004</span>
+      </div>
+      <h1 class="hero-title">
+        Next-Generation <span class="gradient-text">Laboratory Equipment</span> Intelligence
+      </h1>
+      <p class="hero-desc">
+        Instant apparatus recognition, precision operating guides, hazard safety protocols, and interactive titration workflows designed for modern university research laboratories.
+      </p>
+
+      <div class="hero-cta-group">
+        <a routerLink="/scanner" class="btn btn-cyan btn-lg pulse-glow">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+            <path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"></path>
+            <circle cx="12" cy="13" r="4"></circle>
+          </svg>
+          Launch AI Scanner
+        </a>
+        <a routerLink="/library" class="btn btn-outline btn-lg">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path>
+            <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path>
+          </svg>
+          Browse Equipment Catalog
+        </a>
+      </div>
+    </div>
+
+    <!-- Right Hero Graphic -->
+    <div class="hero-badge-card">
+      <div class="badge-card-inner">
+        <div class="radar-scan-box">
+          <div class="radar-grid"></div>
+          <div class="radar-line"></div>
+          <div class="scanner-target-reticle">
+            <svg viewBox="0 0 100 100" fill="none" stroke="#06b6d4" stroke-width="2">
+              <path d="M20 35V20H35M65 20H80V35M80 65V80H65M35 80H20V65" />
+            </svg>
+          </div>
+          <div class="detected-floating-tag">
+            <span class="dot"></span>
+            <span>Burette 50mL Class A &bull; 97.4% Match</span>
+          </div>
+        </div>
+        <div class="badge-card-info">
+          <span class="badge badge-emerald">Google Teachable Machine Ready</span>
+          <p class="gemini-note">Custom in-browser neural classification powered by TensorFlow.js and 73-apparatus database.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Metric Statistics Row -->
+  <section class="stats-grid">
+    <div class="stat-card">
+      <div class="stat-icon-wrap icon-cyan">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path>
+          <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path>
+        </svg>
+      </div>
+      <div class="stat-info">
+        <div class="stat-value">{{ totalEquipmentCount }}</div>
+        <div class="stat-label">Equipment in Catalog</div>
+        <div class="stat-sub">Comprehensive Chemistry Database</div>
+      </div>
+    </div>
+
+    <div class="stat-card">
+      <div class="stat-icon-wrap icon-teal">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"></path>
+          <circle cx="12" cy="13" r="4"></circle>
+        </svg>
+      </div>
+      <div class="stat-info">
+        <div class="stat-value">{{ recentScans.length }}</div>
+        <div class="stat-label">Scans Performed</div>
+        <div class="stat-sub">Indexed in session memory</div>
+      </div>
+    </div>
+
+    <div class="stat-card">
+      <div class="stat-icon-wrap icon-indigo">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <circle cx="12" cy="12" r="10"></circle>
+          <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"></path>
+          <line x1="12" y1="17" x2="12.01" y2="17"></line>
+        </svg>
+      </div>
+      <div class="stat-info">
+        <div class="stat-value">{{ quizStats.bestPercentage }}%</div>
+        <div class="stat-label">Safety Certification</div>
+        <div class="stat-sub">{{ quizStats.bestScore }} of 12 questions mastered</div>
+      </div>
+    </div>
+
+    <div class="stat-card">
+      <div class="stat-icon-wrap icon-amber">
+        <svg viewBox="0 0 24 24" fill="currentColor">
+          <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+        </svg>
+      </div>
+      <div class="stat-info">
+        <div class="stat-value">{{ storageService.favoritesSignal().length }}</div>
+        <div class="stat-label">Bookmarked Items</div>
+        <div class="stat-sub">Saved to local browser storage</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Quick Action Navigation Hub -->
+  <section class="section-block">
+    <div class="section-header">
+      <div>
+        <h2 class="section-title">Laboratory Modules & Actions</h2>
+        <p class="section-desc">Direct access to core learning and laboratory workflow tools</p>
+      </div>
+    </div>
+
+    <div class="actions-grid">
+      <a routerLink="/scanner" class="action-card card-scanner">
+        <div class="action-badge">AI Scanner</div>
+        <div class="action-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"></path>
+            <circle cx="12" cy="13" r="4"></circle>
+          </svg>
+        </div>
+        <h3 class="action-name">Equipment Scanner</h3>
+        <p class="action-desc">Live camera feed and snapshot recognition with fallback manual apparatus selector.</p>
+        <div class="action-link">
+          <span>Start Camera</span>
+          <span class="arrow">&rarr;</span>
+        </div>
+      </a>
+
+      <a routerLink="/library" class="action-card card-library">
+        <div class="action-badge">Searchable</div>
+        <div class="action-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path>
+            <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path>
+          </svg>
+        </div>
+        <h3 class="action-name">Equipment Library</h3>
+        <p class="action-desc">Comprehensive reference with specifications, common errors, and cleaning protocols.</p>
+        <div class="action-link">
+          <span>Explore {{ totalEquipmentCount }} Items</span>
+          <span class="arrow">&rarr;</span>
+        </div>
+      </a>
+
+      <a routerLink="/experiment" class="action-card card-experiment">
+        <div class="action-badge badge-teal-subtle">Guided Module</div>
+        <div class="action-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M10 2v7.31L4.2 18.5A2 2 0 0 0 6 21h12a2 2 0 0 0 1.8-2.5L14 9.31V2"></path>
+          </svg>
+        </div>
+        <h3 class="action-name">Titration Guide</h3>
+        <p class="action-desc">Acid-base standardization checklist, step-by-step titration stepper, and endpoint demo.</p>
+        <div class="action-link">
+          <span>View Protocol</span>
+          <span class="arrow">&rarr;</span>
+        </div>
+      </a>
+
+      <a routerLink="/quiz" class="action-card card-quiz">
+        <div class="action-badge badge-amber-subtle">Certification</div>
+        <div class="action-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="12" cy="12" r="10"></circle>
+            <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"></path>
+            <line x1="12" y1="17" x2="12.01" y2="17"></line>
+          </svg>
+        </div>
+        <h3 class="action-name">Safety & Equipment Quiz</h3>
+        <p class="action-desc">12 multiple-choice challenges with immediate feedback, rationale, and score tracking.</p>
+        <div class="action-link">
+          <span>Take Quiz</span>
+          <span class="arrow">&rarr;</span>
+        </div>
+      </a>
+
+      <a routerLink="/assistant" class="action-card card-assistant">
+        <div class="action-badge badge-cyan-subtle">Demo AI</div>
+        <div class="action-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+          </svg>
+        </div>
+        <h3 class="action-name">Lab Assistant</h3>
+        <p class="action-desc">Curated offline Q&A on meniscus reading, chemical burns, acid dilution, and tare procedures.</p>
+        <div class="action-link">
+          <span>Ask Question</span>
+          <span class="arrow">&rarr;</span>
+        </div>
+      </a>
+    </div>
+  </section>
+
+  <!-- Safety Tip of the Day & Titration Spotlight Banner -->
+  <section class="split-row">
+    <!-- Interactive Safety Tip Card -->
+    <div class="tip-card">
+      <div class="tip-header">
+        <div class="tip-badge">
+          <span class="tip-icon">💡</span>
+          <span>Safety Tip of the Day</span>
+        </div>
+        <button class="btn-cycle-tip" (click)="nextTip()" title="Cycle to next safety tip">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <polyline points="23 4 23 10 17 10"></polyline>
+            <path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10"></path>
+          </svg>
+          Next Tip ({{ currentTipIndex + 1 }}/{{ safetyTips.length }})
+        </button>
+      </div>
+
+      <div class="tip-body">
+        <span class="tip-category">{{ currentTip.category }}</span>
+        <h3 class="tip-title">{{ currentTip.title }}</h3>
+        <p class="tip-content">{{ currentTip.content }}</p>
+        <div class="tip-rule-box">
+          <strong>Mandatory Laboratory Rule:</strong>
+          <span>{{ currentTip.rule }}</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Titration Spotlight Card -->
+    <div class="spotlight-card">
+      <div class="spotlight-badge">Featured Experiment</div>
+      <h3 class="spotlight-title">Acid-Base Titration (HCl + NaOH)</h3>
+      <p class="spotlight-desc">
+        Master volumetric analysis technique, eliminate parallax meniscus error, and visualize the subtle pale-pink phenolphthalein endpoint transition.
+      </p>
+      <div class="spotlight-checklist-preview">
+        <div class="check-item checked">
+          <span class="check-box">&check;</span>
+          <span>Apparatus verification (Burette, Pipette, Erlenmeyer)</span>
+        </div>
+        <div class="check-item checked">
+          <span class="check-box">&check;</span>
+          <span>Titrant rinsing & air bubble removal</span>
+        </div>
+        <div class="check-item">
+          <span class="check-box">&bull;</span>
+          <span>Interactive Molarity Calculator ($C_1 V_1 = C_2 V_2$)</span>
+        </div>
+      </div>
+      <a routerLink="/experiment" class="btn btn-primary btn-sm">
+        Open Interactive Titration Guide &rarr;
+      </a>
+    </div>
+  </section>
+
+  <!-- Recently Viewed Equipment Grid -->
+  <section class="section-block">
+    <div class="section-header">
+      <div>
+        <h2 class="section-title">Recently Viewed Apparatus</h2>
+        <p class="section-desc">Quickly return to recently inspected laboratory equipment specifications</p>
+      </div>
+      <a routerLink="/library" class="view-all-link">View Full Catalog &rarr;</a>
+    </div>
+
+    <div class="recent-grid">
+      <app-equipment-card 
+        *ngFor="let item of recentlyViewed"
+        [equipment]="item"
+        (viewDetails)="openEquipmentModal($event)"
+        (scanEquipment)="scanEquipment($event)">
+      </app-equipment-card>
+    </div>
+  </section>
+
+  <!-- Recent Scan History -->
+  <section class="section-block">
+    <div class="section-header">
+      <div>
+        <h2 class="section-title">Recent Scanner Activity</h2>
+        <p class="section-desc">Demonstration scan logs and confidence ratings (stored in browser memory)</p>
+      </div>
+      <a routerLink="/scanner" class="btn btn-outline btn-sm">
+        New Scan &rarr;
+      </a>
+    </div>
+
+    <div class="history-table-card">
+      <table class="history-table">
+        <thead>
+          <tr>
+            <th>Apparatus Name</th>
+            <th>Category</th>
+            <th>Vision Engine</th>
+            <th>Timestamp</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let scan of recentScans">
+            <td>
+              <div class="table-equip-cell">
+                <span class="scan-dot"></span>
+                <span class="equip-name">{{ scan.equipmentName }}</span>
+              </div>
+            </td>
+            <td><span class="badge badge-navy">{{ scan.category }}</span></td>
+            <td>
+              <span class="badge" [class.badge-emerald]="scan.source === 'teachable-machine'" [class.badge-cyan]="scan.source === 'gemini'" [class.badge-navy]="scan.source === 'demo'">
+                <ng-container [ngSwitch]="scan.source">
+                  <span *ngSwitchCase="'teachable-machine'">🧠 Teachable Machine</span>
+                  <span *ngSwitchCase="'gemini'">✨ Gemini AI</span>
+                  <span *ngSwitchDefault>🎯 Simulated</span>
+                </ng-container>
+              </span>
+            </td>
+            <td class="time-cell">{{ scan.timestamp }}</td>
+            <td>
+              <button class="btn btn-outline btn-sm" (click)="openById(scan.equipmentId)">
+                Inspect Dossier
+              </button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- Equipment Detail Modal -->
+  <app-equipment-modal 
+    *ngIf="selectedEquipment"
+    [equipment]="selectedEquipment"
+    (close)="closeEquipmentModal()">
+  </app-equipment-modal>
+</div>
