@@ -3,12 +3,15 @@ import './styles/experiments.css';
 import './styles/chat.css';
 import './styles/arQuiz.css';
 import './styles/virtualLab.css';
+import './styles/equipmentViewer.css';
 
 import { PhTitrationView } from './features/ph-titration/PhTitrationView.js';
 import { ConductometricView } from './features/conductometric-titration/ConductometricView.js';
 import { ChatAssistantView } from './features/ai-assistant/ChatAssistantView.js';
 import { ArQuizController } from './features/ar-quiz/ArQuizController.js';
 import { VirtualLabController } from './features/virtual-lab/VirtualLabController.js';
+import { EquipmentDatabaseView } from './features/equipment-viewer/EquipmentDatabaseView.js';
+import { SimulatorView } from './features/simulator/SimulatorView.js';
 
 class SmartLabApp {
   constructor() {
@@ -17,6 +20,8 @@ class SmartLabApp {
     this.container = document.getElementById('view-root');
     this.tabs = {
       experiments: VirtualLabController,
+      simulator: SimulatorView,
+      equipment: EquipmentDatabaseView,
       'ar-quiz': ArQuizController,
       chat: ChatAssistantView,
     };
@@ -25,28 +30,31 @@ class SmartLabApp {
   init() {
     this.attachNavListeners();
 
-    // Check initial hash
-    const initialHash = window.location.hash.replace('#', '');
-    if (initialHash === 'ph' || initialHash === 'ph-metric-titration') {
+    // Check initial hash route
+    this.handleRoute();
+
+    window.addEventListener('hashchange', () => {
+      this.handleRoute();
+    });
+  }
+
+  handleRoute() {
+    const rawHash = window.location.hash.replace('#', '') || 'experiments';
+    const [tabKey, queryStr] = rawHash.split('?');
+    const params = new URLSearchParams(queryStr || '');
+    const expParam = params.get('exp');
+
+    if (tabKey === 'ph' || tabKey === 'ph-metric-titration') {
       this.switchTab('experiments', 'ph-metric-titration');
-    } else if (initialHash === 'conductometric' || initialHash === 'conductometric-titration') {
+    } else if (tabKey === 'conductometric' || tabKey === 'conductometric-titration') {
       this.switchTab('experiments', 'conductometric-titration');
-    } else if (this.tabs[initialHash]) {
-      this.switchTab(initialHash);
+    } else if (tabKey === 'simulator') {
+      this.switchTab('simulator', expParam || 'acid-base-titration');
+    } else if (this.tabs[tabKey]) {
+      this.switchTab(tabKey, expParam);
     } else {
       this.switchTab('experiments');
     }
-
-    window.addEventListener('hashchange', () => {
-      const hash = window.location.hash.replace('#', '');
-      if (hash === 'ph' || hash === 'ph-metric-titration') {
-        this.switchTab('experiments', 'ph-metric-titration');
-      } else if (hash === 'conductometric' || hash === 'conductometric-titration') {
-        this.switchTab('experiments', 'conductometric-titration');
-      } else if (this.tabs[hash] && hash !== this.currentTab) {
-        this.switchTab(hash);
-      }
-    });
   }
 
   attachNavListeners() {
@@ -56,13 +64,12 @@ class SmartLabApp {
         const tabKey = e.currentTarget.dataset.tab;
         if (tabKey && this.tabs[tabKey]) {
           window.location.hash = tabKey;
-          this.switchTab(tabKey);
         }
       });
     });
   }
 
-  switchTab(tabKey, initialExperimentId = null) {
+  switchTab(tabKey, initialParam = null) {
     if (!this.tabs[tabKey]) return;
 
     // Update active tab button
@@ -78,7 +85,24 @@ class SmartLabApp {
     // Mount new view
     this.currentTab = tabKey;
     const ViewClass = this.tabs[tabKey];
-    this.currentView = new ViewClass(this.container, initialExperimentId);
+
+    const callbacks = {
+      onOpenSimulator: (expId) => {
+        window.location.hash = `simulator?exp=${expId || 'acid-base-titration'}`;
+      },
+      onNavigateTab: (targetTab, targetExp = null) => {
+        window.location.hash = targetExp ? `${targetTab}?exp=${targetExp}` : targetTab;
+      },
+    };
+
+    if (tabKey === 'simulator') {
+      this.currentView = new ViewClass(this.container, initialParam || 'acid-base-titration', callbacks);
+    } else if (tabKey === 'equipment') {
+      this.currentView = new ViewClass(this.container, callbacks);
+    } else {
+      this.currentView = new ViewClass(this.container, initialParam);
+    }
+
     this.currentView.mount();
   }
 }

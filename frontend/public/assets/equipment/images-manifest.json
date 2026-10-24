@@ -1,0 +1,632 @@
+[
+  {
+    "id": "beaker",
+    "file": "assets/equipment/beaker.jpg",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Glassware-_Beaker.jpg",
+    "author": "Rohit Kumar Sengupta",
+    "license": "CC BY-SA 4.0",
+    "dateDownloaded": "2026-10-24",
+    "visuallyChecked": true,
+    "notes": "Visually verified: three clean borosilicate beakers (100ml, 150ml, 250ml) with graduations."
+  },
+  {
+    "id": "test-tube",
+    "file": "assets/equipment/test-tube.jpg",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Test_tubes_after_cation_presence_tests.jpg",
+    "author": "Stanislav.nevyhosteny",
+    "license": "CC BY-SA 4.0",
+    "dateDownloaded": "2026-10-24",
+    "visuallyChecked": true,
+    "notes": "Visually verified: multiple cylindrical glass test tubes exhibiting colored chemical precipitation reactions."
+  },
+  {
+    "id": "measuring-cylinder",
+    "file": "assets/equipment/measuring-cylinder.jpg",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Different_types_of_graduated_cylinder-_10ml,_25ml,_50ml_and_100_ml_graduated_cylinder.jpg",
+    "author": "Praphai Donphaimueang",
+    "license": "CC BY-SA 4.0",
+    "dateDownloaded": "2026-10-24",
+    "visuallyChecked": true,
+    "notes": "Visually verified: four clean glass measuring cylinders showing metric graduations and hexagonal stability feet."
+  },
+  {
+    "id": "conical-flask",
+    "file": "assets/equipment/conical-flask.jpg",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:250_mL_Erlenmeyer_flask.jpg",
+    "author": "Pilarbini",
+    "license": "CC BY-SA 4.0",
+    "dateDownloaded": "2026-10-24",
+    "visuallyChecked": true,
+    "notes": "Visually verified: classic Erlenmeyer conical flask with approximate graduations."
+  },
+  {
+    "id": "volumetric-flask",
+    "file": "assets/equipment/volumetric-flask.jpg",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Brand_volumetric_flask_100ml.jpg",
+    "author": "Lucasbosch",
+    "license": "CC BY-SA 3.0",
+    "dateDownloaded": "2026-10-24",
+    "visuallyChecked": true,
+    "notes": "Visually verified: isolated single volumetric flask showing precise neck ring mark and stopper."
+  },
+  {
+    "id": "pipette",
+    "file": "assets/equipment/pipette.jpg",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Pipette.jpg",
+    "author": "Lucasbosch / Brand",
+    "license": "CC BY-SA 3.0",
+    "dateDownloaded": "2026-10-24",
+    "visuallyChecked": true,
+    "notes": "Visually verified: isolated graduated measuring pipette showing volume markings and tapered tip."
+  },
+  {
+    "id": "burette",
+    "file": "assets/equipment/burette.jpg",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:50_mL_Buret.jpg",
+    "author": "Gemsgy",
+    "license": "CC BY-SA 4.0",
+    "dateDownloaded": "2026-10-24",
+    "visuallyChecked": true,
+    "notes": "Visually verified: full length 50mL titration burette with stopcock on lab benchtop."
+  },
+  {
+    "id": "glass-funnel",
+    "file": "assets/equipment/glass-funnel.jpg",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Small_glass_funnel.jpg",
+    "author": "Lilly_M",
+    "license": "CC BY-SA 3.0",
+    "dateDownloaded": "2026-10-24",
+    "visuallyChecked": true,
+    "notes": "Visually verified: clear glass funnel in proper upright orientation showing conical top and narrow stem."
+  },
+  {
+    "id": "glass-stirring-rod",
+    "file": "assets/equipment/glass-stirring-rod.jpg",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Glasstab.jpg",
+    "author": "Gmhofmann",
+    "license": "Public domain",
+    "dateDownloaded": "2026-10-24",
+    "visuallyChecked": true,
+    "notes": "Visually verified: solid borosilicate glass stirring rod with smooth rounded ends on white background."
+  },
+  {
+    "id": "watch-glass",
+    "file": "assets/equipment/watch-glass.jpg",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Hodinova_skla.jpg",
+    "author": "Milda 444",
+    "license": "CC BY-SA 4.0",
+    "dateDownloaded": "2026-10-24",
+    "visuallyChecked": true,
+    "notes": "Visually verified: three clean circular concave glass dishes used for sample drying and covering beakers."
+  },
+  {
+    "id": "reagent-bottle",
+    "file": "assets/equipment/reagent-bottle.jpg",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Reagent_bottle.jpg",
+    "author": "Srini297",
+    "license": "CC BY-SA 4.0",
+    "dateDownloaded": "2026-10-24",
+    "visuallyChecked": true,
+    "notes": "Visually verified: laboratory media storage bottle with blue polypropylene screw cap and volume scale."
+  },
+  {
+    "id": "dropper",
+    "file": "assets/equipment/dropper.jpg",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Pasteur_pipettes.jpg",
+    "author": "Cjp24",
+    "license": "CC BY-SA 3.0",
+    "dateDownloaded": "2026-10-24",
+    "visuallyChecked": true,
+    "notes": "Visually verified: glass dropper with black rubber bulb alongside plastic transfer pipette on blue background."
+  },
+  {
+    "id": "wash-bottle",
+    "file": "assets/equipment/wash-bottle.jpg",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Lab_wash-bottles_water_EtOH.jpg",
+    "author": "Masur",
+    "license": "Public domain",
+    "dateDownloaded": "2026-10-24",
+    "visuallyChecked": true,
+    "notes": "Visually verified: clean plastic squeeze wash bottles showing angled delivery spouts and hazard labeling."
+  },
+  {
+    "id": "test-tube-rack",
+    "file": "assets/equipment/test-tube-rack.jpg",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Plastic_Test_Tube_Rack.JPG",
+    "author": "Sth.niv",
+    "license": "CC BY-SA 4.0",
+    "dateDownloaded": "2026-10-24",
+    "visuallyChecked": true,
+    "notes": "Visually verified: durable grid-style polypropylene test tube rack holding a glass tube on clean surface."
+  },
+  {
+    "id": "test-tube-holder",
+    "file": "assets/equipment/test-tube-holder.jpg",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Test_Tube_Holder1_2015.JPG",
+    "author": "Nacharee.jung",
+    "license": "CC BY-SA 4.0",
+    "dateDownloaded": "2026-10-24",
+    "visuallyChecked": true,
+    "notes": "Visually verified: wooden spring-action test tube clamp securely holding a test tube during heating simulation."
+  },
+  {
+    "id": "spatula",
+    "file": "assets/equipment/spatula.jpg",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:A_laboratory_spatula_001.jpg",
+    "author": "Jeremyida002",
+    "license": "CC BY-SA 4.0",
+    "dateDownloaded": "2026-10-24",
+    "visuallyChecked": true,
+    "notes": "Visually verified: corrosion-resistant stainless steel lab spatula for transferring chemical solids."
+  },
+  {
+    "id": "mortar-and-pestle",
+    "file": "assets/equipment/mortar-and-pestle.jpg",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Mortar_and_pestle-laboratory.jpg",
+    "author": "Nadina Wiorkiewicz",
+    "license": "CC BY-SA 3.0",
+    "dateDownloaded": "2026-10-24",
+    "visuallyChecked": true,
+    "notes": "Visually verified: heavy porcelain mortar bowl with pour lip and grinding pestle on clean white background."
+  },
+  {
+    "id": "weighing-boat",
+    "file": "assets/equipment/weighing-boat.jpg",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Disposable_weighing_boat-01.jpg",
+    "author": "Lilly_M",
+    "license": "CC BY-SA 3.0",
+    "dateDownloaded": "2026-10-24",
+    "visuallyChecked": true,
+    "notes": "Visually verified: clean plastic weighing dish with shallow sloping sides and flat bottom on white surface."
+  },
+  {
+    "id": "filter-paper",
+    "file": "assets/equipment/filter-paper.jpg",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Whatman_filter_paper.jpg",
+    "author": "Chiaoli",
+    "license": "CC BY-SA 4.0",
+    "dateDownloaded": "2026-10-24",
+    "visuallyChecked": true,
+    "notes": "Visually verified: authentic circular qualitative paper filter disc on lab bench."
+  },
+  {
+    "id": "evaporating-dish",
+    "file": "assets/equipment/evaporating-dish.jpg",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Abdampfschalen_verschiedene_Groessen.jpg",
+    "author": "Simon A. Eugster",
+    "license": "CC BY-SA 3.0",
+    "dateDownloaded": "2026-10-24",
+    "visuallyChecked": true,
+    "notes": "Visually verified: three shallow circular porcelain evaporating bowls with pouring lips on white backdrop."
+  },
+  {
+    "id": "bunsen-burner",
+    "file": "assets/equipment/bunsen-burner.jpg",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Mechero_Bunsen.jpg",
+    "author": "Amfeli",
+    "license": "CC BY 4.0",
+    "dateDownloaded": "2026-10-24",
+    "visuallyChecked": true,
+    "notes": "Visually verified: classic metallic laboratory Bunsen burner with adjustable air hole and gas control valve."
+  },
+  {
+    "id": "hot-plate",
+    "file": "assets/equipment/hot-plate.jpg",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Hot_plate.jpg",
+    "author": "Cjp24",
+    "license": "CC BY-SA 3.0",
+    "dateDownloaded": "2026-10-24",
+    "visuallyChecked": true,
+    "notes": "Visually verified: benchtop electric laboratory hotplate with temperature adjustment knob."
+  },
+  {
+    "id": "thermometer",
+    "file": "assets/equipment/thermometer.jpg",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Laboratory_thermometer-01.jpg",
+    "author": "Lilly_M",
+    "license": "CC BY-SA 3.0",
+    "dateDownloaded": "2026-10-24",
+    "visuallyChecked": true,
+    "notes": "Visually verified: glass laboratory thermometer with red expansion liquid and metric scale."
+  },
+  {
+    "id": "analytical-balance",
+    "file": "assets/equipment/analytical-balance.jpg",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Analytical_balance_mettler_ae-260.jpg",
+    "author": "US DEA",
+    "license": "Public domain",
+    "dateDownloaded": "2026-10-24",
+    "visuallyChecked": true,
+    "notes": "Visually verified: Mettler AE 260 balance with enclosed glass draft chamber, circular stainless pan, and digital readout."
+  },
+  {
+    "id": "top-pan-balance",
+    "file": "assets/equipment/top-pan-balance.jpg",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Electronic_Scale;_from_a_science_laboratory_in_Abuja,_Nigeria.png",
+    "author": "Frankincense Diala",
+    "license": "CC0",
+    "dateDownloaded": "2026-10-24",
+    "visuallyChecked": true,
+    "notes": "Visually verified: electronic top-pan balance with open weighing pan without glass draft enclosure."
+  },
+  {
+    "id": "retort-stand",
+    "file": "assets/equipment/retort-stand.jpg",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Retort_stand.jpg",
+    "author": "Tsaenmai",
+    "license": "CC BY-SA 4.0",
+    "dateDownloaded": "2026-10-24",
+    "visuallyChecked": true,
+    "notes": "Visually verified: isolated laboratory retort stand with stable cast base and vertical metal rod."
+  },
+  {
+    "id": "clamp-and-boss-head",
+    "file": "assets/equipment/clamp-and-boss-head.jpg",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Stainless_steel_laboratory_bossheads_13mm.jpg",
+    "author": "Lucasbosch",
+    "license": "CC BY-SA 3.0",
+    "dateDownloaded": "2026-10-24",
+    "visuallyChecked": true,
+    "notes": "Visually verified: two cast metallic bossheads with clamping screws for securing apparatus to retort stands."
+  },
+  {
+    "id": "tripod-stand",
+    "file": "assets/equipment/tripod-stand.jpg",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Laboratory_tripod.jpg",
+    "author": "NagayaS",
+    "license": "CC BY-SA 4.0",
+    "dateDownloaded": "2026-10-24",
+    "visuallyChecked": true,
+    "notes": "Visually verified: sturdy three-legged laboratory tripod used for supporting vessels during burner heating."
+  },
+  {
+    "id": "wire-gauze",
+    "file": "assets/equipment/wire-gauze.jpg",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Keramikdrahtnetz.png",
+    "author": "U5780138",
+    "license": "CC BY-SA 4.0",
+    "dateDownloaded": "2026-10-24",
+    "visuallyChecked": true,
+    "notes": "Visually verified: square mesh wire gauze pads with central white ceramic circle for flame heat dispersion."
+  },
+  {
+    "id": "crucible-tongs",
+    "file": "assets/equipment/crucible-tongs.jpg",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Crucible-tongs-02.jpg",
+    "author": "Lilly_M",
+    "license": "CC BY-SA 3.0",
+    "dateDownloaded": "2026-10-24",
+    "visuallyChecked": true,
+    "notes": "Visually verified: metal tongs with distinct curved jaws specifically shaped to grasp hot crucibles."
+  },
+  {
+    "id": "separating-funnel",
+    "file": "assets/equipment/separating-funnel.jpg",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Separating_funnels-01.jpg",
+    "author": "Lilly_M",
+    "license": "CC BY-SA 3.0",
+    "dateDownloaded": "2026-10-24",
+    "visuallyChecked": true,
+    "notes": "Visually verified: classic pear-shaped separating funnels used for immiscible liquid-liquid extraction."
+  },
+  {
+    "id": "buchner-funnel",
+    "file": "assets/equipment/buchner-funnel.jpg",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:B%C3%BCchnertrichter_frontal.jpg",
+    "author": "Ichwarsnur",
+    "license": "CC BY-SA 4.0",
+    "dateDownloaded": "2026-10-24",
+    "visuallyChecked": true,
+    "notes": "Visually verified: porcelain Büchner funnel showing perforated flat base for vacuum filtration."
+  },
+  {
+    "id": "round-bottom-flask",
+    "file": "assets/equipment/round-bottom-flask.jpg",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Round_bottom_flask_in_salem.jpg",
+    "author": "Dhivyabsk",
+    "license": "CC BY-SA 4.0",
+    "dateDownloaded": "2026-10-24",
+    "visuallyChecked": true,
+    "notes": "Visually verified: spherical round-bottom flask designed for uniform heating, reflux, and distillation."
+  },
+  {
+    "id": "condenser",
+    "file": "assets/equipment/condenser.jpg",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:LiebigCondenser.jpg",
+    "author": "Unknown / Wikimedia Commons",
+    "license": "CC BY-SA 3.0",
+    "dateDownloaded": "2026-10-24",
+    "visuallyChecked": true,
+    "notes": "Visually verified: straight glass Liebig condenser tube with jacket and water inlet/outlet ports."
+  },
+  {
+    "id": "distillation-apparatus",
+    "file": "assets/equipment/distillation-apparatus.jpg",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Distillation_setup.JPG",
+    "author": "GuentherZ",
+    "license": "CC BY-SA 3.0",
+    "dateDownloaded": "2026-10-24",
+    "visuallyChecked": true,
+    "notes": "Visually verified: complete multi-piece distillation setup showing boiling flask, adapter head, thermometer, and condenser."
+  },
+  {
+    "id": "crucible",
+    "file": "assets/equipment/crucible.jpg",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Tiegel.png",
+    "author": "MediaLab TH Koln",
+    "license": "CC BY-SA 4.0",
+    "dateDownloaded": "2026-10-24",
+    "visuallyChecked": true,
+    "notes": "Visually verified: deep porcelain crucible cup with fitted lid for high-temperature gravimetric heating."
+  },
+  {
+    "id": "clay-triangle",
+    "file": "assets/equipment/clay-triangle.jpg",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Pipeclay_triangle.jpg",
+    "author": "Hugo",
+    "license": "CC BY-SA 4.0",
+    "dateDownloaded": "2026-10-24",
+    "visuallyChecked": true,
+    "notes": "Visually verified: triangular pipeclay support with twisted wire arms for suspending crucibles over a burner."
+  },
+  {
+    "id": "water-bath",
+    "file": "assets/equipment/water-bath.jpg",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Circulating_water_bath_2015.jpg",
+    "author": "Athikhun.suw",
+    "license": "CC BY-SA 4.0",
+    "dateDownloaded": "2026-10-24",
+    "visuallyChecked": true,
+    "notes": "Visually verified: digital thermostatted laboratory water bath apparatus on lab bench."
+  },
+  {
+    "id": "magnetic-stirrer",
+    "file": "assets/equipment/magnetic-stirrer.jpg",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:RCT_basic_IKAMAG%C2%AE_safety_control_magnetic_stirrer.jpg",
+    "author": "Lucasbosch",
+    "license": "CC BY-SA 3.0",
+    "dateDownloaded": "2026-10-24",
+    "visuallyChecked": true,
+    "notes": "Visually verified: benchtop magnetic stirring hotplate with motorized rotating magnet and heating plate."
+  },
+  {
+    "id": "desiccator",
+    "file": "assets/equipment/desiccator.jpg",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Desiccator.jpg",
+    "author": "Rifleman 82",
+    "license": "CC BY-SA 3.0",
+    "dateDownloaded": "2026-10-24",
+    "visuallyChecked": true,
+    "notes": "Visually verified: heavy borosilicate glass desiccator with vacuum stopcock lid for maintaining dry samples."
+  },
+  {
+    "id": "safety-goggles",
+    "file": "assets/equipment/safety-goggles.jpg",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:2023_Okulary_ochronne_(1).jpg",
+    "author": "Jacek Halicki",
+    "license": "CC BY-SA 4.0",
+    "dateDownloaded": "2026-10-24",
+    "visuallyChecked": true,
+    "notes": "Visually verified: clear plastic lab safety goggles providing frontal and side impact protection."
+  },
+  {
+    "id": "laboratory-coat",
+    "file": "assets/equipment/laboratory-coat.jpg",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Lab_coats.jpg",
+    "author": "Pi. from Leiden, Holland",
+    "license": "CC BY 2.0",
+    "dateDownloaded": "2026-10-24",
+    "visuallyChecked": true,
+    "notes": "Visually verified: white cotton/poly laboratory coat with collar, buttons, and protective sleeves."
+  },
+  {
+    "id": "chemical-resistant-gloves",
+    "file": "assets/equipment/chemical-resistant-gloves.jpg",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Nitrile_Glove_for_Clean_Room.jpg",
+    "author": "BlueThunderTechnologies",
+    "license": "CC BY-SA 4.0",
+    "dateDownloaded": "2026-10-24",
+    "visuallyChecked": true,
+    "notes": "Visually verified: blue nitrile chemical-resistant laboratory glove."
+  },
+  {
+    "id": "fume-hood",
+    "file": "assets/equipment/fume-hood.jpg",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Fume_hood.jpg",
+    "author": "unknown",
+    "license": "Public domain",
+    "dateDownloaded": "2026-10-24",
+    "visuallyChecked": true,
+    "notes": "Visually verified: laboratory fume extraction cabinet with movable protective sash."
+  },
+  {
+    "id": "eyewash-station",
+    "file": "assets/equipment/eyewash-station.jpg",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Salle-blanche-rince-oeil-rot.jpg",
+    "author": "Jérôme",
+    "license": "CC BY-SA 3.0",
+    "dateDownloaded": "2026-10-24",
+    "visuallyChecked": true,
+    "notes": "Visually verified: dedicated emergency eyewash fixture with dual aerated wash nozzles and push handle."
+  },
+  {
+    "id": "safety-shower",
+    "file": "assets/equipment/safety-shower.jpg",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Emergency_Shower_and_Eye_Wash_Station.jpg",
+    "author": "Sorawit.pai",
+    "license": "CC BY-SA 4.0",
+    "dateDownloaded": "2026-10-24",
+    "visuallyChecked": true,
+    "notes": "Visually verified: emergency deluge shower overhead head with pull rod and attached wash station."
+  },
+  {
+    "id": "fire-extinguisher",
+    "file": "assets/equipment/fire-extinguisher.jpg",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Fire_extinguisher_tool.jpg",
+    "author": "Denis kasozi",
+    "license": "CC BY 4.0",
+    "dateDownloaded": "2026-10-24",
+    "visuallyChecked": true,
+    "notes": "Visually verified: red portable dry powder chemical fire extinguisher."
+  },
+  {
+    "id": "first-aid-kit",
+    "file": "assets/equipment/first-aid-kit.jpg",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:A_first_aid_box.jpg",
+    "author": "Contributers2020",
+    "license": "CC BY-SA 4.0",
+    "dateDownloaded": "2026-10-24",
+    "visuallyChecked": true,
+    "notes": "Visually verified: medical first aid storage box with clear lid and red cross emblem."
+  },
+  {
+    "id": "chemical-waste-container",
+    "file": "assets/equipment/chemical-waste-container.jpg",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Chemobox.jpg",
+    "author": "Rasbak",
+    "license": "CC BY-SA 3.0",
+    "dateDownloaded": "2026-10-24",
+    "visuallyChecked": true,
+    "notes": "Visually verified: designated chemical waste disposal container for hazardous lab residues."
+  },
+  {
+    "id": "ph-indicator-paper",
+    "file": "assets/equipment/ph-indicator-paper.jpg",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:PH_Test_Strips.jpg",
+    "author": "Ajay Kumar Chaurasiya",
+    "license": "CC BY-SA 4.0",
+    "dateDownloaded": "2026-10-24",
+    "visuallyChecked": true,
+    "notes": "Visually verified: universal pH test paper strip booklet with color graduation reference scale."
+  },
+  {
+    "id": "centrifuge",
+    "file": "assets/equipment/centrifuge.jpg",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Beckman_Microfuge_18_laboratory_benchtop_centrifuge.jpg",
+    "author": "Carlos de Paz from A Coruña, España",
+    "license": "CC BY-SA 2.0",
+    "dateDownloaded": "2026-10-24",
+    "visuallyChecked": true,
+    "notes": "Visually verified: benchtop electric laboratory microcentrifuge with digital speed controls."
+  },
+  {
+    "id": "ph-indicator-solution",
+    "file": "assets/equipment/ph-indicator-solution.jpg",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Phenolphthalein_solution.jpg",
+    "author": "Andyman1125",
+    "license": "CC BY-SA 3.0",
+    "dateDownloaded": "2026-10-24",
+    "visuallyChecked": true,
+    "notes": "Visually verified: chemical acid-base pH indicator solution showing distinctive basic color change."
+  },
+  {
+    "id": "conductivity-meter",
+    "file": "assets/equipment/conductivity-meter.jpg",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Conductivity_Meter_using_Hanna_HI8033.jpg",
+    "author": "Encik Tekateki",
+    "license": "CC BY-SA 4.0",
+    "dateDownloaded": "2026-10-24",
+    "visuallyChecked": true,
+    "notes": "Visually verified: digital Hanna conductivity meter with probe for measuring solution conductance."
+  },
+  {
+    "id": "colorimeter",
+    "file": "assets/equipment/colorimeter.jpg",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:AutoColorimeter.jpg",
+    "author": "Calmkelp",
+    "license": "CC BY-SA 4.0",
+    "dateDownloaded": "2026-10-24",
+    "visuallyChecked": true,
+    "notes": "Visually verified: benchtop laboratory optical colorimeter with analog/digital absorbance display."
+  },
+  {
+    "id": "spectrophotometer",
+    "file": "assets/equipment/spectrophotometer.jpg",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:DU640_spectrophotometer.jpg",
+    "author": "TimVickers",
+    "license": "Public domain",
+    "dateDownloaded": "2026-10-24",
+    "visuallyChecked": true,
+    "notes": "Visually verified: Beckman UV-Vis benchtop spectrophotometer instrument with cuvette well."
+  },
+  {
+    "id": "hydrometer",
+    "file": "assets/equipment/hydrometer.jpg",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Hydrometer-MHS_594-P5200106-b-gradient.jpg",
+    "author": "Rama",
+    "license": "CC BY-SA 3.0 fr",
+    "dateDownloaded": "2026-10-24",
+    "visuallyChecked": true,
+    "notes": "Visually verified: glass hydrometer hydrometric spindle with graduated stem and ballast bulb."
+  },
+  {
+    "id": "refractometer",
+    "file": "assets/equipment/refractometer.jpg",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Portable-Refractometer-01.jpg",
+    "author": "CEphoto, Uwe Aranas",
+    "license": "CC BY-SA 3.0",
+    "dateDownloaded": "2026-10-24",
+    "visuallyChecked": true,
+    "notes": "Visually verified: handheld optical refractometer with daylight cover plate and eyepiece."
+  },
+  {
+    "id": "forceps",
+    "file": "assets/equipment/forceps.jpg",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Metals_Forceps.jpg",
+    "author": "Srini297",
+    "license": "CC BY-SA 4.0",
+    "dateDownloaded": "2026-10-24",
+    "visuallyChecked": true,
+    "notes": "Visually verified: stainless steel tweezers / forceps for fine handling in laboratory procedures."
+  },
+  {
+    "id": "test-tube-brush",
+    "file": "assets/equipment/test-tube-brush.jpg",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:A_test_tube_brush.jpg",
+    "author": "Stephanie cheks",
+    "license": "CC BY-SA 4.0",
+    "dateDownloaded": "2026-10-24",
+    "visuallyChecked": true,
+    "notes": "Visually verified: cylindrical wire-twisted bristle brush for scrubbing test tubes and glassware."
+  },
+  {
+    "id": "rubber-stopper",
+    "file": "assets/equipment/rubber-stopper.jpg",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Rubber_stopper.jpeg",
+    "author": "Gharris",
+    "license": "CC BY-SA 3.0",
+    "dateDownloaded": "2026-10-24",
+    "visuallyChecked": true,
+    "notes": "Visually verified: tapered rubber bung stopper with two holes for laboratory tubing and thermometers."
+  },
+  {
+    "id": "laboratory-ph-meter",
+    "file": "assets/equipment/laboratory-ph-meter.jpg",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:PH-Meter_METTLER_TOLEDO_FiveEasy.jpg",
+    "author": "OER CampLev",
+    "license": "CC BY-SA 4.0",
+    "dateDownloaded": "2026-10-24",
+    "visuallyChecked": true,
+    "notes": "Visually verified: benchtop digital laboratory pH meter with articulated stand and combination glass electrode."
+  },
+  {
+    "id": "portable-ph-meter",
+    "file": "assets/equipment/portable-ph-meter.jpg",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:PH_meter.jpg",
+    "author": "Sarathkumaran Ranganathan",
+    "license": "CC BY-SA 4.0",
+    "dateDownloaded": "2026-10-24",
+    "visuallyChecked": true,
+    "notes": "Visually verified: pocket handheld pen-type digital pH tester for portable field/lab measurements."
+  },
+  {
+    "id": "microscope",
+    "file": "assets/equipment/microscope.jpg",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Microscope_-_school_laboratory_(1).jpg",
+    "author": "Kvr.lohith",
+    "license": "CC BY-SA 4.0",
+    "dateDownloaded": "2026-10-24",
+    "visuallyChecked": true,
+    "notes": "Visually verified: upright school laboratory compound light microscope with eyepiece, revolving nosepiece, stage, condenser, and illuminator mirror."
+  }
+]

@@ -4,6 +4,7 @@ import dotenv from 'dotenv';
 import chatRoutes from './routes/chatRoutes.js';
 import quizRoutes from './routes/quizRoutes.js';
 import experimentRoutes from './routes/experimentRoutes.js';
+import equipmentCatalogRoutes from './routes/equipmentCatalogRoutes.js';
 
 dotenv.config();
 
@@ -32,6 +33,7 @@ app.use((req, res, next) => {
 // Mount API routes
 app.use('/api', chatRoutes);
 app.use('/api', quizRoutes);
+app.use('/api', equipmentCatalogRoutes);
 app.use('/api/virtual-lab', experimentRoutes);
 
 // Root route

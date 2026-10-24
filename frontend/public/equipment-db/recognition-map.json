@@ -1,0 +1,42 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "version": "1.0.0",
+  "description": "Scanner Recognition Contract for AI-Powered Smart Lab Equipment Assistant. Maps vision model classes to database IDs with safety fallbacks.",
+  "status": "pending-model-classes",
+  "note": "The user left the trained model class list blank in the project specification. Therefore, exactly 0 classes are currently activated for automatic recognition. As mandated by the source-of-truth rules, the AI scanner MUST NOT claim recognition of all 62 tools. Unsupported or low-confidence predictions must always route users to manual search.",
+  "confidenceThresholds": {
+    "highConfidence": 0.85,
+    "minimumAcceptable": 0.65,
+    "fallbackBehavior": "manual-search-selection"
+  },
+  "supportedModelClasses": [],
+  "classToEquipmentMapping": {},
+  "exampleMappingTemplate": {
+    "comment": "When model classes are trained, map model output labels to database IDs as shown below:",
+    "beaker_glass": {
+      "equipmentId": "beaker",
+      "modelClassName": "beaker_glass",
+      "notes": "Direct match to item #1 beaker"
+    },
+    "erlenmeyer_flask": {
+      "equipmentId": "conical-flask",
+      "modelClassName": "erlenmeyer_flask",
+      "notes": "Maps alternative name Erlenmeyer flask to canonical ID conical-flask (#4)"
+    },
+    "bunsen_burner": {
+      "equipmentId": "bunsen-burner",
+      "modelClassName": "bunsen_burner",
+      "notes": "Direct match to item #21 bunsen-burner"
+    }
+  },
+  "fallbackWorkflow": {
+    "unrecognizedClass": {
+      "action": "ROUTE_TO_MANUAL_SEARCH",
+      "userMessage": "Equipment not recognized by the current AI model. Please search or select from the 62 lab tools library below."
+    },
+    "lowConfidence": {
+      "action": "SUGGEST_TOP_CANDIDATES_WITH_DISCLAIMER",
+      "userMessage": "Low confidence detection. Please confirm if one of these matches your tool, or search the complete library."
+    }
+  }
+}

@@ -1,0 +1,69 @@
+{
+  "experimentId": "paper-chromatography",
+  "name": "Paper Chromatography",
+  "teachingNotes": "Paper chromatography separates substances based on continuous partition between stationary cellulose water and ascending mobile phase solvent. Spot positions and Rf values are illustrative for learning.",
+  "steps": [
+    {
+      "stepIndex": 0,
+      "actionId": "draw_baseline",
+      "prompt": "Step 1: Draw origin baseline. Choose a marking tool and draw a straight line 1.5 cm above the bottom edge.",
+      "hint": "Always use an insoluble graphite pencil! Ballpoint pen ink dissolves in solvent and ruins the chromatogram.",
+      "targetElement": "pencil",
+      "completionText": "Graphite baseline drawn 1.5 cm from bottom edge. Insoluble carbon line will not bleed."
+    },
+    {
+      "stepIndex": 1,
+      "actionId": "apply_sample_spot",
+      "prompt": "Step 2: Spot the sample. Click the Dropper to place a concentrated sample dot onto the pencil baseline.",
+      "hint": "Keep the sample spot tiny (less than 2–3 mm in diameter) so separated zones remain sharp and clear.",
+      "targetElement": "dropper",
+      "completionText": "Sample mixture applied neatly on the origin line and allowed to dry."
+    },
+    {
+      "stepIndex": 2,
+      "actionId": "add_solvent_check_level",
+      "prompt": "Step 3: Solvent reservoir check. Click the Beaker to adjust developing solvent depth (below baseline!).",
+      "hint": "The solvent surface MUST stay strictly below the pencil line so the spot does not dissolve into the beaker pool.",
+      "targetElement": "beaker",
+      "completionText": "Solvent reservoir filled to 0.8 cm depth, safely below the pencil baseline."
+    },
+    {
+      "stepIndex": 3,
+      "actionId": "insert_strip_cover",
+      "prompt": "Step 4: Chamber development. Click the Watch Glass to suspend the paper and cover the chamber.",
+      "hint": "Covering the beaker saturates internal vapor pressure, preventing non-uniform solvent evaporation.",
+      "targetElement": "watch-glass",
+      "completionText": "Chamber closed with watch glass lid. Mobile phase begins ascending cellulose fibers by capillary action."
+    },
+    {
+      "stepIndex": 4,
+      "actionId": "animate_separation",
+      "prompt": "Step 5: Capillary separation. Watch the mobile phase carry and resolve solute components.",
+      "hint": "Components partition between stationary water film and moving solvent according to relative affinities.",
+      "targetElement": "filter-paper",
+      "completionText": "Chromatographic resolution achieved: yellow dye (low affinity), red dye (medium), blue dye (high affinity)."
+    },
+    {
+      "stepIndex": 5,
+      "actionId": "mark_solvent_front",
+      "prompt": "Step 6: Mark solvent front & calculate Rf. Click the Paper Strip before the solvent reaches the top.",
+      "hint": "Immediately pencil-mark the solvent front before the volatile solvent evaporates. Rf = Distance spot / Distance solvent.",
+      "targetElement": "filter-paper",
+      "completionText": "Solvent front marked! Illustrative Rf values: Blue = 0.82, Red = 0.55, Yellow = 0.28. Great job!"
+    }
+  ],
+  "mistakes": {
+    "pen_ink_selected": {
+      "message": "Mistake! Pen ink contains soluble dyes that dissolve and travel with the solvent, masking your sample spots! Always use a graphite pencil.",
+      "penalty": 1
+    },
+    "solvent_too_high": {
+      "message": "Mistake! The solvent level submerged the baseline! The sample spots washed into the bulk solvent reservoir instead of migrating up the paper.",
+      "penalty": 1
+    },
+    "wrong_apparatus": {
+      "message": "Click the apparatus or tool needed for the current step.",
+      "penalty": 0
+    }
+  }
+}

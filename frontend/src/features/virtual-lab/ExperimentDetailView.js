@@ -107,7 +107,18 @@ export class ExperimentDetailView {
     const prevExp = getExperimentById(exp.number - 1);
     const nextExp = getExperimentById(exp.number + 1);
 
-    const isSimulator = exp.hasSimulator || exp.id === 'ph-metric-titration' || exp.id === 'conductometric-titration';
+    const simExperimentsList = [
+      'acid-base-titration',
+      'filtration',
+      'paper-chromatography',
+      'simple-distillation',
+      'recrystallization',
+      'standard-solution-preparation',
+      'ph-determination',
+      'ph-metric-titration',
+      'conductometric-titration'
+    ];
+    const isSimulator = exp.hasSimulator || simExperimentsList.includes(exp.id);
 
     this.container.innerHTML = `
       <div class="vlab-detail-page animate-fade-in">

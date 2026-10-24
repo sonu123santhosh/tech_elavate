@@ -1,0 +1,61 @@
+{
+  "experimentId": "filtration",
+  "name": "Filtration",
+  "teachingNotes": "Ordinary gravity filtration separates insoluble solid particles from a liquid suspension. It does NOT remove dissolved chemical solutes or soluble ions.",
+  "steps": [
+    {
+      "stepIndex": 0,
+      "actionId": "seat_filter_paper",
+      "prompt": "Step 1: Seat filter paper. Click or drag the folded Filter Paper into the Funnel, then click the Wash Bottle.",
+      "hint": "Moistening the paper with solvent from the wash bottle creates a hydraulic seal against the glass funnel wall.",
+      "targetElement": "filter-paper",
+      "completionText": "Filter paper cone seated and moistened. Airtight hydraulic seal established."
+    },
+    {
+      "stepIndex": 1,
+      "actionId": "align_stem",
+      "prompt": "Step 2: Position receiver. Click the Conical Flask so the funnel bevel tip rests against the vessel wall.",
+      "hint": "Touching the bevel tip to the inner glass wall allows liquid to slide smoothly down without splashing.",
+      "targetElement": "conical-flask",
+      "completionText": "Receiving vessel positioned with funnel tip resting against inner glass wall."
+    },
+    {
+      "stepIndex": 2,
+      "actionId": "decant_slurry",
+      "prompt": "Step 3: Decant mixture! Click or hold the 'Pour Slurry' button to guide the suspension down the glass rod.",
+      "hint": "Use surface tension along the stirring rod to direct liquid into the cone. Do not fill higher than 2/3 full!",
+      "targetElement": "btn-pour-control",
+      "completionText": "Slurry poured smoothly along stirring rod without overflowing the filter rim."
+    },
+    {
+      "stepIndex": 3,
+      "actionId": "drain_filtrate",
+      "prompt": "Step 4: Gravity drainage. Watch the liquid phase drain through the pores into the receiver flask.",
+      "hint": "Gravity drives the clear filtrate through cellulose fibers while insoluble residue accumulates on the paper.",
+      "targetElement": "glass-funnel",
+      "completionText": "Filtration in progress: clear liquid collects in receiver; solid precipitate stays on paper cone."
+    },
+    {
+      "stepIndex": 4,
+      "actionId": "observe_residue",
+      "prompt": "Step 5: Inspection. Click the Filter Paper cone to inspect the isolated solid residue cake.",
+      "hint": "Notice that the liquid in the receiving flask is completely transparent and free of sediment.",
+      "targetElement": "filter-paper",
+      "completionText": "Separation verified: solid residue isolated on filter paper; clear filtrate in receiver. Note: dissolved salts remain in filtrate."
+    }
+  ],
+  "mistakes": {
+    "overflow": {
+      "message": "Overflow warning! The slurry level rose above the filter paper rim. Unfiltered suspension spilled behind the paper and contaminated the filtrate.",
+      "penalty": 1
+    },
+    "dry_paper": {
+      "message": "Filter paper was not seated with solvent! Air pockets will allow liquid bypass around the paper.",
+      "penalty": 1
+    },
+    "wrong_apparatus": {
+      "message": "Select the correct equipment indicated in the current instruction.",
+      "penalty": 0
+    }
+  }
+}

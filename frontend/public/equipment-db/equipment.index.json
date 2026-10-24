@@ -1,0 +1,569 @@
+[
+  {
+    "id": "beaker",
+    "number": 1,
+    "name": "Beaker",
+    "category": "Glassware",
+    "pdfGroup": "Essential glassware and basics",
+    "imagePath": "assets/equipment/beaker.jpg",
+    "origin": "pdf"
+  },
+  {
+    "id": "test-tube",
+    "number": 2,
+    "name": "Test Tube",
+    "category": "Glassware",
+    "pdfGroup": "Essential glassware and basics",
+    "imagePath": "assets/equipment/test-tube.jpg",
+    "origin": "pdf"
+  },
+  {
+    "id": "measuring-cylinder",
+    "number": 3,
+    "name": "Measuring Cylinder",
+    "category": "Glassware",
+    "pdfGroup": "Essential glassware and basics",
+    "imagePath": "assets/equipment/measuring-cylinder.jpg",
+    "origin": "pdf"
+  },
+  {
+    "id": "conical-flask",
+    "number": 4,
+    "name": "Conical Flask",
+    "category": "Glassware",
+    "pdfGroup": "Essential glassware and basics",
+    "imagePath": "assets/equipment/conical-flask.jpg",
+    "origin": "pdf"
+  },
+  {
+    "id": "volumetric-flask",
+    "number": 5,
+    "name": "Volumetric Flask",
+    "category": "Glassware",
+    "pdfGroup": "Essential glassware and basics",
+    "imagePath": "assets/equipment/volumetric-flask.jpg",
+    "origin": "pdf"
+  },
+  {
+    "id": "pipette",
+    "number": 6,
+    "name": "Pipette",
+    "category": "Glassware",
+    "pdfGroup": "Essential glassware and basics",
+    "imagePath": "assets/equipment/pipette.jpg",
+    "origin": "pdf"
+  },
+  {
+    "id": "burette",
+    "number": 7,
+    "name": "Burette",
+    "category": "Glassware",
+    "pdfGroup": "Essential glassware and basics",
+    "imagePath": "assets/equipment/burette.jpg",
+    "origin": "pdf"
+  },
+  {
+    "id": "glass-funnel",
+    "number": 8,
+    "name": "Glass Funnel",
+    "category": "Glassware",
+    "pdfGroup": "Essential glassware and basics",
+    "imagePath": "assets/equipment/glass-funnel.jpg",
+    "origin": "pdf"
+  },
+  {
+    "id": "glass-stirring-rod",
+    "number": 9,
+    "name": "Glass Stirring Rod",
+    "category": "Glassware",
+    "pdfGroup": "Essential glassware and basics",
+    "imagePath": "assets/equipment/glass-stirring-rod.jpg",
+    "origin": "pdf"
+  },
+  {
+    "id": "watch-glass",
+    "number": 10,
+    "name": "Watch Glass",
+    "category": "Glassware",
+    "pdfGroup": "Essential glassware and basics",
+    "imagePath": "assets/equipment/watch-glass.jpg",
+    "origin": "pdf"
+  },
+  {
+    "id": "reagent-bottle",
+    "number": 11,
+    "name": "Reagent Bottle",
+    "category": "Glassware",
+    "pdfGroup": "Essential glassware and basics",
+    "imagePath": "assets/equipment/reagent-bottle.jpg",
+    "origin": "pdf"
+  },
+  {
+    "id": "dropper",
+    "number": 12,
+    "name": "Dropper",
+    "category": "Basic Tools and Consumables",
+    "pdfGroup": "Essential glassware and basics",
+    "imagePath": "assets/equipment/dropper.jpg",
+    "origin": "pdf"
+  },
+  {
+    "id": "wash-bottle",
+    "number": 13,
+    "name": "Wash Bottle",
+    "category": "Cleaning and Storage",
+    "pdfGroup": "Essential glassware and basics",
+    "imagePath": "assets/equipment/wash-bottle.jpg",
+    "origin": "pdf"
+  },
+  {
+    "id": "test-tube-rack",
+    "number": 14,
+    "name": "Test Tube Rack",
+    "category": "Support Equipment",
+    "pdfGroup": "Essential glassware and basics",
+    "imagePath": "assets/equipment/test-tube-rack.jpg",
+    "origin": "pdf"
+  },
+  {
+    "id": "test-tube-holder",
+    "number": 15,
+    "name": "Test Tube Holder",
+    "category": "Support Equipment",
+    "pdfGroup": "Essential glassware and basics",
+    "imagePath": "assets/equipment/test-tube-holder.jpg",
+    "origin": "pdf"
+  },
+  {
+    "id": "spatula",
+    "number": 16,
+    "name": "Spatula",
+    "category": "Basic Tools and Consumables",
+    "pdfGroup": "Essential glassware and basics",
+    "imagePath": "assets/equipment/spatula.jpg",
+    "origin": "pdf"
+  },
+  {
+    "id": "mortar-and-pestle",
+    "number": 17,
+    "name": "Mortar and Pestle",
+    "category": "Basic Tools and Consumables",
+    "pdfGroup": "Essential glassware and basics",
+    "imagePath": "assets/equipment/mortar-and-pestle.jpg",
+    "origin": "pdf"
+  },
+  {
+    "id": "weighing-boat",
+    "number": 18,
+    "name": "Weighing Boat",
+    "category": "Basic Tools and Consumables",
+    "pdfGroup": "Essential glassware and basics",
+    "imagePath": "assets/equipment/weighing-boat.jpg",
+    "origin": "pdf"
+  },
+  {
+    "id": "filter-paper",
+    "number": 19,
+    "name": "Filter Paper",
+    "category": "Basic Tools and Consumables",
+    "pdfGroup": "Essential glassware and basics",
+    "imagePath": "assets/equipment/filter-paper.jpg",
+    "origin": "pdf"
+  },
+  {
+    "id": "evaporating-dish",
+    "number": 20,
+    "name": "Evaporating Dish",
+    "category": "Heating Equipment",
+    "pdfGroup": "Essential glassware and basics",
+    "imagePath": "assets/equipment/evaporating-dish.jpg",
+    "origin": "pdf"
+  },
+  {
+    "id": "bunsen-burner",
+    "number": 21,
+    "name": "Bunsen Burner",
+    "category": "Heating Equipment",
+    "pdfGroup": "Heating, handling and separation",
+    "imagePath": "assets/equipment/bunsen-burner.jpg",
+    "origin": "pdf"
+  },
+  {
+    "id": "hot-plate",
+    "number": 22,
+    "name": "Hot Plate",
+    "category": "Heating Equipment",
+    "pdfGroup": "Heating, handling and separation",
+    "imagePath": "assets/equipment/hot-plate.jpg",
+    "origin": "pdf"
+  },
+  {
+    "id": "thermometer",
+    "number": 23,
+    "name": "Thermometer",
+    "category": "Measuring Instruments",
+    "pdfGroup": "Heating, handling and separation",
+    "imagePath": "assets/equipment/thermometer.jpg",
+    "origin": "pdf"
+  },
+  {
+    "id": "analytical-balance",
+    "number": 24,
+    "name": "Analytical Balance",
+    "category": "Measuring Instruments",
+    "pdfGroup": "Heating, handling and separation",
+    "imagePath": "assets/equipment/analytical-balance.jpg",
+    "origin": "pdf"
+  },
+  {
+    "id": "top-pan-balance",
+    "number": 25,
+    "name": "Top-pan Balance",
+    "category": "Measuring Instruments",
+    "pdfGroup": "Heating, handling and separation",
+    "imagePath": "assets/equipment/top-pan-balance.jpg",
+    "origin": "pdf"
+  },
+  {
+    "id": "retort-stand",
+    "number": 26,
+    "name": "Retort Stand",
+    "category": "Support Equipment",
+    "pdfGroup": "Heating, handling and separation",
+    "imagePath": "assets/equipment/retort-stand.jpg",
+    "origin": "pdf"
+  },
+  {
+    "id": "clamp-and-boss-head",
+    "number": 27,
+    "name": "Clamp and Boss Head",
+    "category": "Support Equipment",
+    "pdfGroup": "Heating, handling and separation",
+    "imagePath": "assets/equipment/clamp-and-boss-head.jpg",
+    "origin": "pdf"
+  },
+  {
+    "id": "tripod-stand",
+    "number": 28,
+    "name": "Tripod Stand",
+    "category": "Support Equipment",
+    "pdfGroup": "Heating, handling and separation",
+    "imagePath": "assets/equipment/tripod-stand.jpg",
+    "origin": "pdf"
+  },
+  {
+    "id": "wire-gauze",
+    "number": 29,
+    "name": "Wire Gauze",
+    "category": "Support Equipment",
+    "pdfGroup": "Heating, handling and separation",
+    "imagePath": "assets/equipment/wire-gauze.jpg",
+    "origin": "pdf"
+  },
+  {
+    "id": "crucible-tongs",
+    "number": 30,
+    "name": "Crucible Tongs",
+    "category": "Support Equipment",
+    "pdfGroup": "Heating, handling and separation",
+    "imagePath": "assets/equipment/crucible-tongs.jpg",
+    "origin": "pdf"
+  },
+  {
+    "id": "separating-funnel",
+    "number": 31,
+    "name": "Separating Funnel",
+    "category": "Separation Equipment",
+    "pdfGroup": "Heating, handling and separation",
+    "imagePath": "assets/equipment/separating-funnel.jpg",
+    "origin": "pdf"
+  },
+  {
+    "id": "buchner-funnel",
+    "number": 32,
+    "name": "Büchner Funnel",
+    "category": "Separation Equipment",
+    "pdfGroup": "Heating, handling and separation",
+    "imagePath": "assets/equipment/buchner-funnel.jpg",
+    "origin": "pdf"
+  },
+  {
+    "id": "round-bottom-flask",
+    "number": 33,
+    "name": "Round-bottom Flask",
+    "category": "Glassware",
+    "pdfGroup": "Heating, handling and separation",
+    "imagePath": "assets/equipment/round-bottom-flask.jpg",
+    "origin": "pdf"
+  },
+  {
+    "id": "condenser",
+    "number": 34,
+    "name": "Condenser",
+    "category": "Glassware",
+    "pdfGroup": "Heating, handling and separation",
+    "imagePath": "assets/equipment/condenser.jpg",
+    "origin": "pdf"
+  },
+  {
+    "id": "distillation-apparatus",
+    "number": 35,
+    "name": "Distillation Apparatus",
+    "category": "Separation Equipment",
+    "pdfGroup": "Heating, handling and separation",
+    "imagePath": "assets/equipment/distillation-apparatus.jpg",
+    "origin": "pdf"
+  },
+  {
+    "id": "crucible",
+    "number": 36,
+    "name": "Crucible",
+    "category": "Heating Equipment",
+    "pdfGroup": "Heating, handling and separation",
+    "imagePath": "assets/equipment/crucible.jpg",
+    "origin": "pdf"
+  },
+  {
+    "id": "clay-triangle",
+    "number": 37,
+    "name": "Clay Triangle",
+    "category": "Support Equipment",
+    "pdfGroup": "Heating, handling and separation",
+    "imagePath": "assets/equipment/clay-triangle.jpg",
+    "origin": "pdf"
+  },
+  {
+    "id": "water-bath",
+    "number": 38,
+    "name": "Water Bath",
+    "category": "Heating Equipment",
+    "pdfGroup": "Heating, handling and separation",
+    "imagePath": "assets/equipment/water-bath.jpg",
+    "origin": "pdf"
+  },
+  {
+    "id": "magnetic-stirrer",
+    "number": 39,
+    "name": "Magnetic Stirrer",
+    "category": "Heating Equipment",
+    "pdfGroup": "Heating, handling and separation",
+    "imagePath": "assets/equipment/magnetic-stirrer.jpg",
+    "origin": "pdf"
+  },
+  {
+    "id": "desiccator",
+    "number": 40,
+    "name": "Desiccator",
+    "category": "Cleaning and Storage",
+    "pdfGroup": "Heating, handling and separation",
+    "imagePath": "assets/equipment/desiccator.jpg",
+    "origin": "pdf"
+  },
+  {
+    "id": "safety-goggles",
+    "number": 41,
+    "name": "Safety Goggles",
+    "category": "Safety Equipment",
+    "pdfGroup": "Safety, measurement and accessories",
+    "imagePath": "assets/equipment/safety-goggles.jpg",
+    "origin": "pdf"
+  },
+  {
+    "id": "laboratory-coat",
+    "number": 42,
+    "name": "Laboratory Coat",
+    "category": "Safety Equipment",
+    "pdfGroup": "Safety, measurement and accessories",
+    "imagePath": "assets/equipment/laboratory-coat.jpg",
+    "origin": "pdf"
+  },
+  {
+    "id": "chemical-resistant-gloves",
+    "number": 43,
+    "name": "Chemical-resistant Gloves",
+    "category": "Safety Equipment",
+    "pdfGroup": "Safety, measurement and accessories",
+    "imagePath": "assets/equipment/chemical-resistant-gloves.jpg",
+    "origin": "pdf"
+  },
+  {
+    "id": "fume-hood",
+    "number": 44,
+    "name": "Fume Hood",
+    "category": "Safety Equipment",
+    "pdfGroup": "Safety, measurement and accessories",
+    "imagePath": "assets/equipment/fume-hood.jpg",
+    "origin": "pdf"
+  },
+  {
+    "id": "eyewash-station",
+    "number": 45,
+    "name": "Eyewash Station",
+    "category": "Safety Equipment",
+    "pdfGroup": "Safety, measurement and accessories",
+    "imagePath": "assets/equipment/eyewash-station.jpg",
+    "origin": "pdf"
+  },
+  {
+    "id": "safety-shower",
+    "number": 46,
+    "name": "Safety Shower",
+    "category": "Safety Equipment",
+    "pdfGroup": "Safety, measurement and accessories",
+    "imagePath": "assets/equipment/safety-shower.jpg",
+    "origin": "pdf"
+  },
+  {
+    "id": "fire-extinguisher",
+    "number": 47,
+    "name": "Fire Extinguisher",
+    "category": "Safety Equipment",
+    "pdfGroup": "Safety, measurement and accessories",
+    "imagePath": "assets/equipment/fire-extinguisher.jpg",
+    "origin": "pdf"
+  },
+  {
+    "id": "first-aid-kit",
+    "number": 48,
+    "name": "First-aid Kit",
+    "category": "Safety Equipment",
+    "pdfGroup": "Safety, measurement and accessories",
+    "imagePath": "assets/equipment/first-aid-kit.jpg",
+    "origin": "pdf"
+  },
+  {
+    "id": "chemical-waste-container",
+    "number": 49,
+    "name": "Chemical Waste Container",
+    "category": "Safety Equipment",
+    "pdfGroup": "Safety, measurement and accessories",
+    "imagePath": "assets/equipment/chemical-waste-container.jpg",
+    "origin": "pdf"
+  },
+  {
+    "id": "ph-indicator-paper",
+    "number": 50,
+    "name": "pH Indicator Paper",
+    "category": "pH and Analytical Instruments",
+    "pdfGroup": "Safety, measurement and accessories",
+    "imagePath": "assets/equipment/ph-indicator-paper.jpg",
+    "origin": "pdf"
+  },
+  {
+    "id": "centrifuge",
+    "number": 51,
+    "name": "Centrifuge",
+    "category": "Separation Equipment",
+    "pdfGroup": "Safety, measurement and accessories",
+    "imagePath": "assets/equipment/centrifuge.jpg",
+    "origin": "pdf"
+  },
+  {
+    "id": "ph-indicator-solution",
+    "number": 52,
+    "name": "pH Indicator Solution",
+    "category": "pH and Analytical Instruments",
+    "pdfGroup": "Safety, measurement and accessories",
+    "imagePath": "assets/equipment/ph-indicator-solution.jpg",
+    "origin": "pdf"
+  },
+  {
+    "id": "conductivity-meter",
+    "number": 53,
+    "name": "Conductivity Meter",
+    "category": "pH and Analytical Instruments",
+    "pdfGroup": "Safety, measurement and accessories",
+    "imagePath": "assets/equipment/conductivity-meter.jpg",
+    "origin": "pdf"
+  },
+  {
+    "id": "colorimeter",
+    "number": 54,
+    "name": "Colorimeter",
+    "category": "pH and Analytical Instruments",
+    "pdfGroup": "Safety, measurement and accessories",
+    "imagePath": "assets/equipment/colorimeter.jpg",
+    "origin": "pdf"
+  },
+  {
+    "id": "spectrophotometer",
+    "number": 55,
+    "name": "Spectrophotometer",
+    "category": "pH and Analytical Instruments",
+    "pdfGroup": "Safety, measurement and accessories",
+    "imagePath": "assets/equipment/spectrophotometer.jpg",
+    "origin": "pdf"
+  },
+  {
+    "id": "hydrometer",
+    "number": 56,
+    "name": "Hydrometer",
+    "category": "Measuring Instruments",
+    "pdfGroup": "Safety, measurement and accessories",
+    "imagePath": "assets/equipment/hydrometer.jpg",
+    "origin": "pdf"
+  },
+  {
+    "id": "refractometer",
+    "number": 57,
+    "name": "Refractometer",
+    "category": "Measuring Instruments",
+    "pdfGroup": "Safety, measurement and accessories",
+    "imagePath": "assets/equipment/refractometer.jpg",
+    "origin": "pdf"
+  },
+  {
+    "id": "forceps",
+    "number": 58,
+    "name": "Forceps",
+    "category": "Basic Tools and Consumables",
+    "pdfGroup": "Safety, measurement and accessories",
+    "imagePath": "assets/equipment/forceps.jpg",
+    "origin": "pdf"
+  },
+  {
+    "id": "test-tube-brush",
+    "number": 59,
+    "name": "Test Tube Brush",
+    "category": "Cleaning and Storage",
+    "pdfGroup": "Safety, measurement and accessories",
+    "imagePath": "assets/equipment/test-tube-brush.jpg",
+    "origin": "pdf"
+  },
+  {
+    "id": "rubber-stopper",
+    "number": 60,
+    "name": "Rubber Stopper",
+    "category": "Basic Tools and Consumables",
+    "pdfGroup": "Safety, measurement and accessories",
+    "imagePath": "assets/equipment/rubber-stopper.jpg",
+    "origin": "pdf"
+  },
+  {
+    "id": "laboratory-ph-meter",
+    "number": 61,
+    "name": "Laboratory pH Meter",
+    "category": "pH and Analytical Instruments",
+    "pdfGroup": "pH measurement instruments",
+    "imagePath": "assets/equipment/laboratory-ph-meter.jpg",
+    "origin": "pdf"
+  },
+  {
+    "id": "portable-ph-meter",
+    "number": 62,
+    "name": "Digital / Portable pH Meter",
+    "category": "pH and Analytical Instruments",
+    "pdfGroup": "pH measurement instruments",
+    "imagePath": "assets/equipment/portable-ph-meter.jpg",
+    "origin": "pdf"
+  },
+  {
+    "id": "microscope",
+    "origin": "added-by-user",
+    "number": null,
+    "name": "Microscope",
+    "category": "Observation and Optical Instruments",
+    "pdfGroup": "Added beyond PDF",
+    "imagePath": "assets/equipment/microscope.jpg"
+  }
+]

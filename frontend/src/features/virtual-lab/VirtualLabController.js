@@ -106,7 +106,11 @@ export class VirtualLabController {
           this.goToExperiment(nextExpId);
         },
         onLaunchSimulator: (expId) => {
-          this.goToExperiment(expId);
+          if (expId === 'ph-metric-titration' || expId === 'conductometric-titration') {
+            this.goToExperiment(expId);
+          } else {
+            window.location.hash = `simulator?exp=${expId}`;
+          }
         },
       });
       this.activeSubView.mount();
