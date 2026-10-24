@@ -105,6 +105,41 @@ export class SpeechSynthesisManager {
     clean = clean.replace(/!\[([^\]]*)\]\([^)]+\)/g, '');
     clean = clean.replace(/\[([^\]]+)\]\([^)]+\)/g, '$1');
 
+    // Translate LaTeX fractions: \frac{A}{B} -> A over B
+    clean = clean.replace(/\\frac\{([^}]+)\}\{([^}]+)\}/g, '$1 over $2');
+
+    // Translate reaction arrows and mathematical relations
+    clean = clean
+      .replace(/\\longrightarrow|\\rightarrow|-->|->/g, ' yields ')
+      .replace(/\\longleftarrow|\\leftarrow|<--|<-/g, ' from ')
+      .replace(/\\longleftrightarrow|\\rightleftharpoons|<=>/g, ' in equilibrium with ')
+      .replace(/\\Delta|\\delta|Δ/g, 'delta ')
+      .replace(/\\Lambda|\\lambda|Λ|λ/g, 'lambda ')
+      .replace(/\\kappa|κ/g, 'kappa ')
+      .replace(/\\epsilon|ε/g, 'epsilon ')
+      .replace(/\\cdot|\\times|×/g, ' times ')
+      .replace(/\\approx|≈/g, ' approximately ')
+      .replace(/\\pm|±/g, 'plus or minus ')
+      .replace(/\\le|\\leq|≤/g, ' less than or equal to ')
+      .replace(/\\ge|\\geq|≥/g, ' greater than or equal to ')
+      .replace(/\\log_\{?10\}?/g, 'log base 10 of ')
+      .replace(/\\log/g, 'log of ')
+      .replace(/\\ln/g, 'natural log of ');
+
+    // Translate chemistry state symbols: \text{(aq)}, \text{(s)}, etc.
+    clean = clean
+      .replace(/\\text\{\(aq\)\}|\(aq\)/gi, 'aqueous')
+      .replace(/\\text\{\(s\)\}|\(s\)/gi, 'solid')
+      .replace(/\\text\{\(l\)\}|\(l\)/gi, 'liquid')
+      .replace(/\\text\{\(g\)\}|\(g\)/gi, 'gas');
+
+    // Strip \text{...} wrappers to content
+    clean = clean.replace(/\\text\{([^}]+)\}/g, '$1');
+
+    // Strip display equation delimiters $$...$$ and inline $...$
+    clean = clean.replace(/\$\$([\s\S]*?)\$\$/g, ' $1 ');
+    clean = clean.replace(/\$([^$]+)\$/g, ' $1 ');
+
     // Remove markdown headers
     clean = clean.replace(/^#{1,6}\s+(.*)$/gm, '$1.');
 
@@ -127,15 +162,22 @@ export class SpeechSynthesisManager {
       .replace(/µS\/cm|uS\/cm/g, 'micro Siemens per centimeter')
       .replace(/mS\/cm/g, 'milli Siemens per centimeter')
       .replace(/mol\/L/g, 'moles per liter')
-      .replace(/ΔpH\/ΔV/g, 'delta pH over delta V')
+      .replace(/ΔpH\/ΔV|delta pH\/delta V/g, 'delta pH over delta V')
       .replace(/Δ²pH\/ΔV²|Δ2pH\/ΔV2/g, 'second derivative delta two pH over delta V squared')
       .replace(/°C/g, 'degrees Celsius')
       .replace(/λ°/g, 'limiting ionic conductance')
-      .replace(/±/g, 'plus or minus ')
-      .replace(/≈/g, 'approximately ');
+      .replace(/pKa|pK_a/gi, 'p K a')
+      .replace(/EDTA/g, 'E D T A')
+      .replace(/KMnO₄|KMnO4/g, 'potassium permanganate')
+      .replace(/FeSO₄|FeSO4/g, 'ferrous sulfate')
+      .replace(/H₂SO₄|H2SO4/g, 'sulfuric acid')
+      .replace(/HNO₃|HNO3/g, 'nitric acid')
+      .replace(/CaCO₃|CaCO3/g, 'calcium carbonate')
+      .replace(/NaCl/g, 'sodium chloride');
 
-    // Remove leftover symbols, multiple spaces, and extra line breaks
-    clean = clean.replace(/[*_#~>]/g, '');
+    // Remove remaining backslashes, braces, and math symbols
+    clean = clean.replace(/[\\[\]{}]/g, ' ');
+    clean = clean.replace(/[*_#~>|]/g, '');
     clean = clean.replace(/\s+/g, ' ').trim();
 
     return clean;

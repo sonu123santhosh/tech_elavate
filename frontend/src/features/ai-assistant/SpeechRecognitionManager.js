@@ -63,7 +63,7 @@ export class SpeechRecognitionManager {
 
     try {
       this.recognition = new this.RecognitionClass();
-      this.recognition.continuous = false; // Turn-based laboratory question
+      this.recognition.continuous = true; // Allow uninterrupted natural speech
       this.recognition.interimResults = true; // Live typing as user speaks
       this.recognition.lang = 'en-US';
       this.recognition.maxAlternatives = 1;
@@ -90,18 +90,26 @@ export class SpeechRecognitionManager {
         if (interim) {
           this.interimTranscript = interim;
           if (typeof this.callbacks?.onInterimResult === 'function') {
-            this.callbacks.onInterimResult(this.finalTranscript + interim);
+            this.callbacks.onInterimResult(this.finalTranscript + (this.finalTranscript ? ' ' : '') + interim);
           }
         }
 
         if (final) {
           this.finalTranscript += (this.finalTranscript ? ' ' : '') + final.trim();
           this.interimTranscript = '';
-          this.state = SPEECH_STATES.PROCESSING;
-          this.notifyStateChange(SPEECH_STATES.PROCESSING, 'Finalizing transcript...');
-          if (typeof this.callbacks?.onFinalResult === 'function') {
-            this.callbacks.onFinalResult(this.finalTranscript);
+          if (typeof this.callbacks?.onInterimResult === 'function') {
+            this.callbacks.onInterimResult(this.finalTranscript);
           }
+        }
+
+        // Automatic silence detection: finalize after 2 seconds of natural pause
+        if (this.silenceTimer) {
+          clearTimeout(this.silenceTimer);
+        }
+        if (this.finalTranscript || this.interimTranscript) {
+          this.silenceTimer = setTimeout(() => {
+            this.stopListening();
+          }, 2000);
         }
       };
 
@@ -147,7 +155,15 @@ export class SpeechRecognitionManager {
       };
 
       this.recognition.onend = () => {
+        if (this.silenceTimer) {
+          clearTimeout(this.silenceTimer);
+          this.silenceTimer = null;
+        }
         if (this.state !== SPEECH_STATES.ERROR) {
+          const completedTranscript = (this.finalTranscript || this.interimTranscript || '').trim();
+          if (completedTranscript && typeof this.callbacks?.onFinalResult === 'function') {
+            this.callbacks.onFinalResult(completedTranscript);
+          }
           this.state = SPEECH_STATES.READY;
           this.notifyStateChange(SPEECH_STATES.READY, 'Ready');
         }
@@ -169,6 +185,10 @@ export class SpeechRecognitionManager {
    * Finishes current speaking and finalizes transcript.
    */
   stopListening() {
+    if (this.silenceTimer) {
+      clearTimeout(this.silenceTimer);
+      this.silenceTimer = null;
+    }
     if (this.recognition && this.state === SPEECH_STATES.LISTENING) {
       try {
         this.recognition.stop();
@@ -182,6 +202,10 @@ export class SpeechRecognitionManager {
    * Cancels listening immediately and discards interim audio.
    */
   cancelListening() {
+    if (this.silenceTimer) {
+      clearTimeout(this.silenceTimer);
+      this.silenceTimer = null;
+    }
     if (this.recognition) {
       try {
         this.recognition.abort();
