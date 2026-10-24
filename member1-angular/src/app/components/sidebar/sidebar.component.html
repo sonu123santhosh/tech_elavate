@@ -1,0 +1,146 @@
+<!-- Mobile Backdrop -->
+<div 
+  class="mobile-backdrop" 
+  *ngIf="isMobileOpen" 
+  (click)="closeMobile.emit()">
+</div>
+
+<aside 
+  class="sidebar" 
+  [class.collapsed]="isCollapsed"
+  [class.mobile-open]="isMobileOpen">
+
+  <div class="sidebar-header">
+    <span class="nav-section-title" *ngIf="!isCollapsed">Navigation</span>
+    <button 
+      class="collapse-btn" 
+      (click)="toggleCollapse.emit()"
+      [title]="isCollapsed ? 'Expand sidebar' : 'Collapse sidebar'"
+      aria-label="Toggle sidebar width">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <polyline points="15 18 9 12 15 6" *ngIf="!isCollapsed"></polyline>
+        <polyline points="9 18 15 12 9 6" *ngIf="isCollapsed"></polyline>
+      </svg>
+    </button>
+  </div>
+
+  <nav class="nav-list">
+    <a 
+      routerLink="/dashboard" 
+      routerLinkActive="active" 
+      (click)="closeMobile.emit()" 
+      class="nav-item"
+      title="Dashboard">
+      <div class="nav-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <rect x="3" y="3" width="7" height="7" rx="1.5"></rect>
+          <rect x="14" y="3" width="7" height="7" rx="1.5"></rect>
+          <rect x="14" y="14" width="7" height="7" rx="1.5"></rect>
+          <rect x="3" y="14" width="7" height="7" rx="1.5"></rect>
+        </svg>
+      </div>
+      <span class="nav-label" *ngIf="!isCollapsed">Dashboard</span>
+    </a>
+
+    <a 
+      routerLink="/scanner" 
+      routerLinkActive="active" 
+      (click)="closeMobile.emit()" 
+      class="nav-item pulse-nav"
+      title="AI Equipment Scanner">
+      <div class="nav-icon icon-cyan">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"></path>
+          <circle cx="12" cy="13" r="4"></circle>
+        </svg>
+      </div>
+      <span class="nav-label" *ngIf="!isCollapsed">AI Scanner</span>
+      <span class="nav-chip" *ngIf="!isCollapsed">Live</span>
+    </a>
+
+    <a 
+      routerLink="/library" 
+      routerLinkActive="active" 
+      (click)="closeMobile.emit()" 
+      class="nav-item"
+      title="Equipment Library">
+      <div class="nav-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path>
+          <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path>
+        </svg>
+      </div>
+      <span class="nav-label" *ngIf="!isCollapsed">Equipment Library</span>
+      <span class="nav-count" *ngIf="!isCollapsed">{{ totalEquipmentCount }}</span>
+    </a>
+
+    <a 
+      routerLink="/experiment" 
+      routerLinkActive="active" 
+      (click)="closeMobile.emit()" 
+      class="nav-item"
+      title="Experiment Guide">
+      <div class="nav-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M10 2v7.31L4.2 18.5A2 2 0 0 0 6 21h12a2 2 0 0 0 1.8-2.5L14 9.31V2"></path>
+          <line x1="8.5" y1="2" x2="15.5" y2="2"></line>
+        </svg>
+      </div>
+      <span class="nav-label" *ngIf="!isCollapsed">Titration Guide</span>
+      <span class="nav-chip module-chip" *ngIf="!isCollapsed">Interactive</span>
+    </a>
+
+    <a 
+      routerLink="/quiz" 
+      routerLinkActive="active" 
+      (click)="closeMobile.emit()" 
+      class="nav-item"
+      title="Equipment & Safety Quiz">
+      <div class="nav-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <circle cx="12" cy="12" r="10"></circle>
+          <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"></path>
+          <line x1="12" y1="17" x2="12.01" y2="17"></line>
+        </svg>
+      </div>
+      <span class="nav-label" *ngIf="!isCollapsed">Safety Quiz</span>
+      <span class="nav-count" *ngIf="!isCollapsed">12 Qs</span>
+    </a>
+
+    <a 
+      routerLink="/assistant" 
+      routerLinkActive="active" 
+      (click)="closeMobile.emit()" 
+      class="nav-item"
+      title="AI Lab Assistant">
+      <div class="nav-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+        </svg>
+      </div>
+      <span class="nav-label" *ngIf="!isCollapsed">Lab Assistant</span>
+      <span class="nav-chip ai-chip" *ngIf="!isCollapsed">Demo AI</span>
+    </a>
+  </nav>
+
+  <!-- Sidebar Footer: Team Credentials -->
+  <div class="sidebar-footer" *ngIf="!isCollapsed">
+    <div class="team-card">
+      <div class="team-card-header">
+        <span class="team-dot"></span>
+        <span class="team-title">UNEMPLOYED 004</span>
+      </div>
+      <p class="team-sub">Tech Elevate Hackathon 2026</p>
+      <div class="team-stats">
+        <div class="stat">
+          <span class="stat-num">{{ favoritesCount }}</span>
+          <span class="stat-lbl">Saved</span>
+        </div>
+        <div class="stat">
+          <span class="stat-num">100%</span>
+          <span class="stat-lbl">Offline</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</aside>

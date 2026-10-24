@@ -1,0 +1,421 @@
+.quiz-page {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  max-width: 860px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.quiz-active-container {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.quiz-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 1.5rem;
+
+  .header-left {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+
+    .back-link {
+      font-size: 0.875rem;
+      font-weight: 600;
+      color: var(--color-cyan-600);
+    }
+
+    .title-row {
+      display: flex;
+      align-items: center;
+      gap: 0.85rem;
+      flex-wrap: wrap;
+
+      .page-title {
+        font-size: 1.6rem;
+        color: var(--color-navy-950);
+        margin: 0;
+      }
+    }
+  }
+
+  .score-pill {
+    background: #ffffff;
+    border: 1px solid var(--border-subtle);
+    padding: 0.45rem 0.85rem;
+    border-radius: var(--radius-full);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    box-shadow: var(--shadow-xs);
+
+    .score-label {
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      color: var(--color-navy-500);
+    }
+
+    .score-value {
+      font-size: 0.9375rem;
+      font-weight: 700;
+      color: var(--color-cyan-600);
+    }
+  }
+}
+
+.quiz-progress-track {
+  width: 100%;
+  height: 8px;
+  background: var(--color-navy-100);
+  border-radius: var(--radius-full);
+  overflow: hidden;
+
+  .progress-bar-fill {
+    height: 100%;
+    background: linear-gradient(90deg, var(--color-cyan-500), #10b981);
+    border-radius: var(--radius-full);
+    transition: width var(--transition-normal);
+  }
+}
+
+.question-card {
+  background: #ffffff;
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-xl);
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  box-shadow: var(--shadow-md);
+
+  .card-meta {
+    display: flex;
+    align-items: center;
+    gap: 0.65rem;
+  }
+
+  .question-prompt {
+    font-size: 1.25rem;
+    color: var(--color-navy-950);
+    line-height: 1.45;
+    margin: 0;
+  }
+}
+
+.options-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.option-btn {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem 1.25rem;
+  border-radius: var(--radius-lg);
+  background: var(--color-navy-50);
+  border: 2px solid var(--border-subtle);
+  color: var(--color-navy-900);
+  text-align: left;
+  font-size: 0.9375rem;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  position: relative;
+
+  .option-letter {
+    width: 30px;
+    height: 30px;
+    border-radius: var(--radius-full);
+    background: #ffffff;
+    border: 1px solid var(--border-subtle);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.8125rem;
+    font-weight: 700;
+    color: var(--color-navy-700);
+    flex-shrink: 0;
+    transition: all var(--transition-fast);
+  }
+
+  .option-text {
+    flex: 1;
+    line-height: 1.45;
+  }
+
+  .option-icon {
+    font-size: 1.25rem;
+    font-weight: 700;
+
+    .icon-correct {
+      color: #047857;
+    }
+
+    .icon-wrong {
+      color: #be123c;
+    }
+  }
+
+  &:hover:not([disabled]) {
+    background: #ffffff;
+    border-color: var(--color-cyan-500);
+    transform: translateX(4px);
+
+    .option-letter {
+      background: var(--color-cyan-500);
+      color: #ffffff;
+      border-color: var(--color-cyan-500);
+    }
+  }
+
+  &.selected {
+    background: var(--color-cyan-50);
+    border-color: var(--color-cyan-500);
+
+    .option-letter {
+      background: var(--color-cyan-500);
+      color: #ffffff;
+      border-color: var(--color-cyan-500);
+    }
+  }
+
+  &.correct {
+    background: #ecfdf5 !important;
+    border-color: #10b981 !important;
+    color: #064e3b;
+
+    .option-letter {
+      background: #10b981;
+      color: #ffffff;
+      border-color: #10b981;
+    }
+  }
+
+  &.incorrect {
+    background: #fff1f2 !important;
+    border-color: #f43f5e !important;
+    color: #881337;
+
+    .option-letter {
+      background: #f43f5e;
+      color: #ffffff;
+      border-color: #f43f5e;
+    }
+  }
+
+  &:disabled {
+    cursor: default;
+  }
+}
+
+.feedback-box {
+  background: var(--color-navy-50);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-lg);
+  padding: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+  animation: fadeIn 0.25s ease-out;
+
+  .feedback-header {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+
+    .feedback-badge {
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      padding: 0.2rem 0.6rem;
+      border-radius: var(--radius-full);
+      background: #fee2e2;
+      color: #be123c;
+
+      &.success {
+        background: #d1fae5;
+        color: #047857;
+      }
+    }
+
+    .feedback-title {
+      font-size: 0.8125rem;
+      font-weight: 700;
+      color: var(--color-navy-700);
+    }
+  }
+
+  .feedback-text {
+    font-size: 0.875rem;
+    color: var(--color-navy-800);
+    line-height: 1.55;
+    margin: 0;
+  }
+}
+
+.card-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-top: 1px solid var(--border-subtle);
+  padding-top: 1.25rem;
+}
+
+/* Results Card */
+.results-container {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.results-card {
+  background: #ffffff;
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-xl);
+  padding: 2.5rem 2rem;
+  box-shadow: var(--shadow-lg);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 1.25rem;
+
+  .results-badge-wrap {
+    display: flex;
+    align-items: center;
+    gap: 0.65rem;
+
+    .trophy-icon {
+      font-size: 1.8rem;
+    }
+  }
+
+  .results-score-title {
+    font-size: 2.2rem;
+    color: var(--color-navy-950);
+    margin: 0;
+
+    .score-highlight {
+      color: var(--color-cyan-600);
+    }
+  }
+
+  .percentage-pill {
+    font-size: 1rem;
+    font-weight: 700;
+    color: #047857;
+    background: var(--color-emerald-50);
+    border: 1px solid rgba(16, 185, 129, 0.3);
+    padding: 0.35rem 1rem;
+    border-radius: var(--radius-full);
+  }
+
+  .results-desc {
+    font-size: 0.95rem;
+    color: var(--color-navy-700);
+    max-width: 600px;
+    line-height: 1.6;
+    margin: 0;
+  }
+
+  .results-actions {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding-top: 0.5rem;
+  }
+}
+
+/* Review Section */
+.review-section {
+  width: 100%;
+  border-top: 1px solid var(--border-subtle);
+  padding-top: 1.75rem;
+  text-align: left;
+
+  h3 {
+    font-size: 1.2rem;
+    color: var(--color-navy-950);
+    margin-bottom: 1rem;
+  }
+
+  .review-items {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .review-item {
+    background: var(--color-navy-50);
+    border: 1px solid var(--border-subtle);
+    border-radius: var(--radius-lg);
+    padding: 1.25rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+
+    &.review-correct {
+      border-left: 4px solid #10b981;
+    }
+
+    &.review-incorrect {
+      border-left: 4px solid #f43f5e;
+    }
+
+    .review-q-header {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.75rem;
+
+      .review-num {
+        font-weight: 700;
+        color: var(--color-navy-400);
+        font-size: 0.8125rem;
+      }
+
+      .review-q-text {
+        flex: 1;
+        font-weight: 600;
+        color: var(--color-navy-900);
+        font-size: 0.9375rem;
+      }
+
+      .review-status-badge {
+        font-size: 0.75rem;
+        font-weight: 700;
+        color: var(--color-navy-600);
+      }
+    }
+
+    .review-answers {
+      display: flex;
+      flex-direction: column;
+      gap: 0.35rem;
+      font-size: 0.875rem;
+      padding-left: 1.5rem;
+
+      .user-choice {
+        color: var(--color-navy-700);
+      }
+
+      .correct-choice {
+        color: #047857;
+      }
+    }
+
+    .review-rationale {
+      font-size: 0.8125rem;
+      color: var(--color-navy-600);
+      padding-left: 1.5rem;
+      line-height: 1.45;
+    }
+  }
+}
