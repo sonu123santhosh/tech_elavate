@@ -57,7 +57,7 @@ export class ConductometricView {
             <span class="vlab-category-badge cat-instrumental">Interactive Conductometry Simulator</span>
           </div>
           <button class="btn btn-secondary btn-sm" id="btn-view-manual">
-            📖 View Lab Manual & Quiz →
+             View Lab Manual & Quiz →
           </button>
         </div>
 
@@ -70,7 +70,7 @@ export class ConductometricView {
 
         <!-- Supervisor Warning Banner -->
         <div class="supervisor-banner">
-          <div class="banner-icon">⚠️</div>
+          <div class="banner-icon"></div>
           <div class="banner-content">
             <strong>LABORATORY SUPERVISOR CHECKPOINT</strong>
             <p>${meta.supervisorReminder}</p>
@@ -81,7 +81,7 @@ export class ConductometricView {
         <div class="card card-accordion">
           <div class="card-header" id="cond-theory-toggle">
             <div class="card-title-group">
-              <span class="card-icon">⚡</span>
+              <span class="card-icon"></span>
               <h2 class="card-title">Conductometric Theory, Reagents & Instrumentation</h2>
             </div>
             <button class="btn-icon" id="cond-toggle-theory-btn" aria-label="Toggle Conductometric Theory">▼</button>
@@ -93,7 +93,7 @@ export class ConductometricView {
 
             <div class="instruments-grid">
               <div class="equipment-col">
-                <h3 class="col-title">🧪 Reagents & Electrolytes</h3>
+                <h3 class="col-title"> Reagents & Electrolytes</h3>
                 <ul class="item-list">
                   ${meta.chemicals
                     .map(
@@ -110,7 +110,7 @@ export class ConductometricView {
               </div>
 
               <div class="equipment-col">
-                <h3 class="col-title">🔬 Instruments & Electrodes</h3>
+                <h3 class="col-title"> Instruments & Electrodes</h3>
                 <ul class="item-list">
                   ${meta.instruments
                     .map(
@@ -128,7 +128,7 @@ export class ConductometricView {
 
             <!-- Safety Precautions List -->
             <div class="safety-box">
-              <h3 class="safety-title">🛡️ Safety Precautions</h3>
+              <h3 class="safety-title"> Safety Precautions</h3>
               <ul class="safety-list">
                 ${meta.safetyPrecautions.map((p) => `<li>${p}</li>`).join('')}
               </ul>
@@ -178,7 +178,7 @@ export class ConductometricView {
               </div>
 
               <div id="cond-demo-notice" class="demo-badge hidden">
-                ⚡ <strong>DEMONSTRATION SAMPLE DATA ACTIVE</strong>: These readings are for illustrative educational purposes only and are NOT real laboratory measurements.
+                 <strong>DEMONSTRATION SAMPLE DATA ACTIVE</strong>: These readings are for illustrative educational purposes only and are NOT real laboratory measurements.
               </div>
 
               <div class="table-responsive">
@@ -425,7 +425,7 @@ export class ConductometricView {
             />
           </td>
           <td class="text-center">
-            <button class="btn-del-row" data-index="${idx}" title="Delete row">✕</button>
+            <button class="btn-del-row" data-index="${idx}" title="Delete row"></button>
           </td>
         </tr>
       `
@@ -466,7 +466,7 @@ export class ConductometricView {
     if (!result.isValid) {
       resultsContainer.innerHTML = `
         <div class="result-alert alert-warning">
-          <div class="alert-icon">ℹ️</div>
+          <div class="alert-icon">ℹ</div>
           <div class="alert-text">
             <strong>Trendline Fitting Notice</strong>: ${result.error}
           </div>
@@ -516,7 +516,7 @@ export class ConductometricView {
         </div>
 
         <div class="explanation-box">
-          <div class="exp-title">🔬 Scientific Explanation</div>
+          <div class="exp-title"> Scientific Explanation</div>
           <p>${result.explanation}</p>
         </div>
       </div>

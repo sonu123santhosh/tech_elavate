@@ -17,7 +17,7 @@ export const EXPERIMENTS_6_TO_10 = [
     categoryLabel: 'Separation & Purification',
     duration: '45 mins',
     difficulty: 'Beginner',
-    icon: '🌈',
+    icon: '',
     aim: 'To separate the constituents of a dye mixture (or leaf extract pigments) using ascending paper chromatography and determine their characteristic Retardation Factor (Rf) values.',
     principle: `Paper chromatography is an analytical partition chromatography technique based on differential distribution of solutes between two immiscible phases:
 1. Stationary Phase: Water molecules hydrogen-bonded to the porous cellulose fibers of Whatman No. 1 chromatography paper.
@@ -165,7 +165,7 @@ Rf is dimensionless and strictly bounded: 0.0 ≤ Rf ≤ 1.0.`,
     categoryLabel: 'Separation & Purification',
     duration: '60 mins',
     difficulty: 'Intermediate',
-    icon: '⚗️',
+    icon: '',
     aim: 'To separate and purify ethanol from a binary ethanol–water mixture using simple distillation apparatus, and evaluate distillation recovery and boiling point behavior.',
     principle: `Distillation is a thermal separation technique based on differences in vapor pressure and boiling points of liquid components.
 
@@ -313,7 +313,7 @@ Where y_A is vapor mole fraction, x_A is liquid mole fraction, and P_A° is satu
     categoryLabel: 'Titrimetric Analysis',
     duration: '50 mins',
     difficulty: 'Intermediate',
-    icon: '💧',
+    icon: '',
     aim: 'To determine the Total, Permanent, and Temporary hardness of a municipal water sample by complexometric titration against standard 0.0100 M Disodium EDTA solution using Eriochrome Black T (EBT) indicator.',
     principle: `Water hardness is caused by dissolved polyvalent metallic cations, predominantly Calcium (Ca²⁺) and Magnesium (Mg²⁺), expressed in parts per million (ppm or mg/L) equivalent to CaCO₃.
 
@@ -476,7 +476,7 @@ Hardness Types:
     categoryLabel: 'Instrumental Chemistry',
     duration: '50 mins',
     difficulty: 'Intermediate',
-    icon: '⚡',
+    icon: '',
     hasSimulator: true,
     simulatorType: 'conductometric',
     simulatorTitle: 'Conductometric Titration Simulator',
@@ -657,7 +657,7 @@ Plotting Conductance (or volume-corrected conductance) vs Volume of NaOH yields 
     categoryLabel: 'Instrumental Chemistry',
     duration: '50 mins',
     difficulty: 'Intermediate',
-    icon: '📈',
+    icon: '',
     hasSimulator: true,
     simulatorType: 'ph-metric',
     simulatorTitle: 'pH Titration Simulator (pH-Metric)',

@@ -258,7 +258,7 @@ export class ArScannerView {
 
           <div class="detection-body">
             <div class="detection-icon-wrap">
-              <span class="detection-icon">⚗️</span>
+              <span class="detection-icon"></span>
             </div>
             <div class="detection-details">
               <div class="detection-number">#${equipment.number} • ${equipment.category.toUpperCase()}</div>
@@ -269,10 +269,10 @@ export class ArScannerView {
 
           <div class="detection-actions">
             <button class="btn btn-primary" id="btn-view-identified-instructions">
-              📖 View Instructions & Attempt Quiz →
+               View Instructions & Attempt Quiz →
             </button>
             <button class="btn btn-outline btn-sm" id="btn-dismiss-detection">
-              ✕ Dismiss & Scan Again
+               Dismiss & Scan Again
             </button>
           </div>
         </div>
@@ -305,10 +305,10 @@ export class ArScannerView {
 
             <div class="uncertain-confirm-buttons">
               <button class="btn btn-primary btn-sm" id="btn-confirm-uncertain-yes">
-                ✔ Yes, this is ${equipment.name}
+                 Yes, this is ${equipment.name}
               </button>
               <button class="btn btn-secondary btn-sm" id="btn-confirm-uncertain-no">
-                ✖ No, Rescan / Choose From Catalog
+                 No, Rescan / Choose From Catalog
               </button>
             </div>
           </div>
@@ -343,10 +343,10 @@ export class ArScannerView {
           <!-- Mode Toggle Tabs -->
           <div class="scanner-mode-tabs">
             <button class="tab-pill ${this.activeMode === 'camera' ? 'active' : ''}" id="btn-mode-camera">
-              📷 AR Camera Scanner
+               AR Camera Scanner
             </button>
             <button class="tab-pill ${this.activeMode === 'catalog' ? 'active' : ''}" id="btn-mode-catalog">
-              📚 63-Item Equipment Catalog
+               63-Item Equipment Catalog
             </button>
           </div>
         </div>
@@ -377,7 +377,7 @@ export class ArScannerView {
 
             <!-- Fallback Alert if camera is denied/offline -->
             <div id="camera-permission-alert" class="camera-alert-banner" style="display: none;">
-              <span class="alert-icon">ℹ️</span>
+              <span class="alert-icon">ℹ</span>
               <div class="alert-content">
                 <strong>Camera Hardware Offline / Permission Not Granted</strong>
                 <p>You can still test optical AR recognition using the live preset detection triggers below, or browse all 63 equipment items in the interactive catalog.</p>
@@ -404,19 +404,19 @@ export class ArScannerView {
 
               <!-- Quick AR Detection Simulator for Lab Testing -->
               <div class="control-group-presets">
-                <span class="presets-title">⚡ Quick AR Bench Recognition Triggers:</span>
+                <span class="presets-title"> Quick AR Bench Recognition Triggers:</span>
                 <div class="preset-buttons-row">
                   ${this.detectablePresets
                     .map(
                       (p) => `
                     <button class="btn btn-outline btn-xs btn-preset-detect" data-id="${p.id}" data-confidence="${p.defaultConfidence}">
-                      🔍 Scan ${p.label.split(' ')[0]}
+                       Scan ${p.label.split(' ')[0]}
                     </button>
                   `
                     )
                     .join('')}
                   <button class="btn btn-outline btn-xs btn-preset-uncertain" data-id="beaker" data-confidence="62">
-                    ⚠️ Trigger Uncertain Match (62%)
+                     Trigger Uncertain Match (62%)
                   </button>
                 </div>
               </div>
@@ -425,7 +425,7 @@ export class ArScannerView {
 
           <!-- Honest Disclosure & Fallback Link -->
           <div class="camera-footer-note card">
-            <span class="note-icon">💡</span>
+            <span class="note-icon"></span>
             <div class="note-text">
               <strong>Laboratory Equipment Recognition Notice:</strong>
               AR optical recognition is tested for representative bench items (Beakers, Burettes, Bunsen Burners, Conical Flasks, Laboratory pH Meters, Microscopes, etc.). To access instructions and quizzes for all 63 items, switch to the
@@ -440,7 +440,7 @@ export class ArScannerView {
           <div class="card catalog-filter-card">
             <div class="catalog-search-row">
               <div class="search-input-wrap">
-                <span class="search-icon">🔍</span>
+                <span class="search-icon"></span>
                 <input
                   type="text"
                   id="catalog-search-input"
@@ -448,7 +448,7 @@ export class ArScannerView {
                   placeholder="Search 63 equipment items by name, ID, or main laboratory use..."
                   value="${this.searchQuery}"
                 />
-                ${this.searchQuery ? '<button id="btn-clear-search" class="btn-clear">✕</button>' : ''}
+                ${this.searchQuery ? '<button id="btn-clear-search" class="btn-clear"></button>' : ''}
               </div>
             </div>
 
@@ -517,7 +517,7 @@ export class ArScannerView {
     if (items.length === 0) {
       grid.innerHTML = `
         <div class="catalog-empty-state card">
-          <span style="font-size: 2.5rem;">🔍</span>
+          <span style="font-size: 2.5rem;"></span>
           <h3>No Equipment Found</h3>
           <p>No equipment items matched your search query "<strong>${this.searchQuery}</strong>".</p>
           <button class="btn btn-secondary btn-sm" id="btn-reset-filters">Reset Search & Filters</button>
@@ -548,7 +548,7 @@ export class ArScannerView {
 
         <div class="card-footer-action">
           <button class="btn btn-primary btn-sm btn-select-equipment" data-id="${eq.id}">
-            📖 Instructions & Quiz →
+             Instructions & Quiz →
           </button>
         </div>
       </div>

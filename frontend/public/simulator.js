@@ -6,7 +6,7 @@
  *    - Filtration (paper seating, solvent moistening, slurry decantation, stirring rod guidance, overflow detection, filtrate drainage)
  *    - Paper Chromatography (pencil baseline vs pen ink mistake, sample spot, solvent depth check, capillary ascent, Rf ratio)
  * 2. Real-time apparatus inspector with live equipment.json lookups & equipmentRoles.json mappings.
- * 3. Mistake feedback alerts with star rating penalties (⭐⭐⭐), safe-path Hint (💡) and Skip (⏭) buttons.
+ * 3. Mistake feedback alerts with star rating penalties (), safe-path Hint () and Skip (Skip) buttons.
  * 4. Full 2D SVG vector animations with pointer events, keyboard accessibility, and prefers-reduced-motion support.
  * 5. 3-question conceptual quiz per experiment with score summary and retry capabilities.
  */
@@ -1148,7 +1148,7 @@ const EXPERIMENT_CONTENT = {
       {
         stepIndex: 3,
         actionId: "run_titration",
-        prompt: "Step 4: Titrate! Hold or click '💧 Open Stopcock (Titrate)'. Observe transient pink flashes.",
+        prompt: "Step 4: Titrate! Hold or click ' Open Stopcock (Titrate)'. Observe transient pink flashes.",
         hint: "Hold or click the valve control below the stage. Drip rate is fast initially, but prepare to slow down!",
         targetElement: "btn-valve-control",
         feedback: "Titrant delivered into the flask. Transient color flashes indicate the endpoint is near."
@@ -1193,7 +1193,7 @@ const EXPERIMENT_CONTENT = {
       {
         stepIndex: 2,
         actionId: "decant_slurry",
-        prompt: "Step 3: Decant mixture! Click or hold '🥣 Pour Slurry' to guide suspension down the glass rod.",
+        prompt: "Step 3: Decant mixture! Click or hold ' Pour Slurry' to guide suspension down the glass rod.",
         hint: "Use surface tension along the stirring rod to direct liquid into the cone. Keep rate safe!",
         targetElement: "btn-pour-control",
         feedback: "Slurry poured smoothly along stirring rod without overflowing the filter rim."
@@ -1222,7 +1222,7 @@ const EXPERIMENT_CONTENT = {
       {
         stepIndex: 0,
         actionId: "draw_baseline",
-        prompt: "Step 1: Draw origin line. Ensure '✏️ Pencil' is selected, then click the Paper Strip to mark baseline.",
+        prompt: "Step 1: Draw origin line. Ensure ' Pencil' is selected, then click the Paper Strip to mark baseline.",
         hint: "Always use an insoluble graphite pencil! Pen inks dissolve in mobile phase and ruin the chromatogram.",
         targetElement: "filter-paper",
         feedback: "Graphite baseline drawn 1.5 cm from bottom edge. Insoluble carbon line will not bleed."
@@ -1958,7 +1958,7 @@ function updateStarsIndicator() {
   const indicator = document.getElementById("stars-indicator");
   if (!indicator) return;
   const stars = Math.max(1, Math.min(3, gameState.stars));
-  indicator.textContent = "⭐".repeat(stars);
+  indicator.textContent = "".repeat(stars);
   indicator.title = `${stars} / 3 Stars (${gameState.mistakesCount} mistakes)`;
 }
 
@@ -2137,7 +2137,7 @@ function handleChromatographyAction(actionId, isMatch) {
       renderSceneControls(activeExperimentId);
     } else if (actionId === "filter-paper" || actionId === "draw_baseline" || actionId === "pencil") {
       if (gameState.chromatography.chosenTool === "pen") {
-        showMistake("Cannot draw baseline with ink pen! Select '✏️ Graphite Pencil' first.");
+        showMistake("Cannot draw baseline with ink pen! Select ' Graphite Pencil' first.");
       } else {
         gameState.chromatography.baselineDrawn = true;
         advanceGameStep();
@@ -2257,7 +2257,7 @@ function stopTitrationDrip() {
   gameState.titration.valveOpen = false;
 
   const btnValve = document.getElementById("btn-valve-control");
-  if (btnValve) btnValve.textContent = "💧 Open Stopcock (Titrate)";
+  if (btnValve) btnValve.textContent = " Open Stopcock (Titrate)";
 
   if (gameState.titration.endpointReached && !gameState.titration.overshot && gameState.stepIndex === 4) {
     advanceGameStep();
@@ -2276,32 +2276,32 @@ function renderSceneControls(expId) {
     const isDropwise = (gameState.titration.flowRate === "dropwise");
     container.innerHTML = `
       <button id="btn-valve-control" class="btn-scene-action" onclick="handleGameAction('btn-valve-control')" title="Hold or click to titrate">
-        ${gameState.titration.valveOpen ? '⏸ Close Stopcock' : '💧 Open Stopcock (Titrate)'}
+        ${gameState.titration.valveOpen ? '⏸ Close Stopcock' : ' Open Stopcock (Titrate)'}
       </button>
       <button id="btn-rate-toggle" class="btn-scene-action-sm ${isDropwise ? 'active' : ''}" onclick="toggleTitrationRate()">
         Rate: ${isDropwise ? 'Dropwise Delivery' : 'Fast Flow'}
       </button>
       <button id="btn-clear-bubble" class="btn-scene-action-sm" onclick="handleGameAction('btn-clear-bubble')">
-        🫧 Clear Air Bubble
+         Clear Air Bubble
       </button>
       <button id="btn-add-indicator" class="btn-scene-action-sm" onclick="handleGameAction('btn-add-indicator')">
-        🧪 Add Indicator
+         Add Indicator
       </button>
     `;
   } else if (expId === "filtration") {
     const isSafe = (gameState.filtration.pourRate === "safe");
     container.innerHTML = `
       <button id="btn-seat-paper" class="btn-scene-action" onclick="handleGameAction('btn-seat-paper')">
-        📄 Seat & Moisten Paper
+         Seat & Moisten Paper
       </button>
       <button id="btn-pour-control" class="btn-scene-action" onclick="handleGameAction('btn-pour-control')">
-        🥣 Pour Slurry Down Rod
+         Pour Slurry Down Rod
       </button>
       <button id="btn-pour-rate" class="btn-scene-action-sm ${isSafe ? 'active' : ''}" onclick="togglePourRate()">
         Rate: ${isSafe ? 'Safe (Slow)' : 'Fast (Risk Overflow)'}
       </button>
       <button id="btn-align-stem" class="btn-scene-action-sm" onclick="handleGameAction('btn-align-stem')">
-        📐 Align Funnel Stem
+         Align Funnel Stem
       </button>
     `;
   } else if (expId === "paper-chromatography") {
@@ -2310,23 +2310,23 @@ function renderSceneControls(expId) {
     container.innerHTML = `
       <div style="display: inline-flex; align-items: center; gap: 0.35rem;">
         <span style="font-size: 0.8rem; font-weight: 600; color: var(--text-muted);">Marker:</span>
-        <button id="btn-choice-pencil" class="btn-scene-action-sm ${isPencil ? 'active' : ''}" onclick="handleGameAction('btn-choice-pencil')">✏️ Pencil</button>
-        <button id="btn-choice-pen" class="btn-scene-action-sm ${!isPencil ? 'active' : ''}" onclick="handleGameAction('btn-choice-pen')">🖊️ Pen</button>
+        <button id="btn-choice-pencil" class="btn-scene-action-sm ${isPencil ? 'active' : ''}" onclick="handleGameAction('btn-choice-pencil')"> Pencil</button>
+        <button id="btn-choice-pen" class="btn-scene-action-sm ${!isPencil ? 'active' : ''}" onclick="handleGameAction('btn-choice-pen')"> Pen</button>
       </div>
       <button id="btn-draw-baseline" class="btn-scene-action" onclick="handleGameAction('draw_baseline')">
-        📏 Draw Baseline
+         Draw Baseline
       </button>
       <button id="btn-spot-sample" class="btn-scene-action-sm" onclick="handleGameAction('apply_sample_spot')">
-        💧 Apply Spot
+         Apply Spot
       </button>
       <button id="btn-depth-toggle" class="btn-scene-action-sm ${isSafeDepth ? 'active' : ''}" onclick="handleGameAction('btn-depth-toggle')">
         Depth: ${isSafeDepth ? 'Safe (0.8 cm)' : 'Excess (2.5 cm)'}
       </button>
       <button id="btn-cover-chamber" class="btn-scene-action-sm" onclick="handleGameAction('insert_strip_cover')">
-        🫙 Lower Paper & Cover
+         Lower Paper & Cover
       </button>
       <button id="btn-mark-front" class="btn-scene-action-sm" onclick="handleGameAction('mark_solvent_front')">
-        📐 Mark Solvent Front
+         Mark Solvent Front
       </button>
     `;
   } else if (expId === "ph-determination") {
@@ -2423,7 +2423,7 @@ function renderCurrentExperiment() {
     safetyContainer.innerHTML = exp.safety
       .map(rule => `
         <li class="safety-item">
-          <span class="safety-icon">⚠️</span>
+          <span class="safety-icon"></span>
           <div>${rule}</div>
         </li>
       `).join("");
@@ -2434,7 +2434,7 @@ function renderCurrentExperiment() {
     procEquipContainer.innerHTML = exp.equipment
       .map(id => {
         const prettyName = formatEquipName(id);
-        return `<a href="index.html#detail/${id}" target="_blank" class="equip-link" title="View ${prettyName} in Equipment Catalog">📖 ${prettyName} ↗</a>`;
+        return `<a href="index.html#detail/${id}" target="_blank" class="equip-link" title="View ${prettyName} in Equipment Catalog"> ${prettyName} ↗</a>`;
       })
       .join("");
   }
@@ -2464,7 +2464,7 @@ function updateStepGuideDisplay() {
 
   const promptPill = document.getElementById("action-prompt-pill");
   if (promptPill && currentStep) {
-    promptPill.textContent = `🎯 Action: ${currentStep.targetElement || 'Click apparatus'}`;
+    promptPill.textContent = ` Action: ${currentStep.targetElement || 'Click apparatus'}`;
   }
 
   // Tab 2 Step Focus Viewer
@@ -2495,7 +2495,7 @@ function updateStepGuideDisplay() {
       statusBadge.textContent = "▶ Action in Progress";
       statusBadge.style.color = "var(--accent-teal)";
     } else if (animState.progress >= 1.0) {
-      statusBadge.textContent = "✓ Experiment Completed";
+      statusBadge.textContent = " Experiment Completed";
       statusBadge.style.color = "var(--accent-cyan)";
     } else {
       statusBadge.textContent = "Ready (Perform Action)";
@@ -2682,7 +2682,7 @@ function applyTitrationVisuals(p) {
   if (endpointPill) {
     if (gameState.titration.endpointReached) {
       endpointPill.classList.add("visible");
-      endpointPill.textContent = gameState.titration.overshot ? "⚠️ Titration Overshot!" : "★ Simulated Endpoint Reached!";
+      endpointPill.textContent = gameState.titration.overshot ? " Titration Overshot!" : " Simulated Endpoint Reached!";
     } else {
       endpointPill.classList.remove("visible");
     }
@@ -2862,8 +2862,8 @@ window.selectApparatus = function(itemKey) {
       `;
     } else {
       inspectorBadges.innerHTML = `
-        <span class="badge-db">✓ Verified DB ID: <code>${info.dbId}</code></span>
-        <a href="index.html#detail/${info.dbId}" target="_blank" class="badge badge-cyan" title="Open full specs in Equipment Catalog">📖 Full Specs ↗</a>
+        <span class="badge-db"> Verified DB ID: <code>${info.dbId}</code></span>
+        <a href="index.html#detail/${info.dbId}" target="_blank" class="badge badge-cyan" title="Open full specs in Equipment Catalog"> Full Specs ↗</a>
       `;
     }
   }
@@ -2881,7 +2881,7 @@ window.selectApparatus = function(itemKey) {
       <div class="inspector-field">
         <span class="field-label">Essential Safety Precaution:</span>
         <div class="field-safety">
-          <span>⚠️</span>
+          <span></span>
           <span>${info.safety}</span>
         </div>
       </div>
@@ -2905,7 +2905,7 @@ window.dismissInspector = function() {
   const inspectorBody = document.getElementById("inspector-body");
   const btnClose = document.getElementById("btn-close-inspector");
 
-  if (inspectorName) inspectorName.textContent = "🔍 Equipment Inspector";
+  if (inspectorName) inspectorName.textContent = " Equipment Inspector";
   if (btnClose) btnClose.style.display = "none";
   if (inspectorBadges) {
     inspectorBadges.innerHTML = `<span class="badge badge-cyan">Click Apparatus to Inspect</span>`;
@@ -2913,7 +2913,7 @@ window.dismissInspector = function() {
   if (inspectorBody) {
     inspectorBody.innerHTML = `
       <div class="inspector-placeholder">
-        <span>👈</span>
+        <span></span>
         <span>Click or tap any laboratory apparatus illustration on the workbench to inspect its purpose, experiment role, and safety rules.</span>
       </div>
     `;
@@ -3312,7 +3312,7 @@ function showQuizScoreCard() {
 
   container.innerHTML = `
     <div class="quiz-score-card">
-      <div class="quiz-score-title">🏆 Quiz Complete — Results Summary</div>
+      <div class="quiz-score-title"> Quiz Complete — Results Summary</div>
       <div class="score-number">${score} / 3</div>
       <div style="font-weight: 600; color: var(--accent-cyan); margin-bottom: 0.5rem;">Score: ${pct}%</div>
       <p class="score-desc">${message}</p>
@@ -3433,15 +3433,15 @@ function renderPhDeterminationControls(container) {
   const isCal = gameState.phDetermination.meterCalibrated;
   container.innerHTML = `
     <div style="display:inline-flex; align-items:center; gap:0.4rem;">
-      <button id="btn-method-paper" class="btn-scene-action-sm ${isPaper ? 'active' : ''}" onclick="setPhMethod('paper')">📄 Indicator Paper</button>
-      <button id="btn-method-meter" class="btn-scene-action-sm ${!isPaper ? 'active' : ''}" onclick="setPhMethod('meter')">⚡ pH Meter</button>
+      <button id="btn-method-paper" class="btn-scene-action-sm ${isPaper ? 'active' : ''}" onclick="setPhMethod('paper')"> Indicator Paper</button>
+      <button id="btn-method-meter" class="btn-scene-action-sm ${!isPaper ? 'active' : ''}" onclick="setPhMethod('meter')"> pH Meter</button>
     </div>
     ${isPaper ? `
       <button id="btn-dip-paper" class="btn-scene-action" onclick="handleGameAction('dip_test_paper')">
-        ${samplePlaced ? '✓ Sample Droplet Placed' : '🧪 Touch Droplet to Paper'}
+        ${samplePlaced ? ' Sample Droplet Placed' : ' Touch Droplet to Paper'}
       </button>
       <button id="btn-dunk-stock" class="btn-scene-action-sm" onclick="handleGameAction('btn-dunk-stock')" title="Test dunking whole strip">
-        ⚠️ Dunk Strip in Stock
+         Dunk Strip in Stock
       </button>
       <div class="color-chart-strip" title="Click matching color band to estimate pH">
         <span style="font-size:0.75rem; color:#94a3b8; font-weight:600;">Chart:</span>
@@ -3453,13 +3453,13 @@ function renderPhDeterminationControls(container) {
       </div>
     ` : `
       <button id="btn-calibrate-meter" class="btn-scene-action" onclick="handleGameAction('calibrate_meter')">
-        ${isCal ? '✓ Electrode Calibrated (pH 7.0)' : '💧 Rinse & Calibrate Electrode'}
+        ${isCal ? ' Electrode Calibrated (pH 7.0)' : ' Rinse & Calibrate Electrode'}
       </button>
       <button id="btn-measure-sample" class="btn-scene-action" onclick="handleGameAction('rinse_and_measure')">
-        📊 Rinse & Measure Sample A
+         Rinse & Measure Sample A
       </button>
       <button id="btn-skip-cal-test" class="btn-scene-action-sm" onclick="handleGameAction('btn-skip-cal-test')">
-        ⚠️ Measure Without Cal
+         Measure Without Cal
       </button>
       <span class="digital-readout-pill" id="ph-digital-pill">pH: ${gameState.phDetermination.digitalReading ? gameState.phDetermination.digitalReading.toFixed(2) : (isCal ? '7.00 CAL' : '--.--')} (Illustrative)</span>
     `}
@@ -3638,31 +3638,31 @@ function renderStandardSolutionControls(container) {
   container.innerHTML = `
     <span class="digital-readout-pill" id="balance-mass-pill">Mass: ${g.massValue} g (Illustrative)</span>
     <button id="btn-tare-balance" class="btn-scene-action-sm ${g.balanceTared ? 'active' : ''}" onclick="handleGameAction('btn-tare-balance')">
-      ⚖️ Tare Balance
+       Tare Balance
     </button>
     <button id="btn-add-solid" class="btn-scene-action" onclick="handleGameAction('weigh_primary_standard')">
-      🥄 Weigh Solid on Boat
+       Weigh Solid on Boat
     </button>
     <button id="btn-dissolve-beaker" class="btn-scene-action" onclick="handleGameAction('dissolve_in_beaker')">
-      🥣 Dissolve in Beaker First
+       Dissolve in Beaker First
     </button>
     <button id="btn-pour-direct-flask" class="btn-scene-action-sm" onclick="handleGameAction('btn-pour-direct-flask')">
-      ⚠️ Pour Solid into Flask
+       Pour Solid into Flask
     </button>
     <button id="btn-quant-transfer" class="btn-scene-action" onclick="handleGameAction('quantitative_transfer')">
-      🧪 Quantitative Transfer
+       Quantitative Transfer
     </button>
     <button id="btn-fill-near-mark" class="btn-scene-action-sm" onclick="handleGameAction('fill_near_mark')">
-      💧 Fill Near Mark (~1 cm)
+       Fill Near Mark (~1 cm)
     </button>
     <button id="btn-meniscus-drop" class="btn-scene-action-sm" onclick="handleGameAction('meniscus_drop')">
-      🔬 Add Drops
+       Add Drops
     </button>
     <button id="btn-meniscus-lock" class="btn-scene-action-sm" onclick="handleGameAction('meniscus_adjustment')">
-      🎯 Align at Mark
+       Align at Mark
     </button>
     <button id="btn-stopper-invert" class="btn-scene-action" onclick="handleGameAction('stopper_and_invert')">
-      🔄 Stopper & Invert (${g.invertedCount}/3)
+       Stopper & Invert (${g.invertedCount}/3)
     </button>
   `;
 }
@@ -3824,33 +3824,33 @@ function handleDistillationAction(actionId, isMatch) {
 function renderDistillationControls(container) {
   const d = gameState.distillation;
   container.innerHTML = `
-    <span class="temperature-readout-pill" id="distill-temp-pill">🌡️ ${d.tempC}°C (Illustrative)</span>
+    <span class="temperature-readout-pill" id="distill-temp-pill"> ${d.tempC}°C (Illustrative)</span>
     <button id="btn-assemble-rig" class="btn-scene-action" onclick="handleGameAction('assemble_glassware')">
-      🔧 ${d.assembled ? '✓ Rig Assembled' : 'Assemble Glassware & Stand'}
+       ${d.assembled ? ' Rig Assembled' : 'Assemble Glassware & Stand'}
     </button>
     <button id="btn-check-open-vent" class="btn-scene-action-sm" onclick="handleGameAction('verify_open_system')">
-      🔍 Verify Open Vent & Bulb
+       Verify Open Vent & Bulb
     </button>
     <button id="btn-seal-system-test" class="btn-scene-action-sm" onclick="handleGameAction('btn-seal-system-test')">
-      ⚠️ Seal Receiver Vent
+       Seal Receiver Vent
     </button>
     <button id="btn-water-correct" class="btn-scene-action-sm ${d.waterConnected && d.waterFlow === 'correct' ? 'active' : ''}" onclick="handleGameAction('connect_cooling_water')">
-      🌊 Water: In Bottom / Out Top
+       Water: In Bottom / Out Top
     </button>
     <button id="btn-water-wrong" class="btn-scene-action-sm" onclick="handleGameAction('btn-water-wrong')">
-      ⚠️ Water: In Top / Out Bottom
+       Water: In Top / Out Bottom
     </button>
     <button id="btn-apply-heat" class="btn-scene-action" onclick="handleGameAction('apply_heat')">
-      ${d.heatingActive ? '🔥 Heating Active (~78°C)' : '🔥 Turn On Hot Plate'}
+      ${d.heatingActive ? ' Heating Active (~78°C)' : ' Turn On Hot Plate'}
     </button>
     <button id="btn-stop-heat" class="btn-scene-action-sm" onclick="handleGameAction('stop_before_dryness')">
-      🛑 Stop Heat (~5 mL Left)
+       Stop Heat (~5 mL Left)
     </button>
     <button id="btn-dryness-test" class="btn-scene-action-sm" onclick="handleGameAction('btn-dryness-test')">
-      ⚠️ Distill to Complete Dryness
+       Distill to Complete Dryness
     </button>
     <button id="btn-shutdown" class="btn-scene-action-sm" onclick="handleGameAction('shutdown_sequence')">
-      ❄️ Cool & Shutdown
+       Cool & Shutdown
     </button>
   `;
 }
@@ -4005,28 +4005,28 @@ function renderRecrystallizationControls(container) {
   const r = gameState.recrystallization;
   container.innerHTML = `
     <button id="btn-dissolve-minimal" class="btn-scene-action" onclick="handleGameAction('dissolve_minimal_solvent')">
-      ☕ Dissolve in Minimal Hot Solvent
+       Dissolve in Minimal Hot Solvent
     </button>
     <button id="btn-solvent-excess-test" class="btn-scene-action-sm" onclick="handleGameAction('btn-solvent-excess-test')">
-      ⚠️ Add Excess Solvent
+       Add Excess Solvent
     </button>
     <button id="btn-hot-filter" class="btn-scene-action-sm" onclick="handleGameAction('hot_filtration')">
-      ☕ Hot Gravity Filtration
+       Hot Gravity Filtration
     </button>
     <button id="btn-slow-cooling" class="btn-scene-action" onclick="handleGameAction('slow_cooling')">
-      ⏳ Slow Cooling (Room Temp)
+       Slow Cooling (Room Temp)
     </button>
     <button id="btn-ice-plunge-test" class="btn-scene-action-sm" onclick="handleGameAction('btn-ice-plunge-test')">
-      ⚠️ Plunge Hot Flask into Ice
+       Plunge Hot Flask into Ice
     </button>
     <button id="btn-ice-chill" class="btn-scene-action-sm" onclick="handleGameAction('ice_bath_chill')">
-      🧊 Ice-Bath Chill (Max Yield)
+       Ice-Bath Chill (Max Yield)
     </button>
     <button id="btn-vacuum-filter" class="btn-scene-action" onclick="handleGameAction('vacuum_filtration_wash')">
-      🌀 Suction Filter & Cold Wash
+       Suction Filter & Cold Wash
     </button>
     <button id="btn-view-microscope" class="btn-scene-action-sm" onclick="handleGameAction('microscope_observation')">
-      🔬 Examine Crystal Habit
+       Examine Crystal Habit
     </button>
   `;
 }
@@ -4170,22 +4170,22 @@ function renderPhMetricControls(container) {
   container.innerHTML = `
     <span class="digital-readout-pill" id="ph-metric-pill">pH: ${p.currentPh.toFixed(2)} | V: ${p.volumeAdded.toFixed(1)} mL (Illustrative)</span>
     <button id="btn-calibrate-electrode" class="btn-scene-action" onclick="handleGameAction('calibrate_and_assemble')">
-      ⚡ ${p.calibrated ? '✓ Calibrated & Lowered' : 'Calibrate & Position Electrode'}
+       ${p.calibrated ? ' Calibrated & Lowered' : 'Calibrate & Position Electrode'}
     </button>
     <button id="btn-baseline-ph" class="btn-scene-action-sm" onclick="handleGameAction('record_initial_ph')">
-      📍 Record Baseline (0.0 mL)
+       Record Baseline (0.0 mL)
     </button>
     <button id="btn-add-2ml" class="btn-scene-action" onclick="handleGameAction('titrate_buffer_region')">
-      💧 Add 2.0 mL (Buffer Zone)
+       Add 2.0 mL (Buffer Zone)
     </button>
     <button id="btn-add-02ml" class="btn-scene-action" onclick="handleGameAction('dropwise_steep_region')">
-      💧 Add 0.5 mL (Dropwise Steep Zone)
+       Add 0.5 mL (Dropwise Steep Zone)
     </button>
     <button id="btn-add-5ml-jump" class="btn-scene-action-sm" onclick="handleGameAction('btn-add-5ml-jump')">
-      ⚠️ Add 5.0 mL Jump in Steep Zone
+       Add 5.0 mL Jump in Steep Zone
     </button>
     <button id="btn-mark-eq" class="btn-scene-action" onclick="handleGameAction('identify_equivalence_point')">
-      🎯 Mark Equivalence Point
+       Mark Equivalence Point
     </button>
   `;
 }

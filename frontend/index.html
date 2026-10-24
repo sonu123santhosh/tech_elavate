@@ -18,7 +18,11 @@
     <!-- App Navigation Header -->
     <header class="app-header">
       <div class="brand-wrapper">
-        <div class="brand-logo-icon">⚗️</div>
+        <div class="brand-logo-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor">
+            <path d="M19 19c0 .55-.45 1-1 1s-1-.45-1-1v-4.18l-3.32-5.54C13.24 9.55 13 8.79 13 8V4h1c.55 0 1-.45 1-1s-.45-1-1-1H10c-.55 0-1 .45-1 1s.45 1 1 1h1v4c0 .79-.24 1.55-.68 2.28L7 14.82V19c0 .55-.45 1-1 1s-1-.45-1-1c0-.28.11-.53.29-.71l4.42-7.37C10.23 9.94 10.5 8.99 10.5 8V4h3v4c0 .99.27 1.94.79 2.92l4.42 7.37c.18.18.29.43.29.71z"/>
+          </svg>
+        </div>
         <div>
           <span class="brand-title">Smart Lab Assistant</span>
           <span class="brand-badge">Tech Elevate • Unified Platform</span>
@@ -28,22 +32,22 @@
       <!-- Module Navigation Tabs -->
       <nav class="nav-tabs" aria-label="Experiment and Tool Selection">
         <button class="nav-tab-btn active" data-tab="experiments" id="tab-btn-experiments">
-          <span>🔬</span> Virtual Lab (15 Experiments)
+          Virtual Lab (15 Experiments)
         </button>
         <button class="nav-tab-btn" data-tab="scanner" id="tab-btn-scanner">
-          <span>📷</span> AI Equipment Scanner
+          AI Equipment Scanner
         </button>
         <button class="nav-tab-btn" data-tab="simulator" id="tab-btn-simulator">
-          <span>⚗️</span> 2D Lab Simulator
+          2D Lab Simulator
         </button>
         <button class="nav-tab-btn" data-tab="equipment" id="tab-btn-equipment">
-          <span>🔍</span> 62 Equipment Database
+          62 Equipment Database
         </button>
         <button class="nav-tab-btn" data-tab="ar-quiz" id="tab-btn-ar-quiz">
-          <span>📝</span> AR Lab & Quizzes
+          AR Lab & Quizzes
         </button>
         <button class="nav-tab-btn" data-tab="chat" id="tab-btn-chat">
-          <span>🤖</span> AI Lab Assistant
+          AI Lab Assistant
         </button>
       </nav>
     </header>

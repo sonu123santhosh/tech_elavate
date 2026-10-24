@@ -17,7 +17,7 @@ export const EXPERIMENTS_1_TO_5 = [
     categoryLabel: 'Titrimetric Analysis',
     duration: '45 mins',
     difficulty: 'Intermediate',
-    icon: '🧪',
+    icon: '',
     aim: 'To determine the molarity and strength of an unknown hydrochloric acid (HCl) solution by titrating against a standard 0.100 M sodium hydroxide (NaOH) solution using phenolphthalein indicator.',
     principle: `Acid–base titration is a quantitative volumetric analysis method based on the complete neutralization reaction between hydronium ions (H₃O⁺) from an acid and hydroxide ions (OH⁻) from a base:
 
@@ -162,7 +162,7 @@ Phenolphthalein is chosen as the visual indicator because its transition range (
     categoryLabel: 'Instrumental Chemistry',
     duration: '40 mins',
     difficulty: 'Beginner',
-    icon: '📊',
+    icon: '',
     distinctionNote: 'General pH Measurement (pH Paper & Buffers — Non-Titrimetric)',
     keywords: [
       'ph determination',
@@ -324,7 +324,7 @@ The meter amplifier measures this millivolt potential (slope ~59.16 mV per pH un
     categoryLabel: 'Titrimetric Analysis',
     duration: '35 mins',
     difficulty: 'Beginner',
-    icon: '⚖️',
+    icon: '',
     aim: 'To prepare 250 mL of a primary standard 0.0500 M (0.1000 N) oxalic acid dihydrate [H₂C₂O₄·2H₂O] solution by direct analytical weighing.',
     principle: `A standard solution is a reagent solution of precisely known concentration used in quantitative chemical analysis. Standards are classified into:
 1. Primary Standards: Substances of high purity (≥ 99.9%), high equivalent weight, non-hygroscopic nature, thermal stability, and definite chemical stoichiometry. Examples include oxalic acid dihydrate, anhydrous sodium carbonate, and potassium hydrogen phthalate.
@@ -471,7 +471,7 @@ W = (N · Eq. Wt · V) / 1000`,
     categoryLabel: 'Separation & Purification',
     duration: '40 mins',
     difficulty: 'Beginner',
-    icon: '🌪️',
+    icon: '',
     aim: 'To separate an insoluble solid precipitate (Barium Sulphate, BaSO₄) from an aqueous reaction mixture and compare the filtration rates of gravity filtration versus vacuum (Büchner) suction filtration.',
     principle: `Filtration is a mechanical separation process that separates solid particulates from a liquid suspension through a porous medium (filter paper/membrane) that allows the liquid (filtrate) to pass while retaining the solid residue (filter cake).
 
@@ -614,7 +614,7 @@ Where Q is flow rate, k is medium permeability, A is filter area, ΔP is gravity
     categoryLabel: 'Separation & Purification',
     duration: '50 mins',
     difficulty: 'Intermediate',
-    icon: '💎',
+    icon: '',
     aim: 'To purify an impure crude sample of benzoic acid contaminated with insoluble and soluble colored impurities by single-solvent recrystallization from water, and determine percentage recovery and purity.',
     principle: `Recrystallization is the premier purification technique for solid organic compounds based on differential solubility at varying temperatures.
 

@@ -51,7 +51,11 @@ export class SimulatorView {
         <!-- Top Toolbar -->
         <header class="sim-embed-topbar">
           <div class="sim-exp-select-wrap">
-            <span style="font-size: 1.35rem;">⚗️</span>
+            <div style="display: flex; align-items: center; justify-content: center; width: 32px; height: 32px; background: rgba(56, 189, 248, 0.15); border-radius: 6px; color: #38bdf8;">
+              <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor">
+                <path d="M19 19c0 .55-.45 1-1 1s-1-.45-1-1v-4.18l-3.32-5.54C13.24 9.55 13 8.79 13 8V4h1c.55 0 1-.45 1-1s-.45-1-1-1H10c-.55 0-1 .45-1 1s.45 1 1 1h1v4c0 .79-.24 1.55-.68 2.28L7 14.82V19c0 .55-.45 1-1 1s-1-.45-1-1c0-.28.11-.53.29-.71l4.42-7.37C10.23 9.94 10.5 8.99 10.5 8V4h3v4c0 .99.27 1.94.79 2.92l4.42 7.37c.18.18.29.43.29.71z"/>
+              </svg>
+            </div>
             <div>
               <label for="sim-exp-select">Active 2D Simulation:</label>
               <select id="sim-exp-select" class="sim-exp-select" aria-label="Select 2D simulation experiment">
@@ -77,13 +81,13 @@ export class SimulatorView {
 
           <div class="sim-actions-group">
             <button class="btn btn-outline btn-xs" id="btn-jump-equipment-catalog" title="Look up apparatus in 62-tool catalog">
-              🔍 View Equipment Specs
+              View Equipment Specs
             </button>
             <button class="btn btn-secondary btn-xs" id="btn-toggle-fullscreen" title="Toggle Fullscreen Mode">
-              ⛶ Fullscreen
+              Fullscreen
             </button>
             <a href="/simulator.html" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-xs" style="text-decoration: none;">
-              ↗ Open in New Window
+              Open in New Window
             </a>
           </div>
         </header>

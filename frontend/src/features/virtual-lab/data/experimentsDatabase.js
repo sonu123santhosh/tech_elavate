@@ -104,11 +104,11 @@ export function evaluateExperimentQuiz(experimentId, submittedAnswers) {
 
   let message = 'Great job! Keep reviewing the lab concepts.';
   if (percentage === 100) {
-    message = '🌟 Perfect Score! You have mastered the theory, procedure, and safety protocols for this experiment.';
+    message = ' Perfect Score! You have mastered the theory, procedure, and safety protocols for this experiment.';
   } else if (percentage >= 65) {
-    message = '👍 Good understanding! Review the scientific explanations below to clarify key principles.';
+    message = ' Good understanding! Review the scientific explanations below to clarify key principles.';
   } else {
-    message = '📚 Review Recommended: Read the experiment principle, procedure, and safety notes before re-attempting.';
+    message = ' Review Recommended: Read the experiment principle, procedure, and safety notes before re-attempting.';
   }
 
   return {

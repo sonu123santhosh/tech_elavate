@@ -1,24 +1,24 @@
-# 🧪 AI-Powered Smart Lab Equipment Assistant — Unified Platform
+#  AI-Powered Smart Lab Equipment Assistant — Unified Platform
 ## Tech Elevate • Team UNEMPLOYED 004
 
 A state-of-the-art interactive chemistry laboratory platform unifying **15 curriculum experiments**, **8 interactive 2D simulations**, a **62-tool ground truth equipment catalog**, **custom Google Teachable Machine AI camera detection**, **AR quizzes**, and a **Gemini-powered AI voice lab assistant**.
 
 ---
 
-## 🌟 Platform Capabilities
+##  Platform Capabilities
 
 | Module | URL Hash | Description |
 | :--- | :--- | :--- |
-| **📷 AI Equipment Scanner** | `#scanner` | Live camera stream or document/image upload classified using custom **Google Teachable Machine model** (`BlF4tNf8j`). Instant detection feedback and equipment lookup. |
-| **🔬 Virtual Lab (15 Experiments)** | `#experiments` | Complete 15 engineering chemistry experiments with step checklists, dynamic observation tables, formulas, and auto-graded quizzes. |
-| **⚗️ 2D Lab Simulator** | `#simulator` | Playable 2D simulation workbench with 8 setups (Titration, Simple Distillation, Gravity & Vacuum Filtration, Recrystallization, Paper Chromatography, Standard Solution Preparation, pH Determination, pH-Metric Titration). |
-| **🔍 62 Equipment Database** | `#equipment` | Ground truth technical specifications, high-res photos, thermal limits, precision tolerances, safety warnings, and maintenance for 62 lab tools. |
-| **📝 AR Lab & Quizzes** | `#ar-quiz` | Interactive equipment flashcards and multiple-choice quizzes with instant feedback. |
-| **🤖 AI Lab Assistant** | `#chat` | Conversational voice and chat assistant powered by Google Gemini, equipped with safety guards and LaTeX chemical formula rendering. |
+| ** AI Equipment Scanner** | `#scanner` | Live camera stream or document/image upload classified using custom **Google Teachable Machine model** (`BlF4tNf8j`). Instant detection feedback and equipment lookup. |
+| ** Virtual Lab (15 Experiments)** | `#experiments` | Complete 15 engineering chemistry experiments with step checklists, dynamic observation tables, formulas, and auto-graded quizzes. |
+| ** 2D Lab Simulator** | `#simulator` | Playable 2D simulation workbench with 8 setups (Titration, Simple Distillation, Gravity & Vacuum Filtration, Recrystallization, Paper Chromatography, Standard Solution Preparation, pH Determination, pH-Metric Titration). |
+| ** 62 Equipment Database** | `#equipment` | Ground truth technical specifications, high-res photos, thermal limits, precision tolerances, safety warnings, and maintenance for 62 lab tools. |
+| ** AR Lab & Quizzes** | `#ar-quiz` | Interactive equipment flashcards and multiple-choice quizzes with instant feedback. |
+| ** AI Lab Assistant** | `#chat` | Conversational voice and chat assistant powered by Google Gemini, equipped with safety guards and LaTeX chemical formula rendering. |
 
 ---
 
-## 🚀 Quick Start (One Command)
+##  Quick Start (One Command)
 
 ### Prerequisites
 * **Node.js** v18+ (tested on Node v24)
@@ -37,7 +37,7 @@ npm run dev
 
 ---
 
-## 🛠️ Full Architecture & Tech Stack
+##  Full Architecture & Tech Stack
 
 ```
 tech_elevate/
@@ -82,7 +82,7 @@ tech_elevate/
 
 ---
 
-## 🧪 Testing
+##  Testing
 Run the authoritative test suite:
 ```bash
 npm test
@@ -91,5 +91,5 @@ All 55 tests covering backend API endpoints, calculation math, quiz state machin
 
 ---
 
-## 👥 Team
+##  Team
 **Tech Elevate • Team UNEMPLOYED 004**

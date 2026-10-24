@@ -133,7 +133,12 @@ export class CameraScannerView {
         <!-- Hero Header -->
         <section class="scanner-hero">
           <div class="scanner-hero-info">
-            <div class="scanner-hero-icon">📷</div>
+            <div class="scanner-hero-icon">
+              <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/>
+                <circle cx="12" cy="13" r="4"/>
+              </svg>
+            </div>
             <div>
               <h1 class="scanner-hero-title">AI Equipment Scanner</h1>
               <p class="scanner-hero-desc">
@@ -156,10 +161,10 @@ export class CameraScannerView {
         <!-- Mode Switcher -->
         <div class="scanner-mode-tabs">
           <button class="scanner-mode-btn ${this.activeMode === 'camera' ? 'active' : ''}" data-mode="camera" id="btn-mode-camera">
-            <span>📹</span> Live Camera Scan
+            Live Camera Scan
           </button>
           <button class="scanner-mode-btn ${this.activeMode === 'upload' ? 'active' : ''}" data-mode="upload" id="btn-mode-upload">
-            <span>📁</span> Browse & Upload Image
+            Browse & Upload Image
           </button>
         </div>
 
@@ -197,13 +202,18 @@ export class CameraScannerView {
           </div>
 
           <div class="scanner-placeholder" id="camera-placeholder" style="display: ${this.isCameraRunning ? 'none' : 'flex'};">
-            <div class="scanner-placeholder-icon">📷</div>
+            <div class="scanner-placeholder-icon">
+              <svg viewBox="0 0 24 24" width="48" height="48" fill="none" stroke="currentColor" stroke-width="1.5">
+                <path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/>
+                <circle cx="12" cy="13" r="4"/>
+              </svg>
+            </div>
             <h3 style="color: var(--text-main);">Camera Ready</h3>
             <p style="font-size: 0.85rem; max-width: 320px;">
               Click "Start Camera" to activate your device's webcam or mobile camera for real-time equipment detection.
             </p>
             <button class="btn btn-primary btn-sm" id="btn-start-camera" style="margin-top: 0.5rem;">
-              <span>⚡</span> Start Camera
+              Start Camera
             </button>
           </div>
         </div>
@@ -214,9 +224,9 @@ export class CameraScannerView {
             ${
               this.isCameraRunning
                 ? `
-              <button class="btn btn-danger btn-sm" id="btn-stop-camera">⏹ Stop Camera</button>
-              <button class="btn btn-primary btn-sm" id="btn-capture-detect">📸 Snap & Detect</button>
-              <button class="btn btn-outline btn-sm" id="btn-flip-camera" title="Switch front/back camera">🔄 Flip</button>
+              <button class="btn btn-danger btn-sm" id="btn-stop-camera">Stop Camera</button>
+              <button class="btn btn-primary btn-sm" id="btn-capture-detect">Snap & Detect</button>
+              <button class="btn btn-outline btn-sm" id="btn-flip-camera" title="Switch front/back camera">Flip Camera</button>
             `
                 : ''
             }
@@ -253,7 +263,11 @@ export class CameraScannerView {
               : `
             <div class="scanner-dropzone" id="scanner-dropzone">
               <input type="file" id="file-input-apparatus" accept="image/*" />
-              <div class="scanner-placeholder-icon">📁</div>
+              <div class="scanner-placeholder-icon">
+                <svg viewBox="0 0 24 24" width="48" height="48" fill="none" stroke="currentColor" stroke-width="1.5">
+                  <path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"/>
+                </svg>
+              </div>
               <h3 style="color: var(--text-main); margin-top: 0.5rem;">Upload or Drag Equipment Image</h3>
               <p style="font-size: 0.85rem; color: var(--text-muted); margin-top: 0.25rem;">
                 Select a photo from your documents or gallery (JPG, PNG, WEBP)
@@ -271,10 +285,10 @@ export class CameraScannerView {
             this.uploadedImageSrc
               ? `
             <button class="btn btn-outline btn-sm" id="btn-upload-another">
-              🔄 Choose Another Image
+              Choose Another Image
             </button>
             <button class="btn btn-primary btn-sm" id="btn-re-detect">
-              ⚡ Re-Detect Image
+              Re-Detect Image
             </button>
           `
               : ''
@@ -284,17 +298,17 @@ export class CameraScannerView {
         <!-- Quick Sample Testing Thumbnails -->
         <div style="display: flex; flex-direction: column; gap: 0.4rem; margin-top: 0.5rem;">
           <span style="font-size: 0.8rem; font-weight: 600; color: var(--text-muted);">
-            ⚡ Quick Sample Tests (Click to test AI model instantly):
+            Quick Sample Tests (Click to test AI model instantly):
           </span>
           <div class="scanner-sample-tests">
-            <button class="scanner-sample-pill" data-src="/assets/equipment/beaker.jpg" data-name="Beaker">🥛 Beaker</button>
-            <button class="scanner-sample-pill" data-src="/assets/equipment/burette.jpg" data-name="Burette">⚗️ Burette</button>
-            <button class="scanner-sample-pill" data-src="/assets/equipment/conical-flask.jpg" data-name="Conical Flask">🧪 Conical Flask</button>
-            <button class="scanner-sample-pill" data-src="/assets/equipment/bunsen-burner.jpg" data-name="Bunsen Burner">🔥 Bunsen Burner</button>
-            <button class="scanner-sample-pill" data-src="/assets/equipment/pipette.jpg" data-name="Pipette">📏 Pipette</button>
-            <button class="scanner-sample-pill" data-src="/assets/equipment/microscope.jpg" data-name="Microscope">🔬 Microscope</button>
-            <button class="scanner-sample-pill" data-src="/assets/equipment/thermometer.jpg" data-name="Thermometer">🌡️ Thermometer</button>
-            <button class="scanner-sample-pill" data-src="/assets/equipment/magnetic-stirrer.jpg" data-name="Magnetic Stirrer">🔄 Magnetic Stirrer</button>
+            <button class="scanner-sample-pill" data-src="/assets/equipment/beaker.jpg" data-name="Beaker">Beaker</button>
+            <button class="scanner-sample-pill" data-src="/assets/equipment/burette.jpg" data-name="Burette">Burette</button>
+            <button class="scanner-sample-pill" data-src="/assets/equipment/conical-flask.jpg" data-name="Conical Flask">Conical Flask</button>
+            <button class="scanner-sample-pill" data-src="/assets/equipment/bunsen-burner.jpg" data-name="Bunsen Burner">Bunsen Burner</button>
+            <button class="scanner-sample-pill" data-src="/assets/equipment/pipette.jpg" data-name="Pipette">Pipette</button>
+            <button class="scanner-sample-pill" data-src="/assets/equipment/microscope.jpg" data-name="Microscope">Microscope</button>
+            <button class="scanner-sample-pill" data-src="/assets/equipment/thermometer.jpg" data-name="Thermometer">Thermometer</button>
+            <button class="scanner-sample-pill" data-src="/assets/equipment/magnetic-stirrer.jpg" data-name="Magnetic Stirrer">Magnetic Stirrer</button>
           </div>
         </div>
       `;
@@ -305,7 +319,12 @@ export class CameraScannerView {
     if (!this.currentPredictions || this.currentPredictions.length === 0) {
       return `
         <div class="scanner-match-card" style="text-align: center; padding: 3rem 1.5rem; color: var(--text-muted);">
-          <div style="font-size: 2.75rem; margin-bottom: 0.5rem; opacity: 0.6;">🤖</div>
+          <div style="font-size: 2.75rem; margin-bottom: 0.5rem; opacity: 0.6;">
+            <svg viewBox="0 0 24 24" width="48" height="48" fill="none" stroke="currentColor" stroke-width="1.5" style="margin: 0 auto;">
+              <rect x="3" y="11" width="18" height="11" rx="2" ry="2"/>
+              <path d="M7 11V7a5 5 0 0 1 10 0v4"/>
+            </svg>
+          </div>
           <h3 style="color: var(--text-main);">Awaiting Equipment Scan</h3>
           <p style="font-size: 0.88rem; margin-top: 0.4rem; line-height: 1.4;">
             Point your camera at a laboratory apparatus or choose a photo. The AI will classify the equipment and pull full specifications from the 62-tool database.
@@ -323,7 +342,7 @@ export class CameraScannerView {
         <!-- Match Header -->
         <div class="scanner-match-header">
           <div class="scanner-match-name">
-            <span>✨</span> ${this.formatLabel(top.className)}
+            ${this.formatLabel(top.className)}
           </div>
           <span class="scanner-match-confidence-badge">
             ${topPercent}% Match
@@ -368,7 +387,7 @@ export class CameraScannerView {
               eq.safetyPrecautions?.warnings
                 ? `
               <div style="background: rgba(244, 63, 94, 0.1); border: 1px solid rgba(244, 63, 94, 0.3); padding: 0.5rem 0.75rem; border-radius: var(--radius-sm); font-size: 0.8rem; color: #fda4af;">
-                ⚠️ <strong>Safety Warning:</strong> ${eq.safetyPrecautions.warnings[0]}
+                 <strong>Safety Warning:</strong> ${eq.safetyPrecautions.warnings[0]}
               </div>
             `
                 : ''
@@ -377,19 +396,19 @@ export class CameraScannerView {
             <!-- CTA Actions -->
             <div class="scanner-cta-group" style="margin-top: 0.4rem;">
               <button class="btn btn-outline btn-xs btn-open-eq-modal" data-id="${eq.id}">
-                📖 Full Specifications
+                 Full Specifications
               </button>
               ${
                 this.isUsedInSimulator(eq.id)
                   ? `
                 <button class="btn btn-primary btn-xs btn-jump-sim-from-scan" data-id="${eq.id}">
-                  ⚡ Open in 2D Simulator
+                   Open in 2D Simulator
                 </button>
               `
                   : ''
               }
               <button class="btn btn-secondary btn-xs btn-jump-quiz-from-scan" data-id="${eq.id}">
-                📝 Equipment Quiz
+                 Equipment Quiz
               </button>
             </div>
           </div>
@@ -404,7 +423,7 @@ export class CameraScannerView {
         <!-- Top Probability Distribution -->
         <div class="scanner-probs-list">
           <div style="font-size: 0.8rem; font-weight: 700; color: var(--text-main); margin-bottom: 0.2rem;">
-            📊 Top AI Class Probabilities
+             Top AI Class Probabilities
           </div>
           ${this.currentPredictions
             .slice(0, 5)

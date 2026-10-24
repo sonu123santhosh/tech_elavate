@@ -210,9 +210,9 @@ function renderCards() {
     const hasImg = tool.image && tool.image.status === "available" && tool.image.src;
     const imgHtml = hasImg
       ? `<div class="card-image-wrap">
-           <img src="${escapeHtml(tool.image.src)}" alt="${escapeHtml(tool.image.alt || tool.name)}" class="card-img" loading="lazy" onerror="this.parentElement.innerHTML='<div class=\\'card-image-placeholder\\'>⚗️</div>'" />
+           <img src="${escapeHtml(tool.image.src)}" alt="${escapeHtml(tool.image.alt || tool.name)}" class="card-img" loading="lazy" onerror="this.parentElement.innerHTML='<div class=\\'card-image-placeholder\\'></div>'" />
          </div>`
-      : `<div class="card-image-wrap card-image-placeholder">⚗️</div>`;
+      : `<div class="card-image-wrap card-image-placeholder"></div>`;
 
     return `
       <div class="equipment-card" onclick="openDetailView('${tool.id}')">
@@ -336,12 +336,12 @@ function renderDetailContent(t) {
       </div>
       <div class="detail-image-meta">
         <div class="detail-image-caption">${escapeHtml(t.image.alt || t.name)}</div>
-        <div class="detail-image-credit">📷 ${escapeHtml(t.image.credit || '')}</div>
+        <div class="detail-image-credit"> ${escapeHtml(t.image.credit || '')}</div>
       </div>
     </div>
   ` : `
     <div class="detail-image-fallback">
-      <div style="font-size: 2.5rem; color: var(--accent-cyan); margin-bottom: 0.5rem;">⚗️</div>
+      <div style="font-size: 2.5rem; color: var(--accent-cyan); margin-bottom: 0.5rem;"></div>
       <div style="font-weight: 600; color: #fff;">${escapeHtml(t.name)}</div>
       <div style="font-size: 0.8rem; color: var(--text-dim); margin-top: 0.25rem;">
         Asset Status: Neutral Fallback Display
@@ -520,7 +520,7 @@ function renderDetailContent(t) {
       ${maint.troubleshooting.map(tr => `
         <div class="trouble-card">
           <div class="trouble-header">
-            <span class="trouble-problem">⚠️ Problem: ${escapeHtml(tr.problem)}</span>
+            <span class="trouble-problem"> Problem: ${escapeHtml(tr.problem)}</span>
             ${tr.requiresSupervisor ? `<span class="badge badge-rose">Notify Supervisor</span>` : `<span class="badge badge-teal">User Solvable</span>`}
           </div>
           <div class="trouble-body">
@@ -546,7 +546,7 @@ function renderDetailContent(t) {
     <div style="display: flex; flex-direction: column; gap: 0.75rem;">
       ${maint.commonMistakes.map(m => `
         <div style="background: rgba(255,255,255,0.02); border: 1px solid var(--border-subtle); border-radius: var(--radius-md); padding: 0.9rem;">
-          <div style="font-weight: 600; font-size: 0.9rem; color: #fff; margin-bottom: 0.3rem;">❌ Mistake: ${escapeHtml(m.mistake)}</div>
+          <div style="font-weight: 600; font-size: 0.9rem; color: #fff; margin-bottom: 0.3rem;"> Mistake: ${escapeHtml(m.mistake)}</div>
           <div style="font-size: 0.85rem; color: var(--accent-amber); margin-bottom: 0.2rem;"><strong>Why it matters: </strong>${escapeHtml(m.whyItMatters)}</div>
           <div style="font-size: 0.85rem; color: var(--accent-teal);"><strong>How to avoid: </strong>${escapeHtml(m.howToAvoid)}</div>
         </div>
@@ -621,7 +621,7 @@ function renderDetailContent(t) {
   const ar = t.ar;
   const arHtml = `
     <div class="ar-preview-box">
-      <div class="ar-icon">👓</div>
+      <div class="ar-icon"></div>
       <div class="ar-status">
         ${ar.modelStatus === "available" ? "Interactive 3D / AR Asset Ready" : "3D Model Coming Soon"}
       </div>
@@ -656,70 +656,70 @@ function renderDetailContent(t) {
 
     <div class="section-block">
       <h3 class="section-heading">
-        <span>📐</span> Technical Specifications & Limitations
+        <span></span> Technical Specifications & Limitations
       </h3>
       ${specsHtml}
     </div>
 
     <div class="section-block">
       <h3 class="section-heading">
-        <span>🧩</span> Main Components & Functions
+        <span></span> Main Components & Functions
       </h3>
       ${partsHtml}
     </div>
 
     <div class="section-block">
       <h3 class="section-heading">
-        <span>📋</span> Numbered Operating Instructions
+        <span></span> Numbered Operating Instructions
       </h3>
       ${opStepsHtml}
     </div>
 
     <div class="section-block">
       <h3 class="section-heading">
-        <span>🛡️</span> Safety Precautions & Hazards
+        <span></span> Safety Precautions & Hazards
       </h3>
       ${safetyHtml}
     </div>
 
     <div class="section-block">
       <h3 class="section-heading">
-        <span>🧼</span> Cleaning & Storage Procedures
+        <span></span> Cleaning & Storage Procedures
       </h3>
       ${cleanStorageHtml}
     </div>
 
     <div class="section-block">
       <h3 class="section-heading">
-        <span>🔧</span> Maintenance & Troubleshooting
+        <span></span> Maintenance & Troubleshooting
       </h3>
       ${troubleHtml}
     </div>
 
     <div class="section-block">
       <h3 class="section-heading">
-        <span>⚠️</span> Common Beginner Mistakes & Remedies
+        <span></span> Common Beginner Mistakes & Remedies
       </h3>
       ${mistakesHtml}
     </div>
 
     <div class="section-block">
       <h3 class="section-heading">
-        <span>🔗</span> Related Equipment & Disambiguation
+        <span></span> Related Equipment & Disambiguation
       </h3>
       ${relatedHtml}
     </div>
 
     <div class="section-block">
       <h3 class="section-heading">
-        <span>🥽</span> Augmented Reality (AR) & 3D Preview
+        <span></span> Augmented Reality (AR) & 3D Preview
       </h3>
       ${arHtml}
     </div>
 
     <div class="section-block">
       <h3 class="section-heading">
-        <span>📜</span> Verification Metadata & References
+        <span></span> Verification Metadata & References
       </h3>
       ${metaHtml}
     </div>

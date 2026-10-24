@@ -17,7 +17,7 @@ export const EXPERIMENTS_11_TO_15 = [
     categoryLabel: 'Titrimetric Analysis',
     duration: '45 mins',
     difficulty: 'Intermediate',
-    icon: '🧂',
+    icon: '',
     aim: 'To determine the concentration of chloride ions (Cl⁻) in a municipal / environmental water sample by argentometric precipitation titration using Mohr\'s method.',
     principle: `Mohr's method is an argentometric precipitation titration for estimating halides (Cl⁻, Br⁻) using standard silver nitrate (AgNO₃) titrant and potassium chromate (K₂CrO₄) as indicator.
 
@@ -171,7 +171,7 @@ A small pinch of solid CaCO₃ or NaHCO₃ is added to buffer slightly acidic wa
     categoryLabel: 'Titrimetric Analysis',
     duration: '55 mins',
     difficulty: 'Advanced',
-    icon: '🐟',
+    icon: '',
     aim: 'To determine the Dissolved Oxygen (DO) concentration in an environmental water sample using the Azide modification of the Winkler iodometric titration method.',
     principle: `Dissolved Oxygen (DO) is a critical water quality index essential for sustaining aerobic aquatic ecosystems (healthy streams require DO ≥ 5–6 mg/L).
 
@@ -330,7 +330,7 @@ HNO₂ + HN₃ → N₂O↑ + N₂↑ + H₂O`,
     categoryLabel: 'Instrumental Chemistry',
     duration: '45 mins',
     difficulty: 'Intermediate',
-    icon: '⏳',
+    icon: '',
     aim: 'To determine the relative and dynamic (absolute) viscosity of an unknown organic liquid (or ethanol solution) with respect to water at 25°C using an Ostwald viscometer.',
     principle: `Viscosity is a fundamental transport property that measures a fluid's internal resistance to flow under an applied shear stress.
 
@@ -483,7 +483,7 @@ Where η_water at 25°C = 0.8904 cP (0.8904 mPa·s) and ρ_water = 0.9970 g/cm³
     categoryLabel: 'Instrumental Chemistry',
     duration: '50 mins',
     difficulty: 'Intermediate',
-    icon: '💡',
+    icon: '',
     aim: 'To verify the Beer–Lambert Law across a concentration series of Copper Sulphate (or Potassium Permanganate) solutions and determine the molar absorptivity (ε) and concentration of an unknown test solution using a UV-Visible Spectrophotometer.',
     principle: `The Beer–Lambert Law combines two fundamental optical absorption laws:
 1. Lambert's Law: The fraction of monochromatic light absorbed by a homogeneous medium is proportional to the optical path length (l), independent of incident light intensity.
@@ -645,7 +645,7 @@ According to the law, a plot of Absorbance (A, y-axis) versus Concentration (c, 
     categoryLabel: 'Qualitative & Analytical Chemistry',
     duration: '60 mins',
     difficulty: 'Advanced',
-    icon: '🔬',
+    icon: '',
     aim: 'To perform systematic semi-micro qualitative inorganic analysis to identify the one cation and one anion present in an unknown simple inorganic salt sample.',
     principle: `Qualitative inorganic salt analysis involves the systematic identification of the constituent basic radical (cation) and acidic radical (anion) through sequential dry tests, group separation, and confirmatory wet chemical reactions.
 

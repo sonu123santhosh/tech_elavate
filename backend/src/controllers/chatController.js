@@ -84,7 +84,7 @@ export async function handleChat(req, res) {
         if (replyText) {
           if (isTruncated) {
             replyText +=
-              '\n\n> ⚠️ **Note:** This response reached the maximum output token limit. Click **"Continue"** or ask the assistant to continue to receive the rest of the explanation.';
+              '\n\n> ️ **Note:** This response reached the maximum output token limit. Click **"Continue"** or ask the assistant to continue to receive the rest of the explanation.';
           }
 
           return res.status(200).json({
@@ -235,7 +235,7 @@ export async function handleChatStream(req, res) {
 
         if (isTruncated) {
           const truncationNotice =
-            '\n\n> ⚠️ **Note:** This response reached the maximum output token limit. Click **"Continue"** or ask the assistant to continue to receive the rest of the explanation.';
+            '\n\n> ️ **Note:** This response reached the maximum output token limit. Click **"Continue"** or ask the assistant to continue to receive the rest of the explanation.';
           res.write(`data: ${JSON.stringify({ text: truncationNotice, done: false })}\n\n`);
         }
 

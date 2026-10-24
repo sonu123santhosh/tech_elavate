@@ -275,7 +275,7 @@ export function renderExperimentDiagram(diagramType, title = '') {
         <svg viewBox="0 0 400 360" class="experiment-svg-schematic" xmlns="http://www.w3.org/2000/svg">
           <rect x="50" y="50" width="300" height="260" rx="12" fill="rgba(15, 23, 42, 0.6)" stroke="#38bdf8" stroke-width="1.5"/>
           <circle cx="200" cy="160" r="50" fill="rgba(56, 189, 248, 0.15)" stroke="#38bdf8" stroke-width="2"/>
-          <text x="180" y="175" font-size="40">⚗️</text>
+          <text x="180" y="175" font-size="40">️</text>
           <text x="200" y="245" text-anchor="middle" fill="#fff" font-size="14" font-weight="bold">${title || 'Laboratory Experiment Setup'}</text>
           <text x="200" y="265" text-anchor="middle" fill="#94a3b8" font-size="11">Standard Analytical Chemistry Procedure</text>
         </svg>

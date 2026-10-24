@@ -25,7 +25,7 @@ export class EquipmentDatabaseView {
     this.container.innerHTML = `
       <div class="eq-view-container animate-fade-in">
         <div style="text-align: center; padding: 3rem; color: var(--text-muted);">
-          <div style="font-size: 2rem; margin-bottom: 0.5rem;">🧪</div>
+          <div style="font-size: 2rem; margin-bottom: 0.5rem;"></div>
           Loading Top 62 Chemistry Lab Tools Database...
         </div>
       </div>
@@ -74,7 +74,12 @@ export class EquipmentDatabaseView {
         <section class="eq-scanner-banner" aria-label="AI Vision Equipment Scanner">
           <div class="eq-scanner-header">
             <div class="eq-scanner-title-box">
-              <div class="eq-scanner-icon">📷</div>
+              <div class="eq-scanner-icon">
+                <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M3 7V5a2 2 0 0 1 2-2h2M17 3h2a2 2 0 0 1 2 2v2M21 17v2a2 2 0 0 1-2 2h-2M7 21H5a2 2 0 0 1-2-2v-2"/>
+                  <circle cx="12" cy="12" r="3"/>
+                </svg>
+              </div>
               <div>
                 <div class="eq-scanner-title">
                   AI Vision Scanner Integration
@@ -86,17 +91,17 @@ export class EquipmentDatabaseView {
 
             <div class="eq-scanner-controls">
               <select id="eq-scanner-select" class="eq-scanner-select" aria-label="Select tool to scan">
-                <option value="burette">⚗️ Burette (Volumetric Analysis)</option>
-                <option value="conical-flask">🧪 Conical Flask (Titration)</option>
-                <option value="bunsen-burner">🔥 Bunsen Burner (Heating)</option>
-                <option value="beaker">🥛 Beaker (General Glassware)</option>
-                <option value="buchner-funnel">☕ Büchner Funnel (Vacuum Filtration)</option>
-                <option value="pipette">📏 Volumetric Pipette (Precision)</option>
-                <option value="separating-funnel">🍶 Separating Funnel (Extraction)</option>
-                <option value="magnetic-stirrer">🔄 Magnetic Stirrer (Agitation)</option>
+                <option value="burette">Burette (Volumetric Analysis)</option>
+                <option value="conical-flask">Conical Flask (Titration)</option>
+                <option value="bunsen-burner">Bunsen Burner (Heating)</option>
+                <option value="beaker">Beaker (General Glassware)</option>
+                <option value="buchner-funnel">Büchner Funnel (Vacuum Filtration)</option>
+                <option value="pipette">Volumetric Pipette (Precision)</option>
+                <option value="separating-funnel">Separating Funnel (Extraction)</option>
+                <option value="magnetic-stirrer">Magnetic Stirrer (Agitation)</option>
               </select>
               <button id="eq-scanner-trigger-btn" class="eq-scanner-btn">
-                <span>⚡</span> Scan & Identify
+                Scan & Identify
               </button>
             </div>
           </div>
@@ -109,7 +114,12 @@ export class EquipmentDatabaseView {
         <!-- Search & Category Filters Toolbar -->
         <section class="eq-toolbar">
           <div class="eq-search-wrapper">
-            <span class="eq-search-icon">🔍</span>
+            <span class="eq-search-icon">
+              <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="11" cy="11" r="8"/>
+                <line x1="21" y1="21" x2="16.65" y2="16.65"/>
+              </svg>
+            </span>
             <input 
               type="text" 
               id="eq-search-input" 
@@ -121,13 +131,13 @@ export class EquipmentDatabaseView {
 
           <div class="eq-filter-chips">
             <button class="eq-chip-btn ${this.selectedCategory === 'all' ? 'active' : ''}" data-cat="all">
-              🌐 All Tools <span style="opacity: 0.7;">(${this.equipmentList.length})</span>
+              All Tools <span style="opacity: 0.7;">(${this.equipmentList.length})</span>
             </button>
             ${this.categories
               .map(
                 (cat) => `
               <button class="eq-chip-btn ${this.selectedCategory === cat.name ? 'active' : ''}" data-cat="${this.escapeHtml(cat.name)}">
-                ${this.getCategoryIcon(cat.name)} ${this.escapeHtml(cat.name)} <span style="opacity: 0.7;">(${cat.count})</span>
+                ${this.escapeHtml(cat.name)} <span style="opacity: 0.7;">(${cat.count})</span>
               </button>
             `
               )
@@ -143,7 +153,7 @@ export class EquipmentDatabaseView {
               ? filtered.map((item) => this.renderCard(item)).join('')
               : `
               <div style="grid-column: 1 / -1; text-align: center; padding: 4rem 1rem; color: var(--text-muted);">
-                <div style="font-size: 2.5rem; margin-bottom: 0.5rem;">🔍</div>
+                <div style="font-size: 2.5rem; margin-bottom: 0.5rem;"></div>
                 <h3>No equipment matched "${this.escapeHtml(this.searchQuery)}"</h3>
                 <p style="margin-top: 0.5rem;">Try adjusting your search terms or selecting "All Tools".</p>
               </div>
@@ -164,12 +174,12 @@ export class EquipmentDatabaseView {
     const { tool, confidence, latency } = this.scannerResult;
     return `
       <div>
-        <strong>🎯 Identified:</strong> <span style="color: #38bdf8; font-weight: 700;">${this.escapeHtml(tool.name)}</span>
+        <strong> Identified:</strong> <span style="color: #38bdf8; font-weight: 700;">${this.escapeHtml(tool.name)}</span>
         <span style="color: var(--text-muted); font-size: 0.8rem; margin-left: 0.5rem;">(PDF #${tool.pdfNumber || 'N/A'})</span>
       </div>
       <div style="display: flex; align-items: center; gap: 0.5rem;">
         <span class="eq-scanner-badge-match">Match Confidence: ${confidence}%</span>
-        <span style="color: var(--text-dim); font-size: 0.8rem;">⚡ ${latency}ms inference</span>
+        <span style="color: var(--text-dim); font-size: 0.8rem;"> ${latency}ms inference</span>
         <button class="btn btn-primary btn-xs btn-inspect-tool" data-id="${tool.id}" style="padding: 0.25rem 0.65rem;">
           Inspect Tool
         </button>
@@ -202,18 +212,18 @@ export class EquipmentDatabaseView {
           <div class="eq-card-specs-tags">
             ${item.specifications?.material ? `<span class="eq-spec-tag">${item.specifications.material[0]}</span>` : ''}
             ${item.specifications?.measurementAccuracy?.value ? `<span class="eq-spec-tag">${item.specifications.measurementAccuracy.value}</span>` : ''}
-            ${hasSim ? `<span class="eq-spec-tag" style="background: rgba(16, 185, 129, 0.15); color: #34d399; border-color: rgba(16, 185, 129, 0.3);">⚗️ 2D Sim</span>` : ''}
+            ${hasSim ? `<span class="eq-spec-tag" style="background: rgba(16, 185, 129, 0.15); color: #34d399; border-color: rgba(16, 185, 129, 0.3);"> 2D Sim</span>` : ''}
           </div>
 
           <div class="eq-card-actions">
             <button class="eq-btn-inspect btn-inspect-tool" data-id="${item.id}">
-              📖 Technical Specs
+               Technical Specs
             </button>
             ${
               hasSim
                 ? `
               <button class="eq-btn-sim btn-jump-sim" data-tool-id="${item.id}" title="Launch interactive 2D simulation with this apparatus">
-                ⚗️ Simulate
+                 Simulate
               </button>
             `
                 : ''
@@ -308,7 +318,7 @@ export class EquipmentDatabaseView {
       } else {
         gridEl.innerHTML = `
           <div style="grid-column: 1 / -1; text-align: center; padding: 4rem 1rem; color: var(--text-muted);">
-            <div style="font-size: 2.5rem; margin-bottom: 0.5rem;">🔍</div>
+            <div style="font-size: 2.5rem; margin-bottom: 0.5rem;"></div>
             <h3>No equipment matched "${this.escapeHtml(this.searchQuery)}"</h3>
             <p style="margin-top: 0.5rem;">Try adjusting your search terms or selecting "All Tools".</p>
           </div>
@@ -336,7 +346,7 @@ export class EquipmentDatabaseView {
               <h2 class="eq-modal-title">${this.escapeHtml(tool.name)}</h2>
               <span class="badge badge-teal">${this.escapeHtml(tool.category || 'Apparatus')}</span>
             </div>
-            <button class="eq-modal-close-btn" id="btn-modal-close" aria-label="Close dialog">✕</button>
+            <button class="eq-modal-close-btn" id="btn-modal-close" aria-label="Close dialog"></button>
           </div>
 
           <!-- Modal Body -->
@@ -380,7 +390,7 @@ export class EquipmentDatabaseView {
 
             <!-- Technical Specifications -->
             <div>
-              <div class="eq-modal-section-title">⚙️ Technical Specifications & Limits</div>
+              <div class="eq-modal-section-title"> Technical Specifications & Limits</div>
               <table class="eq-modal-specs-table">
                 <tbody>
                   ${
@@ -417,7 +427,7 @@ export class EquipmentDatabaseView {
               tool.safetyPrecautions
                 ? `
               <div class="eq-modal-alert danger">
-                <strong style="color: #fda4af;">⚠️ Critical Safety Precautions & PPE:</strong>
+                <strong style="color: #fda4af;"> Critical Safety Precautions & PPE:</strong>
                 <div>${tool.safetyPrecautions.warnings ? tool.safetyPrecautions.warnings.join(' • ') : 'Always wear protective safety goggles and lab coat when operating.'}</div>
                 ${
                   tool.safetyPrecautions.requiredPPE
@@ -432,14 +442,14 @@ export class EquipmentDatabaseView {
             <!-- Maintenance & Common Errors -->
             <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1rem;">
               <div class="eq-modal-alert info">
-                <strong>🧼 Maintenance & Cleaning:</strong>
+                <strong> Maintenance & Cleaning:</strong>
                 <p style="font-size: 0.82rem; margin-top: 0.25rem; line-height: 1.4;">
                   ${tool.maintenanceAndTroubleshooting?.cleaningSteps ? tool.maintenanceAndTroubleshooting.cleaningSteps[0] : 'Rinse with distilled water immediately following use. Invert on drying pegboard.'}
                 </p>
               </div>
 
               <div class="eq-modal-alert warning">
-                <strong>🚫 Common Errors to Avoid:</strong>
+                <strong> Common Errors to Avoid:</strong>
                 <p style="font-size: 0.82rem; margin-top: 0.25rem; line-height: 1.4;">
                   ${tool.maintenanceAndTroubleshooting?.commonMistakes ? tool.maintenanceAndTroubleshooting.commonMistakes[0].mistake + ' — ' + tool.maintenanceAndTroubleshooting.commonMistakes[0].howToAvoid : 'Never subject glassware to rapid temperature differentials or direct heating without wire gauze.'}
                 </p>
@@ -455,7 +465,7 @@ export class EquipmentDatabaseView {
                 hasSim
                   ? `
                 <button class="btn btn-primary btn-sm btn-modal-launch-sim" data-tool-id="${tool.id}">
-                  ⚡ Launch in 2D Simulator
+                   Launch in 2D Simulator
                 </button>
               `
                   : ''
@@ -587,14 +597,14 @@ export class EquipmentDatabaseView {
 
   getCategoryIcon(catName) {
     const icons = {
-      Glassware: '🧪',
-      'Heating & Thermal': '🔥',
-      'Measurement & Volumetric': '📏',
-      'Separation & Filtration': '☕',
-      'Safety & PPE': '🥽',
-      'General Handling': '🧤',
+      Glassware: '',
+      'Heating & Thermal': '',
+      'Measurement & Volumetric': '',
+      'Separation & Filtration': '',
+      'Safety & PPE': '',
+      'General Handling': '',
     };
-    return icons[catName] || '🔬';
+    return icons[catName] || '';
   }
 
   escapeHtml(str) {

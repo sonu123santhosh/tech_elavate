@@ -87,7 +87,7 @@ export class VirtualLabDashboardView {
         <div class="card vlab-filter-card">
           <div class="vlab-search-row">
             <div class="vlab-search-input-wrap">
-              <span class="vlab-search-icon">🔍</span>
+              <span class="vlab-search-icon"></span>
               <input
                 type="text"
                 id="vlab-search-input"
@@ -95,7 +95,7 @@ export class VirtualLabDashboardView {
                 placeholder="Search 15 experiments by title, chemical reagents, apparatus, or analytical method..."
                 value="${this.searchQuery}"
               />
-              ${this.searchQuery ? '<button id="btn-vlab-clear-search" class="btn-clear">✕</button>' : ''}
+              ${this.searchQuery ? '<button id="btn-vlab-clear-search" class="btn-clear"></button>' : ''}
             </div>
           </div>
 
@@ -153,7 +153,7 @@ export class VirtualLabDashboardView {
     if (items.length === 0) {
       grid.innerHTML = `
         <div class="vlab-empty-state card">
-          <span style="font-size: 3rem;">🔍</span>
+          <span style="font-size: 3rem;"></span>
           <h3>No Experiments Found</h3>
           <p>No experiments matched your search query "<strong>${this.searchQuery}</strong>".</p>
           <button class="btn btn-primary btn-sm" id="btn-vlab-reset-filters">Reset Search & Filters</button>
@@ -178,9 +178,9 @@ export class VirtualLabDashboardView {
         const isSimulator = exp.hasSimulator || exp.id === 'ph-metric-titration' || exp.id === 'conductometric-titration';
         const isPhDetermination = exp.id === 'ph-determination';
 
-        let actionBtnText = isDone ? '📖 Review Experiment' : '🔬 Start Experiment';
+        let actionBtnText = isDone ? ' Review Experiment' : ' Start Experiment';
         if (isSimulator) {
-          actionBtnText = isDone ? '⚡ Launch Simulator (Completed)' : '⚡ Launch Interactive Simulator';
+          actionBtnText = isDone ? ' Launch Simulator (Completed)' : ' Launch Interactive Simulator';
         }
 
         return `
@@ -192,7 +192,7 @@ export class VirtualLabDashboardView {
                 <span class="num-val">#${exp.number}</span>
               </div>
               <div class="vlab-badges-group">
-                ${isSimulator ? `<span class="vlab-sim-badge">🎮 Interactive Simulator</span>` : ''}
+                ${isSimulator ? `<span class="vlab-sim-badge"> Interactive Simulator</span>` : ''}
                 ${isPhDetermination ? `<span class="vlab-distinction-badge">pH Paper & Buffers</span>` : ''}
                 <span class="vlab-category-badge cat-${exp.category}">
                   ${exp.categoryLabel}
@@ -217,10 +217,10 @@ export class VirtualLabDashboardView {
 
             <!-- Metadata Meta Tags -->
             <div class="vlab-card-meta-tags">
-              <span class="meta-tag">⏱️ ${exp.duration}</span>
-              <span class="meta-tag">📊 ${exp.difficulty}</span>
-              ${isSimulator ? '<span class="meta-tag tag-sim">📈 Live Graph & Math</span>' : ''}
-              ${isDone ? '<span class="meta-tag tag-done">✅ Completed</span>' : `<span class="meta-tag tag-progress">${doneSteps}/${totalSteps} Steps</span>`}
+              <span class="meta-tag"> ${exp.duration}</span>
+              <span class="meta-tag"> ${exp.difficulty}</span>
+              ${isSimulator ? '<span class="meta-tag tag-sim"> Live Graph & Math</span>' : ''}
+              ${isDone ? '<span class="meta-tag tag-done"> Completed</span>' : `<span class="meta-tag tag-progress">${doneSteps}/${totalSteps} Steps</span>`}
             </div>
 
             <!-- Aim Snippet -->

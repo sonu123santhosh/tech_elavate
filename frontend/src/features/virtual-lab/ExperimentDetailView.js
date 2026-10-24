@@ -82,7 +82,7 @@ export class ExperimentDetailView {
     if (!exp) {
       this.container.innerHTML = `
         <div class="card error-card animate-fade-in" style="max-width: 600px; margin: 40px auto; text-align: center;">
-          <div style="font-size: 3rem; margin-bottom: 12px;">⚠️</div>
+          <div style="font-size: 3rem; margin-bottom: 12px;"></div>
           <h2>Experiment Not Found</h2>
           <p style="color: var(--text-muted); margin-bottom: 24px;">
             The requested experiment ID "<strong>${this.experimentId}</strong>" was not found in the laboratory syllabus.
@@ -137,7 +137,7 @@ export class ExperimentDetailView {
           <div class="detail-prev-next-group">
             ${
               isSimulator
-                ? `<button class="btn btn-primary btn-xs btn-open-sim-mode" id="btn-top-sim-mode">⚡ Open Simulator</button>`
+                ? `<button class="btn btn-primary btn-xs btn-open-sim-mode" id="btn-top-sim-mode"> Open Simulator</button>`
                 : ''
             }
             ${
@@ -159,10 +159,10 @@ export class ExperimentDetailView {
             <div class="hero-icon-box">${exp.icon}</div>
             <div class="hero-text-wrap">
               <div class="hero-tags-row">
-                <span class="vlab-tag">⏱️ ${exp.duration}</span>
-                <span class="vlab-tag">📊 ${exp.difficulty}</span>
+                <span class="vlab-tag"> ${exp.duration}</span>
+                <span class="vlab-tag"> ${exp.difficulty}</span>
                 <span class="vlab-tag tag-code">Curriculum Code: CH-10${exp.number}</span>
-                ${isSimulator ? '<span class="vlab-tag tag-sim-highlight">🎮 Interactive Simulator Mode Available</span>' : ''}
+                ${isSimulator ? '<span class="vlab-tag tag-sim-highlight"> Interactive Simulator Mode Available</span>' : ''}
               </div>
               <h1 class="vlab-detail-title">${exp.title}</h1>
             </div>
@@ -174,11 +174,11 @@ export class ExperimentDetailView {
             <div class="vlab-sim-callout-card">
               <div class="sim-callout-content">
                 <div>
-                  <strong>⚡ Interactive Laboratory Simulator Active</strong>
+                  <strong> Interactive Laboratory Simulator Active</strong>
                   <p>Execute live titrations with real-time math, data table additions, and high-DPI graphing.</p>
                 </div>
                 <button class="btn btn-primary btn-sm btn-open-sim-mode">
-                  ${exp.id === 'ph-metric-titration' ? '🧪 Open pH Titration Simulator' : '⚡ Open Conductometric Simulator'} →
+                  ${exp.id === 'ph-metric-titration' ? ' Open pH Titration Simulator' : ' Open Conductometric Simulator'} →
                 </button>
               </div>
             </div>
@@ -207,7 +207,7 @@ export class ExperimentDetailView {
             <!-- 1. Aim and Principle -->
             <div class="card vlab-section-card" id="sec-aim-principle">
               <div class="section-title-row">
-                <span class="sec-icon">🎯</span>
+                <span class="sec-icon"></span>
                 <h2 class="sec-title">Aim & Theoretical Principle</h2>
               </div>
 
@@ -225,7 +225,7 @@ export class ExperimentDetailView {
             <!-- 2. Step-by-Step Procedure & Interactive Learning Checklist -->
             <div class="card vlab-section-card" id="sec-procedure">
               <div class="section-title-row">
-                <span class="sec-icon">📋</span>
+                <span class="sec-icon"></span>
                 <div class="sec-title-wrap">
                   <h2 class="sec-title">Step-by-Step Procedure & Interactive Checklist</h2>
                   <p class="sec-subtitle">Follow each step in order and check it off as you complete your virtual run</p>
@@ -262,10 +262,10 @@ export class ExperimentDetailView {
 
               <div class="checklist-footer-row">
                 <button class="btn btn-outline btn-xs" id="btn-reset-checklist">
-                  🔄 Reset Checklist
+                   Reset Checklist
                 </button>
                 <button class="btn btn-secondary btn-xs" id="btn-mark-all-steps">
-                  ✔ Mark All Steps Complete
+                   Mark All Steps Complete
                 </button>
               </div>
             </div>
@@ -273,7 +273,7 @@ export class ExperimentDetailView {
             <!-- 3. Observation Table (Clearly labeled as sample / example data) -->
             <div class="card vlab-section-card" id="sec-observations">
               <div class="section-title-row">
-                <span class="sec-icon">📊</span>
+                <span class="sec-icon"></span>
                 <div class="sec-title-wrap">
                   <h2 class="sec-title">Observation Table & Measurements</h2>
                   <p class="sec-subtitle">Standardized laboratory recording matrix</p>
@@ -282,7 +282,7 @@ export class ExperimentDetailView {
 
               <!-- Unambiguous Sample Data Alert Callout -->
               <div class="sample-data-alert-box">
-                <span class="alert-icon">⚠️</span>
+                <span class="alert-icon"></span>
                 <div class="alert-text">
                   <strong>SAMPLE / DEMONSTRATION DATA (FOR ILLUSTRATIVE PURPOSES ONLY)</strong>
                   <p>${exp.observationTable?.note || 'The numerical values below illustrate typical results under standard laboratory conditions (25°C, 1 atm). Students must record their own actual measurements during lab sessions.'}</p>
@@ -326,7 +326,7 @@ export class ExperimentDetailView {
             <!-- 4. Formulae and Calculations -->
             <div class="card vlab-section-card" id="sec-calculations">
               <div class="section-title-row">
-                <span class="sec-icon">🧮</span>
+                <span class="sec-icon"></span>
                 <h2 class="sec-title">Formulae & Worked Calculations</h2>
               </div>
 
@@ -355,7 +355,7 @@ export class ExperimentDetailView {
             <!-- 5. Result and Scientific Interpretation -->
             <div class="card vlab-section-card" id="sec-result">
               <div class="section-title-row">
-                <span class="sec-icon">🏆</span>
+                <span class="sec-icon"></span>
                 <h2 class="sec-title">Result & Interpretation</h2>
               </div>
 
@@ -375,7 +375,7 @@ export class ExperimentDetailView {
               </div>
 
               <div class="interpretation-box">
-                <span class="interp-icon">💡</span>
+                <span class="interp-icon"></span>
                 <div class="interp-text">
                   <strong>Scientific Interpretation:</strong> ${exp.result?.interpretation || ''}
                 </div>
@@ -385,7 +385,7 @@ export class ExperimentDetailView {
             <!-- 6. Critical Safety Precautions -->
             <div class="card vlab-section-card safety-alert-card" id="sec-safety">
               <div class="section-title-row">
-                <span class="sec-icon">🛡️</span>
+                <span class="sec-icon"></span>
                 <div class="sec-title-wrap">
                   <h2 class="sec-title" style="color: #fb7185;">Critical Laboratory Safety Precautions</h2>
                   <p class="sec-subtitle">Mandatory PPE and chemical hazard protocols</p>
@@ -397,7 +397,7 @@ export class ExperimentDetailView {
                   .map(
                     (sp) => `
                   <div class="safety-point-item">
-                    <span class="safety-bullet-icon">⚠️</span>
+                    <span class="safety-bullet-icon"></span>
                     <span class="safety-point-text">${sp}</span>
                   </div>
                 `
@@ -409,7 +409,7 @@ export class ExperimentDetailView {
             <!-- 7. Knowledge Check Quiz -->
             <div class="card vlab-section-card" id="sec-quiz">
               <div class="section-title-row">
-                <span class="sec-icon">📝</span>
+                <span class="sec-icon"></span>
                 <div class="sec-title-wrap">
                   <h2 class="sec-title">Post-Lab Assessment Quiz</h2>
                   <p class="sec-subtitle">Test your understanding of the principles, procedure, and safety</p>
@@ -427,7 +427,7 @@ export class ExperimentDetailView {
             <!-- Apparatus Schematic Diagram Card -->
             <div class="card vlab-sidebar-card">
               <div class="sidebar-header">
-                <span class="sidebar-icon">📐</span>
+                <span class="sidebar-icon"></span>
                 <h3 class="sidebar-title">Apparatus Schematic</h3>
               </div>
               <div class="svg-diagram-wrapper">
@@ -439,21 +439,21 @@ export class ExperimentDetailView {
             <!-- Apparatus & Chemicals Checklist -->
             <div class="card vlab-sidebar-card">
               <div class="sidebar-header">
-                <span class="sidebar-icon">🧪</span>
+                <span class="sidebar-icon"></span>
                 <h3 class="sidebar-title">Apparatus & Chemicals</h3>
               </div>
 
               <div class="materials-group">
                 <h4 class="materials-subheading">Apparatus Required</h4>
                 <ul class="materials-list">
-                  ${(exp.apparatus || []).map((a) => `<li><span class="mat-dot">▫️</span> ${a}</li>`).join('')}
+                  ${(exp.apparatus || []).map((a) => `<li><span class="mat-dot">▫</span> ${a}</li>`).join('')}
                 </ul>
               </div>
 
               <div class="materials-group">
                 <h4 class="materials-subheading">Chemical Reagents</h4>
                 <ul class="materials-list">
-                  ${(exp.chemicals || []).map((c) => `<li><span class="mat-dot">🔹</span> ${c}</li>`).join('')}
+                  ${(exp.chemicals || []).map((c) => `<li><span class="mat-dot"></span> ${c}</li>`).join('')}
                 </ul>
               </div>
             </div>
@@ -461,7 +461,7 @@ export class ExperimentDetailView {
             <!-- Quick Table of Contents / Anchors -->
             <div class="card vlab-sidebar-card toc-card">
               <div class="sidebar-header">
-                <span class="sidebar-icon">📑</span>
+                <span class="sidebar-icon"></span>
                 <h3 class="sidebar-title">Lab Guide Contents</h3>
               </div>
               <ul class="toc-links-list">
@@ -522,7 +522,7 @@ export class ExperimentDetailView {
           </div>
           <p class="res-msg-text">${res.message}</p>
           <button class="btn btn-secondary btn-sm" id="btn-retry-quiz">
-            🔄 Re-attempt Quiz
+             Re-attempt Quiz
           </button>
         </div>
 
@@ -532,7 +532,7 @@ export class ExperimentDetailView {
               (item, idx) => `
             <div class="quiz-review-item ${item.isCorrect ? 'rev-correct' : 'rev-incorrect'}">
               <div class="rev-header">
-                <span class="rev-status">${item.isCorrect ? '✅ Correct' : '❌ Incorrect'}</span>
+                <span class="rev-status">${item.isCorrect ? ' Correct' : ' Incorrect'}</span>
                 <span class="rev-qnum">Question ${idx + 1} of ${res.totalQuestions}</span>
               </div>
               <h4 class="rev-qtext">${item.questionText}</h4>
@@ -551,7 +551,7 @@ export class ExperimentDetailView {
                 }
               </div>
               <div class="rev-explanation">
-                💡 <strong>Scientific Explanation:</strong> ${item.explanation}
+                 <strong>Scientific Explanation:</strong> ${item.explanation}
               </div>
             </div>
           `

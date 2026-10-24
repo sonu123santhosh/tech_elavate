@@ -27,71 +27,71 @@ export class EquipmentInstructionsView {
 
   getEquipmentIcon(id, category) {
     const iconMap = {
-      beaker: '🧪',
-      'test-tube': '🧪',
-      'measuring-cylinder': '📏',
-      'conical-flask': '⚗️',
-      'volumetric-flask': '🍶',
-      pipette: '💧',
-      burette: '📐',
-      'glass-funnel': '🔻',
-      'glass-stirring-rod': '🥢',
-      'watch-glass': '🔍',
-      'reagent-bottle': '🧴',
-      dropper: '💧',
-      'wash-bottle': '🚿',
-      'test-tube-rack': '🪜',
-      'test-tube-holder': '🗜️',
-      spatula: '🥄',
-      'mortar-and-pestle': '🥣',
-      'weighing-boat': '🚤',
-      'filter-paper': '📄',
-      'evaporating-dish': '🍲',
-      'bunsen-burner': '🔥',
-      'hot-plate': '♨️',
-      thermometer: '🌡️',
-      'analytical-balance': '⚖️',
-      'top-pan-balance': '⚖️',
-      'retort-stand': '🏗️',
-      'clamp-and-boss-head': '🗜️',
-      'tripod-stand': '📐',
-      'wire-gauze': '🕸️',
-      'crucible-tongs': '🥢',
-      'separating-funnel': '⏳',
-      'buchner-funnel': '🌪️',
-      'round-bottom-flask': '🔮',
-      condenser: '🧊',
-      'distillation-apparatus': '⚗️',
-      crucible: '🏺',
-      'clay-triangle': '🔺',
-      'water-bath': '🛁',
-      'magnetic-stirrer': '🌀',
-      desiccator: '📦',
-      'safety-goggles': '🥽',
-      'laboratory-coat': '🥼',
-      'chemical-resistant-gloves': '🧤',
-      'fume-hood': '💨',
-      'eyewash-station': '👁️',
-      'safety-shower': '🚿',
-      'fire-extinguisher': '🧯',
-      'first-aid-kit': '🩹',
-      'chemical-waste-container': '☣️',
-      'ph-indicator-paper': '🏷️',
-      centrifuge: '🔄',
-      'ph-indicator-solution': '🧪',
-      'conductivity-meter': '⚡',
-      colorimeter: '🌈',
-      spectrophotometer: '📊',
-      hydrometer: '🌊',
-      refractometer: '💎',
-      forceps: '🤏',
-      'test-tube-brush': '🪥',
-      'rubber-stopper': '🛑',
-      'laboratory-ph-meter': '🔬',
-      'digital-portable-ph-meter': '📱',
-      microscope: '🔬',
+      beaker: '',
+      'test-tube': '',
+      'measuring-cylinder': '',
+      'conical-flask': '',
+      'volumetric-flask': '',
+      pipette: '',
+      burette: '',
+      'glass-funnel': '',
+      'glass-stirring-rod': '',
+      'watch-glass': '',
+      'reagent-bottle': '',
+      dropper: '',
+      'wash-bottle': '',
+      'test-tube-rack': '',
+      'test-tube-holder': '',
+      spatula: '',
+      'mortar-and-pestle': '',
+      'weighing-boat': '',
+      'filter-paper': '',
+      'evaporating-dish': '',
+      'bunsen-burner': '',
+      'hot-plate': '',
+      thermometer: '',
+      'analytical-balance': '',
+      'top-pan-balance': '',
+      'retort-stand': '',
+      'clamp-and-boss-head': '',
+      'tripod-stand': '',
+      'wire-gauze': '',
+      'crucible-tongs': '',
+      'separating-funnel': '',
+      'buchner-funnel': '',
+      'round-bottom-flask': '',
+      condenser: '',
+      'distillation-apparatus': '',
+      crucible: '',
+      'clay-triangle': '',
+      'water-bath': '',
+      'magnetic-stirrer': '',
+      desiccator: '',
+      'safety-goggles': '',
+      'laboratory-coat': '',
+      'chemical-resistant-gloves': '',
+      'fume-hood': '',
+      'eyewash-station': '',
+      'safety-shower': '',
+      'fire-extinguisher': '',
+      'first-aid-kit': '',
+      'chemical-waste-container': '',
+      'ph-indicator-paper': '',
+      centrifuge: '',
+      'ph-indicator-solution': '',
+      'conductivity-meter': '',
+      colorimeter: '',
+      spectrophotometer: '',
+      hydrometer: '',
+      refractometer: '',
+      forceps: '',
+      'test-tube-brush': '',
+      'rubber-stopper': '',
+      'laboratory-ph-meter': '',
+      'digital-portable-ph-meter': '',
+      microscope: '',
     };
-    return iconMap[id] || (category === 'glassware' ? '🧪' : category === 'heating' ? '🔥' : '⚗️');
+    return iconMap[id] || (category === 'glassware' ? '' : category === 'heating' ? '' : '');
   }
 
   render() {
@@ -100,7 +100,7 @@ export class EquipmentInstructionsView {
     if (!eq) {
       this.container.innerHTML = `
         <div class="card error-card animate-fade-in" style="max-width: 600px; margin: 40px auto; text-align: center;">
-          <div style="font-size: 3rem; margin-bottom: 12px;">⚠️</div>
+          <div style="font-size: 3rem; margin-bottom: 12px;"></div>
           <h2>Equipment Not Found</h2>
           <p style="color: var(--color-text-muted); margin-bottom: 24px;">
             The requested equipment ID "<strong>${this.equipmentId}</strong>" was not found in the laboratory database.
@@ -157,14 +157,14 @@ export class EquipmentInstructionsView {
         <!-- Prominent Attempt Quiz Callout Banner -->
         <div class="card quiz-cta-card">
           <div class="cta-content">
-            <div class="cta-icon">🎯</div>
+            <div class="cta-icon"></div>
             <div class="cta-text">
               <h3>Ready to Test Your Knowledge on ${eq.name}?</h3>
               <p>5 interactive questions designed specifically for this equipment covering identification, usage, handling, and safety.</p>
             </div>
           </div>
           <button class="btn btn-primary btn-attempt-quiz" id="btn-attempt-quiz">
-            <span>📝</span> Attempt Quiz Now
+            <span></span> Attempt Quiz Now
           </button>
         </div>
 
@@ -173,7 +173,7 @@ export class EquipmentInstructionsView {
           <!-- Column 1: Operating Instructions -->
           <div class="card instruction-panel">
             <div class="panel-header">
-              <span class="panel-icon">📋</span>
+              <span class="panel-icon"></span>
               <h2 class="panel-title">Basic Operating Instructions</h2>
             </div>
             <ol class="steps-list">
@@ -192,7 +192,7 @@ export class EquipmentInstructionsView {
           <!-- Column 2: Handling & Care -->
           <div class="card instruction-panel">
             <div class="panel-header">
-              <span class="panel-icon">🧤</span>
+              <span class="panel-icon"></span>
               <h2 class="panel-title">Correct Handling Guidelines</h2>
             </div>
             <ul class="guidelines-list">
@@ -200,7 +200,7 @@ export class EquipmentInstructionsView {
                 .map(
                   (guide) => `
                 <li class="guide-item">
-                  <span class="guide-bullet">✔</span>
+                  <span class="guide-bullet"></span>
                   <span class="guide-text">${guide}</span>
                 </li>
               `
@@ -213,7 +213,7 @@ export class EquipmentInstructionsView {
         <!-- Full Width Safety Precautions Alert Card -->
         <div class="card safety-precautions-card">
           <div class="safety-header">
-            <span class="safety-icon">⚠️</span>
+            <span class="safety-icon"></span>
             <h2 class="safety-title">Critical Laboratory Safety Precautions</h2>
           </div>
           <div class="safety-list">
@@ -221,7 +221,7 @@ export class EquipmentInstructionsView {
               .map(
                 (precaution) => `
               <div class="safety-item">
-                <span class="safety-item-icon">🛡️</span>
+                <span class="safety-item-icon"></span>
                 <span class="safety-item-text">${precaution}</span>
               </div>
             `
@@ -236,7 +236,7 @@ export class EquipmentInstructionsView {
             ← Scan Another Equipment
           </button>
           <button class="btn btn-primary btn-attempt-quiz" id="btn-bottom-attempt-quiz">
-            <span>📝</span> Attempt ${eq.name} Quiz →
+            <span></span> Attempt ${eq.name} Quiz →
           </button>
         </div>
       </div>

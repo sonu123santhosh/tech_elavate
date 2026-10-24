@@ -10,7 +10,7 @@ export class ChatAssistantView {
       {
         id: 'msg-welcome',
         role: 'assistant',
-        text: '👋 Hello! I am your **AI Lab Assistant**.\n\nI can explain acid-base principles, guide your pH-metric and conductometric titrations, assist with stoichiometry and derivative calculations, review instrumentation, or provide conservative safety guidance.\n\nYou can type your questions or use the 🎙️ **Microphone** and **Voice Mode** to speak with me directly!\n\nHow can I help you in the laboratory today?',
+        text: ' Hello! I am your **AI Lab Assistant**.\n\nI can explain acid-base principles, guide your pH-metric and conductometric titrations, assist with stoichiometry and derivative calculations, review instrumentation, or provide conservative safety guidance.\n\nYou can type your questions or use the  **Microphone** and **Voice Mode** to speak with me directly!\n\nHow can I help you in the laboratory today?',
         timestamp: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }),
       },
     ];
@@ -64,12 +64,12 @@ export class ChatAssistantView {
         <!-- Chat Header -->
         <div class="chat-header">
           <div class="chat-header-info">
-            <div class="chat-avatar-ai">🤖</div>
+            <div class="chat-avatar-ai"></div>
             <div>
               <div class="chat-title-group">
                 <h1 class="chat-title">AI Lab Assistant</h1>
                 <span class="badge-status" id="backend-status-badge">Checking connection...</span>
-                ${this.isVoiceMode ? '<span class="badge-voice-mode">🎙️ Voice Mode Active</span>' : ''}
+                ${this.isVoiceMode ? '<span class="badge-voice-mode"> Voice Mode Active</span>' : ''}
               </div>
               <p class="chat-desc">Conversational chemistry mentor & lab safety advisor</p>
             </div>
@@ -82,7 +82,7 @@ export class ChatAssistantView {
               title="Toggle interactive Voice Conversation Mode"
               aria-pressed="${this.isVoiceMode}"
             >
-              🎙️ Voice Mode: ${this.isVoiceMode ? 'ON' : 'OFF'}
+               Voice Mode: ${this.isVoiceMode ? 'ON' : 'OFF'}
             </button>
 
             <!-- Global Stop Speech (visible while audio is playing) -->
@@ -92,12 +92,12 @@ export class ChatAssistantView {
               title="Stop audio narration"
               aria-label="Stop audio playback"
             >
-              ⏹️ Stop Audio
+               Stop Audio
             </button>
 
             <!-- Clear Chat -->
             <button class="btn btn-ghost btn-sm" id="chat-clear-btn" title="Clear conversation">
-              🗑️ Clear
+               Clear
             </button>
           </div>
         </div>
@@ -109,7 +109,7 @@ export class ChatAssistantView {
           <div class="voice-mode-banner animate-fade-in" id="voice-mode-banner">
             <div class="voice-banner-left">
               <div class="voice-pulse-ring ${this.speechState === SPEECH_STATES.LISTENING ? 'pulse-listening' : ''}">
-                ${this.speechState === SPEECH_STATES.LISTENING ? '🎙️' : '🔊'}
+                ${this.speechState === SPEECH_STATES.LISTENING ? '' : ''}
               </div>
               <div class="voice-banner-info">
                 <div class="voice-banner-title">
@@ -127,10 +127,10 @@ export class ChatAssistantView {
                 id="btn-voice-banner-action"
                 ${!isSttSupported ? 'disabled' : ''}
               >
-                ${this.speechState === SPEECH_STATES.LISTENING ? '⏹️ Finish Speaking' : '🎤 Speak Lab Question'}
+                ${this.speechState === SPEECH_STATES.LISTENING ? ' Finish Speaking' : ' Speak Lab Question'}
               </button>
               <button class="btn btn-ghost btn-sm" id="btn-exit-voice-mode" title="Return to standard text chat">
-                Exit Voice Mode ✕
+                Exit Voice Mode 
               </button>
             </div>
           </div>
@@ -140,16 +140,16 @@ export class ChatAssistantView {
 
         <!-- Voice Recognition Error Alert (hidden by default) -->
         <div id="voice-error-alert" class="voice-error-alert ${this.voiceError ? '' : 'hidden'}">
-          <div class="warning-icon">⚠️</div>
+          <div class="warning-icon"></div>
           <div class="warning-text" id="voice-error-text">
             ${this.voiceError || ''}
           </div>
-          <button class="btn-close-alert" id="btn-close-voice-alert" aria-label="Dismiss error">✕</button>
+          <button class="btn-close-alert" id="btn-close-voice-alert" aria-label="Dismiss error"></button>
         </div>
 
         <!-- Missing API Key Alert (hidden by default) -->
         <div id="api-key-alert" class="api-key-warning hidden">
-          <div class="warning-icon">🔑</div>
+          <div class="warning-icon"></div>
           <div class="warning-text">
             <strong>API Key Required:</strong> To enable live AI responses, add your API key to <code>backend/.env</code> (<code>GEMINI_API_KEY=your_key</code>) and start the backend (<code>npm start</code> in <code>backend/</code>).
           </div>
@@ -157,7 +157,7 @@ export class ChatAssistantView {
 
         <!-- Suggested Prompt Chips -->
         <div class="suggested-prompts-bar">
-          <span class="prompts-label">💡 Suggested Questions:</span>
+          <span class="prompts-label"> Suggested Questions:</span>
           <div class="prompts-scroll">
             ${suggestedPrompts
               .map(
@@ -187,7 +187,7 @@ export class ChatAssistantView {
             Listening... Speak clearly into your microphone
           </span>
           <button class="btn-cancel-listening" id="btn-cancel-listening" title="Cancel microphone capture">
-            ✕ Cancel
+             Cancel
           </button>
         </div>
 
@@ -281,14 +281,14 @@ export class ChatAssistantView {
 
         return `
           <div class="chat-message-row ${isUser ? 'user-row' : 'assistant-row'}" data-msg-id="${msg.id}">
-            <div class="msg-avatar">${isUser ? '👤' : '🤖'}</div>
+            <div class="msg-avatar">${isUser ? '' : ''}</div>
             <div class="msg-bubble ${isUser ? 'bubble-user' : 'bubble-assistant'} ${isSpeaking ? 'bubble-speaking' : ''}">
               
               <!-- Clean Header: Author Name, Role Badge, and Timestamp -->
               <div class="msg-header-row">
                 <div class="msg-author-info">
                   <span class="msg-author">${isUser ? 'You' : 'AI Lab Assistant'}</span>
-                  ${!isUser ? `<span class="msg-role-badge">🧪 Lab Advisor</span>` : ''}
+                  ${!isUser ? `<span class="msg-role-badge"> Lab Advisor</span>` : ''}
                 </div>
                 <div class="msg-timestamp">${msg.timestamp || ''}</div>
               </div>
@@ -303,10 +303,10 @@ export class ChatAssistantView {
                 msg.truncated
                   ? `
                 <div class="msg-truncation-bar">
-                  <span class="truncation-icon">⚠️</span>
+                  <span class="truncation-icon"></span>
                   <span class="truncation-label">Response reached max output limit.</span>
                   <button class="btn-continue-response" data-continue-msg="Please continue from where you left off.">
-                    ▶️ Continue Explanation
+                    ▶ Continue Explanation
                   </button>
                 </div>
               `
@@ -328,7 +328,7 @@ export class ChatAssistantView {
                         title="${isSpeaking ? 'Pause speech narration' : isPaused ? 'Resume speech narration' : 'Listen to this explanation aloud'}"
                         aria-label="${isSpeaking ? 'Pause' : isPaused ? 'Resume' : 'Listen'}"
                       >
-                        <span class="tts-icon">${isSpeaking ? '⏸️' : isPaused ? '▶️' : '🔊'}</span>
+                        <span class="tts-icon">${isSpeaking ? '⏸' : isPaused ? '▶' : ''}</span>
                         <span class="tts-label">${isSpeaking ? 'Pause' : isPaused ? 'Resume' : 'Listen'}</span>
                       </button>
 
@@ -341,7 +341,7 @@ export class ChatAssistantView {
                           title="Stop speech playback"
                           aria-label="Stop audio"
                         >
-                          <span class="tts-icon">⏹️</span>
+                          <span class="tts-icon"></span>
                           <span class="tts-label">Stop</span>
                         </button>
                       `
@@ -377,7 +377,7 @@ export class ChatAssistantView {
                       title="Copy explanation to clipboard"
                       aria-label="Copy text"
                     >
-                      <span class="copy-icon">📋</span> Copy
+                      <span class="copy-icon"></span> Copy
                     </button>
                   </div>
                 </div>
@@ -523,9 +523,9 @@ export class ChatAssistantView {
           const msg = this.messages.find((m) => m.id === msgId);
           if (msg && msg.text) {
             navigator.clipboard?.writeText(msg.text).then(() => {
-              copyBtn.innerHTML = '✓ Copied!';
+              copyBtn.innerHTML = ' Copied!';
               setTimeout(() => {
-                copyBtn.innerHTML = '<span class="copy-icon">📋</span> Copy';
+                copyBtn.innerHTML = '<span class="copy-icon"></span> Copy';
               }, 2000);
             }).catch(() => {});
           }
@@ -669,7 +669,7 @@ export class ChatAssistantView {
 
     if (bannerAction) {
       bannerAction.className = `btn ${isListening ? 'btn-danger' : 'btn-primary'} btn-sm`;
-      bannerAction.innerHTML = isListening ? '⏹️ Finish Speaking' : '🎤 Speak Lab Question';
+      bannerAction.innerHTML = isListening ? ' Finish Speaking' : ' Speak Lab Question';
     }
   }
 
@@ -879,7 +879,7 @@ export class ChatAssistantView {
         }
       } else {
         if (!assistantMsg) {
-          let errorMsg = `⚠️ **Error:** ${response.error}`;
+          let errorMsg = ` **Error:** ${response.error}`;
           if (response.code === 'MISSING_API_KEY') {
             errorMsg +=
               `\n\nTo configure your API Key:\n1. Obtain an API key from [Google AI Studio](https://aistudio.google.com/)\n2. Open \`backend/.env\`\n3. Add: \`GEMINI_API_KEY=your_actual_key\`\n4. Restart the server (\`npm run dev\` in \`backend/\`)`;
@@ -891,7 +891,7 @@ export class ChatAssistantView {
             timestamp: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }),
           });
         } else {
-          assistantMsg.text += `\n\n⚠️ **Connection issue:** ${response.error}`;
+          assistantMsg.text += `\n\n **Connection issue:** ${response.error}`;
           assistantMsg.isStreaming = false;
         }
         this.refreshMessages();
@@ -904,11 +904,11 @@ export class ChatAssistantView {
         this.messages.push({
           id: assistantMsgId,
           role: 'assistant',
-          text: `⚠️ **Error:** ${err.message || 'An unexpected error occurred.'}`,
+          text: ` **Error:** ${err.message || 'An unexpected error occurred.'}`,
           timestamp: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }),
         });
       } else {
-        assistantMsg.text += `\n\n⚠️ **Error:** ${err.message}`;
+        assistantMsg.text += `\n\n **Error:** ${err.message}`;
         assistantMsg.isStreaming = false;
       }
       this.refreshMessages();
@@ -923,7 +923,7 @@ export class ChatAssistantView {
     typingEl.id = 'chat-typing-indicator';
     typingEl.className = 'chat-message-row assistant-row';
     typingEl.innerHTML = `
-      <div class="msg-avatar">🤖</div>
+      <div class="msg-avatar"></div>
       <div class="msg-bubble bubble-assistant typing-bubble">
         <span class="dot"></span>
         <span class="dot"></span>

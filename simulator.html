@@ -26,7 +26,7 @@
         </div>
       </div>
       <div class="header-badges">
-        <a href="index.html" class="badge badge-teal" title="View Equipment Reference Catalog">📦 Equipment Catalog</a>
+        <a href="index.html" class="badge badge-teal" title="View Equipment Reference Catalog"> Equipment Catalog</a>
         <span class="badge badge-cyan">2D Simulator Active</span>
         <span class="badge badge-amber">3 Core Experiments</span>
       </div>
@@ -61,13 +61,13 @@
       <!-- Navigation Tabs -->
       <nav class="sim-tabs" role="tablist" aria-label="Simulator sections">
         <button class="tab-btn active" data-tab="tab-workbench" role="tab" aria-selected="true">
-          🔬 Workbench
+           Workbench
         </button>
         <button class="tab-btn" data-tab="tab-procedure" role="tab" aria-selected="false">
-          📋 Procedure & Safety
+           Procedure & Safety
         </button>
         <button class="tab-btn" data-tab="tab-quiz" role="tab" aria-selected="false">
-          ❓ Quiz
+           Quiz
         </button>
       </nav>
     </section>
@@ -80,7 +80,7 @@
           <div class="workbench-card-header">
             <div class="workbench-title-box">
               <span class="workbench-title" id="current-exp-title">Acid–Base Titration</span>
-              <span class="stars-display" id="stars-indicator" title="Performance Stars">⭐⭐⭐</span>
+              <span class="stars-display" id="stars-indicator" title="Performance Stars"></span>
             </div>
             <span class="step-status-pill" id="action-prompt-pill">Follow step prompt to interact</span>
           </div>
@@ -100,17 +100,17 @@
 
           <!-- Interactive Guidance & Mistake Alert Banners -->
           <div id="mistake-feedback-banner" class="mistake-banner" role="alert">
-            <span style="font-size: 1.1rem;">⚠️</span>
+            <span style="font-size: 1.1rem;"></span>
             <span id="mistake-feedback-text">Mistake message</span>
           </div>
           <div id="hint-banner" class="hint-banner" role="status">
-            <span style="font-size: 1.1rem;">💡</span>
+            <span style="font-size: 1.1rem;"></span>
             <span id="hint-text">Hint message</span>
           </div>
 
           <!-- Apparatus Quick-Select Chips (Touch & Desktop friendly) -->
           <div class="apparatus-chips-bar" id="apparatus-chips-container" aria-label="Quick select apparatus">
-            <span class="chips-label">🔍 Click Apparatus:</span>
+            <span class="chips-label"> Click Apparatus:</span>
             <div id="chips-list" style="display: inline-flex; gap: 0.4rem; flex-wrap: wrap;"></div>
           </div>
 
@@ -118,8 +118,8 @@
           <div class="stage-container" id="workbench-stage" aria-label="2D apparatus workbench stage">
             <!-- Educational Disclaimer & Status Callout -->
             <div class="stage-notice-banner" aria-live="polite">
-              <span class="sim-notice-pill" id="sim-notice-pill">🧪 Simulation: illustrative, not real experimental data.</span>
-              <span class="sim-endpoint-pill" id="sim-endpoint-pill">★ Simulated Endpoint Reached!</span>
+              <span class="sim-notice-pill" id="sim-notice-pill"> Simulation: illustrative, not real experimental data.</span>
+              <span class="sim-endpoint-pill" id="sim-endpoint-pill"> Simulated Endpoint Reached!</span>
             </div>
             <div id="apparatus-stage" class="apparatus-svg-stage"></div>
             <div class="lab-table-surface" aria-hidden="true"></div>
@@ -129,8 +129,8 @@
           <div class="scene-action-bar" id="scene-action-bar">
             <div id="scene-custom-controls" style="display: inline-flex; align-items: center; gap: 0.6rem; flex-wrap: wrap;"></div>
             <div style="display: inline-flex; align-items: center; gap: 0.5rem;">
-              <button id="btn-hint" class="btn-scene-action-sm" title="Show hint for current step">💡 Hint</button>
-              <button id="btn-skip-step" class="btn-scene-action-sm" title="Skip current step if needed">⏭ Skip Step</button>
+              <button id="btn-hint" class="btn-scene-action-sm" title="Show hint for current step"> Hint</button>
+              <button id="btn-skip-step" class="btn-scene-action-sm" title="Skip current step if needed">Skip Skip Step</button>
             </div>
           </div>
 
@@ -149,10 +149,10 @@
             </div>
             <div class="playback-btn-group">
               <button class="btn-ctrl" data-action="prev" title="Step backward">
-                ⏮ Previous Step
+                Prev Previous Step
               </button>
               <button class="btn-ctrl" data-action="next" title="Step forward">
-                Next Step ⏭
+                Next Step Skip
               </button>
             </div>
           </div>
@@ -164,7 +164,7 @@
           <div class="inspector-card" id="apparatus-inspector-card">
             <div class="inspector-header">
               <div class="inspector-title-group">
-                <h3 id="inspector-name">🔍 Equipment Inspector</h3>
+                <h3 id="inspector-name"> Equipment Inspector</h3>
                 <div class="inspector-badges" id="inspector-badges">
                   <span class="badge badge-cyan">Click Apparatus to Inspect</span>
                 </div>
@@ -173,24 +173,24 @@
             </div>
             <div class="inspector-body" id="inspector-body">
               <div class="inspector-placeholder">
-                <span>👈</span>
+                <span></span>
                 <span>Click or tap any laboratory apparatus illustration on the workbench to inspect its purpose, experiment role, and safety rules.</span>
               </div>
             </div>
           </div>
 
           <div class="info-card">
-            <h3>🎯 Objective</h3>
+            <h3> Objective</h3>
             <p id="info-objective">Loading experiment objective...</p>
           </div>
 
           <div class="info-card">
-            <h3>🔬 Chemical Principle</h3>
+            <h3> Chemical Principle</h3>
             <p id="info-principle">Loading chemical principle...</p>
           </div>
 
           <div class="info-card">
-            <h3>🧰 Required Equipment</h3>
+            <h3> Required Equipment</h3>
             <div class="equipment-tags" id="info-equipment-tags"></div>
           </div>
         </aside>
@@ -201,7 +201,7 @@
     <section id="tab-procedure" class="tab-pane" role="tabpanel">
       <!-- Safety & Educational Supervision Disclaimer Banner -->
       <div class="safety-disclaimer-alert">
-        <span class="safety-disclaimer-icon">⚠️</span>
+        <span class="safety-disclaimer-icon"></span>
         <div>
           <strong>Educational Supervision Notice:</strong> This 2D interactive simulator is designed strictly for classroom demonstrations and conceptual review. It does <em>not</em> replace supervised laboratory training, instructor oversight, or formal safety compliance. Never perform real chemical experiments without approved personal protective equipment (PPE), institutional safety protocols, and direct qualified supervision.
         </div>
@@ -209,15 +209,15 @@
 
       <div class="doc-grid">
         <div class="doc-card">
-          <h2>📝 Step-by-Step Laboratory Procedure</h2>
+          <h2> Step-by-Step Laboratory Procedure</h2>
 
           <!-- Interactive Step Focus Viewer (Synchronized with Part 4 Step Controls) -->
           <div class="step-focus-viewer" aria-label="Current procedure step">
             <div class="step-focus-header">
               <span id="doc-step-badge" class="badge badge-cyan">Step 1 of 10</span>
               <div class="step-focus-nav">
-                <button class="btn-ctrl" onclick="stepPrev()" title="Previous step">⏮ Previous</button>
-                <button class="btn-ctrl" onclick="stepNext()" title="Next step">Next ⏭</button>
+                <button class="btn-ctrl" onclick="stepPrev()" title="Previous step">Prev Previous</button>
+                <button class="btn-ctrl" onclick="stepNext()" title="Next step">Next Skip</button>
               </div>
             </div>
             <div class="step-focus-instruction" id="doc-step-instruction">
@@ -231,10 +231,10 @@
         </div>
 
         <div class="doc-card">
-          <h2>🛡️ Safety Precautions & Handling</h2>
+          <h2> Safety Precautions & Handling</h2>
           <ul class="safety-list" id="safety-list-container"></ul>
 
-          <h3 style="font-size: 0.95rem; font-weight: 700; color: var(--text-muted); margin-top: 1.5rem; margin-bottom: 0.75rem;">🧰 Required Equipment (Linked to Catalog)</h3>
+          <h3 style="font-size: 0.95rem; font-weight: 700; color: var(--text-muted); margin-top: 1.5rem; margin-bottom: 0.75rem;"> Required Equipment (Linked to Catalog)</h3>
           <div class="equipment-tags" id="procedure-equipment-links"></div>
         </div>
       </div>
@@ -246,7 +246,7 @@
         <!-- Quiz Header Banner -->
         <div class="quiz-header-banner">
           <div>
-            <h2>❓ Concept Review Quiz</h2>
+            <h2> Concept Review Quiz</h2>
             <p>Answer exactly 3 conceptual questions for this experiment. Select an answer to see instant feedback and explanations.</p>
           </div>
           <span id="quiz-progress-badge" class="badge badge-cyan">0 of 3 Answered</span>

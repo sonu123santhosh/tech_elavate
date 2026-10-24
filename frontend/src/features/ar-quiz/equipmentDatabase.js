@@ -109,15 +109,15 @@ export function evaluateQuiz(equipmentId, submittedAnswers) {
 
   let message = '';
   if (correctCount === 5) {
-    message = '🌟 Perfect Score! You have mastered the purpose, operation, and safety of this equipment.';
+    message = ' Perfect Score! You have mastered the purpose, operation, and safety of this equipment.';
   } else if (correctCount >= 4) {
-    message = '🎉 Excellent work! You demonstrated strong knowledge of this laboratory instrument.';
+    message = ' Excellent work! You demonstrated strong knowledge of this laboratory instrument.';
   } else if (correctCount >= 3) {
-    message = '👍 Good job! You passed the quiz. Review the explanations below to cement your understanding.';
+    message = ' Good job! You passed the quiz. Review the explanations below to cement your understanding.';
   } else if (correctCount >= 2) {
-    message = '📚 Keep practicing! Re-read the equipment instructions and retry the quiz to improve your score.';
+    message = ' Keep practicing! Re-read the equipment instructions and retry the quiz to improve your score.';
   } else {
-    message = '⚠️ Needs review. Carefully study the operating guidelines and safety precautions before retrying.';
+    message = '️ Needs review. Carefully study the operating guidelines and safety precautions before retrying.';
   }
 
   return {

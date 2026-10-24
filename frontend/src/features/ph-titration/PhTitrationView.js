@@ -57,7 +57,7 @@ export class PhTitrationView {
             <span class="vlab-category-badge cat-instrumental">Interactive Titration Simulator</span>
           </div>
           <button class="btn btn-secondary btn-sm" id="btn-view-manual">
-            📖 View Lab Manual & Quiz →
+             View Lab Manual & Quiz →
           </button>
         </div>
 
@@ -70,7 +70,7 @@ export class PhTitrationView {
 
         <!-- Supervisor Warning Banner -->
         <div class="supervisor-banner">
-          <div class="banner-icon">⚠️</div>
+          <div class="banner-icon"></div>
           <div class="banner-content">
             <strong>LABORATORY SUPERVISOR CHECKPOINT</strong>
             <p>${meta.supervisorReminder}</p>
@@ -81,7 +81,7 @@ export class PhTitrationView {
         <div class="card card-accordion">
           <div class="card-header" id="ph-theory-toggle">
             <div class="card-title-group">
-              <span class="card-icon">📖</span>
+              <span class="card-icon"></span>
               <h2 class="card-title">Scientific Theory, Reagents & Instrumentation</h2>
             </div>
             <button class="btn-icon" id="ph-toggle-theory-btn" aria-label="Toggle Theory Details">▼</button>
@@ -93,7 +93,7 @@ export class PhTitrationView {
 
             <div class="instruments-grid">
               <div class="equipment-col">
-                <h3 class="col-title">🧪 Chemicals & Solutions</h3>
+                <h3 class="col-title"> Chemicals & Solutions</h3>
                 <ul class="item-list">
                   ${meta.chemicals
                     .map(
@@ -110,7 +110,7 @@ export class PhTitrationView {
               </div>
 
               <div class="equipment-col">
-                <h3 class="col-title">🔬 Apparatus & Instruments</h3>
+                <h3 class="col-title"> Apparatus & Instruments</h3>
                 <ul class="item-list">
                   ${meta.instruments
                     .map(
@@ -128,7 +128,7 @@ export class PhTitrationView {
 
             <!-- Safety Precautions List -->
             <div class="safety-box">
-              <h3 class="safety-title">🛡️ Safety Precautions</h3>
+              <h3 class="safety-title"> Safety Precautions</h3>
               <ul class="safety-list">
                 ${meta.safetyPrecautions.map((p) => `<li>${p}</li>`).join('')}
               </ul>
@@ -174,7 +174,7 @@ export class PhTitrationView {
               </div>
 
               <div id="ph-demo-notice" class="demo-badge hidden">
-                🧪 <strong>DEMONSTRATION SAMPLE DATA ACTIVE</strong>: These readings are for illustrative educational purposes only and are NOT real laboratory measurements.
+                 <strong>DEMONSTRATION SAMPLE DATA ACTIVE</strong>: These readings are for illustrative educational purposes only and are NOT real laboratory measurements.
               </div>
 
               <div class="table-responsive">
@@ -426,7 +426,7 @@ export class PhTitrationView {
             />
           </td>
           <td class="text-center">
-            <button class="btn-del-row" data-index="${idx}" title="Delete row">✕</button>
+            <button class="btn-del-row" data-index="${idx}" title="Delete row"></button>
           </td>
         </tr>
       `
@@ -468,7 +468,7 @@ export class PhTitrationView {
     if (!result.isValid) {
       resultsContainer.innerHTML = `
         <div class="result-alert alert-warning">
-          <div class="alert-icon">ℹ️</div>
+          <div class="alert-icon">ℹ</div>
           <div class="alert-text">
             <strong>Calculation Notice</strong>: ${result.error}
           </div>
@@ -503,7 +503,7 @@ export class PhTitrationView {
         </div>
 
         <div class="explanation-box">
-          <div class="exp-title">🔬 Scientific Explanation</div>
+          <div class="exp-title"> Scientific Explanation</div>
           <p>${result.explanation}</p>
         </div>
       </div>

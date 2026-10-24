@@ -31,71 +31,71 @@ export class QuizView {
 
   getEquipmentIcon(id, category) {
     const iconMap = {
-      beaker: '🧪',
-      'test-tube': '🧪',
-      'measuring-cylinder': '📏',
-      'conical-flask': '⚗️',
-      'volumetric-flask': '🍶',
-      pipette: '💧',
-      burette: '📐',
-      'glass-funnel': '🔻',
-      'glass-stirring-rod': '🥢',
-      'watch-glass': '🔍',
-      'reagent-bottle': '🧴',
-      dropper: '💧',
-      'wash-bottle': '🚿',
-      'test-tube-rack': '🪜',
-      'test-tube-holder': '🗜️',
-      spatula: '🥄',
-      'mortar-and-pestle': '🥣',
-      'weighing-boat': '🚤',
-      'filter-paper': '📄',
-      'evaporating-dish': '🍲',
-      'bunsen-burner': '🔥',
-      'hot-plate': '♨️',
-      thermometer: '🌡️',
-      'analytical-balance': '⚖️',
-      'top-pan-balance': '⚖️',
-      'retort-stand': '🏗️',
-      'clamp-and-boss-head': '🗜️',
-      'tripod-stand': '📐',
-      'wire-gauze': '🕸️',
-      'crucible-tongs': '🥢',
-      'separating-funnel': '⏳',
-      'buchner-funnel': '🌪️',
-      'round-bottom-flask': '🔮',
-      condenser: '🧊',
-      'distillation-apparatus': '⚗️',
-      crucible: '🏺',
-      'clay-triangle': '🔺',
-      'water-bath': '🛁',
-      'magnetic-stirrer': '🌀',
-      desiccator: '📦',
-      'safety-goggles': '🥽',
-      'laboratory-coat': '🥼',
-      'chemical-resistant-gloves': '🧤',
-      'fume-hood': '💨',
-      'eyewash-station': '👁️',
-      'safety-shower': '🚿',
-      'fire-extinguisher': '🧯',
-      'first-aid-kit': '🩹',
-      'chemical-waste-container': '☣️',
-      'ph-indicator-paper': '🏷️',
-      centrifuge: '🔄',
-      'ph-indicator-solution': '🧪',
-      'conductivity-meter': '⚡',
-      colorimeter: '🌈',
-      spectrophotometer: '📊',
-      hydrometer: '🌊',
-      refractometer: '💎',
-      forceps: '🤏',
-      'test-tube-brush': '🪥',
-      'rubber-stopper': '🛑',
-      'laboratory-ph-meter': '🔬',
-      'digital-portable-ph-meter': '📱',
-      microscope: '🔬',
+      beaker: '',
+      'test-tube': '',
+      'measuring-cylinder': '',
+      'conical-flask': '',
+      'volumetric-flask': '',
+      pipette: '',
+      burette: '',
+      'glass-funnel': '',
+      'glass-stirring-rod': '',
+      'watch-glass': '',
+      'reagent-bottle': '',
+      dropper: '',
+      'wash-bottle': '',
+      'test-tube-rack': '',
+      'test-tube-holder': '',
+      spatula: '',
+      'mortar-and-pestle': '',
+      'weighing-boat': '',
+      'filter-paper': '',
+      'evaporating-dish': '',
+      'bunsen-burner': '',
+      'hot-plate': '',
+      thermometer: '',
+      'analytical-balance': '',
+      'top-pan-balance': '',
+      'retort-stand': '',
+      'clamp-and-boss-head': '',
+      'tripod-stand': '',
+      'wire-gauze': '',
+      'crucible-tongs': '',
+      'separating-funnel': '',
+      'buchner-funnel': '',
+      'round-bottom-flask': '',
+      condenser: '',
+      'distillation-apparatus': '',
+      crucible: '',
+      'clay-triangle': '',
+      'water-bath': '',
+      'magnetic-stirrer': '',
+      desiccator: '',
+      'safety-goggles': '',
+      'laboratory-coat': '',
+      'chemical-resistant-gloves': '',
+      'fume-hood': '',
+      'eyewash-station': '',
+      'safety-shower': '',
+      'fire-extinguisher': '',
+      'first-aid-kit': '',
+      'chemical-waste-container': '',
+      'ph-indicator-paper': '',
+      centrifuge: '',
+      'ph-indicator-solution': '',
+      'conductivity-meter': '',
+      colorimeter: '',
+      spectrophotometer: '',
+      hydrometer: '',
+      refractometer: '',
+      forceps: '',
+      'test-tube-brush': '',
+      'rubber-stopper': '',
+      'laboratory-ph-meter': '',
+      'digital-portable-ph-meter': '',
+      microscope: '',
     };
-    return iconMap[id] || (category === 'glassware' ? '🧪' : category === 'heating-handling' ? '🔥' : '⚗️');
+    return iconMap[id] || (category === 'glassware' ? '' : category === 'heating-handling' ? '' : '');
   }
 
   formatCategory(category) {
@@ -137,7 +137,7 @@ export class QuizView {
           <div class="quiz-meta-row">
             <div class="quiz-category-badge-group">
               <span class="badge-quiz-target">
-                <span class="badge-icon">🔬</span>
+                <span class="badge-icon"></span>
                 Laboratory Equipment • ${this.formatCategory(eq.category)}
               </span>
               <span class="badge-equipment-title">${eq.name}</span>
@@ -187,7 +187,7 @@ export class QuizView {
 
           <!-- Validation Error Alert -->
           <div id="quiz-error-banner" class="alert-inline alert-danger hidden animate-shake">
-            ⚠️ Please select an answer option (A, B, C, or D) before checking.
+             Please select an answer option (A, B, C, or D) before checking.
           </div>
 
           <!-- Redesigned Clickable Answer Option Cards -->
@@ -203,13 +203,13 @@ export class QuizView {
                 } else {
                   if (isSelected && isCorrect) {
                     cardClass = 'is-checked-correct';
-                    statusBadge = `<span class="opt-status-pill pill-correct">✓ Correct Choice</span>`;
+                    statusBadge = `<span class="opt-status-pill pill-correct"> Correct Choice</span>`;
                   } else if (isSelected && !isCorrect) {
                     cardClass = 'is-checked-incorrect';
-                    statusBadge = `<span class="opt-status-pill pill-incorrect">✗ Your Selection</span>`;
+                    statusBadge = `<span class="opt-status-pill pill-incorrect"> Your Selection</span>`;
                   } else if (!isSelected && idx === q.correctAnswer) {
                     cardClass = 'is-actual-correct';
-                    statusBadge = `<span class="opt-status-pill pill-actual">✓ Correct Solution</span>`;
+                    statusBadge = `<span class="opt-status-pill pill-actual"> Correct Solution</span>`;
                   } else {
                     cardClass = 'is-dimmed';
                   }
@@ -242,14 +242,14 @@ export class QuizView {
             <div class="quiz-feedback-banner ${isCorrect ? 'feedback-correct' : 'feedback-incorrect'} animate-pop-in">
               <div class="feedback-status-row">
                 <span class="feedback-badge">
-                  ${isCorrect ? '🎉 Correct Answer!' : '❌ Not Quite Right'}
+                  ${isCorrect ? ' Correct Answer!' : ' Not Quite Right'}
                 </span>
                 <span class="feedback-tagline">
                   ${isCorrect ? 'Outstanding laboratory knowledge.' : 'Review the verified scientific principle below:'}
                 </span>
               </div>
               <div class="feedback-explanation-body">
-                <span class="feedback-icon">💡</span>
+                <span class="feedback-icon"></span>
                 <div class="feedback-text">
                   <strong>Scientific Explanation:</strong> ${q.explanation}
                 </div>
@@ -275,7 +275,7 @@ export class QuizView {
               class="btn btn-outline btn-sm btn-nav-instructions" 
               id="quiz-back-instructions-btn"
             >
-              📖 View Equipment Guide
+               View Equipment Guide
             </button>
 
             ${
@@ -286,7 +286,7 @@ export class QuizView {
                 class="btn btn-primary btn-check-action" 
                 id="quiz-check-btn"
               >
-                <span class="btn-icon">🔍</span> Check Answer
+                <span class="btn-icon"></span> Check Answer
               </button>
             `
                 : `
@@ -295,7 +295,7 @@ export class QuizView {
                 class="btn btn-primary btn-next-action ${isLast ? 'btn-celebrate' : ''}" 
                 id="quiz-next-btn"
               >
-                ${isLast ? 'See Final Results 🏆' : 'Next Question →'}
+                ${isLast ? 'See Final Results ' : 'Next Question →'}
               </button>
             `
             }
@@ -337,7 +337,7 @@ export class QuizView {
       checkBtn.addEventListener('click', () => {
         if (this.engine.getSelectedAnswer() === null) {
           if (errorBanner) {
-            errorBanner.textContent = '⚠️ Please select an answer option (A, B, C, or D) before checking.';
+            errorBanner.textContent = ' Please select an answer option (A, B, C, or D) before checking.';
             errorBanner.classList.remove('hidden');
           }
           return;
@@ -347,7 +347,7 @@ export class QuizView {
         if (checkRes.success) {
           this.render();
         } else if (errorBanner) {
-          errorBanner.textContent = `⚠️ ${checkRes.error}`;
+          errorBanner.textContent = ` ${checkRes.error}`;
           errorBanner.classList.remove('hidden');
         }
       });
@@ -362,7 +362,7 @@ export class QuizView {
           if (subRes.success) {
             this.render();
           } else if (errorBanner) {
-            errorBanner.textContent = `⚠️ ${subRes.error}`;
+            errorBanner.textContent = ` ${subRes.error}`;
             errorBanner.classList.remove('hidden');
           }
         } else {
@@ -400,24 +400,24 @@ export class QuizView {
 
     let scoreClass = 'score-mid';
     let tierTitle = 'Proficient • Senior Lab Analyst';
-    let tierBadge = '🌟 PROFICIENT';
+    let tierBadge = ' PROFICIENT';
 
     if (res.score >= 5) {
       scoreClass = 'score-high';
       tierTitle = 'Distinction • Master Laboratory Chemist';
-      tierBadge = '🏆 DISTINCTION';
+      tierBadge = ' DISTINCTION';
     } else if (res.score === 4) {
       scoreClass = 'score-high';
       tierTitle = 'Proficient • Senior Lab Analyst';
-      tierBadge = '🌟 PROFICIENT';
+      tierBadge = ' PROFICIENT';
     } else if (res.score >= 3) {
       scoreClass = 'score-mid';
       tierTitle = 'Competent • Developing Chemist';
-      tierBadge = '📘 COMPETENT';
+      tierBadge = ' COMPETENT';
     } else {
       scoreClass = 'score-low';
       tierTitle = 'Needs Practice • Apprentice';
-      tierBadge = '🧪 NEEDS PRACTICE';
+      tierBadge = ' NEEDS PRACTICE';
     }
 
     this.container.innerHTML = `
@@ -463,13 +463,13 @@ export class QuizView {
           <!-- Action Buttons -->
           <div class="results-action-buttons">
             <button class="btn btn-primary" id="btn-retry-quiz">
-              🔄 Re-attempt Quiz
+               Re-attempt Quiz
             </button>
             <button class="btn btn-secondary" id="btn-back-instructions">
-              📖 View Equipment Guide
+               View Equipment Guide
             </button>
             <button class="btn btn-outline" id="btn-scan-another">
-              📷 Scan Another Equipment
+               Scan Another Equipment
             </button>
           </div>
         </div>
@@ -490,7 +490,7 @@ export class QuizView {
                 (item, idx) => `
               <div class="review-item ${item.isCorrect ? 'review-correct' : 'review-incorrect'}">
                 <div class="review-item-header">
-                  <span class="review-status-icon">${item.isCorrect ? '✅ Correct (+1 pt)' : '❌ Incorrect (0 pts)'}</span>
+                  <span class="review-status-icon">${item.isCorrect ? ' Correct (+1 pt)' : ' Incorrect (0 pts)'}</span>
                   <span class="review-q-num">Question ${idx + 1} of ${res.totalQuestions}</span>
                 </div>
                 <h3 class="review-question-text">${item.questionText}</h3>
@@ -514,7 +514,7 @@ export class QuizView {
                 </div>
 
                 <div class="review-explanation-box">
-                  <span class="exp-icon">💡</span>
+                  <span class="exp-icon"></span>
                   <div class="exp-text">
                     <strong>Scientific Explanation:</strong> ${item.explanation}
                   </div>
